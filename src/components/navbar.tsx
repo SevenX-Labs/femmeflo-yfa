@@ -19,16 +19,17 @@ export function Navbar() {
 
   return (
     <header className="w-full max-w-7xl mx-auto px-6 py-6 flex items-center justify-between relative z-50 font-[family-name:var(--font-jakarta)]">
-      {/* 1. Left: Brand Logo */}
-      <Link href="/" className="flex items-center gap-3 group shrink-0">
-        <div className="relative h-10 w-auto flex items-center">
+      {/* 1. Left: Brand Logo without black background */}
+      <Link href="/" className="flex items-center gap-3 group shrink-0 py-1">
+        <div className="relative h-14 sm:h-16 w-auto flex items-center">
           <Image
             src="/logo.png"
             alt="Femmeflo Logo"
-            width={180}
-            height={48}
-            className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            width={260}
+            height={80}
+            className="h-14 sm:h-16 w-auto object-contain transition-all duration-300 group-hover:scale-105 mix-blend-screen"
             priority
+            unoptimized
           />
         </div>
       </Link>
