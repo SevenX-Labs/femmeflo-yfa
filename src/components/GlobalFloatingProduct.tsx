@@ -81,90 +81,96 @@ export function GlobalFloatingProduct() {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [rawMouseX, rawMouseY]);
 
-  // GSAP ScrollTrigger to translate fixed element flawlessly from Hero right column to About left card
   useEffect(() => {
     const target = fixedContainerRef.current;
     if (!target) return;
 
     const ctx = gsap.context(() => {
-      // Helper to calculate document-level coordinates
-      const getDocCoords = () => {
+      // Timeline 1: Hero -> About
+      const updateHeroToAbout = (progress: number) => {
         const heroAnchor = document.getElementById("hero-product-anchor");
         const aboutAnchor = document.getElementById("about-product-anchor");
 
-        if (!heroAnchor || !aboutAnchor) return null;
+        if (!heroAnchor || !aboutAnchor) return;
 
         const hRect = heroAnchor.getBoundingClientRect();
         const aRect = aboutAnchor.getBoundingClientRect();
 
-        const scrollY = window.scrollY;
-        const scrollX = window.scrollX;
-
-        const heroDocX = hRect.left + scrollX + hRect.width / 2;
-        const heroDocY = hRect.top + scrollY + hRect.height / 2;
-
-        const aboutDocX = aRect.left + scrollX + aRect.width / 2;
-        const aboutDocY = aRect.top + scrollY + aRect.height / 2;
-
-        return {
-          heroDocX,
-          heroDocY,
-          deltaX: aboutDocX - heroDocX,
-          deltaY: aboutDocY - heroDocY,
-        };
-      };
-
-      const updateFixedPosition = (progress: number) => {
-        const coords = getDocCoords();
-        if (!coords) return;
-
-        // Clamp progress between 0 and 1 for section transition
+        // Clamp progress between 0 and 1 for Timeline 1
         const p = Math.max(0, Math.min(1, progress));
 
-        // Target document coordinates
-        const curDocX = coords.heroDocX + coords.deltaX * p;
-        const curDocY = coords.heroDocY + coords.deltaY * p;
-
-        // Convert current document position to fixed viewport coordinates
-        const fixedX = curDocX - window.scrollX;
-        const fixedY = curDocY - window.scrollY;
+        // Position moves from Hero anchor center to About anchor center
+        const curX = hRect.left + hRect.width / 2 + (aRect.left + aRect.width / 2 - (hRect.left + hRect.width / 2)) * p;
+        const curY = hRect.top + hRect.height / 2 + (aRect.top + aRect.height / 2 - (hRect.top + hRect.height / 2)) * p;
 
         gsap.set(target, {
-          x: fixedX,
-          y: fixedY,
+          x: curX,
+          y: curY,
           xPercent: -50,
           yPercent: -50,
         });
       };
 
-      // Set initial position at Hero
-      updateFixedPosition(0);
+      // Set initial position aligned to Hero
+      updateHeroToAbout(0);
 
-      // GSAP ScrollTrigger timeline
-      gsap.to(target, {
+      // TIMELINE 1: Hero -> About (Moves product smoothly to About card & pins it inside)
+      const tl1 = gsap.timeline({
         scrollTrigger: {
           trigger: "#hero",
           endTrigger: "#about",
           start: "top top",
-          end: "center center",
-          scrub: 0.8,
+          end: "top 15%", // Completes transition as About reaches upper center view
+          scrub: 0.6,
           invalidateOnRefresh: true,
           onUpdate: (self) => {
-            updateFixedPosition(self.progress);
+            updateHeroToAbout(self.progress);
           },
         },
+      });
+
+      tl1.to(target, {
         scale: 0.88,
         rotationZ: -8,
         rotationY: 15,
         ease: "power1.inOut",
       });
+
+      // Lock final transform state at the end of Timeline 1
+      tl1.set(target, {
+        scale: 0.88,
+        rotationZ: -8,
+        rotationY: 15,
+      });
+
+      // TIMELINE 2: About -> Next Section (Prepped for future sections when About finishes)
+      const featuresAnchor = document.getElementById("features-product-anchor");
+      if (featuresAnchor) {
+        const tl2 = gsap.timeline({
+          scrollTrigger: {
+            trigger: "#about",
+            endTrigger: "#features",
+            start: "bottom 30%", // Unpins from About only when About is leaving viewport
+            end: "bottom top",
+            scrub: 0.6,
+            invalidateOnRefresh: true,
+          },
+        });
+
+        tl2.to(target, {
+          scale: 0.82,
+          rotationZ: 0,
+          rotationY: 0,
+          ease: "power1.inOut",
+        });
+      }
     }, fixedContainerRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    // Fixed Root Layer: Always on top (z-index: 9999), never clipped, single image on whole page
+    // Fixed Root Layer: Always on top (z-index: 9999), pinned to active section target
     <div
       ref={fixedContainerRef}
       className="fixed top-0 left-0 z-[9999] pointer-events-none select-none flex items-center justify-center will-change-transform"
@@ -200,7 +206,7 @@ export function GlobalFloatingProduct() {
       {/* Floating Particles */}
       <BackgroundParticles />
 
-      {/* Framer Motion Continuous Floating Loop: Y: -12px to +12px, rotate: -2° to +2°, 6s infinite */}
+      {/* Idle Floating Animation inside Card: Y: -8px ↔ +8px, rotate: -2° ↔ +2°, duration: 6s infinite */}
       <motion.div
         className="relative w-[340px] sm:w-[480px] lg:w-[560px] flex items-center justify-center"
         style={{
@@ -208,7 +214,7 @@ export function GlobalFloatingProduct() {
           y: mouseY,
         }}
         animate={{
-          y: [-12, 12, -12],
+          y: [-8, 8, -8],
           rotate: [-2, 2, -2],
         }}
         transition={{
