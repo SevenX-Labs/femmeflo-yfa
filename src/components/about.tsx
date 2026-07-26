@@ -1,10 +1,79 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Leaf, Sparkles, Feather, Clock, ShieldCheck, Sprout, ArrowRight } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export function About() {
+  const mobileAboutProductRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Only run mobile animation on screens < 768px
+    if (typeof window === "undefined" || window.innerWidth >= 768) return;
+    const el = mobileAboutProductRef.current;
+    if (!el) return;
+
+    // Set initial hidden state for mobile About product
+    gsap.set(el, { opacity: 0, scale: 0.9, y: 20 });
+
+    let floatTween: gsap.core.Tween | null = null;
+
+    // Mobile ScrollTrigger for About: start "top 60%", end "top 30%", toggleActions "play reverse play reverse"
+    const ST = ScrollTrigger.create({
+      trigger: "#about",
+      start: "top 60%",
+      end: "top 30%",
+      toggleActions: "play reverse play reverse",
+      onEnter: () => {
+        gsap.to(el, {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power2.out",
+          onComplete: () => {
+            // Start gentle floating animation after fade in: translateY(-6px <-> 6px), rotate(-1.5deg <-> 1.5deg), 6s
+            if (!floatTween) {
+              floatTween = gsap.to(el, {
+                y: 6,
+                rotation: 1.5,
+                duration: 3,
+                repeat: -1,
+                yoyo: true,
+                ease: "power1.inOut",
+              });
+            }
+          },
+        });
+      },
+      onLeaveBack: () => {
+        if (floatTween) {
+          floatTween.kill();
+          floatTween = null;
+        }
+        gsap.to(el, {
+          opacity: 0,
+          scale: 0.9,
+          y: 20,
+          duration: 0.4,
+          ease: "power2.out",
+        });
+      },
+    });
+
+    return () => {
+      if (floatTween) floatTween.kill();
+      ST.kill();
+    };
+  }, []);
+
   return (
     <section
       id="about"
@@ -24,7 +93,7 @@ export function About() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           {/* Background Glass Frame acting as Landing Container for single FloatingProduct */}
-          <div className="relative w-full max-w-[540px] aspect-square rounded-3xl bg-gradient-to-br from-white/80 to-rose-50/40 backdrop-blur-xl border border-white/80 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.06)] flex items-center justify-center overflow-hidden min-h-[440px] sm:min-h-[480px]">
+          <div className="relative w-full max-w-[540px] aspect-square rounded-3xl bg-gradient-to-br from-white/80 to-rose-50/40 backdrop-blur-xl border border-white/80 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.06)] flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[480px]">
             {/* Animated Background Glow Circle inside About Card */}
             <motion.div
               className="absolute w-[320px] h-[320px] rounded-full bg-gradient-to-tr from-[#E61C5D]/20 to-[#156035]/15 blur-2xl"
@@ -52,7 +121,22 @@ export function About() {
             <div
               id="about-product-anchor"
               className="relative w-full h-full flex items-center justify-center pointer-events-none"
-            />
+            >
+              {/* Mobile Dedicated Floating Product inside About Card (Only visible on screens < 768px) */}
+              <div
+                ref={mobileAboutProductRef}
+                className="md:hidden relative w-[220px] h-[220px] flex items-center justify-center pointer-events-auto"
+              >
+                <Image
+                  src="/femmeflo-withoutbg.png"
+                  alt="Femmeflo XL Sanitary Pads"
+                  width={400}
+                  height={400}
+                  priority
+                  className="w-full h-auto object-contain drop-shadow-xl"
+                />
+              </div>
+            </div>
           </div>
         </motion.div>
 
@@ -113,7 +197,7 @@ export function About() {
           {/* Action CTA Link */}
           <div className="pt-4">
             <a
-              href="#features"
+              href="#products"
               className="inline-flex items-center gap-2 text-[#E61C5D] font-bold text-base hover:text-[#d91b54] group transition-colors"
             >
               <span>Discover Our Innovations</span>
@@ -127,4 +211,3 @@ export function About() {
 }
 
 export default About;
-

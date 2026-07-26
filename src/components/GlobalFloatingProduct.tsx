@@ -79,11 +79,11 @@ export function GlobalFloatingProduct() {
   }, [rawMouseX, rawMouseY]);
 
   useEffect(() => {
-    const target = fixedContainerRef.current;
-    if (!target) return;
-
-    // Master 3-Stage Waypoint Animation: Hero (Right) -> About (Left) -> Product Section (Right)
     const updatePosition = () => {
+      if (typeof window === "undefined" || window.innerWidth < 768) return;
+      const target = fixedContainerRef.current;
+      if (!target) return;
+
       const heroAnchor = document.getElementById("hero-product-anchor");
       const aboutAnchor = document.getElementById("about-product-anchor");
       const productAnchor = document.getElementById("product-price-anchor");
@@ -172,7 +172,7 @@ export function GlobalFloatingProduct() {
     // Fixed Root Layer: Always on top (z-index: 9999), opacity-0 initially until measured
     <div
       ref={fixedContainerRef}
-      className="fixed top-0 left-0 z-[9999] pointer-events-none select-none flex items-center justify-center opacity-0 will-change-transform"
+      className="hidden md:flex fixed top-0 left-0 z-[9999] pointer-events-none select-none items-center justify-center opacity-0 will-change-transform"
       style={{ willChange: "transform" }}
     >
       {/* Background Soft Glow Orbs */}

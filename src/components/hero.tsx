@@ -1,10 +1,72 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Link from "next/link";
-import { Sparkles, ArrowUpRight, ShieldCheck, Lock, Feather, Leaf, Mouse } from "lucide-react";
+import Image from "next/image";
+import { Sparkles, ArrowUpRight, ShieldCheck, Lock, Feather, Leaf } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export function Hero() {
+  const mobileProductRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Mobile-only animation check (max-width: 767px)
+    if (typeof window === "undefined" || window.innerWidth >= 768) return;
+    const el = mobileProductRef.current;
+    if (!el) return;
+
+    // 1. Hero Gentle Floating Animation: translateY(-8px <-> 8px), rotate(-2deg <-> 2deg), 6s, infinite
+    const floatTween = gsap.to(el, {
+      y: 8,
+      rotation: 2,
+      duration: 3,
+      repeat: -1,
+      yoyo: true,
+      ease: "power1.inOut",
+    });
+
+    // 2. Mobile Hero ScrollTrigger: start "top top", end "bottom top", toggleActions "play reverse play reverse"
+    // Animate: opacity 1 -> 0, scale 1 -> 0.90, y 0 -> 40px, duration 0.5s, ease power2.out
+    const ST = ScrollTrigger.create({
+      trigger: "#hero",
+      start: "top top",
+      end: "bottom top",
+      toggleActions: "play reverse play reverse",
+      onLeave: () => {
+        gsap.to(el, {
+          opacity: 0,
+          scale: 0.9,
+          y: 40,
+          duration: 0.5,
+          ease: "power2.out",
+          onComplete: () => {
+            if (el) el.style.visibility = "hidden";
+          },
+        });
+      },
+      onEnterBack: () => {
+        if (el) el.style.visibility = "visible";
+        gsap.to(el, {
+          opacity: 1,
+          scale: 1,
+          y: 0,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+      },
+    });
+
+    return () => {
+      floatTween.kill();
+      ST.kill();
+    };
+  }, []);
+
   return (
     <section
       id="hero"
@@ -44,7 +106,7 @@ export function Hero() {
           {/* Action Buttons */}
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <Link
-              href="#buy"
+              href="#products"
               className="inline-flex items-center gap-3 bg-gradient-to-r from-[#F43F5E] via-[#E61C5D] to-[#D91B54] text-white font-semibold text-base px-8 py-3.5 rounded-full shadow-[0_10px_28px_rgba(230,28,93,0.35)] hover:shadow-[0_14px_35px_rgba(230,28,93,0.5)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
             >
               <span>Buy Now</span>
@@ -54,7 +116,7 @@ export function Hero() {
             </Link>
 
             <Link
-              href="#explore"
+              href="#about"
               className="group relative inline-flex items-center gap-3 pl-7 pr-2.5 py-2.5 rounded-full border-2 border-zinc-900 text-zinc-900 font-semibold text-base transition-all duration-300 hover:bg-zinc-900 hover:text-white active:scale-[0.98]"
             >
               <span>Explore Product</span>
@@ -103,7 +165,7 @@ export function Hero() {
 
         {/* Right Column: Hero Product Showcase Container */}
         <div className="relative flex items-center justify-center w-full">
-          <div className="relative w-full max-w-[620px] aspect-[4/3] sm:aspect-square rounded-3xl bg-gradient-to-br from-white/90 via-rose-50/30 to-emerald-50/20 backdrop-blur-xl border border-zinc-200/70 p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.06)] flex items-center justify-center overflow-hidden min-h-[400px] sm:min-h-[480px]">
+          <div className="relative w-full max-w-[620px] aspect-[4/3] sm:aspect-square rounded-3xl bg-gradient-to-br from-white/90 via-rose-50/30 to-emerald-50/20 backdrop-blur-xl border border-zinc-200/70 p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.06)] flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[480px]">
             {/* Ambient Inner Glow Orb */}
             <div className="absolute w-[300px] h-[300px] rounded-full bg-gradient-to-tr from-[#E61C5D]/15 via-rose-200/20 to-[#156035]/10 blur-2xl pointer-events-none" />
 
@@ -113,14 +175,32 @@ export function Hero() {
               <span className="text-xs font-bold text-zinc-800">XL Extra Long • 6 Units</span>
             </div>
 
-            {/* Anchor Target for Floating Product */}
+            {/* Anchor Target for Floating Product on Desktop */}
             <div
               id="hero-product-anchor"
               className="relative w-full h-full flex items-center justify-center pointer-events-none"
-            />
+            >
+              {/* Mobile Dedicated Floating Product (Only visible on screens < 768px) */}
+              <div
+                ref={mobileProductRef}
+                className="md:hidden relative w-[240px] h-[240px] flex items-center justify-center pointer-events-auto"
+                style={{ opacity: 1, transform: "scale(1)" }}
+              >
+                <Image
+                  src="/femmeflo-withoutbg.png"
+                  alt="Femmeflo XL Sanitary Pads"
+                  width={400}
+                  height={400}
+                  priority
+                  className="w-full h-auto object-contain drop-shadow-xl"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
   );
 }
+
+export default Hero;
