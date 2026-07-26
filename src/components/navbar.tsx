@@ -18,45 +18,32 @@ export function Navbar() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  // Gradient definitions (assumed from image)
-  const greenGradient = "bg-gradient-to-r from-[#166534] to-[#15803D]"; // Active state gradient
-  const pinkGradient = "bg-gradient-to-r from-[#E61C5D] to-[#F43F5E]";   // Hover state gradient
-
-  const getGradientClass = (index: number) => {
-    // If the item is hovered, show the pink gradient
-    if (hoveredIndex === index) return pinkGradient;
-    // Otherwise, if it's active, show the green gradient
-    if (activeIndex === index) return greenGradient;
-    return ""; // Default: no gradient
-  };
+  // Determine the single active target index for the pill highlight
+  const highlightedIndex = hoveredIndex !== null ? hoveredIndex : activeIndex;
 
   return (
-    // Redesigned container for better proportion and visual center: max-w, reduced padding.
-    // font-[family-name:...] assumed from main layout.
-    <header className="w-full max-w-screen-2xl mx-auto px-6 py-4 flex items-center justify-between relative z-50 font-[family-name:var(--font-jakarta)]">
+    <header className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between relative z-50 font-[family-name:var(--font-jakarta)]">
       
       {/* 1. Left: Brand Logo */}
-      <Link href="/" className="flex items-center gap-3 group shrink-0">
-        <div className="relative h-12 w-auto flex items-center">
-          {/* Logo size is slightly reduced for a pro feel, maintained mix-blend-screen. */}
+      <Link href="/" className="flex items-center gap-3 group shrink-0 min-w-[140px] sm:min-w-[160px]">
+        <div className="relative h-10 sm:h-12 w-auto flex items-center">
           <Image
-            src="/logo.png" // **Make sure your logo.png is in the public/ folder**
+            src="/logo.png"
             alt="Femmeflo Logo"
-            width={220} // Width is indicative; Tailwind class h-12 will control the primary size
-            height={60}
-            className="h-12 w-auto object-contain transition-all duration-300 group-hover:scale-105 mix-blend-screen"
+            width={200}
+            height={55}
+            className="h-9 sm:h-11 w-auto object-contain transition-all duration-300 group-hover:scale-105 mix-blend-screen"
             priority
-            unoptimized // Using 'unoptimized' for static logos is often clearer for small sizes
+            unoptimized
           />
         </div>
       </Link>
 
-      {/* 2. Middle (Now Center): Interactive Animated Floating Pill Navbar */}
-      {/* The navbar container is now centered. Increased max-width to allow better visual separation of items. */}
-      <nav className="flex items-center bg-[#F9F9F9] backdrop-blur-md border border-[#E9E9E9] rounded-full p-1.5 shadow-[0_4px_15px_rgba(0,0,0,0.02)] relative max-w-[800px] w-full">
-        <ul className="flex items-center relative gap-1 w-full justify-evenly">
+      {/* 2. Center: Floating Pill Navigation */}
+      <nav className="flex items-center bg-white/80 backdrop-blur-xl border border-zinc-200/80 rounded-full p-1.5 shadow-[0_8px_30px_rgba(0,0,0,0.04)] relative">
+        <ul className="flex items-center relative gap-1">
           {navItems.map((item, index) => {
-            const isActive = activeIndex === index;
+            const isHighlighted = highlightedIndex === index;
             const isHovered = hoveredIndex === index;
 
             return (
@@ -65,25 +52,26 @@ export function Navbar() {
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 onClick={() => setActiveIndex(index)}
-                className="relative z-10 flex-grow" // flex-grow to evenly distribute space
+                className="relative z-10"
               >
-                {/* Link classes adjusted for centering and proportion. Full width within li. */}
                 <Link
                   href={item.href}
-                  className={`relative block px-5 py-3 text-sm font-semibold rounded-full transition-colors duration-200 w-full text-center ${
-                    isActive || isHovered
+                  className={`relative block px-3 sm:px-4 lg:px-5 py-2 text-xs sm:text-sm font-semibold rounded-full transition-colors duration-200 select-none ${
+                    isHighlighted
                       ? "text-white"
                       : "text-zinc-700 hover:text-zinc-950"
                   }`}
                 >
-                  {/* Sliding Pill Animation - professional, dynamic, and shared across items */}
-                  {(isActive || isHovered) && (
+                  {/* Exactly ONE layoutId="navPill" is rendered at a time */}
+                  {isHighlighted && (
                     <motion.span
-                      layoutId="navPill" // Enables the shared layout animation across items
-                      className={`absolute inset-0 rounded-full -z-10 shadow-inner ${getGradientClass(
-                        index
-                      )}`}
-                      transition={{ type: "spring", stiffness: 350, damping: 25 }} // Shared spring animation for smooth pill movement
+                      layoutId="navPill"
+                      className={`absolute inset-0 rounded-full -z-10 shadow-sm ${
+                        isHovered
+                          ? "bg-gradient-to-r from-[#E61C5D] to-[#F43F5E]"
+                          : "bg-gradient-to-r from-[#166534] to-[#15803D]"
+                      }`}
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
                     />
                   )}
                   {item.name}
@@ -94,9 +82,9 @@ export function Navbar() {
         </ul>
       </nav>
 
-      {/* 3. Right: Buy Now - REMOVED */}
-      {/* (Space maintained for balance) */}
-      
+      {/* 3. Right: Invisible spacer to maintain perfect visual centering for middle pill nav without Buy Now button */}
+      <div className="hidden sm:block min-w-[140px] sm:min-w-[160px] pointer-events-none" />
+
     </header>
   );
 }
