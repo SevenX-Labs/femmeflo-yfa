@@ -83,16 +83,6 @@ export function Hero() {
           <FloatingProduct />
         </div>
       </div>
-
-      {/* Bottom Center: Scroll to Explore */}
-      <div className="flex items-center justify-center gap-2 pt-6 pb-2 text-zinc-800 z-20">
-        <div className="w-5 h-8 border-2 border-zinc-800 rounded-full flex justify-center pt-1.5">
-          <div className="w-1 h-2 bg-zinc-800 rounded-full animate-bounce" />
-        </div>
-        <span className="text-xs sm:text-sm font-semibold tracking-wide">
-          Scroll to Explore
-        </span>
-      </div>
     </section>
   );
 }
