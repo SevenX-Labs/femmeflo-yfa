@@ -45,63 +45,6 @@ export function Navbar() {
 
   return (
     <header className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between relative z-50 font-[family-name:var(--font-jakarta)]">
-      {/* Clean Staggered Roll CSS - Perfect clipping without text duplication */}
-      <style jsx global>{`
-        .span-mother {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .span-mother span {
-          display: inline-block;
-          transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
-          will-change: transform;
-        }
-
-        .group:hover .span-mother span {
-          transform: translateY(1.5em);
-        }
-
-        .span-mother span:nth-child(1) { transition-delay: 0s; }
-        .span-mother span:nth-child(2) { transition-delay: 0.03s; }
-        .span-mother span:nth-child(3) { transition-delay: 0.06s; }
-        .span-mother span:nth-child(4) { transition-delay: 0.09s; }
-        .span-mother span:nth-child(5) { transition-delay: 0.12s; }
-        .span-mother span:nth-child(6) { transition-delay: 0.15s; }
-        .span-mother span:nth-child(7) { transition-delay: 0.18s; }
-        .span-mother span:nth-child(8) { transition-delay: 0.21s; }
-
-        .span-mother2 {
-          display: flex;
-          position: absolute;
-          inset: 0;
-          align-items: center;
-          justify-content: center;
-          pointer-events: none;
-        }
-
-        .span-mother2 span {
-          display: inline-block;
-          transform: translateY(-1.5em);
-          transition: transform 0.25s cubic-bezier(0.25, 1, 0.5, 1);
-          will-change: transform;
-        }
-
-        .group:hover .span-mother2 span {
-          transform: translateY(0);
-        }
-
-        .span-mother2 span:nth-child(1) { transition-delay: 0s; }
-        .span-mother2 span:nth-child(2) { transition-delay: 0.03s; }
-        .span-mother2 span:nth-child(3) { transition-delay: 0.06s; }
-        .span-mother2 span:nth-child(4) { transition-delay: 0.09s; }
-        .span-mother2 span:nth-child(5) { transition-delay: 0.12s; }
-        .span-mother2 span:nth-child(6) { transition-delay: 0.15s; }
-        .span-mother2 span:nth-child(7) { transition-delay: 0.18s; }
-        .span-mother2 span:nth-child(8) { transition-delay: 0.21s; }
-      `}</style>
-
       {/* 1. Left: Brand Logo */}
       <Link href="/" className="flex items-center gap-3 group shrink-0 min-w-[140px] sm:min-w-[160px]">
         <div className="relative h-10 sm:h-12 w-auto flex items-center">
