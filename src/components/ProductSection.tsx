@@ -126,7 +126,7 @@ export function ProductSection() {
 
         </motion.div>
 
-        {/* RIGHT SIDE: Landing Frame for Floating Product (Dual Glass-behind-Glass Architecture) */}
+        {/* RIGHT SIDE: Landing Frame for Floating Product (Circular Dual Glass Architecture) */}
         <motion.div
           className="lg:col-span-5 order-1 lg:order-2 flex items-center justify-center relative"
           initial={{ opacity: 0, x: 30 }}
@@ -134,18 +134,18 @@ export function ProductSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
         >
-          {/* Outer Glassmorphism Plate (Glass Layer 1) */}
-          <div className="relative w-full max-w-[660px] p-3 sm:p-4 rounded-[2.5rem] bg-white/40 backdrop-blur-xl border border-white/80 shadow-[0_30px_70px_rgba(0,0,0,0.06)] flex items-center justify-center">
+          {/* Outer Circle Glassmorphism Plate (Glass Layer 1) */}
+          <div className="relative w-full max-w-[480px] sm:max-w-[520px] aspect-square rounded-full p-3 sm:p-4 bg-white/40 backdrop-blur-xl border border-white/80 shadow-[0_30px_70px_rgba(0,0,0,0.06)] flex items-center justify-center">
             {/* Ambient Backlight Glow sandwiched between glass layers */}
-            <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-tr from-[#156035]/20 via-emerald-100/30 to-[#E61C5D]/20 blur-xl pointer-events-none -z-10" />
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#156035]/20 via-emerald-100/30 to-[#E61C5D]/20 blur-xl pointer-events-none -z-10" />
 
-            {/* Inner Glass Showcase Card (Glass Layer 2) */}
-            <div className="relative w-full aspect-[16/11] rounded-3xl bg-gradient-to-br from-white/90 via-white/70 to-rose-50/50 backdrop-blur-2xl border-2 border-white p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.08)] flex items-center justify-center overflow-hidden min-h-[260px] sm:min-h-[380px] ring-1 ring-white/70">
+            {/* Inner Circle Glass Showcase Card (Glass Layer 2) */}
+            <div className="relative w-full h-full rounded-full bg-gradient-to-br from-white/90 via-white/70 to-rose-50/50 backdrop-blur-2xl border-2 border-white p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.08)] flex items-center justify-center overflow-hidden ring-1 ring-white/70">
               {/* Ambient Glow */}
-              <div className="absolute w-[320px] h-[320px] rounded-full bg-gradient-to-tr from-[#E61C5D]/15 to-[#156035]/15 blur-2xl pointer-events-none" />
+              <div className="absolute w-[300px] h-[300px] rounded-full bg-gradient-to-tr from-[#E61C5D]/15 to-[#156035]/15 blur-2xl pointer-events-none" />
 
               {/* Bottom Tag Pill */}
-              <div className="absolute bottom-6 z-20 bg-white/90 backdrop-blur-md border border-zinc-200/80 px-4 py-1.5 rounded-full shadow-sm pointer-events-none select-none">
+              <div className="absolute bottom-8 z-20 bg-white/90 backdrop-blur-md border border-zinc-200/80 px-4 py-1.5 rounded-full shadow-sm pointer-events-none select-none">
                 <span className="text-xs font-bold text-zinc-800">Cotton Soft • Leak Lock</span>
               </div>
 
