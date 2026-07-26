@@ -101,7 +101,9 @@ export function EssenceSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          &ldquo;Our essence is <span className="text-[#E61C5D] font-bold not-italic">Period Freedom</span> — the ability to work, move, and live normally.&rdquo;
+          &ldquo;Our essence is{" "}
+          <span className="text-[#E61C5D] font-bold not-italic">Period Freedom</span>
+          &mdash; the ability to work, move, and live normally.&rdquo;
         </motion.p>
 
         <p className="text-zinc-600 text-sm sm:text-base text-center max-w-2xl mb-12">
