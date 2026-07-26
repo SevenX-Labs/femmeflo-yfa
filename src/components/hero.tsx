@@ -79,8 +79,22 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Hero Product Anchor */}
-        <div id="hero-product-anchor" className="relative flex flex-col items-center justify-center min-h-[300px] lg:min-h-[420px] w-full" />
+        {/* Right Column: Hero Product Anchor with Premium Glass Card Frame */}
+        <div className="relative flex items-center justify-center w-full">
+          <div
+            id="hero-product-anchor"
+            className="relative w-full max-w-[540px] aspect-[4/3] sm:aspect-square rounded-3xl bg-gradient-to-br from-white/80 via-rose-50/30 to-emerald-50/20 backdrop-blur-xl border border-zinc-200/70 p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.06)] flex items-center justify-center overflow-hidden min-h-[360px] sm:min-h-[440px]"
+          >
+            {/* Ambient Inner Glow Orb */}
+            <div className="absolute w-[300px] h-[300px] rounded-full bg-gradient-to-tr from-[#E61C5D]/15 via-rose-200/20 to-[#156035]/10 blur-2xl pointer-events-none" />
+
+            {/* Premium Floating Badge (Bottom Right) */}
+            <div className="absolute bottom-5 right-5 z-20 bg-white/90 backdrop-blur-md border border-zinc-200/80 px-3.5 py-2 rounded-2xl shadow-sm flex items-center gap-2.5 pointer-events-none select-none">
+              <div className="w-2.5 h-2.5 rounded-full bg-[#E61C5D] animate-ping" />
+              <span className="text-xs font-bold text-zinc-800">XL Extra Long • 6 Units</span>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
