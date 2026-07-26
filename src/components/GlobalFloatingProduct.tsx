@@ -82,40 +82,64 @@ export function GlobalFloatingProduct() {
     const target = fixedContainerRef.current;
     if (!target) return;
 
-    // Master update function to transition product diagonally across screen from Right to Left
+    // Master 3-Stage Waypoint Animation: Hero (Right) -> About (Left) -> Product Section (Right)
     const updatePosition = () => {
       const heroAnchor = document.getElementById("hero-product-anchor");
-      const aboutAnchor = document.getElementById("product-price-anchor") || document.getElementById("about-product-anchor");
+      const aboutAnchor = document.getElementById("about-product-anchor");
+      const productAnchor = document.getElementById("product-price-anchor");
 
       if (!heroAnchor || !aboutAnchor) return;
 
       const hRect = heroAnchor.getBoundingClientRect();
       const aRect = aboutAnchor.getBoundingClientRect();
+      const pRect = productAnchor ? productAnchor.getBoundingClientRect() : null;
 
-      const isDesktop = window.innerWidth >= 1024;
-
-      // Determine starting Hero X (Right side) and ending About X (Left side)
+      // Center positions of anchors relative to viewport
       const heroX = hRect.left + hRect.width / 2;
-      const aboutX = aRect.left + aRect.width / 2;
-
       const heroY = hRect.top + hRect.height / 2;
+
+      const aboutX = aRect.left + aRect.width / 2;
       const aboutY = aRect.top + aRect.height / 2;
 
       const scrollY = window.scrollY;
+
+      // Scroll Y threshold where About section is centered in viewport
       const aboutDocY = aRect.top + scrollY;
+      const aboutScrollTarget = Math.max(1, aboutDocY + aRect.height / 2 - window.innerHeight * 0.5);
 
-      // Transition completes as About glass card reaches center of viewport
-      const endScroll = Math.max(1, aboutDocY + aRect.height / 2 - window.innerHeight * 0.5);
+      let curX = heroX;
+      let curY = heroY;
+      let scale = 1;
+      let rotZ = 0;
+      let rotY = 0;
 
-      // Clamp raw progress between 0 (Hero right column) and 1 (About left card)
-      const rawP = Math.max(0, Math.min(1, scrollY / endScroll));
+      if (pRect && scrollY > aboutScrollTarget) {
+        // Stage 2: Transition from About (Left) to Product Section (Right)
+        const productDocY = pRect.top + scrollY;
+        const productScrollTarget = Math.max(aboutScrollTarget + 100, productDocY + pRect.height / 2 - window.innerHeight * 0.5);
 
-      // Ease-in-out curve so product box settles gently into About card and stays anchored when scrolling up slightly
-      const p = rawP < 0.5 ? 2 * rawP * rawP : 1 - Math.pow(-2 * rawP + 2, 2) / 2;
+        const productX = pRect.left + pRect.width / 2;
+        const productY = pRect.top + pRect.height / 2;
 
-      // Diagonal cross calculation: Right side -> Left side
-      const curX = heroX + (aboutX - heroX) * p;
-      const curY = heroY + (aboutY - heroY) * p;
+        const rawP2 = Math.max(0, Math.min(1, (scrollY - aboutScrollTarget) / (productScrollTarget - aboutScrollTarget)));
+        const p2 = rawP2 < 0.5 ? 2 * rawP2 * rawP2 : 1 - Math.pow(-2 * rawP2 + 2, 2) / 2;
+
+        curX = aboutX + (productX - aboutX) * p2;
+        curY = aboutY + (productY - aboutY) * p2;
+        scale = 0.88 + 0.12 * p2;
+        rotZ = -8 + 8 * p2;
+        rotY = 15 - 15 * p2;
+      } else {
+        // Stage 1: Transition from Hero (Right) to About (Left)
+        const rawP1 = Math.max(0, Math.min(1, scrollY / aboutScrollTarget));
+        const p1 = rawP1 < 0.5 ? 2 * rawP1 * rawP1 : 1 - Math.pow(-2 * rawP1 + 2, 2) / 2;
+
+        curX = heroX + (aboutX - heroX) * p1;
+        curY = heroY + (aboutY - heroY) * p1;
+        scale = 1 - 0.12 * p1;
+        rotZ = -8 * p1;
+        rotY = 15 * p1;
+      }
 
       // Apply 60FPS transform update
       gsap.set(target, {
@@ -123,9 +147,9 @@ export function GlobalFloatingProduct() {
         y: curY,
         xPercent: -50,
         yPercent: -50,
-        scale: 1 - 0.12 * p,
-        rotationZ: -8 * p,
-        rotationY: 15 * p,
+        scale: scale,
+        rotationZ: rotZ,
+        rotationY: rotY,
         opacity: 1,
       });
     };
