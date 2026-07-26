@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Instagram, Facebook, Linkedin, Twitter, ArrowUpRight } from "lucide-react";
+import { MapPin, Phone, Mail, Globe, Share2, MessageCircle, Sparkles, ArrowUpRight } from "lucide-react";
 
 export function ContactSection() {
   return (
@@ -113,17 +113,17 @@ export function ContactSection() {
 
           {/* Social Links */}
           <div className="flex items-center gap-3 pt-6 mt-6 border-t border-zinc-100">
-            <a href="#" className="w-9 h-9 rounded-full bg-zinc-100 hover:bg-[#E61C5D] hover:text-white text-zinc-600 flex items-center justify-center transition-colors">
+            <a href="#" aria-label="Instagram" className="w-9 h-9 rounded-full bg-zinc-100 hover:bg-[#E61C5D] hover:text-white text-zinc-600 flex items-center justify-center transition-colors">
               <Instagram className="w-4 h-4" />
             </a>
-            <a href="#" className="w-9 h-9 rounded-full bg-zinc-100 hover:bg-[#E61C5D] hover:text-white text-zinc-600 flex items-center justify-center transition-colors">
-              <Facebook className="w-4 h-4" />
+            <a href="#" aria-label="Website" className="w-9 h-9 rounded-full bg-zinc-100 hover:bg-[#E61C5D] hover:text-white text-zinc-600 flex items-center justify-center transition-colors">
+              <Globe className="w-4 h-4" />
             </a>
-            <a href="#" className="w-9 h-9 rounded-full bg-zinc-100 hover:bg-[#E61C5D] hover:text-white text-zinc-600 flex items-center justify-center transition-colors">
-              <Linkedin className="w-4 h-4" />
+            <a href="#" aria-label="Contact" className="w-9 h-9 rounded-full bg-zinc-100 hover:bg-[#E61C5D] hover:text-white text-zinc-600 flex items-center justify-center transition-colors">
+              <MessageCircle className="w-4 h-4" />
             </a>
-            <a href="#" className="w-9 h-9 rounded-full bg-zinc-100 hover:bg-[#E61C5D] hover:text-white text-zinc-600 flex items-center justify-center transition-colors">
-              <Twitter className="w-4 h-4" />
+            <a href="#" aria-label="Share" className="w-9 h-9 rounded-full bg-zinc-100 hover:bg-[#E61C5D] hover:text-white text-zinc-600 flex items-center justify-center transition-colors">
+              <Share2 className="w-4 h-4" />
             </a>
           </div>
 
