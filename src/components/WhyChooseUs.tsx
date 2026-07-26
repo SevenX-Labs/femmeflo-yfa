@@ -74,7 +74,7 @@ export function WhyChooseUs() {
             return (
               <motion.div
                 key={idx}
-                className="bg-white rounded-3xl p-7 border border-zinc-200/80 shadow-[0_10px_30px_rgba(0,0,0,0.03)] flex flex-col justify-between relative overflow-hidden group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1.5"
+                className="bg-white/70 backdrop-blur-2xl rounded-3xl p-7 border-2 border-white/90 shadow-[0_15px_45px_rgba(0,0,0,0.04)] flex flex-col justify-between relative overflow-hidden group hover:shadow-xl hover:bg-white/85 transition-all duration-300 transform hover:-translate-y-1.5"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

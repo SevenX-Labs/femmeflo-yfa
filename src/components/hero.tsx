@@ -129,7 +129,7 @@ export function Hero() {
 
           {/* Key Feature Cards Grid */}
           <div className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 w-full">
-            <div className="bg-white/80 backdrop-blur-md border border-zinc-200/70 p-3 rounded-2xl shadow-xs flex flex-col items-center text-center">
+            <div className="bg-white/65 backdrop-blur-xl border border-white/90 p-3 rounded-2xl shadow-sm hover:bg-white/85 transition-all flex flex-col items-center text-center">
               <div className="w-8 h-8 rounded-xl bg-rose-50 border border-rose-100 flex items-center justify-center mb-1.5">
                 <ShieldCheck className="w-4 h-4 text-[#E61C5D]" />
               </div>
@@ -137,7 +137,7 @@ export function Hero() {
               <span className="text-[11px] text-zinc-500">Protection</span>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-md border border-zinc-200/70 p-3 rounded-2xl shadow-xs flex flex-col items-center text-center">
+            <div className="bg-white/65 backdrop-blur-xl border border-white/90 p-3 rounded-2xl shadow-sm hover:bg-white/85 transition-all flex flex-col items-center text-center">
               <div className="w-8 h-8 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-1.5">
                 <Lock className="w-4 h-4 text-[#156035]" />
               </div>
@@ -145,7 +145,7 @@ export function Hero() {
               <span className="text-[11px] text-zinc-500">Technology</span>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-md border border-zinc-200/70 p-3 rounded-2xl shadow-xs flex flex-col items-center text-center">
+            <div className="bg-white/65 backdrop-blur-xl border border-white/90 p-3 rounded-2xl shadow-sm hover:bg-white/85 transition-all flex flex-col items-center text-center">
               <div className="w-8 h-8 rounded-xl bg-rose-50 border border-rose-100 flex items-center justify-center mb-1.5">
                 <Feather className="w-4 h-4 text-[#E61C5D]" />
               </div>
@@ -153,7 +153,7 @@ export function Hero() {
               <span className="text-[11px] text-zinc-500">Feel</span>
             </div>
 
-            <div className="bg-white/80 backdrop-blur-md border border-zinc-200/70 p-3 rounded-2xl shadow-xs flex flex-col items-center text-center">
+            <div className="bg-white/65 backdrop-blur-xl border border-white/90 p-3 rounded-2xl shadow-sm hover:bg-white/85 transition-all flex flex-col items-center text-center">
               <div className="w-8 h-8 rounded-xl bg-emerald-50 border border-emerald-100 flex items-center justify-center mb-1.5">
                 <Leaf className="w-4 h-4 text-[#156035]" />
               </div>
@@ -163,37 +163,44 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Hero Product Showcase Container */}
+        {/* Right Column: Hero Product Showcase Container (Dual Glass-behind-Glass Architecture) */}
         <div className="relative flex items-center justify-center w-full">
-          <div className="relative w-full max-w-[640px] aspect-[16/11] rounded-3xl bg-gradient-to-br from-white/90 via-rose-50/30 to-emerald-50/20 backdrop-blur-xl border border-zinc-200/70 p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.06)] flex items-center justify-center overflow-hidden min-h-[260px] sm:min-h-[380px]">
-            {/* Ambient Inner Glow Orb */}
-            <div className="absolute w-[300px] h-[300px] rounded-full bg-gradient-to-tr from-[#E61C5D]/15 via-rose-200/20 to-[#156035]/10 blur-2xl pointer-events-none" />
+          {/* Outer Glassmorphism Plate (Glass Layer 1) */}
+          <div className="relative w-full max-w-[660px] p-3 sm:p-4 rounded-[2.5rem] bg-white/40 backdrop-blur-xl border border-white/80 shadow-[0_30px_70px_rgba(0,0,0,0.06)] flex items-center justify-center">
+            {/* Ambient Backlight Glow sandwiched between glass layers */}
+            <div className="absolute inset-0 rounded-[2.5rem] bg-gradient-to-tr from-emerald-200/50 via-teal-100/40 to-rose-200/40 blur-xl pointer-events-none -z-10" />
 
-            {/* Premium Floating Badge */}
-            <div className="absolute bottom-5 right-5 z-20 bg-white/90 backdrop-blur-md border border-zinc-200/80 px-3.5 py-2 rounded-2xl shadow-sm flex items-center gap-2.5 pointer-events-none select-none">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#E61C5D] animate-ping" />
-              <span className="text-xs font-bold text-zinc-800">XL Extra Long • 6 Units</span>
-            </div>
+            {/* Inner Glass Showcase Card (Glass Layer 2) */}
+            <div className="relative w-full aspect-[16/11] rounded-3xl bg-gradient-to-br from-white/90 via-white/70 to-emerald-50/40 backdrop-blur-2xl border-2 border-white p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.08)] flex items-center justify-center overflow-hidden min-h-[260px] sm:min-h-[380px] ring-1 ring-white/70">
+              {/* Ambient Inner Glow Orb */}
+              <div className="absolute w-[300px] h-[300px] rounded-full bg-gradient-to-tr from-[#E61C5D]/15 via-rose-200/20 to-[#156035]/10 blur-2xl pointer-events-none" />
 
-            {/* Anchor Target for Floating Product on Desktop */}
-            <div
-              id="hero-product-anchor"
-              className="relative w-full h-full flex items-center justify-center pointer-events-none"
-            >
-              {/* Mobile Dedicated Floating Product (Only visible on screens < 768px) */}
+              {/* Premium Floating Badge */}
+              <div className="absolute bottom-5 right-5 z-20 bg-white/90 backdrop-blur-md border border-zinc-200/80 px-3.5 py-2 rounded-2xl shadow-sm flex items-center gap-2.5 pointer-events-none select-none">
+                <div className="w-2.5 h-2.5 rounded-full bg-[#E61C5D] animate-ping" />
+                <span className="text-xs font-bold text-zinc-800">XL Extra Long • 6 Units</span>
+              </div>
+
+              {/* Anchor Target for Floating Product on Desktop */}
               <div
-                ref={mobileProductRef}
-                className="md:hidden relative w-[240px] h-[240px] flex items-center justify-center pointer-events-auto"
-                style={{ opacity: 1, transform: "scale(1)" }}
+                id="hero-product-anchor"
+                className="relative w-full h-full flex items-center justify-center pointer-events-none"
               >
-                <Image
-                  src="/femmeflo-withoutbg.png"
-                  alt="Femmeflo XL Sanitary Pads"
-                  width={400}
-                  height={400}
-                  priority
-                  className="w-full h-auto object-contain drop-shadow-xl"
-                />
+                {/* Mobile Dedicated Floating Product (Only visible on screens < 768px) */}
+                <div
+                  ref={mobileProductRef}
+                  className="md:hidden relative w-[240px] h-[240px] flex items-center justify-center pointer-events-auto"
+                  style={{ opacity: 1, transform: "scale(1)" }}
+                >
+                  <Image
+                    src="/femmeflo-withoutbg.png"
+                    alt="Femmeflo XL Sanitary Pads"
+                    width={400}
+                    height={400}
+                    priority
+                    className="w-full h-auto object-contain drop-shadow-xl"
+                  />
+                </div>
               </div>
             </div>
           </div>
