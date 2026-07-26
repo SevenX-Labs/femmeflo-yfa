@@ -6,6 +6,7 @@ import { PromiseSection } from "@/components/promise";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { EssenceSection } from "@/components/essence";
 import { ContactSection } from "@/components/contact";
+import { Footer } from "@/components/footer";
 import { GlobalFloatingProduct } from "@/components/GlobalFloatingProduct";
 import { SectionRouteObserver } from "@/components/SectionRouteObserver";
 
@@ -22,8 +23,9 @@ export default function Home() {
         <PromiseSection />
         <WhyChooseUs />
         <EssenceSection />
+        <ContactSection />
       </main>
-      <ContactSection />
+      <Footer />
     </div>
   );
 }
