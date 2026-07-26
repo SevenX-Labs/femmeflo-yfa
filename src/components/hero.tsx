@@ -2,10 +2,11 @@
 
 import React from "react";
 import Link from "next/link";
+import { Sparkles, Check, ArrowUpRight } from "lucide-react";
 
 export function Hero() {
   return (
-    <section id="hero" className="relative w-full max-w-7xl mx-auto px-6 pt-2 pb-6 flex flex-col justify-between overflow-hidden font-[family-name:var(--font-jakarta)]">
+    <section id="hero" className="relative w-full max-w-7xl mx-auto px-6 pt-2 pb-2 flex flex-col justify-between overflow-hidden font-[family-name:var(--font-jakarta)]">
       {/* Background Soft Glow Orbs */}
       <div className="absolute top-1/4 left-[-10%] w-[500px] h-[500px] bg-rose-200/40 rounded-full blur-3xl pointer-events-none -z-10 animate-[pulse_6s_ease-in-out_infinite]" />
       <div className="absolute top-1/3 right-[5%] w-[450px] h-[450px] bg-emerald-200/35 rounded-full blur-3xl pointer-events-none -z-10 animate-[pulse_8s_ease-in-out_infinite]" />
@@ -15,7 +16,7 @@ export function Hero() {
         {/* Left Column: Copy & CTAs */}
         <div className="flex flex-col items-start z-10 space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF6EF] border border-[#CCE9D7] text-xs sm:text-sm font-medium text-[#166534] shadow-xs">
-            <span className="text-base leading-none">🌸</span>
+            <Sparkles className="w-4 h-4 text-[#156035]" />
             <span>Glow • Trusted Feminine Care</span>
           </div>
 
@@ -52,30 +53,7 @@ export function Hero() {
             >
               <span>Explore Product</span>
               <span className="relative w-9 h-9 shrink-0 rounded-full bg-zinc-900 text-white flex items-center justify-center overflow-hidden shadow-sm transition-colors duration-300 group-hover:bg-white group-hover:text-zinc-900">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="absolute w-4 h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-[200%] group-hover:-translate-y-[200%]"
-                >
-                  <line x1="7" y1="17" x2="17" y2="7" />
-                  <polyline points="7 7 17 7 17 17" />
-                </svg>
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="absolute w-4 h-4 -translate-x-[200%] translate-y-[200%] transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:translate-y-0"
-                >
-                  <line x1="7" y1="17" x2="17" y2="7" />
-                  <polyline points="7 7 17 7 17 17" />
-                </svg>
+                <ArrowUpRight className="w-4 h-4 transition-transform duration-300 ease-in-out group-hover:scale-110" />
               </span>
             </Link>
           </div>
@@ -83,19 +61,19 @@ export function Hero() {
           {/* Key Feature Checks */}
           <div className="pt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm font-medium text-zinc-700">
             <div className="flex items-center gap-1.5">
-              <span className="text-[#C59B27] font-bold">✓</span>
+              <Check className="w-4 h-4 text-[#C59B27] stroke-[3]" />
               <span>12 Hour Protection</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="text-[#C59B27] font-bold">✓</span>
+              <Check className="w-4 h-4 text-[#C59B27] stroke-[3]" />
               <span>Leak Lock</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="text-[#C59B27] font-bold">✓</span>
+              <Check className="w-4 h-4 text-[#C59B27] stroke-[3]" />
               <span>Cotton Soft</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <span className="text-[#C59B27] font-bold">✓</span>
+              <Check className="w-4 h-4 text-[#C59B27] stroke-[3]" />
               <span>Skin Friendly</span>
             </div>
           </div>

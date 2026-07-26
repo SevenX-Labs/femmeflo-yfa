@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Heart, Leaf } from "lucide-react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -16,7 +17,7 @@ function BackgroundParticles() {
     { type: "heart", top: "15%", left: "12%", size: 18, delay: 0, duration: 7 },
     { type: "heart", top: "45%", left: "80%", size: 22, delay: 2, duration: 8 },
     { type: "heart", top: "75%", left: "20%", size: 16, delay: 1, duration: 6.5 },
-    { type: "heart", top: "25%", left: "70%", size: 20, delay: 3, duration: 9 },
+    { type: "heart", top: "25%", left: "70%", size: 30, delay: 3, duration: 9 },
     { type: "leaf", top: "20%", left: "85%", size: 22, delay: 0.5, duration: 7.5 },
     { type: "leaf", top: "60%", left: "10%", size: 24, delay: 2.5, duration: 8.5 },
     { type: "leaf", top: "80%", left: "75%", size: 20, delay: 1.5, duration: 7 },
@@ -44,13 +45,9 @@ function BackgroundParticles() {
           }}
         >
           {p.type === "heart" ? (
-            <svg width={p.size} height={p.size} viewBox="0 0 24 24" fill="#E61C5D" className="drop-shadow-sm">
-              <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-            </svg>
+            <Heart size={p.size} className="text-[#E61C5D] fill-[#E61C5D] drop-shadow-sm" />
           ) : (
-            <svg width={p.size} height={p.size} viewBox="0 0 24 24" fill="#156035" className="drop-shadow-sm">
-              <path d="M17 8C8 10 59 16.17 3.82 21.34l1.42 1.42c.39.39 1.02.39 1.41 0L12 17.58c1.53.58 3.25.75 4.88.42 4.14-.85 7.12-4.52 7.12-8.75V8h-7z" />
-            </svg>
+            <Leaf size={p.size} className="text-[#156035] fill-[#156035] drop-shadow-sm" />
           )}
         </motion.div>
       ))}

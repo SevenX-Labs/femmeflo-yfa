@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Leaf, Sparkles, Feather, Clock, ShieldCheck, Sprout, ArrowRight } from "lucide-react";
 
 export function About() {
   return (
@@ -44,7 +45,7 @@ export function About() {
 
             {/* Floating Quality Stamp Badge */}
             <div className="absolute bottom-6 right-6 z-20 bg-white/90 backdrop-blur-md border border-zinc-200/80 px-4 py-2.5 rounded-2xl shadow-lg flex items-center gap-3">
-              <span className="text-2xl">🌿</span>
+              <Leaf className="w-6 h-6 text-[#156035]" />
               <div>
                 <p className="text-xs font-bold text-zinc-900">100% Dermatologically Tested</p>
                 <p className="text-[11px] text-zinc-500">Hypoallergenic & Gentle</p>
@@ -63,7 +64,7 @@ export function About() {
         >
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF6EF] border border-[#CCE9D7] text-xs sm:text-sm font-medium text-[#166534] shadow-xs">
-            <span className="text-base leading-none">✨</span>
+            <Sparkles className="w-4 h-4 text-[#156035]" />
             <span>About Femmeflo</span>
           </div>
 
@@ -83,25 +84,25 @@ export function About() {
           {/* Feature Highlights Grid */}
           <div className="grid grid-cols-2 gap-4 w-full pt-2">
             <div className="bg-white/80 backdrop-blur-md border border-zinc-200/80 p-4 rounded-2xl shadow-xs">
-              <div className="text-2xl mb-1">🌸</div>
+              <Feather className="w-6 h-6 text-[#E61C5D] mb-1" />
               <h3 className="text-sm font-bold text-zinc-900">Cotton Soft Core</h3>
               <p className="text-xs text-zinc-500 mt-1">Breathable fabric preventing rashes and irritation.</p>
             </div>
 
             <div className="bg-white/80 backdrop-blur-md border border-zinc-200/80 p-4 rounded-2xl shadow-xs">
-              <div className="text-2xl mb-1 font-bold text-[#156035]">⚡</div>
+              <Clock className="w-6 h-6 text-[#156035] mb-1" />
               <h3 className="text-sm font-bold text-zinc-900">12-Hour Protection</h3>
               <p className="text-xs text-zinc-500 mt-1">Rapid absorption channels for all-day security.</p>
             </div>
 
             <div className="bg-white/80 backdrop-blur-md border border-zinc-200/80 p-4 rounded-2xl shadow-xs">
-              <div className="text-2xl mb-1">🛡️</div>
+              <ShieldCheck className="w-6 h-6 text-[#E61C5D] mb-1" />
               <h3 className="text-sm font-bold text-zinc-900">Zero Leak Lock</h3>
               <p className="text-xs text-zinc-500 mt-1">Double side-wings for edge-to-edge confidence.</p>
             </div>
 
             <div className="bg-white/80 backdrop-blur-md border border-zinc-200/80 p-4 rounded-2xl shadow-xs">
-              <div className="text-2xl mb-1">🌱</div>
+              <Sprout className="w-6 h-6 text-[#156035] mb-1" />
               <h3 className="text-sm font-bold text-zinc-900">Toxin Free</h3>
               <p className="text-xs text-zinc-500 mt-1">0% artificial fragrance, chlorine or harsh dyes.</p>
             </div>
@@ -114,19 +115,7 @@ export function About() {
               className="inline-flex items-center gap-2 text-[#E61C5D] font-bold text-base hover:text-[#d91b54] group transition-colors"
             >
               <span>Discover Our Innovations</span>
-              <svg
-                className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2.5}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"
-                />
-              </svg>
+              <ArrowRight className="w-5 h-5 transition-transform duration-200 group-hover:translate-x-1" />
             </a>
           </div>
         </motion.div>
@@ -136,3 +125,4 @@ export function About() {
 }
 
 export default About;
+
