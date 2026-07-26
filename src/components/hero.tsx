@@ -7,22 +7,19 @@ import FloatingProduct from "./FloatingProduct";
 export function Hero() {
   return (
     <section className="relative w-full max-w-7xl mx-auto px-6 pt-4 pb-16 flex flex-col justify-between min-h-[calc(100vh-100px)] overflow-hidden font-[family-name:var(--font-jakarta)]">
-      {/* Background Soft Glow Orbs with inline Tailwind blur & colors */}
+      {/* Background Soft Glow Orbs */}
       <div className="absolute top-1/4 left-[-10%] w-[500px] h-[500px] bg-rose-200/40 rounded-full blur-3xl pointer-events-none -z-10 animate-[pulse_6s_ease-in-out_infinite]" />
       <div className="absolute top-1/3 right-[5%] w-[450px] h-[450px] bg-emerald-200/35 rounded-full blur-3xl pointer-events-none -z-10 animate-[pulse_8s_ease-in-out_infinite]" />
       <div className="absolute top-1/2 right-[25%] w-[350px] h-[350px] bg-pink-300/30 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      {/* Main Grid Content - Split into two equal columns */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center my-auto py-6">
         {/* Left Column: Copy & CTAs */}
         <div className="flex flex-col items-start z-10 space-y-6">
-          {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF6EF] border border-[#CCE9D7] text-xs sm:text-sm font-medium text-[#166534] shadow-xs">
             <span className="text-base leading-none">🌸</span>
             <span>Glow • Trusted Feminine Care</span>
           </div>
 
-          {/* Main Headline */}
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-900 leading-[1.1]">
             Feel{" "}
             <span className="font-[family-name:var(--font-playfair)] italic font-semibold text-[#156035]">
@@ -35,7 +32,6 @@ export function Hero() {
             </span>
           </h1>
 
-          {/* Description */}
           <p className="text-zinc-600 text-base sm:text-lg max-w-md leading-relaxed">
             Experience superior comfort, dependable leak protection, and
             confidence throughout your day with Femmeflo XL sanitary pads.
@@ -49,11 +45,40 @@ export function Hero() {
             >
               Buy Now
             </Link>
+
+            {/* Explore Product — sliding-arrow button */}
+            {/* Explore Product — sliding-arrow button */}
             <Link
               href="#explore"
-              className="border-2 border-zinc-800 text-zinc-900 font-semibold text-base px-8 py-3.5 rounded-full hover:bg-zinc-900 hover:text-white transition-all duration-200 active:scale-[0.98]"
+              className="group relative inline-flex items-center gap-3 pl-7 pr-2.5 py-2.5 rounded-full border-2 border-zinc-900 text-zinc-900 font-semibold text-base transition-colors duration-300 hover:bg-zinc-900 hover:text-white active:scale-[0.98]"
             >
-              Explore Product
+              <span>Explore Product</span>
+              <span className="relative w-9 h-9 shrink-0 rounded-full bg-zinc-900 text-white flex items-center justify-center overflow-hidden shadow-sm transition-colors duration-300 group-hover:bg-white group-hover:text-zinc-900">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="absolute w-4 h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-[200%] group-hover:-translate-y-[200%]"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="absolute w-4 h-4 -translate-x-[200%] translate-y-[200%] transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:translate-y-0"
+                >
+                  <line x1="7" y1="17" x2="17" y2="7" />
+                  <polyline points="7 7 17 7 17 17" />
+                </svg>
+              </span>
             </Link>
           </div>
 
@@ -78,7 +103,7 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Large Premium Floating Product Component */}
+        {/* Right Column: Product */}
         <div className="relative flex flex-col items-center justify-center">
           <FloatingProduct />
         </div>
@@ -86,4 +111,3 @@ export function Hero() {
     </section>
   );
 }
-
