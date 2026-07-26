@@ -3,7 +3,7 @@ import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
 import { ProductSection } from "@/components/ProductSection";
 import { PromiseSection } from "@/components/promise";
-import { RoadmapSection } from "@/components/roadmap";
+import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { EssenceSection } from "@/components/essence";
 import { ContactSection } from "@/components/contact";
 import { GlobalFloatingProduct } from "@/components/GlobalFloatingProduct";
@@ -20,7 +20,7 @@ export default function Home() {
         <About />
         <ProductSection />
         <PromiseSection />
-        <RoadmapSection />
+        <WhyChooseUs />
         <EssenceSection />
       </main>
       <ContactSection />
