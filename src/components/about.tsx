@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Leaf, Sparkles, Feather, Clock, ShieldCheck, Sprout, ArrowRight } from "lucide-react";
 
@@ -18,17 +17,14 @@ export function About() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Left Side: Product Landing Container (Glass Card Frame) */}
         <motion.div
-          className="relative flex items-center justify-center"
+          className="relative flex items-center justify-center w-full"
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           {/* Background Glass Frame acting as Landing Container for single FloatingProduct */}
-          <div
-            id="about-product-anchor"
-            className="relative w-full max-w-[540px] aspect-square rounded-3xl bg-gradient-to-br from-white/70 to-rose-50/40 backdrop-blur-xl border border-white/80 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.05)] flex items-center justify-center overflow-hidden min-h-[480px]"
-          >
+          <div className="relative w-full max-w-[540px] aspect-square rounded-3xl bg-gradient-to-br from-white/80 to-rose-50/40 backdrop-blur-xl border border-white/80 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.06)] flex items-center justify-center overflow-hidden min-h-[440px] sm:min-h-[480px]">
             {/* Animated Background Glow Circle inside About Card */}
             <motion.div
               className="absolute w-[320px] h-[320px] rounded-full bg-gradient-to-tr from-[#E61C5D]/20 to-[#156035]/15 blur-2xl"
@@ -44,13 +40,19 @@ export function About() {
             />
 
             {/* Floating Quality Stamp Badge */}
-            <div className="absolute bottom-6 right-6 z-20 bg-white/90 backdrop-blur-md border border-zinc-200/80 px-4 py-2.5 rounded-2xl shadow-lg flex items-center gap-3">
+            <div className="absolute bottom-6 right-6 z-20 bg-white/90 backdrop-blur-md border border-zinc-200/80 px-4 py-2.5 rounded-2xl shadow-lg flex items-center gap-3 pointer-events-none select-none">
               <Leaf className="w-6 h-6 text-[#156035]" />
               <div>
                 <p className="text-xs font-bold text-zinc-900">100% Dermatologically Tested</p>
                 <p className="text-[11px] text-zinc-500">Hypoallergenic & Gentle</p>
               </div>
             </div>
+
+            {/* Anchor Target for Floating Product */}
+            <div
+              id="about-product-anchor"
+              className="relative w-full h-full flex items-center justify-center pointer-events-none"
+            />
           </div>
         </motion.div>
 

@@ -95,14 +95,8 @@ export function GlobalFloatingProduct() {
       const isDesktop = window.innerWidth >= 1024;
 
       // Determine starting Hero X (Right side) and ending About X (Left side)
-      let heroX = hRect.left + hRect.width / 2;
-      let aboutX = aRect.left + aRect.width / 2;
-
-      // Guarantee diagonal crossing from Right (72%) to Left (28%) on desktop viewports
-      if (isDesktop) {
-        heroX = Math.max(heroX, window.innerWidth * 0.72);
-        aboutX = Math.min(aboutX, window.innerWidth * 0.28);
-      }
+      const heroX = hRect.left + hRect.width / 2;
+      const aboutX = aRect.left + aRect.width / 2;
 
       const heroY = hRect.top + hRect.height / 2;
       const aboutY = aRect.top + aRect.height / 2;

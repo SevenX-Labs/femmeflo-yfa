@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Sparkles, Check, ArrowUpRight } from "lucide-react";
 
 export function Hero() {
@@ -79,20 +80,35 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Hero Product Anchor with Premium Glass Card Frame */}
+        {/* Right Column: Hero Product Showcase with Handheld Girl */}
         <div className="relative flex items-center justify-center w-full">
-          <div
-            id="hero-product-anchor"
-            className="relative w-full max-w-[540px] aspect-[4/3] sm:aspect-square rounded-3xl bg-gradient-to-br from-white/80 via-rose-50/30 to-emerald-50/20 backdrop-blur-xl border border-zinc-200/70 p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.06)] flex items-center justify-center overflow-hidden min-h-[360px] sm:min-h-[440px]"
-          >
+          <div className="relative w-full max-w-[600px] aspect-[16/11] sm:aspect-[16/10] rounded-3xl bg-gradient-to-br from-white/90 via-rose-50/40 to-emerald-50/20 backdrop-blur-xl border border-white/90 p-4 sm:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.08)] flex items-center justify-center overflow-hidden min-h-[340px] sm:min-h-[400px]">
             {/* Ambient Inner Glow Orb */}
-            <div className="absolute w-[300px] h-[300px] rounded-full bg-gradient-to-tr from-[#E61C5D]/15 via-rose-200/20 to-[#156035]/10 blur-2xl pointer-events-none" />
+            <div className="absolute w-[320px] h-[320px] rounded-full bg-gradient-to-tr from-[#E61C5D]/18 via-rose-200/20 to-[#156035]/12 blur-2xl pointer-events-none" />
 
-            {/* Premium Floating Badge (Bottom Right) */}
-            <div className="absolute bottom-5 right-5 z-20 bg-white/90 backdrop-blur-md border border-zinc-200/80 px-3.5 py-2 rounded-2xl shadow-sm flex items-center gap-2.5 pointer-events-none select-none">
+            {/* Handheld Girl Image - Full uncropped view */}
+            <div className="absolute inset-0 p-2 flex items-end justify-center pointer-events-none select-none">
+              <Image
+                src="/handheldgirl.png"
+                alt="Woman holding Femmeflo product"
+                fill
+                className="object-contain object-bottom"
+                priority
+                unoptimized
+              />
+            </div>
+
+            {/* Premium Floating Badge (Top Left) */}
+            <div className="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur-md border border-zinc-200/80 px-3.5 py-2 rounded-2xl shadow-md flex items-center gap-2.5 pointer-events-none select-none">
               <div className="w-2.5 h-2.5 rounded-full bg-[#E61C5D] animate-ping" />
               <span className="text-xs font-bold text-zinc-800">XL Extra Long • 6 Units</span>
             </div>
+
+            {/* Anchor Target for Floating Product to land directly onto her open palm */}
+            <div
+              id="hero-product-anchor"
+              className="absolute w-[220px] sm:w-[260px] h-[220px] sm:h-[260px] pointer-events-none transform translate-x-[22%] translate-y-[12%]"
+            />
           </div>
         </div>
       </div>
