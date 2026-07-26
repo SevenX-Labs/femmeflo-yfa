@@ -47,7 +47,6 @@ export function Hero() {
             </Link>
 
             {/* Explore Product — sliding-arrow button */}
-            {/* Explore Product — sliding-arrow button */}
             <Link
               href="#explore"
               className="group relative inline-flex items-center gap-3 pl-7 pr-2.5 py-2.5 rounded-full border-2 border-zinc-900 text-zinc-900 font-semibold text-base transition-colors duration-300 hover:bg-zinc-900 hover:text-white active:scale-[0.98]"
