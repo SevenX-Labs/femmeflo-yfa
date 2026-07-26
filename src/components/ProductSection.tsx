@@ -16,40 +16,13 @@ export function ProductSection() {
 
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         
-        {/* LEFT SIDE: Landing Frame for Floating Product (5 cols on lg) */}
+        {/* LEFT SIDE: Product Specs, Features Grid & MRP Price Card (7 cols on lg) */}
         <motion.div
-          className="lg:col-span-5 flex items-center justify-center relative"
+          className="lg:col-span-7 order-2 lg:order-1 flex flex-col items-start space-y-6"
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          {/* Circular Glowing White Card Frame acting as Landing Container */}
-          <div className="relative w-full max-w-[480px] aspect-square rounded-full bg-gradient-to-br from-white/90 via-rose-50/40 to-emerald-50/30 backdrop-blur-2xl border-4 border-white p-6 shadow-[0_20px_50px_rgba(0,0,0,0.06)] flex items-center justify-center overflow-hidden min-h-[380px] sm:min-h-[440px]">
-            
-            {/* Ambient Glow */}
-            <div className="absolute w-[320px] h-[320px] rounded-full bg-gradient-to-tr from-[#E61C5D]/15 to-[#156035]/15 blur-2xl pointer-events-none" />
-
-            {/* Bottom Tag Pill */}
-            <div className="absolute bottom-8 z-20 bg-white/90 backdrop-blur-md border border-zinc-200/80 px-4 py-1.5 rounded-full shadow-sm pointer-events-none select-none">
-              <span className="text-xs font-bold text-zinc-800">Cotton Soft • Leak Lock</span>
-            </div>
-
-            {/* Floating Product Target Anchor: GSAP scroll animation ends exactly here */}
-            <div
-              id="product-price-anchor"
-              className="relative w-full h-full flex items-center justify-center pointer-events-none"
-            />
-          </div>
-        </motion.div>
-
-        {/* RIGHT SIDE: Product Specs, Features Grid & MRP Price Card (7 cols on lg) */}
-        <motion.div
-          className="lg:col-span-7 flex flex-col items-start space-y-6"
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
         >
           {/* Badge */}
           <div className="inline-block px-3.5 py-1 rounded-full bg-[#156035]/10 border border-[#156035]/20 text-xs font-bold text-[#156035] uppercase tracking-wider">
@@ -152,6 +125,34 @@ export function ProductSection() {
           </div>
 
         </motion.div>
+
+        {/* RIGHT SIDE: Landing Frame for Floating Product (5 cols on lg) */}
+        <motion.div
+          className="lg:col-span-5 order-1 lg:order-2 flex items-center justify-center relative"
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+        >
+          {/* Circular Glowing White Card Frame acting as Landing Container */}
+          <div className="relative w-full max-w-[480px] aspect-square rounded-full bg-gradient-to-br from-white/90 via-rose-50/40 to-emerald-50/30 backdrop-blur-2xl border-4 border-white p-6 shadow-[0_20px_50px_rgba(0,0,0,0.06)] flex items-center justify-center overflow-hidden min-h-[380px] sm:min-h-[440px]">
+            
+            {/* Ambient Glow */}
+            <div className="absolute w-[320px] h-[320px] rounded-full bg-gradient-to-tr from-[#E61C5D]/15 to-[#156035]/15 blur-2xl pointer-events-none" />
+
+            {/* Bottom Tag Pill */}
+            <div className="absolute bottom-8 z-20 bg-white/90 backdrop-blur-md border border-zinc-200/80 px-4 py-1.5 rounded-full shadow-sm pointer-events-none select-none">
+              <span className="text-xs font-bold text-zinc-800">Cotton Soft • Leak Lock</span>
+            </div>
+
+            {/* Floating Product Target Anchor: GSAP scroll animation ends exactly here */}
+            <div
+              id="product-price-anchor"
+              className="relative w-full h-full flex items-center justify-center pointer-events-none"
+            />
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );
