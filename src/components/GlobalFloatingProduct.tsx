@@ -85,7 +85,7 @@ export function GlobalFloatingProduct() {
     // Master update function to transition product diagonally across screen from Right to Left
     const updatePosition = () => {
       const heroAnchor = document.getElementById("hero-product-anchor");
-      const aboutAnchor = document.getElementById("about-product-anchor");
+      const aboutAnchor = document.getElementById("product-price-anchor") || document.getElementById("about-product-anchor");
 
       if (!heroAnchor || !aboutAnchor) return;
 
@@ -105,10 +105,13 @@ export function GlobalFloatingProduct() {
       const aboutDocY = aRect.top + scrollY;
 
       // Transition completes as About glass card reaches center of viewport
-      const endScroll = Math.max(1, aboutDocY + aRect.height / 2 - window.innerHeight / 2);
+      const endScroll = Math.max(1, aboutDocY + aRect.height / 2 - window.innerHeight * 0.5);
 
-      // Clamp progress between 0 (Hero right column) and 1 (About left card)
-      const p = Math.max(0, Math.min(1, scrollY / endScroll));
+      // Clamp raw progress between 0 (Hero right column) and 1 (About left card)
+      const rawP = Math.max(0, Math.min(1, scrollY / endScroll));
+
+      // Ease-in-out curve so product box settles gently into About card and stays anchored when scrolling up slightly
+      const p = rawP < 0.5 ? 2 * rawP * rawP : 1 - Math.pow(-2 * rawP + 2, 2) / 2;
 
       // Diagonal cross calculation: Right side -> Left side
       const curX = heroX + (aboutX - heroX) * p;
@@ -178,21 +181,12 @@ export function GlobalFloatingProduct() {
       {/* Floating Particles */}
       <BackgroundParticles />
 
-      {/* Continuous Idle Floating Animation: Y: -8px ↔ +8px, rotate: -2° ↔ +2°, duration: 6s infinite */}
+      {/* Product Image Container */}
       <motion.div
-        className="relative w-[340px] sm:w-[480px] lg:w-[560px] flex items-center justify-center"
+        className="relative w-[360px] sm:w-[560px] lg:w-[640px] flex items-center justify-center"
         style={{
           x: mouseX,
           y: mouseY,
-        }}
-        animate={{
-          y: [-8, 8, -8],
-          rotate: [-2, 2, -2],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut",
         }}
       >
         <div
@@ -204,10 +198,10 @@ export function GlobalFloatingProduct() {
           <Image
             src="/femmeflo-withoutbg.png"
             alt="Femmeflo XL Sanitary Pads"
-            width={650}
-            height={650}
+            width={800}
+            height={800}
             priority
-            className="w-full h-auto object-contain pointer-events-none max-h-[460px] sm:max-h-[520px] lg:max-h-[580px]"
+            className="w-full h-auto object-contain pointer-events-none max-h-[460px] sm:max-h-[560px] lg:max-h-[640px]"
           />
         </div>
       </motion.div>

@@ -2,7 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { Sparkles, ArrowUpRight, ShieldCheck, Lock, Feather, Leaf, Mouse } from "lucide-react";
 
 export function Hero() {
@@ -38,7 +37,8 @@ export function Hero() {
 
           <p className="text-zinc-600 text-base sm:text-lg max-w-md leading-relaxed">
             Experience superior comfort, dependable leak protection, and
-            confidence throughout your day with <strong className="text-zinc-900 font-semibold">Femmeflo XL</strong> sanitary pads.
+            confidence throughout your day with{" "}
+            <strong className="text-zinc-900 font-semibold">Femmeflo XL</strong> sanitary pads.
           </p>
 
           {/* Action Buttons */}
@@ -101,35 +101,25 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Natural Uncropped Brand Ambassador with Glowing Background Halo */}
-        <div className="relative flex items-center justify-center w-full min-h-[460px] lg:min-h-[540px]">
-          {/* Background Soft Pink/Green Radial Glow Halo */}
-          <div className="absolute w-[440px] sm:w-[520px] h-[440px] sm:h-[520px] rounded-full bg-gradient-to-tr from-rose-200/60 via-pink-100/50 to-emerald-100/40 blur-3xl pointer-events-none -z-10" />
+        {/* Right Column: Hero Product Showcase Container */}
+        <div className="relative flex items-center justify-center w-full">
+          <div className="relative w-full max-w-[620px] aspect-[4/3] sm:aspect-square rounded-3xl bg-gradient-to-br from-white/90 via-rose-50/30 to-emerald-50/20 backdrop-blur-xl border border-zinc-200/70 p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.06)] flex items-center justify-center overflow-hidden min-h-[400px] sm:min-h-[480px]">
+            {/* Ambient Inner Glow Orb */}
+            <div className="absolute w-[300px] h-[300px] rounded-full bg-gradient-to-tr from-[#E61C5D]/15 via-rose-200/20 to-[#156035]/10 blur-2xl pointer-events-none" />
 
-          {/* Full Uncropped Woman Image */}
-          <div className="relative w-full h-[440px] sm:h-[520px] flex items-center justify-center">
-            <Image
-              src="/handheldgirl.png"
-              alt="Femmeflo Brand Ambassador"
-              fill
-              className="object-contain object-center pointer-events-none select-none drop-shadow-md"
-              priority
-              unoptimized
-            />
+            {/* Premium Floating Badge */}
+            <div className="absolute bottom-5 right-5 z-20 bg-white/90 backdrop-blur-md border border-zinc-200/80 px-3.5 py-2 rounded-2xl shadow-sm flex items-center gap-2.5 pointer-events-none select-none">
+              <div className="w-2.5 h-2.5 rounded-full bg-[#E61C5D] animate-ping" />
+              <span className="text-xs font-bold text-zinc-800">XL Extra Long • 6 Units</span>
+            </div>
 
-            {/* Anchor Target for Floating Product to land directly onto her open palm */}
+            {/* Anchor Target for Floating Product */}
             <div
               id="hero-product-anchor"
-              className="absolute w-[260px] sm:w-[320px] h-[260px] sm:h-[320px] pointer-events-none transform translate-x-[22%] translate-y-[6%]"
+              className="relative w-full h-full flex items-center justify-center pointer-events-none"
             />
           </div>
         </div>
-      </div>
-
-      {/* Scroll to Discover Indicator at Bottom */}
-      <div className="w-full flex items-center justify-center pt-6 text-zinc-400 text-xs font-medium gap-2 pointer-events-none select-none">
-        <Mouse className="w-4 h-4 animate-bounce text-zinc-500" />
-        <span>Scroll to Discover</span>
       </div>
     </section>
   );
