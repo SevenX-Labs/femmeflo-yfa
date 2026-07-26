@@ -8,11 +8,11 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative w-full py-20 lg:py-28 bg-[#156035] text-white overflow-hidden font-[family-name:var(--font-jakarta)]"
+      className="relative w-full py-20 lg:py-28 bg-[#EAF5EE]/60 border-t border-zinc-200/80 text-zinc-900 overflow-hidden font-[family-name:var(--font-jakarta)]"
     >
       {/* Background Decorative Ambient Orbs */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-emerald-400/10 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-rose-400/10 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-200/30 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-rose-200/30 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         
@@ -24,17 +24,17 @@ export function ContactSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-flex items-center gap-2 bg-emerald-800/80 border border-emerald-700/80 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-200">
-            <Sparkles className="w-3.5 h-3.5 text-yellow-300" />
+          <div className="inline-flex items-center gap-2 bg-[#156035]/10 border border-[#156035]/20 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-[#156035]">
+            <Sparkles className="w-3.5 h-3.5 text-[#E61C5D]" />
             <span>Get In Touch</span>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight font-[family-name:var(--font-playfair)]">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-zinc-900 font-[family-name:var(--font-playfair)]">
             Together, let&apos;s <br />
-            enable <span className="text-rose-300 italic font-normal">period freedom.</span>
+            enable <span className="text-[#E61C5D] italic font-normal">period freedom.</span>
           </h2>
 
-          <p className="text-emerald-100/90 text-base sm:text-lg max-w-lg leading-relaxed">
+          <p className="text-zinc-600 text-base sm:text-lg max-w-lg leading-relaxed">
             Partner with us to bring superior comfort, protection, and confidence to women everywhere.
           </p>
 
@@ -49,7 +49,7 @@ export function ContactSection() {
 
         {/* Right Corporate Contact Card */}
         <motion.div
-          className="lg:col-span-6 bg-white text-zinc-900 rounded-3xl p-8 sm:p-10 shadow-2xl relative overflow-hidden"
+          className="lg:col-span-6 bg-white border border-zinc-200/80 text-zinc-900 rounded-3xl p-8 sm:p-10 shadow-xl relative overflow-hidden"
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -70,7 +70,7 @@ export function ContactSection() {
             
             {/* Office Locations */}
             <div className="flex items-start gap-3.5">
-              <div className="w-9 h-9 rounded-full bg-emerald-100 text-[#156035] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
+              <div className="w-9 h-9 rounded-full bg-emerald-100/80 text-[#156035] flex items-center justify-center shrink-0 mt-0.5 shadow-xs">
                 <MapPin className="w-5 h-5" />
               </div>
               <div className="space-y-3">
@@ -91,7 +91,7 @@ export function ContactSection() {
 
             {/* Customer Support Phone */}
             <div className="flex items-center gap-3.5 pt-3 border-t border-zinc-100">
-              <div className="w-9 h-9 rounded-full bg-emerald-100 text-[#156035] flex items-center justify-center shrink-0 shadow-xs">
+              <div className="w-9 h-9 rounded-full bg-emerald-100/80 text-[#156035] flex items-center justify-center shrink-0 shadow-xs">
                 <Phone className="w-5 h-5" />
               </div>
               <div>
