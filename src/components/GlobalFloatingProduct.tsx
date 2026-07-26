@@ -86,7 +86,6 @@ export function GlobalFloatingProduct() {
     if (!target) return;
 
     const ctx = gsap.context(() => {
-      // Timeline 1: Hero -> About
       const updateHeroToAbout = (progress: number) => {
         const heroAnchor = document.getElementById("hero-product-anchor");
         const aboutAnchor = document.getElementById("about-product-anchor");
@@ -96,10 +95,9 @@ export function GlobalFloatingProduct() {
         const hRect = heroAnchor.getBoundingClientRect();
         const aRect = aboutAnchor.getBoundingClientRect();
 
-        // Clamp progress between 0 and 1 for Timeline 1
         const p = Math.max(0, Math.min(1, progress));
 
-        // Position moves from Hero anchor center to About anchor center
+        // Interpolate viewport positions between Hero right column and About left card
         const curX = hRect.left + hRect.width / 2 + (aRect.left + aRect.width / 2 - (hRect.left + hRect.width / 2)) * p;
         const curY = hRect.top + hRect.height / 2 + (aRect.top + aRect.height / 2 - (hRect.top + hRect.height / 2)) * p;
 
@@ -108,19 +106,36 @@ export function GlobalFloatingProduct() {
           y: curY,
           xPercent: -50,
           yPercent: -50,
+          opacity: 1, // Reveal only after correct positioning
         });
       };
 
-      // Set initial position aligned to Hero
-      updateHeroToAbout(0);
+      // Set initial position once DOM is ready
+      const initPos = () => {
+        const heroAnchor = document.getElementById("hero-product-anchor");
+        if (heroAnchor) {
+          const hRect = heroAnchor.getBoundingClientRect();
+          gsap.set(target, {
+            x: hRect.left + hRect.width / 2,
+            y: hRect.top + hRect.height / 2,
+            xPercent: -50,
+            yPercent: -50,
+            opacity: 1,
+          });
+        }
+      };
 
-      // TIMELINE 1: Hero -> About (Moves product smoothly to About card & pins it inside)
+      // Try initial placement immediately and after first frame
+      initPos();
+      requestAnimationFrame(initPos);
+
+      // TIMELINE 1: Hero -> About
       const tl1 = gsap.timeline({
         scrollTrigger: {
           trigger: "#hero",
           endTrigger: "#about",
           start: "top top",
-          end: "top 15%", // Completes transition as About reaches upper center view
+          end: "top 15%",
           scrub: 0.6,
           invalidateOnRefresh: true,
           onUpdate: (self) => {
@@ -136,44 +151,22 @@ export function GlobalFloatingProduct() {
         ease: "power1.inOut",
       });
 
-      // Lock final transform state at the end of Timeline 1
       tl1.set(target, {
         scale: 0.88,
         rotationZ: -8,
         rotationY: 15,
       });
 
-      // TIMELINE 2: About -> Next Section (Prepped for future sections when About finishes)
-      const featuresAnchor = document.getElementById("features-product-anchor");
-      if (featuresAnchor) {
-        const tl2 = gsap.timeline({
-          scrollTrigger: {
-            trigger: "#about",
-            endTrigger: "#features",
-            start: "bottom 30%", // Unpins from About only when About is leaving viewport
-            end: "bottom top",
-            scrub: 0.6,
-            invalidateOnRefresh: true,
-          },
-        });
-
-        tl2.to(target, {
-          scale: 0.82,
-          rotationZ: 0,
-          rotationY: 0,
-          ease: "power1.inOut",
-        });
-      }
     }, fixedContainerRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    // Fixed Root Layer: Always on top (z-index: 9999), pinned to active section target
+    // Fixed Root Layer: opacity-0 initially until measured, z-index: 9999
     <div
       ref={fixedContainerRef}
-      className="fixed top-0 left-0 z-[9999] pointer-events-none select-none flex items-center justify-center will-change-transform"
+      className="fixed top-0 left-0 z-[9999] pointer-events-none select-none flex items-center justify-center opacity-0 will-change-transform"
       style={{ willChange: "transform" }}
     >
       {/* Background Soft Glow Orbs */}
