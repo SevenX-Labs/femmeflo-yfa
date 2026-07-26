@@ -165,7 +165,7 @@ export function Hero() {
 
         {/* Right Column: Hero Product Showcase Container */}
         <div className="relative flex items-center justify-center w-full">
-          <div className="relative w-full max-w-[620px] aspect-[4/3] sm:aspect-square rounded-3xl bg-gradient-to-br from-white/90 via-rose-50/30 to-emerald-50/20 backdrop-blur-xl border border-zinc-200/70 p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.06)] flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[480px]">
+          <div className="relative w-full max-w-[640px] aspect-[16/11] rounded-3xl bg-gradient-to-br from-white/90 via-rose-50/30 to-emerald-50/20 backdrop-blur-xl border border-zinc-200/70 p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.06)] flex items-center justify-center overflow-hidden min-h-[260px] sm:min-h-[380px]">
             {/* Ambient Inner Glow Orb */}
             <div className="absolute w-[300px] h-[300px] rounded-full bg-gradient-to-tr from-[#E61C5D]/15 via-rose-200/20 to-[#156035]/10 blur-2xl pointer-events-none" />
 

@@ -93,7 +93,7 @@ export function About() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           {/* Background Glass Frame acting as Landing Container for single FloatingProduct */}
-          <div className="relative w-full max-w-[540px] aspect-square rounded-3xl bg-gradient-to-br from-white/80 to-rose-50/40 backdrop-blur-xl border border-white/80 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.06)] flex items-center justify-center overflow-hidden min-h-[300px] sm:min-h-[480px]">
+          <div className="relative w-full max-w-[640px] aspect-[16/11] rounded-3xl bg-gradient-to-br from-white/85 via-white/65 to-rose-50/40 backdrop-blur-2xl border-2 border-white/90 p-6 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.08)] flex items-center justify-center overflow-hidden min-h-[260px] sm:min-h-[380px] ring-1 ring-white/60">
             {/* Animated Background Glow Circle inside About Card */}
             <motion.div
               className="absolute w-[320px] h-[320px] rounded-full bg-gradient-to-tr from-[#E61C5D]/20 to-[#156035]/15 blur-2xl"
