@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { ModelViewer } from "./3d-model-viewer";
+import FloatingProduct from "./FloatingProduct";
 
 export function Hero() {
   return (
@@ -12,14 +12,14 @@ export function Hero() {
       <div className="absolute top-1/3 right-[5%] w-[450px] h-[450px] bg-emerald-200/35 rounded-full blur-3xl pointer-events-none -z-10 animate-[pulse_8s_ease-in-out_infinite]" />
       <div className="absolute top-1/2 right-[25%] w-[350px] h-[350px] bg-pink-300/30 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      {/* Main Grid Content */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center my-auto py-6">
+      {/* Main Grid Content - Split into two equal columns */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center my-auto py-6">
         {/* Left Column: Copy & CTAs */}
-        <div className="lg:col-span-6 flex flex-col items-start z-10 space-y-6">
+        <div className="flex flex-col items-start z-10 space-y-6">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF6EF] border border-[#CCE9D7] text-xs sm:text-sm font-medium text-[#166534] shadow-xs">
-            <span className="text-base leading-none">🌱</span>
-            <span>Trusted Feminine Care</span>
+            <span className="text-base leading-none">🌸</span>
+            <span>Glow • Trusted Feminine Care</span>
           </div>
 
           {/* Main Headline */}
@@ -78,9 +78,9 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Interactive 3D Model Box */}
-        <div className="lg:col-span-6 relative flex flex-col items-center justify-center">
-          <ModelViewer />
+        {/* Right Column: Large Premium Floating Product Component */}
+        <div className="relative flex flex-col items-center justify-center">
+          <FloatingProduct />
         </div>
       </div>
 
@@ -96,3 +96,4 @@ export function Hero() {
     </section>
   );
 }
+
