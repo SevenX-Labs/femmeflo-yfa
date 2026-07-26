@@ -6,11 +6,12 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const navItems = [
-  { name: "Home", href: "#home" },
+  { name: "Home", href: "#hero" },
   { name: "About", href: "#about" },
-  { name: "Features", href: "#features" },
   { name: "Products", href: "#products" },
-  { name: "Quality", href: "#quality" },
+  { name: "Promise", href: "#promise" },
+  { name: "Why Us", href: "#why-choose-us" },
+  { name: "Identity", href: "#essence" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -44,21 +45,22 @@ export function Navbar() {
   const highlightedIndex = hoveredIndex !== null ? hoveredIndex : activeIndex;
 
   return (
-    <header className="w-full max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between relative z-50 font-[family-name:var(--font-jakarta)]">
-      {/* 1. Left: Brand Logo */}
-      <Link href="/" className="flex items-center gap-3 group shrink-0 min-w-[140px] sm:min-w-[160px]">
-        <div className="relative h-10 sm:h-12 w-auto flex items-center">
-          <Image
-            src="/logo.png"
-            alt="Femmeflo Logo"
-            width={200}
-            height={55}
-            className="h-9 sm:h-17 w-auto object-contain transition-all duration-300 group-hover:scale-105 mix-blend-screen"
-            priority
-            unoptimized
-          />
-        </div>
-      </Link>
+    <header className="sticky top-0 z-50 w-full bg-white/80 backdrop-blur-xl border-b border-zinc-200/60 shadow-xs font-[family-name:var(--font-jakarta)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
+        {/* 1. Left: Brand Logo */}
+        <Link href="/" className="flex items-center gap-3 group shrink-0 min-w-[140px] sm:min-w-[160px]">
+          <div className="relative h-10 sm:h-12 w-auto flex items-center">
+            <Image
+              src="/logo.png"
+              alt="Femmeflo Logo"
+              width={200}
+              height={55}
+              className="h-9 sm:h-12 w-auto object-contain transition-all duration-300 group-hover:scale-105 drop-shadow-xs"
+              priority
+              unoptimized
+            />
+          </div>
+        </Link>
 
       {/* 2. Center: Floating Pill Navigation with Staggered Roll Animation */}
       <nav className="flex items-center bg-white/80 backdrop-blur-xl border border-zinc-200/80 rounded-full p-1.5 shadow-[0_8px_30px_rgba(0,0,0,0.04)] relative">
@@ -111,7 +113,7 @@ export function Navbar() {
           <StaggeredText text="Buy Now" />
         </Link>
       </div>
-
-    </header>
+    </div>
+  </header>
   );
 }
