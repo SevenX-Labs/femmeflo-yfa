@@ -207,7 +207,7 @@ export function GlobalFloatingProduct() {
 
       {/* Product Image Container */}
       <motion.div
-        className="relative w-[360px] sm:w-[560px] lg:w-[640px] flex items-center justify-center"
+        className="relative w-[260px] sm:w-[520px] lg:w-[640px] flex items-center justify-center"
         style={{
           x: mouseX,
           y: mouseY,
@@ -225,7 +225,7 @@ export function GlobalFloatingProduct() {
             width={800}
             height={800}
             priority
-            className="w-full h-auto object-contain pointer-events-none max-h-[460px] sm:max-h-[560px] lg:max-h-[640px]"
+            className="w-full h-auto object-contain pointer-events-none max-h-[320px] sm:max-h-[520px] lg:max-h-[640px]"
           />
         </div>
       </motion.div>
