@@ -114,11 +114,10 @@ export function About() {
               />
 
               {/* Floating Quality Stamp Badge */}
-              <div className="absolute bottom-6 right-6 z-20 bg-white/90 backdrop-blur-md border border-zinc-200/80 px-4 py-2.5 rounded-2xl shadow-lg flex items-center gap-3 pointer-events-none select-none">
-                <Leaf className="w-6 h-6 text-[#156035]" />
+              <div className="absolute bottom-5 sm:bottom-6 left-1/2 -translate-x-1/2 z-20 bg-white/90 backdrop-blur-md border border-zinc-200/80 px-4 py-2 rounded-2xl shadow-md flex items-center gap-2.5 pointer-events-none select-none whitespace-nowrap">
+                <Leaf className="w-5 h-5 text-[#156035]" />
                 <div>
                   <p className="text-xs font-bold text-zinc-900">100% Dermatologically Tested</p>
-                  <p className="text-[11px] text-zinc-500">Hypoallergenic & Gentle</p>
                 </div>
               </div>
 

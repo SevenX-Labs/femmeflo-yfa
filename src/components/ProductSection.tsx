@@ -145,7 +145,7 @@ export function ProductSection() {
               <div className="absolute w-[300px] h-[300px] rounded-full bg-gradient-to-tr from-[#E61C5D]/15 to-[#156035]/15 blur-2xl pointer-events-none" />
 
               {/* Bottom Tag Pill */}
-              <div className="absolute bottom-8 z-20 bg-white/90 backdrop-blur-md border border-zinc-200/80 px-4 py-1.5 rounded-full shadow-sm pointer-events-none select-none">
+              <div className="absolute bottom-5 sm:bottom-6 left-1/2 -translate-x-1/2 z-20 bg-white/90 backdrop-blur-md border border-zinc-200/80 px-4 py-2 rounded-full shadow-md pointer-events-none select-none whitespace-nowrap">
                 <span className="text-xs font-bold text-zinc-800">Cotton Soft • Leak Lock</span>
               </div>
 
