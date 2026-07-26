@@ -2,11 +2,10 @@
 
 import React from "react";
 import Link from "next/link";
-import FloatingProduct from "./FloatingProduct";
 
 export function Hero() {
   return (
-    <section className="relative w-full max-w-7xl mx-auto px-6 pt-4 pb-16 flex flex-col justify-between min-h-[calc(100vh-100px)] overflow-hidden font-[family-name:var(--font-jakarta)]">
+    <section id="hero" className="relative w-full max-w-7xl mx-auto px-6 pt-4 pb-16 flex flex-col justify-between min-h-[calc(100vh-100px)] overflow-hidden font-[family-name:var(--font-jakarta)]">
       {/* Background Soft Glow Orbs */}
       <div className="absolute top-1/4 left-[-10%] w-[500px] h-[500px] bg-rose-200/40 rounded-full blur-3xl pointer-events-none -z-10 animate-[pulse_6s_ease-in-out_infinite]" />
       <div className="absolute top-1/3 right-[5%] w-[450px] h-[450px] bg-emerald-200/35 rounded-full blur-3xl pointer-events-none -z-10 animate-[pulse_8s_ease-in-out_infinite]" />
@@ -102,10 +101,8 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Product */}
-        <div className="relative flex flex-col items-center justify-center">
-          <FloatingProduct />
-        </div>
+        {/* Right Column: Hero Product Anchor */}
+        <div id="hero-product-anchor" className="relative flex flex-col items-center justify-center min-h-[450px] w-full" />
       </div>
     </section>
   );

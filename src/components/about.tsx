@@ -15,7 +15,7 @@ export function About() {
       <div className="absolute bottom-10 right-[-5%] w-[450px] h-[450px] bg-rose-100/50 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        {/* Left Side: Product Image Display with Luxury Glass Container */}
+        {/* Left Side: Product Landing Container (Glass Card Frame) */}
         <motion.div
           className="relative flex items-center justify-center"
           initial={{ opacity: 0, x: -30 }}
@@ -23,9 +23,12 @@ export function About() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          {/* Subtle Background Card Frame */}
-          <div className="relative w-full max-w-[540px] aspect-square rounded-3xl bg-gradient-to-br from-white/70 to-rose-50/40 backdrop-blur-xl border border-white/80 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.05)] flex items-center justify-center overflow-hidden">
-            {/* Animated Glow Circle */}
+          {/* Background Glass Frame acting as Landing Container for single FloatingProduct */}
+          <div
+            id="about-product-anchor"
+            className="relative w-full max-w-[540px] aspect-square rounded-3xl bg-gradient-to-br from-white/70 to-rose-50/40 backdrop-blur-xl border border-white/80 p-8 shadow-[0_20px_50px_rgba(0,0,0,0.05)] flex items-center justify-center overflow-hidden min-h-[480px]"
+          >
+            {/* Animated Background Glow Circle inside About Card */}
             <motion.div
               className="absolute w-[320px] h-[320px] rounded-full bg-gradient-to-tr from-[#E61C5D]/20 to-[#156035]/15 blur-2xl"
               animate={{
@@ -38,22 +41,6 @@ export function About() {
                 ease: "easeInOut",
               }}
             />
-
-            {/* Product Image */}
-            <motion.div
-              className="relative z-10 w-full h-full flex items-center justify-center"
-              animate={{ y: [-8, 8, -8] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <Image
-                src="/femmeflo-withoutbg.png"
-                alt="Femmeflo XL Product"
-                width={500}
-                height={500}
-                className="w-auto h-full max-h-[460px] object-contain drop-shadow-[0_25px_35px_rgba(0,0,0,0.15)]"
-                priority
-              />
-            </motion.div>
 
             {/* Floating Quality Stamp Badge */}
             <div className="absolute bottom-6 right-6 z-20 bg-white/90 backdrop-blur-md border border-zinc-200/80 px-4 py-2.5 rounded-2xl shadow-lg flex items-center gap-3">

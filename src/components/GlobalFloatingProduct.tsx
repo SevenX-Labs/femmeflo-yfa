@@ -58,109 +58,140 @@ function BackgroundParticles() {
   );
 }
 
-export default function FloatingProduct() {
-  const gsapWrapperRef = useRef<HTMLDivElement>(null);
+export function GlobalFloatingProduct() {
+  const fixedContainerRef = useRef<HTMLDivElement>(null);
 
-  // Motion values for smooth cursor tracking
+  // Mouse interactivity values
   const rawMouseX = useMotionValue(0);
   const rawMouseY = useMotionValue(0);
 
-  const mouseX = useSpring(rawMouseX, { stiffness: 60, damping: 18 });
-  const mouseY = useSpring(rawMouseY, { stiffness: 60, damping: 18 });
+  const mouseX = useSpring(rawMouseX, { stiffness: 50, damping: 20 });
+  const mouseY = useSpring(rawMouseY, { stiffness: 50, damping: 20 });
 
-  // Handle subtle mouse movement
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       const { innerWidth, innerHeight } = window;
       const normX = (e.clientX / innerWidth - 0.5) * 2;
       const normY = (e.clientY / innerHeight - 0.5) * 2;
-      rawMouseX.set(normX * 20);
-      rawMouseY.set(normY * 15);
+      rawMouseX.set(normX * 18);
+      rawMouseY.set(normY * 12);
     };
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [rawMouseX, rawMouseY]);
 
-  // GSAP ScrollTrigger to move product smoothly from Hero right-side to About left-side
+  // GSAP ScrollTrigger to translate fixed element flawlessly from Hero right column to About left card
   useEffect(() => {
-    const wrapper = gsapWrapperRef.current;
-    if (!wrapper) return;
+    const target = fixedContainerRef.current;
+    if (!target) return;
 
     const ctx = gsap.context(() => {
-      const getDeltas = () => {
+      // Helper to calculate document-level coordinates
+      const getDocCoords = () => {
         const heroAnchor = document.getElementById("hero-product-anchor");
         const aboutAnchor = document.getElementById("about-product-anchor");
 
-        if (!heroAnchor || !aboutAnchor) {
-          return { deltaX: -550, deltaY: 700 };
-        }
+        if (!heroAnchor || !aboutAnchor) return null;
 
-        const heroRect = heroAnchor.getBoundingClientRect();
-        const aboutRect = aboutAnchor.getBoundingClientRect();
+        const hRect = heroAnchor.getBoundingClientRect();
+        const aRect = aboutAnchor.getBoundingClientRect();
 
-        const heroTop = heroRect.top + window.scrollY;
-        const heroLeft = heroRect.left + window.scrollX;
-        const aboutTop = aboutRect.top + window.scrollY;
-        const aboutLeft = aboutRect.left + window.scrollX;
+        const scrollY = window.scrollY;
+        const scrollX = window.scrollX;
 
-        const deltaX = aboutLeft - heroLeft + (aboutRect.width - heroRect.width) / 2;
-        const deltaY = aboutTop - heroTop + (aboutRect.height - heroRect.height) / 2;
+        const heroDocX = hRect.left + scrollX + hRect.width / 2;
+        const heroDocY = hRect.top + scrollY + hRect.height / 2;
 
-        return { deltaX, deltaY };
+        const aboutDocX = aRect.left + scrollX + aRect.width / 2;
+        const aboutDocY = aRect.top + scrollY + aRect.height / 2;
+
+        return {
+          heroDocX,
+          heroDocY,
+          deltaX: aboutDocX - heroDocX,
+          deltaY: aboutDocY - heroDocY,
+        };
       };
 
-      gsap.to(wrapper, {
+      const updateFixedPosition = (progress: number) => {
+        const coords = getDocCoords();
+        if (!coords) return;
+
+        // Clamp progress between 0 and 1 for section transition
+        const p = Math.max(0, Math.min(1, progress));
+
+        // Target document coordinates
+        const curDocX = coords.heroDocX + coords.deltaX * p;
+        const curDocY = coords.heroDocY + coords.deltaY * p;
+
+        // Convert current document position to fixed viewport coordinates
+        const fixedX = curDocX - window.scrollX;
+        const fixedY = curDocY - window.scrollY;
+
+        gsap.set(target, {
+          x: fixedX,
+          y: fixedY,
+          xPercent: -50,
+          yPercent: -50,
+        });
+      };
+
+      // Set initial position at Hero
+      updateFixedPosition(0);
+
+      // GSAP ScrollTrigger timeline
+      gsap.to(target, {
         scrollTrigger: {
           trigger: "#hero",
           endTrigger: "#about",
           start: "top top",
           end: "center center",
-          scrub: 1.2,
+          scrub: 0.8,
           invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            updateFixedPosition(self.progress);
+          },
         },
-        x: () => getDeltas().deltaX,
-        y: () => getDeltas().deltaY,
-        scale: 0.9,
+        scale: 0.88,
         rotationZ: -8,
         rotationY: 15,
         ease: "power1.inOut",
       });
-    }, gsapWrapperRef);
+    }, fixedContainerRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <div className="relative w-full flex items-center justify-center select-none pointer-events-none">
-      {/* Background Orbs */}
+    // Fixed Root Layer: Always on top (z-index: 9999), never clipped, single image on whole page
+    <div
+      ref={fixedContainerRef}
+      className="fixed top-0 left-0 z-[9999] pointer-events-none select-none flex items-center justify-center will-change-transform"
+      style={{ willChange: "transform" }}
+    >
+      {/* Background Soft Glow Orbs */}
       <motion.div
-        className="absolute w-[420px] h-[420px] rounded-full bg-[#E61C5D]/25 blur-3xl pointer-events-none z-0"
-        style={{ top: "45%", left: "50%", transform: "translate(-50%, -50%)" }}
+        className="absolute w-[440px] h-[440px] rounded-full bg-[#E61C5D]/22 blur-3xl pointer-events-none -z-10"
         animate={{
           scale: [1, 1.12, 1],
-          opacity: [0.22, 0.28, 0.22],
-          x: [-15, 15, -15],
-          y: [-10, 10, -10],
+          opacity: [0.2, 0.28, 0.2],
         }}
         transition={{
-          duration: 11,
+          duration: 10,
           repeat: Infinity,
           ease: "easeInOut",
         }}
       />
 
       <motion.div
-        className="absolute w-[380px] h-[380px] rounded-full bg-[#156035]/18 blur-3xl pointer-events-none z-0"
-        style={{ top: "35%", left: "45%", transform: "translate(-50%, -50%)" }}
+        className="absolute w-[390px] h-[390px] rounded-full bg-[#156035]/16 blur-3xl pointer-events-none -z-10"
         animate={{
           scale: [1.1, 0.95, 1.1],
           opacity: [0.15, 0.22, 0.15],
-          x: [12, -12, 12],
-          y: [12, -12, 12],
         }}
         transition={{
-          duration: 13,
+          duration: 12,
           repeat: Infinity,
           ease: "easeInOut",
         }}
@@ -169,43 +200,41 @@ export default function FloatingProduct() {
       {/* Floating Particles */}
       <BackgroundParticles />
 
-      {/* GSAP Scroll Target Container */}
-      <div ref={gsapWrapperRef} className="relative z-20 w-full flex items-center justify-center">
-        {/* Framer Motion Continuous Floating Loop (Y: -12px to +12px, Rotate: -2° to +2°, 5.5s infinite) */}
-        <motion.div
-          className="relative w-full max-w-[550px] lg:max-w-[620px]"
+      {/* Framer Motion Continuous Floating Loop: Y: -12px to +12px, rotate: -2° to +2°, 6s infinite */}
+      <motion.div
+        className="relative w-[340px] sm:w-[480px] lg:w-[560px] flex items-center justify-center"
+        style={{
+          x: mouseX,
+          y: mouseY,
+        }}
+        animate={{
+          y: [-12, 12, -12],
+          rotate: [-2, 2, -2],
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        <div
+          className="relative w-full h-auto flex items-center justify-center"
           style={{
-            x: mouseX,
-            y: mouseY,
-          }}
-          animate={{
-            y: [-12, 12, -12],
-            rotate: [-2, 2, -2],
-          }}
-          transition={{
-            duration: 5.5,
-            repeat: Infinity,
-            ease: "easeInOut",
+            filter: "drop-shadow(0 45px 55px rgba(0,0,0,0.18))",
           }}
         >
-          {/* Realistic Drop Shadow + Product Image */}
-          <div
-            className="relative w-full h-auto flex justify-center items-center"
-            style={{
-              filter: "drop-shadow(0 45px 55px rgba(0,0,0,0.18))",
-            }}
-          >
-            <Image
-              src="/femmeflo-withoutbg.png"
-              alt="Femmeflo XL Sanitary Pads"
-              width={650}
-              height={650}
-              priority
-              className="w-full h-auto object-contain pointer-events-none max-h-[500px] sm:max-h-[560px] lg:max-h-[620px]"
-            />
-          </div>
-        </motion.div>
-      </div>
+          <Image
+            src="/femmeflo-withoutbg.png"
+            alt="Femmeflo XL Sanitary Pads"
+            width={650}
+            height={650}
+            priority
+            className="w-full h-auto object-contain pointer-events-none max-h-[460px] sm:max-h-[520px] lg:max-h-[580px]"
+          />
+        </div>
+      </motion.div>
     </div>
   );
 }
+
+export default GlobalFloatingProduct;
