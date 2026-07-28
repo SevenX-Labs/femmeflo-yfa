@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
+import "lenis/dist/lenis.css";
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -29,8 +31,9 @@ export default function RootLayout({
       className={`${playfair.variable} ${jakarta.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans bg-[#FAF8F5] text-zinc-800 selection:bg-rose-200 selection:text-rose-900">
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );
 }
+
