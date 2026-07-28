@@ -43,7 +43,7 @@ export function Navbar() {
   const highlightedIndex = hoveredIndex !== null ? hoveredIndex : activeIndex;
 
   return (
-    <header className="sticky top-0 z-50 w-full font-[family-name:var(--font-jakarta)] bg-transparent">
+    <header className="sticky top-0 z-[100] w-full font-[family-name:var(--font-jakarta)] bg-transparent">
       {/* Outer Wrapper: Rounded Pill Container on Mobile & Full Bar on Desktop */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 py-2.5">
         <div className="bg-white/90 backdrop-blur-xl border border-zinc-200/80 rounded-full px-4 sm:px-6 py-2.5 shadow-md flex items-center justify-between">

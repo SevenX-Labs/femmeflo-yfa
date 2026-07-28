@@ -169,10 +169,10 @@ export function GlobalFloatingProduct() {
   }, []);
 
   return (
-    // Fixed Root Layer: Always on top (z-index: 9999), opacity-0 initially until measured
+    // Fixed Root Layer: Below navbar (z-index: 30), opacity-0 initially until measured
     <div
       ref={fixedContainerRef}
-      className="hidden md:flex fixed top-0 left-0 z-[9999] pointer-events-none select-none items-center justify-center opacity-0 will-change-transform"
+      className="hidden md:flex fixed top-0 left-0 z-30 pointer-events-none select-none items-center justify-center opacity-0 will-change-transform"
       style={{ willChange: "transform" }}
     >
       {/* Background Soft Glow Orbs */}
