@@ -161,16 +161,17 @@ export function HappyCustomers() {
             <div className="absolute inset-0 bg-gradient-to-tr from-[#FFD1C1]/70 to-[#FFE4C4]/70 rounded-full blur-2xl transform scale-125 -z-10" />
 
             <motion.div
-              className="relative p-1 cursor-pointer"
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.3 }}
+              className="relative p-1 cursor-pointer group"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ duration: 0.2 }}
               onClick={() => setActiveIdx((prev) => (prev + 1) % customerReviews.length)}
             >
               <img
                 src={active.mainImage}
                 alt={active.name}
                 draggable={false}
-                className="w-52 h-52 sm:w-64 sm:h-64 rounded-[2.5rem] object-cover shadow-2xl border-4 border-white/90 pointer-events-none select-none"
+                className="w-52 h-52 sm:w-64 sm:h-64 rounded-[2.5rem] object-cover shadow-2xl border-4 border-white/90 select-none cursor-pointer group-hover:border-rose-300 transition-colors"
               />
             </motion.div>
           </div>

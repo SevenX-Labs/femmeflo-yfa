@@ -103,7 +103,7 @@ export function PromiseSection() {
           
           {/* CARD 1: COMFORT */}
           <motion.div
-            className="relative rounded-2xl sm:rounded-3xl overflow-hidden min-h-[400px] sm:min-h-[460px] flex flex-col justify-end p-6 sm:p-8 shadow-md group border border-zinc-200/80 bg-white"
+            className="relative rounded-2xl sm:rounded-3xl overflow-hidden min-h-[400px] sm:min-h-[460px] flex flex-col justify-end p-6 sm:p-8 shadow-md group border border-zinc-200/80 bg-white cursor-pointer hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -150,7 +150,7 @@ export function PromiseSection() {
 
           {/* CARD 2: PROTECTION */}
           <motion.div
-            className="relative rounded-2xl sm:rounded-3xl overflow-hidden min-h-[400px] sm:min-h-[460px] flex flex-col justify-end p-6 sm:p-8 shadow-md group border border-zinc-200/80 bg-[#E8F4F8]"
+            className="relative rounded-2xl sm:rounded-3xl overflow-hidden min-h-[400px] sm:min-h-[460px] flex flex-col justify-end p-6 sm:p-8 shadow-md group border border-zinc-200/80 bg-[#E8F4F8] cursor-pointer hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -230,7 +230,7 @@ export function PromiseSection() {
 
           {/* CARD 3: FRESHNESS */}
           <motion.div
-            className="relative rounded-2xl sm:rounded-3xl overflow-hidden min-h-[400px] sm:min-h-[460px] flex flex-col justify-end p-6 sm:p-8 shadow-md group border border-zinc-200/80 bg-[#EBF6FA]"
+            className="relative rounded-2xl sm:rounded-3xl overflow-hidden min-h-[400px] sm:min-h-[460px] flex flex-col justify-end p-6 sm:p-8 shadow-md group border border-zinc-200/80 bg-[#EBF6FA] cursor-pointer hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
