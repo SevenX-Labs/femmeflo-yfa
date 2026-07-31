@@ -84,7 +84,7 @@ export function FAQSection() {
         
         {/* Left Side: Animated Mascot Header & Title Callout */}
         <motion.div
-          className="lg:col-span-5 flex flex-col items-start space-y-6 sticky top-28"
+          className="lg:col-span-5 flex flex-col items-start space-y-6 lg:sticky lg:top-28"
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -92,7 +92,7 @@ export function FAQSection() {
         >
           {/* Animated Mascot / Fairy Header */}
           <div className="relative mb-2">
-            <FairyIcon className="w-20 h-20 sm:w-24 sm:h-24" />
+            <FairyIcon className="w-16 h-16 sm:w-24 sm:h-24" />
           </div>
 
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-100/70 border border-rose-200 text-xs sm:text-sm font-semibold text-[#E61C5D]">
@@ -100,12 +100,12 @@ export function FAQSection() {
             <span>Got Questions? We Have Answers</span>
           </div>
 
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900 leading-[1.1] font-[family-name:var(--font-playfair)]">
-            Frequently <br />
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900 leading-[1.1] font-[family-name:var(--font-playfair)]">
+            Frequently <br className="hidden sm:block" />
             <span className="text-[#156035] italic font-normal">Asked Questions</span>
           </h2>
 
-          <p className="text-zinc-600 text-base sm:text-lg leading-relaxed max-w-md">
+          <p className="text-zinc-600 text-sm sm:text-lg leading-relaxed max-w-md">
             More Answers, Fewer doubts. Everything you need to know about period wellness and Femmeflo XL care.
           </p>
 

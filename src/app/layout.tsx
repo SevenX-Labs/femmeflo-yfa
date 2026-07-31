@@ -20,6 +20,13 @@ export const metadata: Metadata = {
   description: "Experience superior comfort, dependable leak protection, and confidence throughout your day with Femmeflo XL sanitary pads.",
 };
 
+export const viewport = {
+  themeColor: "#FAF8F5",
+  colorScheme: "light" as const,
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{

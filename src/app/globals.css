@@ -1,7 +1,12 @@
 @import "tailwindcss";
 
+:root {
+  color-scheme: light;
+}
+
 @layer base {
-  body {
+  html, body {
+    color-scheme: light;
     background-color: #FAF8F5;
     color: #1e293b;
     overflow-x: hidden;

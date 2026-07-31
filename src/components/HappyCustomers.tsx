@@ -272,6 +272,30 @@ export function HappyCustomers() {
 
         </div>
 
+        {/* MOBILE CUSTOMER AVATAR SELECTOR ROW (Visible on Mobile & Tablet) */}
+        <div className="flex lg:hidden items-center justify-center gap-3.5 my-5 overflow-x-auto py-2 px-4 max-w-full z-30 select-none">
+          {customerReviews.map((rev, idx) => {
+            const isCurrent = activeIdx === idx;
+            return (
+              <button
+                key={rev.id}
+                onClick={() => setActiveIdx(idx)}
+                className={`relative shrink-0 rounded-full transition-all duration-300 cursor-pointer ${
+                  isCurrent
+                    ? "ring-4 ring-[#F06553] scale-110 shadow-lg"
+                    : "opacity-60 hover:opacity-100 scale-95"
+                }`}
+              >
+                <img
+                  src={rev.mainImage}
+                  alt={rev.name}
+                  className="w-12 h-12 rounded-full object-cover border-2 border-white"
+                />
+              </button>
+            );
+          })}
+        </div>
+
         {/* BOTTOM TESTIMONIAL QUOTE GLASS CARD */}
         <motion.div
           className="mt-6 z-20 w-full max-w-lg"
