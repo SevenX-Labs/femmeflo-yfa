@@ -183,10 +183,42 @@ export function HappyCustomers() {
             />
           </div>
 
-          {/* CENTER FEATURED CUSTOMER PHOTO */}
+          {/* CENTER FEATURED CUSTOMER PHOTO & MOBILE FLOATING AVATARS */}
           <div className="relative z-20 my-2">
             {/* Ambient Warm Glow behind Main Photo */}
             <div className="absolute inset-0 bg-gradient-to-tr from-[#FFD1C1]/70 to-[#FFE4C4]/70 rounded-full blur-2xl transform scale-125 -z-10" />
+
+            {/* Mobile Floating Customer Avatars Orbiting Center Photo */}
+            <div className="block lg:hidden pointer-events-none select-none">
+              <motion.img
+                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80"
+                alt="Customer"
+                className="absolute -top-3 -left-3 sm:-top-5 sm:-left-5 w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover shadow-lg border-2 border-white z-30"
+                animate={{ y: [-4, 4, -4] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <motion.img
+                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
+                alt="Customer"
+                className="absolute -top-3 -right-3 sm:-top-5 sm:-right-5 w-13 h-13 sm:w-15 sm:h-15 rounded-full object-cover shadow-lg border-2 border-white z-30"
+                animate={{ y: [4, -4, 4] }}
+                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+              />
+              <motion.img
+                src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=200&q=80"
+                alt="Customer"
+                className="absolute -bottom-3 -left-3 sm:-bottom-5 sm:-left-5 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl object-cover shadow-lg border-2 border-white z-30"
+                animate={{ y: [-4, 4, -4] }}
+                transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+              />
+              <motion.img
+                src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80"
+                alt="Customer"
+                className="absolute -bottom-3 -right-3 sm:-bottom-5 sm:-right-5 w-13 h-13 sm:w-15 sm:h-15 rounded-full object-cover shadow-lg border-2 border-white z-30"
+                animate={{ y: [4, -4, 4] }}
+                transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut", delay: 0.9 }}
+              />
+            </div>
 
             <motion.div
               className="relative p-1 cursor-pointer group"
@@ -199,7 +231,7 @@ export function HappyCustomers() {
                 src={active.mainImage}
                 alt={active.name}
                 draggable={false}
-                className="w-52 h-52 sm:w-64 sm:h-64 rounded-[2.5rem] object-cover shadow-2xl border-4 border-white/90 select-none cursor-pointer group-hover:border-rose-300 transition-colors"
+                className="w-48 h-48 sm:w-64 sm:h-64 rounded-[2.5rem] object-cover shadow-2xl border-4 border-white/90 select-none cursor-pointer group-hover:border-rose-300 transition-colors"
               />
             </motion.div>
           </div>
@@ -270,30 +302,6 @@ export function HappyCustomers() {
             />
           </div>
 
-        </div>
-
-        {/* MOBILE CUSTOMER AVATAR SELECTOR ROW (Visible on Mobile & Tablet) */}
-        <div className="flex lg:hidden items-center justify-center gap-3.5 my-5 overflow-x-auto py-2 px-4 max-w-full z-30 select-none">
-          {customerReviews.map((rev, idx) => {
-            const isCurrent = activeIdx === idx;
-            return (
-              <button
-                key={rev.id}
-                onClick={() => setActiveIdx(idx)}
-                className={`relative shrink-0 rounded-full transition-all duration-300 cursor-pointer ${
-                  isCurrent
-                    ? "ring-4 ring-[#F06553] scale-110 shadow-lg"
-                    : "opacity-60 hover:opacity-100 scale-95"
-                }`}
-              >
-                <img
-                  src={rev.mainImage}
-                  alt={rev.name}
-                  className="w-12 h-12 rounded-full object-cover border-2 border-white"
-                />
-              </button>
-            );
-          })}
         </div>
 
         {/* BOTTOM TESTIMONIAL QUOTE GLASS CARD */}
