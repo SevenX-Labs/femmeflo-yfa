@@ -127,7 +127,7 @@ export function About() {
                 id="about-product-anchor"
                 className="relative w-full h-full flex items-center justify-center pointer-events-none"
               >
-                {/* Mobile Dedicated Floating Product inside About Card (Only visible on screens under 768px) */}
+                {/* Mobile Dedicated Floating Product inside About Card (Only visible under 768px) */}
                 <div
                   ref={mobileAboutProductRef}
                   className="md:hidden relative w-[220px] h-[220px] flex items-center justify-center pointer-events-auto"
