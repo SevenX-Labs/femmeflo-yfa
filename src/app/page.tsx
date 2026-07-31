@@ -5,7 +5,6 @@ import { ProductSection } from "@/components/ProductSection";
 import { PromiseSection } from "@/components/promise";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { HappyCustomers } from "@/components/HappyCustomers";
-import { EssenceSection } from "@/components/essence";
 import { FAQSection } from "@/components/faq";
 import { ContactSection } from "@/components/contact";
 import { Footer } from "@/components/footer";
@@ -25,7 +24,6 @@ export default function Home() {
         <PromiseSection />
         <WhyChooseUs />
         <HappyCustomers />
-        <EssenceSection />
         <FAQSection />
         <ContactSection />
       </main>

@@ -12,18 +12,26 @@ import {
   Users,
   Globe,
   Leaf,
-  Shield
+  Shield,
+  Sparkles
 } from "lucide-react";
 
 export function WhyChooseUs() {
   return (
     <section
       id="why-choose-us"
-      className="relative w-full bg-[#FFFDFC] py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden font-[family-name:var(--font-jakarta)]"
+      className="relative w-full bg-gradient-to-b from-[#FFF9F6] via-[#FDF5F7] to-[#F4FAF7] py-16 sm:py-24 lg:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden font-[family-name:var(--font-jakarta)] border-b border-rose-100/50"
     >
-      {/* Soft Multi-Layered Radial Lighting Orbs */}
-      <div className="absolute top-1/4 left-[-10%] w-[650px] h-[650px] bg-[#FDECF3]/70 rounded-full blur-[150px] pointer-events-none -z-10" />
-      <div className="absolute bottom-0 right-[-10%] w-[650px] h-[650px] bg-[#EEF8F2]/80 rounded-full blur-[150px] pointer-events-none -z-10" />
+      {/* Rich Multi-Layered Ambient Glow Orbs */}
+      <div className="absolute top-10 left-[-5%] w-[650px] h-[650px] bg-gradient-to-tr from-pink-200/40 via-rose-100/30 to-amber-100/30 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute bottom-0 right-[-5%] w-[650px] h-[650px] bg-gradient-to-br from-emerald-100/50 via-teal-50/40 to-pink-100/40 rounded-full blur-[140px] pointer-events-none -z-10" />
+
+      {/* LUXURY PAPER TEXTURE & LIGHT RAYS OVERLAY SVG */}
+      <div className="absolute inset-0 pointer-events-none select-none z-0 opacity-30">
+        <svg viewBox="0 0 1000 600" fill="none" className="w-full h-full">
+          <path d="M 0 0 L 1000 600 M 150 0 L 1000 500 M 0 150 L 850 600" stroke="#FCE7F3" strokeWidth="1.5" strokeDasharray="6 6" opacity="0.6" />
+        </svg>
+      </div>
 
       {/* BOTTOM-LEFT: Sweeping Berry Pink & Forest Green Ribbon Curves */}
       <div className="absolute bottom-0 left-0 pointer-events-none select-none z-0 opacity-85 w-[520px] h-[300px]">
@@ -33,8 +41,23 @@ export function WhyChooseUs() {
         </svg>
       </div>
 
-      {/* FLOATING ROSE PETALS AROUND PRODUCT SHOWCASE */}
-      <div className="absolute top-0 right-0 w-[550px] h-[450px] pointer-events-none select-none z-10 overflow-hidden">
+      {/* SOFT ANIMATED FLOATING ROSE PETALS */}
+      <div className="absolute inset-0 pointer-events-none select-none z-10 overflow-hidden">
+        <motion.div
+          className="absolute top-10 left-[8%] text-pink-400 opacity-85"
+          animate={{
+            y: [0, 40, 80],
+            x: [0, 15, -10],
+            rotate: [0, 45, 90],
+            opacity: [0.3, 0.9, 0.2],
+          }}
+          transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <svg viewBox="0 0 30 30" fill="currentColor" className="w-7 h-7">
+            <path d="M15 3 C24 10, 27 22, 15 26 C3 22, 6 10, 15 3 Z" opacity="0.85" />
+          </svg>
+        </motion.div>
+
         <motion.div
           className="absolute top-10 right-[25%] text-pink-400 opacity-85"
           animate={{
@@ -43,7 +66,7 @@ export function WhyChooseUs() {
             rotate: [0, 45, 90],
             opacity: [0.3, 0.9, 0.2],
           }}
-          transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut" }}
+          transition={{ duration: 7.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
         >
           <svg viewBox="0 0 30 30" fill="currentColor" className="w-7 h-7">
             <path d="M15 3 C24 10, 27 22, 15 26 C3 22, 6 10, 15 3 Z" opacity="0.85" />
@@ -78,23 +101,27 @@ export function WhyChooseUs() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            {/* Brand Title */}
-            <span className="text-zinc-800 font-bold text-base sm:text-lg tracking-wider font-[family-name:var(--font-playfair)] mb-3">
-              FemmeFlo
-            </span>
+            {/* Brand Title Pill Badge */}
+            <div className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-rose-50/90 border border-rose-200/80 text-[#9F2545] font-bold text-xs uppercase tracking-widest mb-4 shadow-2xs select-none">
+              <Sparkles className="w-3.5 h-3.5 text-[#9F2545]" />
+              <span>WHY CHOOSE FEMMEFLO</span>
+            </div>
 
-            {/* Editorial Heading (64–72px) */}
+            {/* Editorial Heading with Pink Gradient Keyword */}
             <h2 className="text-5xl sm:text-6xl lg:text-[72px] font-bold tracking-tight text-zinc-900 font-[family-name:var(--font-playfair)] leading-[1.05] mb-4">
-              Redefining Period Care
+              Redefining{" "}
+              <span className="bg-gradient-to-r from-[#9F2545] via-[#E61C5D] to-[#9F2545] bg-clip-text text-transparent italic font-normal">
+                Period Care
+              </span>
             </h2>
 
-            {/* Subtitle max-width 520px */}
-            <p className="text-[#666666] text-base lg:text-lg leading-[1.65] font-normal max-w-[520px]">
+            {/* Subtitle */}
+            <p className="text-zinc-600 text-base lg:text-lg leading-[1.65] font-normal max-w-[520px]">
               Experience the ultimate in comfort and confidence with advanced absorption technology and luxurious, skin-loving materials.
             </p>
           </motion.div>
 
-          {/* TOP-RIGHT FLOATING PRODUCT PACK SHOWCASE (+35% ENLARGED SIZE) */}
+          {/* TOP-RIGHT FLOATING PRODUCT PACK SHOWCASE */}
           <motion.div
             className="relative w-80 h-64 sm:w-[420px] sm:h-72 shrink-0 self-center lg:self-start pointer-events-none select-none -mt-4 lg:-mt-6"
             animate={{ y: [-8, 8, -8], rotate: [-6, -4, -6] }}
@@ -114,7 +141,7 @@ export function WhyChooseUs() {
         {/* MAIN 45% / 55% SPLIT GRID LAYOUT */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-16">
           
-          {/* LEFT 45% COLUMN: ENLARGED LIFESTYLE PHOTO + FLOATING GLASS CARD (+40% SIZE) */}
+          {/* LEFT 45% COLUMN: ENLARGED LIFESTYLE PHOTO + FLOATING GLASS CARD */}
           <motion.div
             className="lg:col-span-5 relative w-full aspect-[4/5] h-[520px] sm:h-[580px] lg:h-[620px] max-w-lg mx-auto lg:max-w-none rounded-[36px] overflow-hidden shadow-2xl border-2 border-white group z-10"
             initial={{ opacity: 0, x: -30 }}
@@ -133,7 +160,7 @@ export function WhyChooseUs() {
 
             {/* OVERLAPPING FLOATING GLASS CARD: Cloud-Soft & Skin Friendly */}
             <motion.div
-              className="absolute bottom-6 right-4 left-6 sm:left-auto sm:right-6 sm:w-[300px] bg-white/80 backdrop-blur-2xl border border-white/90 p-6 sm:p-7 rounded-2xl shadow-2xl flex flex-col gap-2.5 z-20"
+              className="absolute bottom-6 right-4 left-6 sm:left-auto sm:right-6 sm:w-[300px] bg-white/85 backdrop-blur-2xl border border-white/95 p-6 sm:p-7 rounded-2xl shadow-2xl flex flex-col gap-2.5 z-20"
               animate={{ y: [-5, 5, -5] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
             >
@@ -145,7 +172,7 @@ export function WhyChooseUs() {
                 Cloud-Soft &amp; Skin Friendly
               </h3>
 
-              <p className="text-xs sm:text-sm text-[#666666] leading-relaxed font-normal">
+              <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
                 Hypoallergenic cottony-soft top sheet engineered to prevent rashes, chafing, and skin irritation.
               </p>
 
@@ -180,7 +207,7 @@ export function WhyChooseUs() {
                     12-Hour Leak Lock Protection
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#666666] leading-relaxed font-normal mb-2.5">
+                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-2.5">
                     Advanced super-absorbent core traps moisture instantly, keeping you fresh, dry, and worry-free all day and night.
                   </p>
 
@@ -209,7 +236,7 @@ export function WhyChooseUs() {
                     280mm Extended Wear Wings
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#666666] leading-relaxed font-normal mb-2.5">
+                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-2.5">
                     Extra-long coverage with ergonomic double wings that stay firmly in place during active movement and sleep.
                   </p>
 
@@ -248,7 +275,7 @@ export function WhyChooseUs() {
                     Smart Choice Value (₹40 Pack)
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-[#666666] leading-relaxed font-normal mb-2.5">
+                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-2.5">
                     Delivering high-performance hygiene and premium quality at an accessible price without unnecessary markup.
                   </p>
 
@@ -258,9 +285,9 @@ export function WhyChooseUs() {
                 </div>
               </motion.div>
 
-              {/* 30% LARGER CTA BUTTON CONTAINER ALIGNED DIRECTLY BELOW */}
+              {/* LARGER ALIGNED CTA BUTTON */}
               <div className="flex items-center justify-start sm:justify-center pt-2">
-                <button className="border-2 border-[#9F2545] text-[#9F2545] hover:bg-[#9F2545] hover:text-white font-bold text-base px-9 py-4 rounded-full transition-all flex items-center gap-2.5 shadow-md hover:shadow-xl hover:scale-105">
+                <button className="bg-gradient-to-r from-[#9F2545] to-rose-600 hover:from-rose-600 hover:to-[#9F2545] text-white font-bold text-base px-9 py-4 rounded-full transition-all flex items-center gap-2.5 shadow-md hover:shadow-xl hover:scale-105">
                   <span>Explore Product Specs</span>
                   <ArrowRight className="w-5 h-5" />
                 </button>
@@ -274,7 +301,7 @@ export function WhyChooseUs() {
 
         {/* FLOATING ROUNDED GLASS TRUST BAR (80px HEIGHT, ROUNDED-FULL) */}
         <motion.div
-          className="w-full max-w-5xl mx-auto h-[76px] sm:h-[84px] rounded-[42px] bg-white/90 backdrop-blur-2xl border border-zinc-200/70 px-8 sm:px-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] flex items-center justify-around gap-4 text-xs sm:text-sm font-semibold text-zinc-700"
+          className="w-full max-w-5xl mx-auto h-[76px] sm:h-[84px] rounded-[42px] bg-white/95 backdrop-blur-2xl border border-zinc-200/80 px-8 sm:px-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] flex items-center justify-around gap-4 text-xs sm:text-sm font-semibold text-zinc-700"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}

@@ -12,7 +12,6 @@ const navItems = [
   { name: "Products", href: "#products" },
   { name: "Promise", href: "#promise" },
   { name: "Why Us", href: "#why-choose-us" },
-  { name: "Identity", href: "#essence" },
   { name: "FAQ", href: "#faq" },
   { name: "Contact", href: "#contact" },
 ];
