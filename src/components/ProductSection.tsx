@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Clock, ShieldCheck, Droplets, Smile } from "lucide-react";
 
@@ -149,11 +150,22 @@ export function ProductSection() {
                 <span className="text-xs font-bold text-zinc-800">Cotton Soft • Leak Lock</span>
               </div>
 
-              {/* Floating Product Target Anchor: GSAP scroll animation ends exactly here */}
+              {/* Floating Product Target Anchor: GSAP scroll animation on desktop + static fallback on mobile */}
               <div
                 id="product-price-anchor"
                 className="relative w-full h-full flex items-center justify-center pointer-events-none"
-              />
+              >
+                {/* Fallback Product Pack Image for Mobile Screen Viewports (< lg) */}
+                <div className="block lg:hidden relative w-52 h-40 sm:w-64 sm:h-48 select-none">
+                  <Image
+                    src="/femmeflo-withoutbg.png"
+                    alt="Femmeflo XL Sanitary Pads"
+                    fill
+                    priority
+                    className="object-contain drop-shadow-2xl"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>
