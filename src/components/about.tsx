@@ -81,7 +81,7 @@ export function About() {
     >
       {/* Background Soft Glow Orbs */}
       <div className="absolute top-1/2 left-[-5%] w-[320px] sm:w-[450px] h-[320px] sm:h-[450px] bg-emerald-300/35 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-10 right-[-5%] w-[320px] sm:w-[450px] h-[320px] sm:h-[450px] bg-teal-200/40 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-10 right-[-5%] w-[320px] sm:w-[450px] h-[320px] sm:h-[450px] bg-teal-200/m40 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -127,7 +127,7 @@ export function About() {
                 id="about-product-anchor"
                 className="relative w-full h-full flex items-center justify-center pointer-events-none"
               >
-                {/* Mobile Dedicated Floating Product inside About Card (Only visible on screens < 768px) */}
+                {/* Mobile Dedicated Floating Product inside About Card (Only visible on screens under 768px) */}
                 <div
                   ref={mobileAboutProductRef}
                   className="md:hidden relative w-[220px] h-[220px] flex items-center justify-center pointer-events-auto"

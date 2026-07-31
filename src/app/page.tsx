@@ -4,7 +4,9 @@ import { About } from "@/components/about";
 import { ProductSection } from "@/components/ProductSection";
 import { PromiseSection } from "@/components/promise";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
+import { HappyCustomers } from "@/components/HappyCustomers";
 import { EssenceSection } from "@/components/essence";
+import { FAQSection } from "@/components/faq";
 import { ContactSection } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import { GlobalFloatingProduct } from "@/components/GlobalFloatingProduct";
@@ -22,7 +24,9 @@ export default function Home() {
         <ProductSection />
         <PromiseSection />
         <WhyChooseUs />
+        <HappyCustomers />
         <EssenceSection />
+        <FAQSection />
         <ContactSection />
       </main>
       <Footer />
