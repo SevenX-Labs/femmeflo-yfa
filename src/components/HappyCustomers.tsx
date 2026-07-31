@@ -45,12 +45,40 @@ export function HappyCustomers() {
       id="happy-customers"
       className="relative w-full bg-gradient-to-br from-[#EDF9F3] via-[#FFF3F5] to-[#EBF5FC] border-b border-rose-100/60 px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28 overflow-hidden font-[family-name:var(--font-jakarta)]"
     >
+      {/* LUXURY TOP ANIMATED WAVY HEADER SVG */}
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none select-none">
+        <motion.svg
+          viewBox="0 0 1440 120"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-16 sm:h-24 fill-white/80 backdrop-blur-md"
+          animate={{ x: [-10, 10, -10] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <path d="M0,0 L1440,0 L1440,40 C1200,95 960,10 720,50 C480,90 240,15 0,60 Z" />
+        </motion.svg>
+      </div>
+
+      {/* LUXURY BOTTOM ANIMATED WAVY FOOTER SVG */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none select-none rotate-180 opacity-40">
+        <motion.svg
+          viewBox="0 0 1440 120"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-16 sm:h-24 fill-rose-100/60"
+          animate={{ x: [10, -10, 10] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <path d="M0,0 L1440,0 L1440,40 C1200,95 960,10 720,50 C480,90 240,15 0,60 Z" />
+        </motion.svg>
+      </div>
+
       {/* Background Soft Glow Orbs */}
-      <div className="absolute top-10 left-[-5%] w-[400px] h-[400px] bg-emerald-200/30 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-10 right-[-5%] w-[450px] h-[450px] bg-sky-200/30 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-10 left-[-5%] w-[450px] h-[450px] bg-emerald-200/35 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-10 right-[-5%] w-[500px] h-[500px] bg-sky-200/35 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center relative z-10">
-        
+
         {/* Header Typography */}
         <motion.div
           className="flex flex-col items-center space-y-1 mb-8 sm:mb-12"
@@ -69,7 +97,7 @@ export function HappyCustomers() {
 
         {/* Customer Cloud Container with Ribbon SVG & Avatar Cluster */}
         <div className="relative w-full max-w-6xl my-4 min-h-[380px] sm:min-h-[440px] flex items-center justify-center">
-          
+
           {/* Background Hand-Drawn Pink Ribbon SVG with Heart Loops */}
           <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-0 overflow-hidden select-none">
             <svg
