@@ -189,46 +189,163 @@ export function EssenceSection() {
 
         {/* Section 3: THE MODERN WOMAN (1:1 Reference Match) */}
         <motion.div
-          className="w-full max-w-[1360px] mx-auto rounded-[36px] bg-[#FEFEFE] border border-white/90 shadow-[0_30px_80px_rgba(0,0,0,0.06)] relative overflow-hidden py-16 sm:py-20 px-6 sm:px-12 lg:px-16 flex flex-col items-center text-center"
+          className="w-full max-w-[1340px] mx-auto rounded-[32px] sm:rounded-[36px] bg-[#FEFEFE] border border-white/90 shadow-[0_20px_60px_rgba(0,0,0,0.05)] relative overflow-hidden py-10 sm:py-14 px-5 sm:px-10 lg:px-12 flex flex-col items-center text-center"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           {/* Soft Background Pink & Green Radial Glow Orbs */}
-          <div className="absolute -top-24 -left-24 w-[450px] h-[450px] bg-rose-200/30 rounded-full blur-[100px] pointer-events-none -z-10" />
-          <div className="absolute -bottom-24 -right-24 w-[450px] h-[450px] bg-emerald-100/40 rounded-full blur-[100px] pointer-events-none -z-10" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-pink-100/20 rounded-full blur-[120px] pointer-events-none -z-10" />
+          <div className="absolute -top-24 -left-24 w-[400px] h-[400px] bg-rose-200/25 rounded-full blur-[100px] pointer-events-none -z-10" />
+          <div className="absolute -bottom-24 -right-24 w-[400px] h-[400px] bg-emerald-100/35 rounded-full blur-[100px] pointer-events-none -z-10" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] bg-pink-100/15 rounded-full blur-[120px] pointer-events-none -z-10" />
 
-          {/* Seamless Botanical Banner Background Art (Blurred Tea Leaves Left + Blooming Peony Right) */}
-          <div className="absolute top-0 left-0 w-full h-44 sm:h-56 pointer-events-none select-none z-0 opacity-85 overflow-hidden">
+          {/* TOP-LEFT: Fresh Dark Green Tea Leaves */}
+          <div className="absolute -top-2 -left-2 pointer-events-none select-none z-10 w-44 sm:w-64 h-44 sm:h-64 overflow-hidden">
             <Image
-              src="/modern-woman-banner.png"
-              alt="Botanical Header Banner"
+              src="/green-leaves-left.png"
+              alt="Green Tea Leaves"
               fill
               priority
               draggable={false}
-              className="object-cover object-top mix-blend-multiply select-none pointer-events-none"
+              className="object-contain object-top-left mix-blend-multiply opacity-90 select-none pointer-events-none"
             />
-            {/* Soft Radial Fade Overlay so text is 100% crisp */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#FEFEFE]/60 to-[#FEFEFE] pointer-events-none" />
+          </div>
+
+          {/* TOP-RIGHT: Blooming Pink Peony Flower */}
+          <div className="absolute -top-2 -right-2 pointer-events-none select-none z-10 w-52 sm:w-80 h-52 sm:h-80 overflow-hidden">
+            <Image
+              src="/peony-flower-seamless.png"
+              alt="Blooming Pink Peony Flower"
+              fill
+              priority
+              draggable={false}
+              className="object-contain object-top-right mix-blend-multiply opacity-95 select-none pointer-events-none"
+            />
+          </div>
+
+          {/* ANIMATED FALLING PETALS & LEAVES PARTICLES */}
+          <div className="absolute inset-0 pointer-events-none select-none z-10 overflow-hidden">
+            {/* Petal 1: Left Top Falling Petal */}
+            <motion.div
+              className="absolute top-6 left-[18%] text-pink-400 opacity-80"
+              animate={{
+                y: [0, 45, 90],
+                x: [0, 15, -10],
+                rotate: [0, 45, 90],
+                opacity: [0.3, 0.9, 0.2],
+              }}
+              transition={{
+                duration: 7,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <svg viewBox="0 0 30 30" fill="currentColor" className="w-6 h-6">
+                <path d="M15 3 C24 10, 27 22, 15 26 C3 22, 6 10, 15 3 Z" opacity="0.8" />
+              </svg>
+            </motion.div>
+
+            {/* Petal 2: Mid-Left Falling Leaf Particle */}
+            <motion.div
+              className="absolute top-12 left-[32%] text-emerald-500 opacity-60"
+              animate={{
+                y: [0, 60, 120],
+                x: [0, -20, 10],
+                rotate: [0, -60, -120],
+                opacity: [0.2, 0.8, 0.1],
+              }}
+              transition={{
+                duration: 8.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 1.2,
+              }}
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                <path d="M12 2 C18 6, 22 14, 12 22 C2 14, 6 6, 12 2 Z" opacity="0.75" />
+              </svg>
+            </motion.div>
+
+            {/* Petal 3: Center Falling Pink Petal */}
+            <motion.div
+              className="absolute top-4 left-[48%] text-rose-400 opacity-75"
+              animate={{
+                y: [0, 50, 110],
+                x: [0, 20, -15],
+                rotate: [0, 30, 75],
+                opacity: [0.4, 0.95, 0.3],
+              }}
+              transition={{
+                duration: 6.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 2.1,
+              }}
+            >
+              <svg viewBox="0 0 28 28" fill="currentColor" className="w-5 h-5">
+                <path d="M14 2 C22 9, 25 21, 14 25 C3 21, 6 9, 14 2 Z" opacity="0.85" />
+              </svg>
+            </motion.div>
+
+            {/* Petal 4: Right Mid Falling Rose Petal */}
+            <motion.div
+              className="absolute top-10 right-[30%] text-pink-500 opacity-80"
+              animate={{
+                y: [0, 55, 115],
+                x: [0, -15, 12],
+                rotate: [0, -45, -90],
+                opacity: [0.3, 0.9, 0.2],
+              }}
+              transition={{
+                duration: 7.8,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 0.7,
+              }}
+            >
+              <svg viewBox="0 0 32 32" fill="currentColor" className="w-6 h-6">
+                <path d="M16 3 C26 11, 29 23, 16 28 C3 23, 6 11, 16 3 Z" opacity="0.8" />
+              </svg>
+            </motion.div>
+
+            {/* Petal 5: Near Flower Falling Petal */}
+            <motion.div
+              className="absolute top-14 right-[18%] text-rose-300 opacity-70"
+              animate={{
+                y: [0, 40, 85],
+                x: [0, 10, -15],
+                rotate: [0, 50, 100],
+                opacity: [0.2, 0.85, 0.15],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: "easeInOut",
+                delay: 2.8,
+              }}
+            >
+              <svg viewBox="0 0 26 26" fill="currentColor" className="w-5 h-5">
+                <path d="M13 2 C20 8, 23 19, 13 23 C3 19, 6 8, 13 2 Z" opacity="0.8" />
+              </svg>
+            </motion.div>
           </div>
 
           {/* TOP BADGE */}
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-rose-50/90 border border-rose-200/80 text-[#E61C5D] font-bold text-xs uppercase tracking-widest mb-6 shadow-xs select-none cursor-default"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-rose-50/90 border border-rose-200/80 text-[#E61C5D] font-bold text-[11px] uppercase tracking-widest mb-3.5 shadow-2xs select-none cursor-default"
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <Sparkles className="w-3.5 h-3.5 text-[#E61C5D]" />
+            <Sparkles className="w-3 h-3 text-[#E61C5D]" />
             <span>EMPOWERING HER</span>
           </motion.div>
 
           {/* TITLE */}
           <motion.h2
-            className="text-4xl sm:text-5xl lg:text-[72px] font-bold tracking-tight text-zinc-900 leading-[1.1] font-[family-name:var(--font-playfair)] mb-4 max-w-4xl"
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900 leading-[1.1] font-[family-name:var(--font-playfair)] mb-2.5 max-w-3xl"
             initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true }}
@@ -243,7 +360,7 @@ export function EssenceSection() {
 
           {/* SUBTITLE */}
           <motion.p
-            className="text-zinc-500 text-sm sm:text-base lg:text-lg font-normal max-w-[620px] leading-relaxed mb-14"
+            className="text-zinc-500 text-xs sm:text-sm font-normal max-w-[560px] leading-relaxed mb-9"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -253,11 +370,11 @@ export function EssenceSection() {
           </motion.p>
 
           {/* 4 FEATURE CARDS GRID */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 w-full mb-14 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full mb-9 text-center">
             
             {/* CARD 1: Primary Profile */}
             <motion.div
-              className="relative rounded-[28px] bg-white/90 backdrop-blur-xl border border-rose-100/90 p-8 shadow-[0_15px_35px_rgba(0,0,0,0.03)] hover:shadow-[0_25px_50px_rgba(230,28,93,0.12)] hover:-translate-y-2.5 transition-all duration-500 group flex flex-col justify-between min-h-[460px] cursor-pointer overflow-hidden text-center"
+              className="relative rounded-[24px] bg-white/90 backdrop-blur-xl border border-rose-100/90 p-6 sm:p-7 shadow-[0_12px_30px_rgba(0,0,0,0.025)] hover:shadow-[0_20px_40px_rgba(230,28,93,0.1)] hover:-translate-y-2 transition-all duration-300 group flex flex-col justify-between min-h-[380px] sm:min-h-[410px] cursor-pointer overflow-hidden text-center"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -267,22 +384,21 @@ export function EssenceSection() {
 
               <div className="flex flex-col items-center">
                 {/* Dual Ring Translucent Icon Disc */}
-                <div className="w-16 h-16 rounded-full bg-rose-50 border border-rose-200/70 text-[#E61C5D] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xs relative">
-                  <div className="absolute inset-0 rounded-full bg-rose-100/50 animate-ping opacity-30 pointer-events-none" />
-                  <User className="w-7 h-7 stroke-[2]" />
+                <div className="w-14 h-14 rounded-full bg-rose-50 border border-rose-200/70 text-[#E61C5D] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 shadow-xs relative">
+                  <User className="w-6 h-6 stroke-[2]" />
                 </div>
 
-                <h3 className="text-2xl font-bold font-[family-name:var(--font-playfair)] text-zinc-900 mb-3 group-hover:text-[#E61C5D] transition-colors">
+                <h3 className="text-xl sm:text-2xl font-bold font-[family-name:var(--font-playfair)] text-zinc-900 mb-2.5 group-hover:text-[#E61C5D] transition-colors">
                   Primary Profile
                 </h3>
 
-                <p className="text-xs sm:text-sm text-zinc-500 leading-relaxed font-normal">
+                <p className="text-xs text-zinc-500 leading-relaxed font-normal max-w-[240px]">
                   Addressing the diverse needs of women across ages and life stages with trusted care.
                 </p>
               </div>
 
               {/* Footer */}
-              <div className="pt-6 border-t border-rose-100/60 flex items-center justify-between text-xs font-semibold text-[#E61C5D]">
+              <div className="pt-5 border-t border-rose-100/60 flex items-center justify-between text-xs font-semibold text-[#E61C5D]">
                 <span className="flex items-center gap-2">
                   <Users className="w-4 h-4 text-[#E61C5D]" />
                   <span>Everyday for Everyone</span>
@@ -293,7 +409,7 @@ export function EssenceSection() {
 
             {/* CARD 2: Geographic Reach */}
             <motion.div
-              className="relative rounded-[28px] bg-white/90 backdrop-blur-xl border border-emerald-100/90 p-8 shadow-[0_15px_35px_rgba(0,0,0,0.03)] hover:shadow-[0_25px_50px_rgba(21,96,53,0.12)] hover:-translate-y-2.5 transition-all duration-500 group flex flex-col justify-between min-h-[460px] cursor-pointer overflow-hidden text-center"
+              className="relative rounded-[24px] bg-white/90 backdrop-blur-xl border border-emerald-100/90 p-6 sm:p-7 shadow-[0_12px_30px_rgba(0,0,0,0.025)] hover:shadow-[0_20px_40px_rgba(21,96,53,0.1)] hover:-translate-y-2 transition-all duration-300 group flex flex-col justify-between min-h-[380px] sm:min-h-[410px] cursor-pointer overflow-hidden text-center"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -303,22 +419,21 @@ export function EssenceSection() {
 
               <div className="flex flex-col items-center">
                 {/* Dual Ring Translucent Icon Disc */}
-                <div className="w-16 h-16 rounded-full bg-emerald-50 border border-emerald-200/70 text-[#156035] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xs relative">
-                  <div className="absolute inset-0 rounded-full bg-emerald-100/50 animate-ping opacity-30 pointer-events-none" />
-                  <MapPin className="w-7 h-7 stroke-[2]" />
+                <div className="w-14 h-14 rounded-full bg-emerald-50 border border-emerald-200/70 text-[#156035] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 shadow-xs relative">
+                  <MapPin className="w-6 h-6 stroke-[2]" />
                 </div>
 
-                <h3 className="text-2xl font-bold font-[family-name:var(--font-playfair)] text-zinc-900 mb-3 group-hover:text-[#156035] transition-colors">
+                <h3 className="text-xl sm:text-2xl font-bold font-[family-name:var(--font-playfair)] text-zinc-900 mb-2.5 group-hover:text-[#156035] transition-colors">
                   Geographic Reach
                 </h3>
 
-                <p className="text-xs sm:text-sm text-zinc-500 leading-relaxed font-normal">
+                <p className="text-xs text-zinc-500 leading-relaxed font-normal max-w-[240px]">
                   Reaching from urban centers to rural areas across every corner of India.
                 </p>
               </div>
 
               {/* Footer */}
-              <div className="pt-6 border-t border-emerald-100/60 flex items-center justify-between text-xs font-semibold text-[#156035]">
+              <div className="pt-5 border-t border-emerald-100/60 flex items-center justify-between text-xs font-semibold text-[#156035]">
                 <span className="flex items-center gap-2">
                   <Globe className="w-4 h-4 text-[#156035]" />
                   <span>Nationwide Access</span>
@@ -329,36 +444,36 @@ export function EssenceSection() {
 
             {/* CARD 3: Value Mindset (Highlight Card with OUR FOCUS) */}
             <motion.div
-              className="relative rounded-[28px] bg-gradient-to-b from-amber-50/50 via-white to-white border-2 border-amber-300/80 p-8 shadow-[0_20px_45px_rgba(230,184,0,0.15)] hover:shadow-[0_30px_60px_rgba(230,184,0,0.22)] hover:-translate-y-2.5 transition-all duration-500 group flex flex-col justify-between min-h-[460px] cursor-pointer overflow-hidden text-center scale-[1.02]"
+              className="relative rounded-[24px] bg-gradient-to-b from-amber-50/40 via-white to-white border-2 border-amber-300/80 p-6 sm:p-7 shadow-[0_15px_35px_rgba(230,184,0,0.12)] hover:shadow-[0_22px_45px_rgba(230,184,0,0.18)] hover:-translate-y-2 transition-all duration-300 group flex flex-col justify-between min-h-[380px] sm:min-h-[410px] cursor-pointer overflow-hidden text-center"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.7 }}
             >
               {/* OUR FOCUS Pill Badge */}
-              <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-amber-100 border border-amber-300 text-amber-800 font-extrabold text-[9px] uppercase tracking-wider select-none">
+              <div className="absolute top-3.5 right-3.5 px-2.5 py-0.5 rounded-full bg-amber-100 border border-amber-300 text-amber-800 font-extrabold text-[9px] uppercase tracking-wider select-none">
                 OUR FOCUS
               </div>
 
-              <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600" />
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-600" />
 
               <div className="flex flex-col items-center">
                 {/* Dual Ring Translucent Icon Disc */}
-                <div className="w-16 h-16 rounded-full bg-amber-100/80 border border-amber-300 text-amber-700 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xs relative">
-                  <Star className="w-7 h-7 fill-amber-500" />
+                <div className="w-14 h-14 rounded-full bg-amber-100/80 border border-amber-300 text-amber-700 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 shadow-xs relative">
+                  <Star className="w-6 h-6 fill-amber-500" />
                 </div>
 
-                <h3 className="text-2xl font-bold font-[family-name:var(--font-playfair)] text-zinc-900 mb-3 group-hover:text-amber-700 transition-colors">
+                <h3 className="text-xl sm:text-2xl font-bold font-[family-name:var(--font-playfair)] text-zinc-900 mb-2.5 group-hover:text-amber-700 transition-colors">
                   Value Mindset
                 </h3>
 
-                <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
+                <p className="text-xs text-zinc-600 leading-relaxed font-normal max-w-[240px]">
                   Delivering exceptional quality at honest prices because every woman deserves the best care.
                 </p>
               </div>
 
               {/* Footer */}
-              <div className="pt-6 border-t border-amber-200/60 flex items-center justify-between text-xs font-semibold text-amber-700">
+              <div className="pt-5 border-t border-amber-200/60 flex items-center justify-between text-xs font-semibold text-amber-700">
                 <span className="flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-amber-700" />
                   <span>Best Care, Always</span>
@@ -369,7 +484,7 @@ export function EssenceSection() {
 
             {/* CARD 4: Active Lifestyle */}
             <motion.div
-              className="relative rounded-[28px] bg-white/90 backdrop-blur-xl border border-rose-100/90 p-8 shadow-[0_15px_35px_rgba(0,0,0,0.03)] hover:shadow-[0_25px_50px_rgba(230,28,93,0.12)] hover:-translate-y-2.5 transition-all duration-500 group flex flex-col justify-between min-h-[460px] cursor-pointer overflow-hidden text-center"
+              className="relative rounded-[24px] bg-white/90 backdrop-blur-xl border border-rose-100/90 p-6 sm:p-7 shadow-[0_12px_30px_rgba(0,0,0,0.025)] hover:shadow-[0_20px_40px_rgba(230,28,93,0.1)] hover:-translate-y-2 transition-all duration-300 group flex flex-col justify-between min-h-[380px] sm:min-h-[410px] cursor-pointer overflow-hidden text-center"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -379,21 +494,21 @@ export function EssenceSection() {
 
               <div className="flex flex-col items-center">
                 {/* Dual Ring Translucent Icon Disc */}
-                <div className="w-16 h-16 rounded-full bg-rose-50 border border-rose-200/70 text-[#E61C5D] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xs relative">
-                  <Activity className="w-7 h-7 stroke-[2]" />
+                <div className="w-14 h-14 rounded-full bg-rose-50 border border-rose-200/70 text-[#E61C5D] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 shadow-xs relative">
+                  <Activity className="w-6 h-6 stroke-[2]" />
                 </div>
 
-                <h3 className="text-2xl font-bold font-[family-name:var(--font-playfair)] text-zinc-900 mb-3 group-hover:text-[#E61C5D] transition-colors">
+                <h3 className="text-xl sm:text-2xl font-bold font-[family-name:var(--font-playfair)] text-zinc-900 mb-2.5 group-hover:text-[#E61C5D] transition-colors">
                   Active Lifestyle
                 </h3>
 
-                <p className="text-xs sm:text-sm text-zinc-500 leading-relaxed font-normal">
+                <p className="text-xs text-zinc-500 leading-relaxed font-normal max-w-[240px]">
                   Supporting your on-the-go routine with comfort, protection & confidence all day long.
                 </p>
               </div>
 
               {/* Footer */}
-              <div className="pt-6 border-t border-rose-100/60 flex items-center justify-between text-xs font-semibold text-[#E61C5D]">
+              <div className="pt-5 border-t border-rose-100/60 flex items-center justify-between text-xs font-semibold text-[#E61C5D]">
                 <span className="flex items-center gap-2">
                   <Heart className="w-4 h-4 text-[#E61C5D]" />
                   <span>Live Without Limits</span>
@@ -406,7 +521,7 @@ export function EssenceSection() {
 
           {/* BOTTOM TRUST BAR */}
           <motion.div
-            className="w-full max-w-5xl rounded-full bg-white/90 backdrop-blur-xl border border-zinc-200/60 py-4 px-6 sm:px-10 shadow-[0_8px_25px_rgba(0,0,0,0.03)] flex flex-wrap items-center justify-around gap-4 text-xs sm:text-sm font-medium text-zinc-600"
+            className="w-full max-w-4xl rounded-full bg-white/90 backdrop-blur-xl border border-zinc-200/60 py-3.5 px-6 sm:px-8 shadow-[0_6px_20px_rgba(0,0,0,0.025)] flex flex-wrap items-center justify-around gap-3 text-xs sm:text-sm font-medium text-zinc-600"
             initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
