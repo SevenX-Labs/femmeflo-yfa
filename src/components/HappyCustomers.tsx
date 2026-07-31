@@ -169,7 +169,8 @@ export function HappyCustomers() {
               <img
                 src={active.mainImage}
                 alt={active.name}
-                className="w-52 h-52 sm:w-64 sm:h-64 rounded-[2.5rem] object-cover shadow-2xl border-4 border-white/90"
+                draggable={false}
+                className="w-52 h-52 sm:w-64 sm:h-64 rounded-[2.5rem] object-cover shadow-2xl border-4 border-white/90 pointer-events-none select-none"
               />
             </motion.div>
           </div>

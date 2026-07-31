@@ -115,7 +115,8 @@ export function PromiseSection() {
               alt="Soft cotton swirl fabric"
               fill
               priority
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              draggable={false}
+              className="object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none select-none"
             />
             {/* Bottom Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/30 to-transparent pointer-events-none" />
@@ -161,7 +162,8 @@ export function PromiseSection() {
               alt="Water splash protection"
               fill
               priority
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              draggable={false}
+              className="object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none select-none"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#E6F4FA]/90 via-white/20 to-transparent pointer-events-none" />
 
@@ -240,7 +242,8 @@ export function PromiseSection() {
               alt="Fresh water droplets and sunlight"
               fill
               priority
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
+              draggable={false}
+              className="object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none select-none"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/30 to-transparent pointer-events-none" />
 
