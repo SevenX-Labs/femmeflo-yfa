@@ -108,7 +108,7 @@ export function WhyChooseUs() {
             </div>
 
             {/* Editorial Heading with Pink Gradient Keyword */}
-            <h2 className="text-5xl sm:text-6xl lg:text-[72px] font-bold tracking-tight text-zinc-900 font-[family-name:var(--font-playfair)] leading-[1.05] mb-4">
+            <h2 className="text-3xl sm:text-5xl lg:text-[72px] font-bold tracking-tight text-zinc-900 font-[family-name:var(--font-playfair)] leading-[1.08] mb-4">
               Redefining{" "}
               <span className="bg-gradient-to-r from-[#9F2545] via-[#E61C5D] to-[#9F2545] bg-clip-text text-transparent italic font-normal">
                 Period Care
@@ -190,7 +190,7 @@ export function WhyChooseUs() {
               
               {/* FEATURE 1: 12-Hour Leak Lock Protection (Forest Green #156035) */}
               <motion.div
-                className="bg-white/95 backdrop-blur-2xl rounded-[32px] p-7 sm:p-8 border border-zinc-200/70 shadow-[0_15px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_25px_50px_rgba(21,96,53,0.14)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-5 min-h-[150px] min-w-[320px]"
+                className="bg-white/95 backdrop-blur-2xl rounded-[32px] p-6 sm:p-8 border border-zinc-200/70 shadow-[0_15px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_25px_50px_rgba(21,96,53,0.14)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-4 sm:gap-5 min-h-[150px] w-full"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -219,7 +219,7 @@ export function WhyChooseUs() {
 
               {/* FEATURE 2: 280mm Extended Wear Wings (Berry Pink #9F2545) */}
               <motion.div
-                className="bg-white/95 backdrop-blur-2xl rounded-[32px] p-7 sm:p-8 border border-zinc-200/70 shadow-[0_15px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_25px_50px_rgba(159,37,69,0.14)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-5 min-h-[150px] min-w-[320px]"
+                className="bg-white/95 backdrop-blur-2xl rounded-[32px] p-6 sm:p-8 border border-zinc-200/70 shadow-[0_15px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_25px_50px_rgba(159,37,69,0.14)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-4 sm:gap-5 min-h-[150px] w-full"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -252,7 +252,7 @@ export function WhyChooseUs() {
               
               {/* FEATURE 3: Smart Choice Value (₹40 Pack) (Gold Accent) */}
               <motion.div
-                className="relative bg-white/95 backdrop-blur-2xl rounded-[32px] p-7 sm:p-8 border-2 border-amber-300 shadow-[0_15px_40px_rgba(245,158,11,0.12)] hover:shadow-[0_25px_50px_rgba(245,158,11,0.22)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-5 min-h-[150px] min-w-[320px]"
+                className="relative bg-white/95 backdrop-blur-2xl rounded-[32px] p-6 sm:p-8 border-2 border-amber-300 shadow-[0_15px_40px_rgba(245,158,11,0.12)] hover:shadow-[0_25px_50px_rgba(245,158,11,0.22)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-4 sm:gap-5 min-h-[150px] w-full"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}

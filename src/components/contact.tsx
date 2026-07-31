@@ -103,7 +103,7 @@ export function ContactSection() {
             </div>
 
             {/* Editorial Heading */}
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900 font-[family-name:var(--font-playfair)] leading-[1.1]">
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900 font-[family-name:var(--font-playfair)] leading-[1.1]">
               Together, let&apos;s <br />
               enable{" "}
               <span className="text-[#E61C5D] italic font-[family-name:var(--font-playfair)] font-normal">
