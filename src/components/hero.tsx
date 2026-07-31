@@ -4,6 +4,8 @@ import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Sparkles, ArrowUpRight, ShieldCheck, Lock, Feather, Leaf } from "lucide-react";
+import { motion } from "framer-motion";
+import { FairyIcon } from "@/components/FairyIcon";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -192,6 +194,34 @@ export function Hero() {
                   className="md:hidden relative w-[240px] h-[240px] flex items-center justify-center pointer-events-auto"
                   style={{ opacity: 1, transform: "scale(1)" }}
                 >
+                  {/* Continuous Upright 360° Orbit around Mobile Product (z-50) */}
+                  <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-50">
+                    <motion.div
+                      className="w-full h-full relative flex items-center justify-center"
+                      animate={{ rotate: 360 }}
+                      transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
+                    >
+                      <div className="absolute top-[-30px]">
+                        <motion.div
+                          animate={{
+                            rotate: -360,
+                          }}
+                          transition={{
+                            duration: 4,
+                            repeat: Infinity,
+                            ease: "linear",
+                          }}
+                        >
+                          <FairyIcon className="w-14 h-14 sm:w-18 sm:h-18" />
+                        </motion.div>
+                      </div>
+                    </motion.div>
+                  </div>
+
                   <Image
                     src="/femmeflo-withoutbg.png"
                     alt="Femmeflo XL Sanitary Pads"

@@ -6,6 +6,7 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Heart, Leaf } from "lucide-react";
+import { FairyIcon } from "@/components/FairyIcon";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -219,6 +220,34 @@ export function GlobalFloatingProduct() {
             filter: "drop-shadow(0 45px 55px rgba(0,0,0,0.18))",
           }}
         >
+          {/* Continuous Upright 360° Orbit around Product (z-50) */}
+          <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-50">
+            <motion.div
+              className="w-full h-full relative flex items-center justify-center"
+              animate={{ rotate: 360 }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "linear",
+              }}
+            >
+              <div className="absolute top-[-40px] sm:top-[-90px]">
+                <motion.div
+                  animate={{
+                    rotate: -360,
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                >
+                  <FairyIcon className="w-16 h-16 sm:w-24 sm:h-24" />
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
+
           <Image
             src="/femmeflo-withoutbg.png"
             alt="Femmeflo XL Sanitary Pads"
