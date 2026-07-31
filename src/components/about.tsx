@@ -77,13 +77,14 @@ export function About() {
   return (
     <section
       id="about"
-      className="relative w-full max-w-7xl mx-auto px-6 py-20 lg:py-28 overflow-hidden font-[family-name:var(--font-jakarta)]"
+      className="relative w-full bg-gradient-to-b from-[#F0F8F3] via-[#EEF6F1] to-[#F5FAFA] border-b border-emerald-100/60 px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28 overflow-hidden font-[family-name:var(--font-jakarta)]"
     >
       {/* Background Soft Glow Orbs */}
-      <div className="absolute top-1/2 left-[-5%] w-[450px] h-[450px] bg-emerald-100/50 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-10 right-[-5%] w-[450px] h-[450px] bg-rose-100/50 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-[-5%] w-[320px] sm:w-[450px] h-[320px] sm:h-[450px] bg-emerald-200/40 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-10 right-[-5%] w-[320px] sm:w-[450px] h-[320px] sm:h-[450px] bg-rose-200/40 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         {/* Left Side: Product Landing Container (Dual Glass-behind-Glass Architecture) */}
         <motion.div
           className="relative flex items-center justify-center w-full"
@@ -211,6 +212,7 @@ export function About() {
           </div>
         </motion.div>
       </div>
+    </div>
     </section>
   );
 }

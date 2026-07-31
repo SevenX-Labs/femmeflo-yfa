@@ -39,13 +39,13 @@ export function WhyChooseUs() {
   return (
     <section
       id="why-choose-us"
-      className="relative w-full py-20 lg:py-28 bg-[#FAF8F5] overflow-hidden font-[family-name:var(--font-jakarta)]"
+      className="relative w-full bg-gradient-to-b from-[#FAF4EC] via-[#FDF9F3] to-[#FAF2E8] border-b border-amber-100/60 px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28 overflow-hidden font-[family-name:var(--font-jakarta)]"
     >
       {/* Decorative background glow */}
-      <div className="absolute top-1/4 right-0 w-[450px] h-[450px] bg-[#EAF5EE] rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-10 left-0 w-[450px] h-[450px] bg-rose-100/40 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-1/4 right-0 w-[320px] sm:w-[450px] h-[320px] sm:h-[450px] bg-amber-100/50 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-10 left-0 w-[320px] sm:w-[450px] h-[320px] sm:h-[450px] bg-rose-100/40 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto">
         
         {/* Header */}
         <motion.div

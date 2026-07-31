@@ -8,11 +8,11 @@ export function PromiseSection() {
   return (
     <section
       id="promise"
-      className="relative w-full py-24 lg:py-32 bg-gradient-to-b from-[#EAF5EE]/60 via-[#EAF5EE]/90 to-[#EAF5EE]/60 overflow-hidden font-[family-name:var(--font-jakarta)] my-6"
+      className="relative w-full bg-gradient-to-b from-[#EFF7F2] via-[#E8F4EC] to-[#F4FBF6] border-b border-emerald-100/60 px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28 overflow-hidden font-[family-name:var(--font-jakarta)]"
     >
       {/* Decorative Floating Background Radial Halo Orbs */}
-      <div className="absolute top-[-10%] left-[-5%] w-[550px] h-[550px] rounded-full bg-gradient-to-tr from-rose-200/50 via-pink-100/40 to-emerald-200/40 blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-emerald-200/50 via-teal-100/40 to-rose-200/40 blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-[-10%] left-[-5%] w-[320px] sm:w-[550px] h-[320px] sm:h-[550px] rounded-full bg-gradient-to-tr from-rose-200/50 via-pink-100/40 to-emerald-200/40 blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-[-10%] right-[-5%] w-[320px] sm:w-[600px] h-[320px] sm:h-[600px] rounded-full bg-gradient-to-br from-emerald-200/50 via-teal-100/40 to-rose-200/40 blur-3xl pointer-events-none -z-10" />
 
       {/* Subtle Floating Sparkles Background Accents */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden -z-10 opacity-60">
@@ -21,7 +21,7 @@ export function PromiseSection() {
         <div className="absolute bottom-[25%] left-[15%] w-3 h-3 bg-yellow-400/70 rounded-full blur-[1px] animate-pulse" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 flex flex-col items-center">
+      <div className="max-w-6xl mx-auto flex flex-col items-center">
         
         {/* Main Central Glass Showcase Card */}
         <motion.div

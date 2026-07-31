@@ -8,13 +8,13 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative w-full py-20 lg:py-28 bg-[#EAF5EE]/60 border-t border-zinc-200/80 text-zinc-900 overflow-hidden font-[family-name:var(--font-jakarta)]"
+      className="relative w-full bg-gradient-to-b from-[#EEF7F2] via-[#F6FCF8] to-[#EBF5EF] border-b border-emerald-100/60 px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28 text-zinc-900 overflow-hidden font-[family-name:var(--font-jakarta)]"
     >
       {/* Background Decorative Ambient Orbs */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-200/30 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-rose-200/30 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-0 right-0 w-[320px] sm:w-[500px] h-[320px] sm:h-[500px] bg-emerald-200/30 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-0 left-0 w-[320px] sm:w-[500px] h-[320px] sm:h-[500px] bg-rose-200/30 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         
         {/* Left Callout */}
         <motion.div

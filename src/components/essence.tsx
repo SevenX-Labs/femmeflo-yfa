@@ -8,13 +8,13 @@ export function EssenceSection() {
   return (
     <section
       id="essence"
-      className="relative w-full py-24 lg:py-32 bg-gradient-to-b from-[#EAF5EE]/40 via-white to-[#EAF5EE]/40 overflow-hidden font-[family-name:var(--font-jakarta)]"
+      className="relative w-full bg-gradient-to-b from-[#F5F2F8] via-[#FAF7FD] to-[#F0EDF6] border-b border-purple-100/60 px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28 overflow-hidden font-[family-name:var(--font-jakarta)]"
     >
       {/* Background Decorative Ambient Radial Halo Orbs */}
-      <div className="absolute top-10 left-[-10%] w-[550px] h-[550px] rounded-full bg-gradient-to-tr from-emerald-200/40 via-teal-100/30 to-rose-100/30 blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-10 right-[-10%] w-[600px] h-[600px] rounded-full bg-gradient-to-br from-rose-200/40 via-pink-100/30 to-emerald-200/30 blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-10 left-[-10%] w-[320px] sm:w-[550px] h-[320px] sm:h-[550px] rounded-full bg-gradient-to-tr from-purple-200/40 via-pink-100/30 to-rose-100/30 blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-10 right-[-10%] w-[320px] sm:w-[600px] h-[320px] sm:h-[600px] rounded-full bg-gradient-to-br from-rose-200/40 via-pink-100/30 to-emerald-200/30 blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-6 flex flex-col items-center">
+      <div className="max-w-7xl mx-auto flex flex-col items-center">
         
         {/* Section 1: Market Positioning (Page 3 of PDF) */}
         <motion.div
