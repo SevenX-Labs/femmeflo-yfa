@@ -6,7 +6,7 @@ import { Sparkles, Globe, MessageCircle, Share2, ShieldCheck, Heart, Leaf } from
 
 export function Footer() {
   return (
-    <footer className="w-full bg-[#081F15] text-white pt-16 pb-12 overflow-hidden font-[family-name:var(--font-jakarta)] border-t border-emerald-900/60 px-4 sm:px-6 lg:px-8">
+    <footer className="w-full bg-[#061810] text-white pt-16 pb-12 overflow-hidden font-[family-name:var(--font-jakarta)] border-t border-emerald-900/80 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto space-y-12">
         
         {/* Navigation Links & Brand Summary */}

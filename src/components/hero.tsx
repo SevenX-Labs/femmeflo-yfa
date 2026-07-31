@@ -72,12 +72,12 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full bg-gradient-to-b from-[#FFF5F7] via-[#FFF9FA] to-[#FDF0F3] border-b border-rose-100/60 px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10 pb-12 sm:pb-16 flex flex-col justify-between overflow-hidden font-[family-name:var(--font-jakarta)]"
+      className="relative w-full bg-gradient-to-b from-[#FFF0F3] via-[#FFF6F8] to-[#FDE8EE] border-b border-pink-200/50 px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10 pb-12 sm:pb-16 flex flex-col justify-between overflow-hidden font-[family-name:var(--font-jakarta)]"
     >
       {/* Soft Background Radial Glow Orbs */}
-      <div className="absolute top-1/4 left-[-10%] w-[320px] sm:w-[500px] h-[320px] sm:h-[500px] bg-rose-200/35 rounded-full blur-[80px] sm:blur-[100px] pointer-events-none -z-10 animate-[pulse_7s_ease-in-out_infinite]" />
-      <div className="absolute top-1/3 right-[5%] w-[320px] sm:w-[500px] h-[320px] sm:h-[500px] bg-emerald-100/40 rounded-full blur-[80px] sm:blur-[110px] pointer-events-none -z-10 animate-[pulse_9s_ease-in-out_infinite]" />
-      <div className="absolute top-1/2 right-[20%] w-[280px] sm:w-[420px] h-[280px] sm:h-[420px] bg-pink-200/30 rounded-full blur-[70px] sm:blur-[90px] pointer-events-none -z-10" />
+      <div className="absolute top-1/4 left-[-10%] w-[320px] sm:w-[500px] h-[320px] sm:h-[500px] bg-rose-300/40 rounded-full blur-[80px] sm:blur-[100px] pointer-events-none -z-10 animate-[pulse_7s_ease-in-out_infinite]" />
+      <div className="absolute top-1/3 right-[5%] w-[320px] sm:w-[500px] h-[320px] sm:h-[500px] bg-amber-200/45 rounded-full blur-[80px] sm:blur-[110px] pointer-events-none -z-10 animate-[pulse_9s_ease-in-out_infinite]" />
+      <div className="absolute top-1/2 right-[20%] w-[280px] sm:w-[420px] h-[280px] sm:h-[420px] bg-pink-300/35 rounded-full blur-[70px] sm:blur-[90px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6 items-center py-4">
         {/* Left Column: Copy & CTAs */}

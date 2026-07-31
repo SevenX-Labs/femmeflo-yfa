@@ -77,11 +77,11 @@ export function About() {
   return (
     <section
       id="about"
-      className="relative w-full bg-gradient-to-b from-[#F0F8F3] via-[#EEF6F1] to-[#F5FAFA] border-b border-emerald-100/60 px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28 overflow-hidden font-[family-name:var(--font-jakarta)]"
+      className="relative w-full bg-gradient-to-b from-[#EBF7F0] via-[#E4F3EA] to-[#ECF7F1] border-b border-emerald-200/50 px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28 overflow-hidden font-[family-name:var(--font-jakarta)]"
     >
       {/* Background Soft Glow Orbs */}
-      <div className="absolute top-1/2 left-[-5%] w-[320px] sm:w-[450px] h-[320px] sm:h-[450px] bg-emerald-200/40 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-10 right-[-5%] w-[320px] sm:w-[450px] h-[320px] sm:h-[450px] bg-rose-200/40 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-[-5%] w-[320px] sm:w-[450px] h-[320px] sm:h-[450px] bg-emerald-300/35 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-10 right-[-5%] w-[320px] sm:w-[450px] h-[320px] sm:h-[450px] bg-teal-200/40 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">

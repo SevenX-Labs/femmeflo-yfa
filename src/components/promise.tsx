@@ -8,11 +8,11 @@ export function PromiseSection() {
   return (
     <section
       id="promise"
-      className="relative w-full bg-gradient-to-b from-[#EFF7F2] via-[#E8F4EC] to-[#F4FBF6] border-b border-emerald-100/60 px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28 overflow-hidden font-[family-name:var(--font-jakarta)]"
+      className="relative w-full bg-gradient-to-b from-[#F4EBF8] via-[#FAF3FD] to-[#F0E6F6] border-b border-purple-200/50 px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28 overflow-hidden font-[family-name:var(--font-jakarta)]"
     >
       {/* Decorative Floating Background Radial Halo Orbs */}
-      <div className="absolute top-[-10%] left-[-5%] w-[320px] sm:w-[550px] h-[320px] sm:h-[550px] rounded-full bg-gradient-to-tr from-rose-200/50 via-pink-100/40 to-emerald-200/40 blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-[-10%] right-[-5%] w-[320px] sm:w-[600px] h-[320px] sm:h-[600px] rounded-full bg-gradient-to-br from-emerald-200/50 via-teal-100/40 to-rose-200/40 blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-[-10%] left-[-5%] w-[320px] sm:w-[550px] h-[320px] sm:h-[550px] rounded-full bg-gradient-to-tr from-purple-300/40 via-fuchsia-200/35 to-rose-200/40 blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-[-10%] right-[-5%] w-[320px] sm:w-[600px] h-[320px] sm:h-[600px] rounded-full bg-gradient-to-br from-indigo-200/40 via-purple-200/35 to-pink-200/40 blur-3xl pointer-events-none -z-10" />
 
       {/* Subtle Floating Sparkles Background Accents */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden -z-10 opacity-60">

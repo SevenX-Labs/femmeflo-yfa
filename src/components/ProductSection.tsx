@@ -8,11 +8,11 @@ export function ProductSection() {
   return (
     <section
       id="products"
-      className="relative w-full bg-gradient-to-b from-[#FAF0F3] via-[#FFF5F7] to-[#F7EEF2] border-b border-rose-100/60 px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28 overflow-hidden font-[family-name:var(--font-jakarta)]"
+      className="relative w-full bg-gradient-to-b from-[#FDF0F5] via-[#FFF3F7] to-[#FCE8F0] border-b border-pink-200/60 px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28 overflow-hidden font-[family-name:var(--font-jakarta)]"
     >
       {/* Soft Background Radial Ambient Glow Orbs */}
-      <div className="absolute top-1/2 left-[-10%] w-[320px] sm:w-[500px] h-[320px] sm:h-[500px] bg-rose-200/40 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-10 right-[-10%] w-[320px] sm:w-[500px] h-[320px] sm:h-[500px] bg-emerald-100/40 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-[-10%] w-[320px] sm:w-[500px] h-[320px] sm:h-[500px] bg-[#E61C5D]/15 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-10 right-[-10%] w-[320px] sm:w-[500px] h-[320px] sm:h-[500px] bg-amber-200/40 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         

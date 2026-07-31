@@ -8,11 +8,11 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative w-full bg-gradient-to-b from-[#EEF7F2] via-[#F6FCF8] to-[#EBF5EF] border-b border-emerald-100/60 px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28 text-zinc-900 overflow-hidden font-[family-name:var(--font-jakarta)]"
+      className="relative w-full bg-gradient-to-b from-[#FDF2F5] via-[#FFF8F9] to-[#FBEAF0] border-b border-pink-200/50 px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28 text-zinc-900 overflow-hidden font-[family-name:var(--font-jakarta)]"
     >
       {/* Background Decorative Ambient Orbs */}
-      <div className="absolute top-0 right-0 w-[320px] sm:w-[500px] h-[320px] sm:h-[500px] bg-emerald-200/30 rounded-full blur-3xl pointer-events-none -z-10" />
-      <div className="absolute bottom-0 left-0 w-[320px] sm:w-[500px] h-[320px] sm:h-[500px] bg-rose-200/30 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-0 right-0 w-[320px] sm:w-[500px] h-[320px] sm:h-[500px] bg-pink-200/40 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute bottom-0 left-0 w-[320px] sm:w-[500px] h-[320px] sm:h-[500px] bg-rose-300/30 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
         
