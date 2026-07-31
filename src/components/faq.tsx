@@ -135,15 +135,19 @@ export function FAQSection() {
               return (
                 <div
                   key={item.id}
-                  className={`rounded-2xl transition-all duration-300 border ${
+                  className={`rounded-2xl transition-all duration-300 border cursor-pointer ${
                     isOpen
                       ? "bg-gradient-to-r from-rose-50/90 to-white border-rose-200/90 shadow-sm"
-                      : "bg-white/90 hover:bg-rose-50/40 border-zinc-100"
+                      : "bg-white/90 hover:bg-rose-100/50 border-zinc-100"
                   }`}
+                  onClick={() => toggle(item.id)}
                 >
                   <button
-                    onClick={() => toggle(item.id)}
-                    className="w-full px-5 py-4.5 flex items-center justify-between text-left gap-4 focus:outline-none"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggle(item.id);
+                    }}
+                    className="w-full px-5 py-4.5 flex items-center justify-between text-left gap-4 focus:outline-none cursor-pointer"
                     aria-expanded={isOpen}
                   >
                     <span className="text-base sm:text-lg font-bold text-zinc-900 font-[family-name:var(--font-jakarta)] leading-snug">
