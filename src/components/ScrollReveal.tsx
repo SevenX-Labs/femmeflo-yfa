@@ -15,23 +15,27 @@ interface ScrollRevealProps {
   blurStrength?: number;
   containerClassName?: string;
   textClassName?: string;
+  start?: string;
   rotationEnd?: string;
   wordAnimationEnd?: string;
   stagger?: number;
+  scrub?: number | boolean;
 }
 
 const ScrollReveal: React.FC<ScrollRevealProps> = ({
   children,
   scrollContainerRef,
-  enableBlur = true,
-  baseOpacity = 0.1,
-  baseRotation = 3,
-  blurStrength = 4,
+  enableBlur = false,
+  baseOpacity = 0.15,
+  baseRotation = 2,
+  blurStrength = 0,
   containerClassName = '',
   textClassName = '',
-  rotationEnd = 'bottom bottom',
-  wordAnimationEnd = 'bottom bottom',
-  stagger = 0.05
+  start = 'top 92%',
+  rotationEnd = 'center 45%',
+  wordAnimationEnd = 'center 40%',
+  stagger = 0.05,
+  scrub = 1
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -58,16 +62,17 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
 
     const rotationAnim = gsap.fromTo(
       el,
-      { transformOrigin: '0% 50%', rotate: baseRotation },
+      { transformOrigin: '0% 50%', rotate: baseRotation, y: 20 },
       {
-        ease: 'none',
+        ease: 'power1.out',
         rotate: 0,
+        y: 0,
         scrollTrigger: {
           trigger: el,
           scroller,
-          start: 'top bottom',
+          start: start,
           end: rotationEnd,
-          scrub: true
+          scrub: scrub
         }
       }
     );
@@ -86,36 +91,37 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
 
     const opacityAnim = gsap.fromTo(
       targets,
-      { opacity: baseOpacity, willChange: 'opacity, filter, transform' },
+      { opacity: baseOpacity, y: 16, willChange: 'transform, opacity' },
       {
-        ease: 'none',
+        ease: 'power1.out',
         opacity: 1,
+        y: 0,
         stagger: stagger,
         scrollTrigger: {
           trigger: el,
           scroller,
-          start: 'top bottom-=15%',
+          start: start,
           end: wordAnimationEnd,
-          scrub: true
+          scrub: scrub
         }
       }
     );
 
     let blurAnim: gsap.core.Tween | null = null;
-    if (enableBlur) {
+    if (enableBlur && blurStrength > 0) {
       blurAnim = gsap.fromTo(
         targets,
         { filter: `blur(${blurStrength}px)` },
         {
-          ease: 'none',
+          ease: 'power1.out',
           filter: 'blur(0px)',
           stagger: stagger,
           scrollTrigger: {
             trigger: el,
             scroller,
-            start: 'top bottom-=15%',
+            start: start,
             end: wordAnimationEnd,
-            scrub: true
+            scrub: scrub
           }
         }
       );
@@ -126,7 +132,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
       opacityAnim.revert();
       if (blurAnim) blurAnim.revert();
     };
-  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength, stagger]);
+  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, start, rotationEnd, wordAnimationEnd, blurStrength, stagger, scrub]);
 
   return (
     <div ref={containerRef} className={`my-4 ${containerClassName}`}>

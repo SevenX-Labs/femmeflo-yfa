@@ -110,10 +110,9 @@ export function WhyChooseUs() {
 
             {/* ScrollReveal Editorial Heading */}
             <ScrollReveal
-              baseOpacity={0.1}
-              enableBlur={true}
-              baseRotation={3}
-              blurStrength={6}
+              baseOpacity={0.2}
+              enableBlur={false}
+              baseRotation={2}
               containerClassName="mb-2"
               textClassName="text-3xl sm:text-5xl lg:text-[64px] font-bold tracking-tight text-zinc-900 font-[family-name:var(--font-playfair)] leading-[1.08]"
             >
@@ -146,11 +145,10 @@ export function WhyChooseUs() {
 
         {/* MAIN 45% / 55% SPLIT GRID LAYOUT WRAPPED IN SCROLL REVEAL */}
         <ScrollReveal
-          baseOpacity={0.1}
-          enableBlur={true}
-          baseRotation={3}
-          blurStrength={6}
-          stagger={0.1}
+          baseOpacity={0.2}
+          enableBlur={false}
+          baseRotation={2}
+          stagger={0.05}
           containerClassName="mb-16"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -292,10 +290,9 @@ export function WhyChooseUs() {
 
         {/* FLOATING ROUNDED GLASS TRUST BAR WRAPPED IN SCROLL REVEAL */}
         <ScrollReveal
-          baseOpacity={0.15}
-          enableBlur={true}
-          baseRotation={2}
-          blurStrength={5}
+          baseOpacity={0.2}
+          enableBlur={false}
+          baseRotation={1}
           containerClassName="w-full max-w-5xl mx-auto"
         >
           <div className="w-full h-[76px] sm:h-[84px] rounded-[42px] bg-white/95 backdrop-blur-2xl border border-zinc-200/80 px-8 sm:px-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] flex items-center justify-around gap-4 text-xs sm:text-sm font-semibold text-zinc-700">
