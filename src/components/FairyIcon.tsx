@@ -23,7 +23,19 @@ export function FairyIcon({ className = "w-20 h-20 sm:w-28 sm:h-28" }: { classNa
           viewBox="0 0 1024 1024"
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.15)]"
+          className="w-full h-full object-contain"
+          style={{
+            filter: `
+              drop-shadow(1.5px 0 0 #FFFFFF) 
+              drop-shadow(-1.5px 0 0 #FFFFFF) 
+              drop-shadow(0 1.5px 0 #FFFFFF) 
+              drop-shadow(0 -1.5px 0 #FFFFFF) 
+              drop-shadow(0 0 10px rgba(254, 236, 17, 0.65)) 
+              drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3)) 
+              brightness(1.1) 
+              contrast(1.05)
+            `,
+          }}
         >
           {/* 100% STATIONARY OFFICIAL FAIRY BODY */}
           <g id="official-yellow-fairy-body">
