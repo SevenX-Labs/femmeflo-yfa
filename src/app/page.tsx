@@ -13,7 +13,7 @@ import { SectionRouteObserver } from "@/components/SectionRouteObserver";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF8F5] relative">
+    <div className="min-h-screen flex flex-col bg-[#FFF0F3] relative">
       <SectionRouteObserver />
       <GlobalFloatingProduct />
       <Navbar />

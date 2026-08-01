@@ -56,11 +56,11 @@ export function Navbar() {
   const highlightedIndex = hoveredIndex !== null ? hoveredIndex : activeIndex;
 
   return (
-    <header className="sticky top-0 z-[100] w-full font-[family-name:var(--font-jakarta)] bg-transparent pt-3 sm:pt-4 px-3 sm:px-6 transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-[100] w-full font-[family-name:var(--font-jakarta)] bg-transparent pt-3 sm:pt-4 px-3 sm:px-6 pointer-events-none transition-all duration-300">
       {/* Outer Wrapper: Ultra-Clean Floating Dock Container with Frosted Glassmorphism */}
       <div className="max-w-7xl mx-auto">
         <div
-          className={`relative transition-all duration-500 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between backdrop-blur-xl border border-white/60 bg-white/65 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] ${
+          className={`pointer-events-auto relative transition-all duration-500 rounded-full px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between backdrop-blur-xl border border-white/60 bg-white/65 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.05)] ${
             scrolled ? "bg-white/85 shadow-[0_25px_50px_-12px_rgba(0,0,0,0.08)] border-white/80" : ""
           }`}
         >

@@ -72,7 +72,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full bg-gradient-to-b from-[#FFF0F3] via-[#FFF6F8] to-[#FDE8EE] border-b border-pink-200/50 px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10 pb-12 sm:pb-16 flex flex-col justify-between overflow-hidden font-[family-name:var(--font-jakarta)]"
+      className="relative w-full bg-gradient-to-b from-[#FFF0F3] via-[#FFF6F8] to-[#FDE8EE] border-b border-pink-200/50 px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-12 sm:pb-16 flex flex-col justify-between overflow-hidden font-[family-name:var(--font-jakarta)]"
     >
       {/* Soft Background Radial Glow Orbs */}
       <div className="absolute top-1/4 left-[-10%] w-[320px] sm:w-[500px] h-[320px] sm:h-[500px] bg-rose-300/40 rounded-full blur-[80px] sm:blur-[100px] pointer-events-none -z-10 animate-[pulse_7s_ease-in-out_infinite]" />
