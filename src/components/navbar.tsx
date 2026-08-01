@@ -114,14 +114,6 @@ export function Navbar() {
                         />
                       )}
 
-                      {/* Active Underline Spring Dot Indicator */}
-                      {isActive && (
-                        <motion.span
-                          layoutId="activeDot"
-                          className="absolute bottom-0.5 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[#1B4332]"
-                          transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                        />
-                      )}
 
                       <StaggeredText text={item.name} />
                     </Link>
