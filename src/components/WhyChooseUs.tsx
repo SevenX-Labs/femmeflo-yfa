@@ -15,6 +15,7 @@ import {
   Shield,
   Sparkles
 } from "lucide-react";
+import ScrollReveal from "./ScrollReveal";
 
 export function WhyChooseUs() {
   return (
@@ -107,16 +108,20 @@ export function WhyChooseUs() {
               <span>WHY CHOOSE FEMMEFLO</span>
             </div>
 
-            {/* Editorial Heading with Pink Gradient Keyword */}
-            <h2 className="text-3xl sm:text-5xl lg:text-[72px] font-bold tracking-tight text-zinc-900 font-[family-name:var(--font-playfair)] leading-[1.08] mb-4">
-              Redefining{" "}
-              <span className="bg-gradient-to-r from-[#9F2545] via-[#E61C5D] to-[#9F2545] bg-clip-text text-transparent italic font-normal">
-                Period Care
-              </span>
-            </h2>
+            {/* ScrollReveal Editorial Heading */}
+            <ScrollReveal
+              baseOpacity={0.1}
+              enableBlur={true}
+              baseRotation={3}
+              blurStrength={6}
+              containerClassName="mb-2"
+              textClassName="text-3xl sm:text-5xl lg:text-[64px] font-bold tracking-tight text-zinc-900 font-[family-name:var(--font-playfair)] leading-[1.08]"
+            >
+              Redefining Period Care for Ultimate Comfort, Protection, and Freshness.
+            </ScrollReveal>
 
             {/* Subtitle */}
-            <p className="text-zinc-600 text-base lg:text-lg leading-[1.65] font-normal max-w-[520px]">
+            <p className="text-zinc-600 text-base lg:text-lg leading-[1.65] font-normal max-w-[520px] mt-2">
               Experience the ultimate in comfort and confidence with advanced absorption technology and luxurious, skin-loving materials.
             </p>
           </motion.div>
