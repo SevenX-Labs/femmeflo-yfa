@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Clock, ShieldCheck, Droplets, Smile } from "lucide-react";
+import { FairyIcon } from "@/components/FairyIcon";
 
 export function ProductSection() {
   return (
@@ -157,6 +158,10 @@ export function ProductSection() {
               >
                 {/* Fallback Product Pack Image for Mobile Screen Viewports (< lg) */}
                 <div className="block lg:hidden relative w-52 h-40 sm:w-64 sm:h-48 select-none">
+                  {/* Floating Animated Fairy over Mobile Product */}
+                  <div className="absolute -top-6 -right-2 z-30">
+                    <FairyIcon className="w-14 h-14" />
+                  </div>
                   <Image
                     src="/femmeflo-withoutbg.png"
                     alt="Femmeflo XL Sanitary Pads"

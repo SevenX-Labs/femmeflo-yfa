@@ -220,29 +220,27 @@ export function GlobalFloatingProduct() {
             filter: "drop-shadow(0 45px 55px rgba(0,0,0,0.18))",
           }}
         >
-          {/* Continuous Upright 360° Orbit around Product (z-50) */}
+          {/* Continuous Upright Rotating Orbit around Product Pack (Moves WITH product) */}
           <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-50">
             <motion.div
-              className="w-full h-full relative flex items-center justify-center"
+              className="w-[110%] h-[75%] relative flex items-center justify-center -top-8 sm:-top-14"
               animate={{ rotate: 360 }}
               transition={{
-                duration: 4,
+                duration: 7,
                 repeat: Infinity,
                 ease: "linear",
               }}
             >
-              <div className="absolute top-[-40px] sm:top-[-90px]">
+              <div className="absolute top-0 left-1/2 -translate-x-1/2">
                 <motion.div
-                  animate={{
-                    rotate: -360,
-                  }}
+                  animate={{ rotate: -360 }}
                   transition={{
-                    duration: 4,
+                    duration: 7,
                     repeat: Infinity,
                     ease: "linear",
                   }}
                 >
-                  <FairyIcon className="w-16 h-16 sm:w-24 sm:h-24" />
+                  <FairyIcon className="w-20 h-20 sm:w-28 sm:h-28" />
                 </motion.div>
               </div>
             </motion.div>
