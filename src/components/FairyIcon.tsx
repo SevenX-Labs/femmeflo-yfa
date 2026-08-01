@@ -6,9 +6,6 @@ import { motion } from "framer-motion";
 export function FairyIcon({ className = "w-20 h-20 sm:w-28 sm:h-28" }: { className?: string }) {
   return (
     <div className={`relative inline-flex items-center justify-center select-none ${className}`}>
-      {/* Golden Magic Glow Backdrop */}
-      <div className="absolute inset-0 rounded-full bg-[#FEEC11]/35 blur-xl animate-pulse pointer-events-none" />
-
       {/* Main Levitating Fairy Container */}
       <motion.div
         className="w-full h-full relative z-10 flex items-center justify-center"
@@ -26,7 +23,7 @@ export function FairyIcon({ className = "w-20 h-20 sm:w-28 sm:h-28" }: { classNa
           viewBox="0 0 1024 1024"
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full object-contain filter drop-shadow-[0_4px_24px_rgba(254,236,17,0.9)] drop-shadow-[0_2px_10px_rgba(27,67,50,0.3)]"
+          className="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.15)]"
         >
           {/* 100% STATIONARY OFFICIAL FAIRY BODY */}
           <g id="official-yellow-fairy-body">
