@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Feather, Shield, Sparkles, Check } from "lucide-react";
+import ScrollFloat from "./ScrollFloat";
 
 export function PromiseSection() {
   return (
@@ -15,7 +16,7 @@ export function PromiseSection() {
         
         {/* Top Label */}
         <motion.span
-          className="font-[family-name:var(--font-playfair)] text-sm sm:text-base text-zinc-600 mb-3 tracking-wide"
+          className="font-[family-name:var(--font-playfair)] text-xs sm:text-sm text-zinc-500 mb-2 tracking-widest uppercase font-semibold"
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -24,68 +25,18 @@ export function PromiseSection() {
           Our Promise
         </motion.span>
 
-        {/* Main Quote Title with Pink Wavy Underlines */}
-        <motion.h2
-          className="text-3xl sm:text-5xl lg:text-6xl font-normal text-zinc-900 max-w-5xl leading-[1.18] font-[family-name:var(--font-playfair)] mb-5"
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
+        {/* ScrollFloat Animated Main Heading */}
+        <ScrollFloat
+          animationDuration={1.2}
+          ease="back.inOut(2)"
+          scrollStart="top bottom-=15%"
+          scrollEnd="center center"
+          stagger={0.025}
+          containerClassName="max-w-5xl mb-6 text-center"
+          textClassName="font-[family-name:var(--font-playfair)] text-3xl sm:text-5xl lg:text-6xl font-normal text-zinc-900 leading-[1.2]"
         >
-          &ldquo;To deliver sanitary pads that offer{" "}
-          <span className="relative inline-block">
-            superior comfort,
-            <svg
-              className="absolute -bottom-1.5 left-0 w-full h-3 text-[#E61C5D]/80"
-              viewBox="0 0 200 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M 0 6 Q 25 0, 50 6 T 100 6 T 150 6 T 200 6"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-              />
-            </svg>
-          </span>{" "}
-          <span className="relative inline-block">
-            protection,
-            <svg
-              className="absolute -bottom-1.5 left-0 w-full h-3 text-[#E61C5D]/80"
-              viewBox="0 0 160 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M 0 6 Q 20 0, 40 6 T 80 6 T 120 6 T 160 6"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-              />
-            </svg>
-          </span>{" "}
-          and{" "}
-          <span className="relative inline-block">
-            freshness.&rdquo;
-            <svg
-              className="absolute -bottom-1.5 left-0 w-full h-3 text-[#E61C5D]/80"
-              viewBox="0 0 160 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M 0 6 Q 20 0, 40 6 T 80 6 T 120 6 T 160 6"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-              />
-            </svg>
-          </span>
-        </motion.h2>
+          To deliver sanitary pads that offer superior comfort, protection, and freshness.
+        </ScrollFloat>
 
         {/* Sub-headline */}
         <motion.p
