@@ -4,36 +4,68 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FairyIcon } from "@/components/FairyIcon";
 
+const CRITICAL_IMAGES = [
+  "/femmeflo-withoutbg.png",
+  "/indian-customer-main.png",
+  "/avatar-indian-1.png",
+  "/avatar-indian-2.png",
+  "/avatar-indian-3.png",
+  "/avatar-indian-4.png",
+  "/avatar-indian-5.png",
+  "/avatar-indian-6.png",
+  "/avatar-indian-7.png",
+  "/avatar-indian-8.png",
+  "/avatar-indian-9.png",
+  "/avatar-indian-10.png",
+  "/avatar-indian-11.png",
+  "/avatar-indian-12.png",
+  "/logo.png",
+  "/woman-pink-pajamas.png",
+  "/product-lifestyle.jpg",
+];
+
 export function PageLoader() {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    // Check if user has already loaded in this session
-    const hasLoaded = sessionStorage.getItem("femmeflo_preloaded");
+    let loadedCount = 0;
+    const totalCount = CRITICAL_IMAGES.length;
 
-    if (hasLoaded) {
-      setLoading(false);
-      return;
-    }
+    // Preload critical images in parallel
+    CRITICAL_IMAGES.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+      img.onload = () => { loadedCount++; };
+      img.onerror = () => { loadedCount++; };
+    });
 
-    // Progress counter animation from 0% to 100% over ~1.6s
     const startTime = Date.now();
-    const duration = 1600;
+    const minDuration = 2000; // 2 seconds smooth entrance duration
 
     const timer = setInterval(() => {
       const elapsed = Date.now() - startTime;
-      const pct = Math.min(100, Math.floor((elapsed / duration) * 100));
-      setProgress(pct);
+      const timeRatio = Math.min(1, elapsed / minDuration);
+      const imgRatio = totalCount > 0 ? Math.min(1, loadedCount / totalCount) : 1;
 
-      if (pct >= 100) {
+      // Continuous progress formula: ascends smoothly from 0% up to 100%
+      let currentPct = 0;
+      if (imgRatio < 1) {
+        currentPct = Math.floor(Math.min(timeRatio * 0.95, 0.95) * 100);
+      } else {
+        currentPct = Math.floor(timeRatio * 100);
+      }
+
+      setProgress((prev) => Math.max(prev, currentPct));
+
+      if (timeRatio >= 1 && loadedCount >= totalCount) {
+        setProgress(100);
         clearInterval(timer);
         setTimeout(() => {
           setLoading(false);
-          sessionStorage.setItem("femmeflo_preloaded", "true");
-        }, 200);
+        }, 450);
       }
-    }, 20);
+    }, 25);
 
     return () => clearInterval(timer);
   }, []);
