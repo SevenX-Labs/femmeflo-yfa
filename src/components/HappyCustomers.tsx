@@ -121,27 +121,27 @@ export function HappyCustomers() {
 
           {/* LEFT CLUSTER: Floating Avatars & Heart Badges */}
           <div className="hidden lg:block absolute left-0 inset-y-0 w-5/12 pointer-events-none select-none z-10">
-            {/* Avatar 1 */}
+            {/* Avatar 1 (Indian College Student in Yellow Kurti) */}
             <motion.img
-              src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80"
+              src="/avatar-indian-1.png"
               alt="Indian Customer"
               className="absolute top-8 left-[24%] w-16 h-16 rounded-full object-cover shadow-md border-2 border-white"
               animate={{ y: [-4, 4, -4] }}
               transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
             />
 
-            {/* Avatar 2 */}
+            {/* Avatar 2 (Indian Woman in Red Saree) */}
             <motion.img
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
+              src="/avatar-indian-2.png"
               alt="Indian Customer"
               className="absolute top-2 left-[56%] w-18 h-18 rounded-2xl object-cover shadow-lg border-2 border-white"
               animate={{ y: [4, -4, 4] }}
               transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
             />
 
-            {/* Avatar 3 */}
+            {/* Avatar 3 (Indian Woman with Glasses in Green Top) */}
             <motion.img
-              src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=200&q=80"
+              src="/avatar-indian-3.png"
               alt="Indian Customer"
               className="absolute top-[38%] left-[8%] w-16 h-16 rounded-2xl object-cover shadow-md border-2 border-white"
               animate={{ y: [-5, 5, -5] }}
@@ -161,27 +161,27 @@ export function HappyCustomers() {
               </div>
             </motion.div>
 
-            {/* Avatar 4 */}
+            {/* Avatar 4 (Indian Woman in Blue Kurta) */}
             <motion.img
-              src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=300&q=80"
+              src="/avatar-indian-4.png"
               alt="Indian Customer"
               className="absolute bottom-[22%] left-[78%] w-18 h-18 rounded-2xl object-cover shadow-md border-2 border-white"
               animate={{ y: [-4, 4, -4] }}
               transition={{ duration: 4.6, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
             />
 
-            {/* Avatar 5 */}
+            {/* Avatar 5 (Indian Woman in Yellow Dupatta & Bindi) */}
             <motion.img
-              src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=200&q=80"
+              src="/avatar-indian-5.png"
               alt="Indian Customer"
               className="absolute bottom-6 left-[24%] w-15 h-15 rounded-full object-cover shadow-sm border-2 border-white"
               animate={{ y: [4, -4, 4] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
             />
 
-            {/* Avatar 6 */}
+            {/* Avatar 6 (Indian Student in White Kurta & Purple Scarf) */}
             <motion.img
-              src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=200&q=80"
+              src="/avatar-indian-6.png"
               alt="Indian Customer"
               className="absolute bottom-2 left-[50%] w-18 h-18 rounded-2xl object-cover shadow-md border-2 border-white"
               animate={{ y: [-5, 5, -5] }}
@@ -210,28 +210,28 @@ export function HappyCustomers() {
             {/* Mobile Floating Customer Avatars Orbiting Center Photo */}
             <div className="block lg:hidden pointer-events-none select-none">
               <motion.img
-                src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80"
+                src="/avatar-indian-1.png"
                 alt="Indian Customer"
                 className="absolute -top-3 -left-3 sm:-top-5 sm:-left-5 w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover shadow-lg border-2 border-white z-30"
                 animate={{ y: [-4, 4, -4] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
               <motion.img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
+                src="/avatar-indian-2.png"
                 alt="Indian Customer"
                 className="absolute -top-3 -right-3 sm:-top-5 sm:-right-5 w-13 h-13 sm:w-15 sm:h-15 rounded-full object-cover shadow-lg border-2 border-white z-30"
                 animate={{ y: [4, -4, 4] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
               />
               <motion.img
-                src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=200&q=80"
+                src="/avatar-indian-5.png"
                 alt="Indian Customer"
                 className="absolute -bottom-3 -left-3 sm:-bottom-5 sm:-left-5 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl object-cover shadow-lg border-2 border-white z-30"
                 animate={{ y: [-4, 4, -4] }}
                 transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
               />
               <motion.img
-                src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=200&q=80"
+                src="/avatar-indian-6.png"
                 alt="Indian Customer"
                 className="absolute -bottom-3 -right-3 sm:-bottom-5 sm:-right-5 w-13 h-13 sm:w-15 sm:h-15 rounded-full object-cover shadow-lg border-2 border-white z-30"
                 animate={{ y: [4, -4, 4] }}
@@ -258,18 +258,18 @@ export function HappyCustomers() {
 
           {/* RIGHT CLUSTER: Floating Avatars & Heart Badges */}
           <div className="hidden lg:block absolute right-0 inset-y-0 w-5/12 pointer-events-none select-none z-10">
-            {/* Avatar 7 */}
+            {/* Avatar 7 (Indian Woman in Teal Shirt) */}
             <motion.img
-              src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80"
+              src="/avatar-indian-7.png"
               alt="Indian Customer"
               className="absolute top-4 right-[58%] w-16 h-16 rounded-full object-cover shadow-md border-2 border-white"
               animate={{ y: [4, -4, 4] }}
               transition={{ duration: 4.7, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
             />
 
-            {/* Avatar 8 */}
+            {/* Avatar 8 (Indian Woman in Green Saree) */}
             <motion.img
-              src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=200&q=80"
+              src="/avatar-indian-8.png"
               alt="Indian Customer"
               className="absolute top-16 right-[24%] w-18 h-18 rounded-2xl object-cover shadow-lg border-2 border-white"
               animate={{ y: [-4, 4, -4] }}
@@ -289,18 +289,18 @@ export function HappyCustomers() {
               </div>
             </motion.div>
 
-            {/* Avatar 9 */}
+            {/* Avatar 9 (Indian Woman in Red & Gold Saree) */}
             <motion.img
-              src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=300&q=80"
+              src="/avatar-indian-9.png"
               alt="Indian Customer"
               className="absolute top-[38%] right-[16%] w-18 h-18 rounded-2xl object-cover shadow-lg border-2 border-white"
               animate={{ y: [5, -5, 5] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
             />
 
-            {/* Avatar 10 */}
+            {/* Avatar 10 (Indian Student in Pink Kurti) */}
             <motion.img
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80"
+              src="/avatar-indian-10.png"
               alt="Indian Customer"
               className="absolute bottom-[20%] right-[78%] w-18 h-18 rounded-2xl object-cover shadow-md border-2 border-white"
               animate={{ y: [-5, 5, -5] }}
@@ -320,18 +320,18 @@ export function HappyCustomers() {
               </div>
             </motion.div>
 
-            {/* Avatar 11 */}
+            {/* Avatar 11 (Indian Professional Woman in White Shirt) */}
             <motion.img
-              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80"
+              src="/avatar-indian-11.png"
               alt="Indian Customer"
               className="absolute bottom-6 right-[50%] w-16 h-16 rounded-full object-cover shadow-md border-2 border-white"
               animate={{ y: [4, -4, 4] }}
               transition={{ duration: 5.3, repeat: Infinity, ease: "easeInOut", delay: 1.7 }}
             />
 
-            {/* Avatar 12 */}
+            {/* Avatar 12 (Indian Woman in Maroon Ethnic Top) */}
             <motion.img
-              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+              src="/avatar-indian-12.png"
               alt="Indian Customer"
               className="absolute bottom-16 right-[24%] w-15 h-15 rounded-full object-cover shadow-sm border-2 border-white"
               animate={{ y: [-4, 4, -4] }}
