@@ -3,12 +3,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export function FairyIcon({ className = "w-20 h-20 sm:w-28 sm:h-28" }: { className?: string }) {
+export function FairyIcon({ className = "w-22 h-22 sm:w-30 sm:h-30" }: { className?: string }) {
   return (
     <div className={`relative inline-flex items-center justify-center select-none ${className}`}>
       {/* Main Levitating Fairy Container */}
       <motion.div
-        className="w-full h-full relative z-10 flex items-center justify-center"
+        className="w-full h-full relative z-10 flex items-center justify-center scale-[1.08]"
         animate={{
           y: [-6, 6, -6],
           rotate: [-3, 4, -3],
@@ -23,17 +23,17 @@ export function FairyIcon({ className = "w-20 h-20 sm:w-28 sm:h-28" }: { classNa
           viewBox="0 0 1024 1024"
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full object-contain"
+          className="w-full h-full object-contain overflow-visible"
           style={{
             filter: `
-              drop-shadow(1.5px 0 0 #FFFFFF) 
-              drop-shadow(-1.5px 0 0 #FFFFFF) 
-              drop-shadow(0 1.5px 0 #FFFFFF) 
-              drop-shadow(0 -1.5px 0 #FFFFFF) 
-              drop-shadow(0 0 10px rgba(254, 236, 17, 0.65)) 
-              drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3)) 
-              brightness(1.1) 
-              contrast(1.05)
+              drop-shadow(0.75px 0 0 rgba(255, 255, 255, 0.92)) 
+              drop-shadow(-0.75px 0 0 rgba(255, 255, 255, 0.92)) 
+              drop-shadow(0 0.75px 0 rgba(255, 255, 255, 0.92)) 
+              drop-shadow(0 -0.75px 0 rgba(255, 255, 255, 0.92)) 
+              drop-shadow(0 4px 10px rgba(0, 0, 0, 0.12)) 
+              brightness(1.06) 
+              contrast(1.06) 
+              saturate(1.08)
             `,
           }}
         >
