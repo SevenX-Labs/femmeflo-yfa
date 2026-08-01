@@ -143,201 +143,188 @@ export function WhyChooseUs() {
 
         </div>
 
-        {/* MAIN 45% / 55% SPLIT GRID LAYOUT */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-16">
-          
-          {/* LEFT 45% COLUMN: ENLARGED LIFESTYLE PHOTO + FLOATING GLASS CARD */}
-          <motion.div
-            className="lg:col-span-5 relative w-full aspect-[4/5] h-[520px] sm:h-[580px] lg:h-[620px] max-w-lg mx-auto lg:max-w-none rounded-[36px] overflow-hidden shadow-2xl border-2 border-white group z-10"
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            {/* Lifestyle Image: /woman-pink-pajamas.png */}
-            <Image
-              src="/woman-pink-pajamas.png"
-              alt="FemmeFlo Woman in Pink Silk Pajamas"
-              fill
-              priority
-              className="object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-
-            {/* OVERLAPPING FLOATING GLASS CARD: Cloud-Soft & Skin Friendly */}
-            <motion.div
-              className="absolute bottom-6 right-4 left-6 sm:left-auto sm:right-6 sm:w-[300px] bg-white/85 backdrop-blur-2xl border border-white/95 p-6 sm:p-7 rounded-2xl shadow-2xl flex flex-col gap-2.5 z-20"
-              animate={{ y: [-5, 5, -5] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <div className="w-12 h-12 rounded-xl bg-rose-50 border border-rose-200/80 text-[#9F2545] flex items-center justify-center shadow-xs">
-                <Feather className="w-6 h-6" />
-              </div>
-
-              <h3 className="text-zinc-900 font-bold font-[family-name:var(--font-playfair)] text-lg sm:text-xl leading-tight">
-                Cloud-Soft &amp; Skin Friendly
-              </h3>
-
-              <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
-                Hypoallergenic cottony-soft top sheet engineered to prevent rashes, chafing, and skin irritation.
-              </p>
-
-              <div className="pt-2 border-t border-rose-100/60 flex items-center gap-1.5 text-xs font-semibold text-[#9F2545]">
-                <CheckCircle2 className="w-4 h-4" />
-                <span>Dermatologically Tested.</span>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* RIGHT 55% COLUMN: FEATURE BLOCKS GRID */}
-          <div className="lg:col-span-7 flex flex-col gap-8 pl-0 lg:pl-2">
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-start">
-              
-              {/* FEATURE 1: 12-Hour Leak Lock Protection (Forest Green #156035) */}
-              <motion.div
-                className="bg-white/95 backdrop-blur-2xl rounded-[32px] p-6 sm:p-8 border border-zinc-200/70 shadow-[0_15px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_25px_50px_rgba(21,96,53,0.14)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-4 sm:gap-5 min-h-[150px] w-full"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-              >
-                {/* Left 56px Forest Green Icon Disc */}
-                <div className="w-18 h-22 rounded-2xl bg-[#156035] text-white flex flex-col items-center justify-center shadow-md shrink-0">
-                  <ShieldCheck className="w-7 h-7 mb-1" />
-                  <span className="text-xs font-bold leading-none">12H</span>
-                </div>
-
-                <div className="flex flex-col">
-                  <h3 className="text-zinc-900 font-bold font-[family-name:var(--font-playfair)] text-xl sm:text-2xl leading-tight mb-2">
-                    12-Hour Leak Lock Protection
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-2.5">
-                    Advanced super-absorbent core traps moisture instantly, keeping you fresh, dry, and worry-free all day and night.
-                  </p>
-
-                  <span className="text-xs font-semibold text-[#156035]">
-                    Zero Leaks. Dermatologically Tested.
-                  </span>
-                </div>
-              </motion.div>
-
-              {/* FEATURE 2: 280mm Extended Wear Wings (Berry Pink #9F2545) */}
-              <motion.div
-                className="bg-white/95 backdrop-blur-2xl rounded-[32px] p-6 sm:p-8 border border-zinc-200/70 shadow-[0_15px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_25px_50px_rgba(159,37,69,0.14)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-4 sm:gap-5 min-h-[150px] w-full"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                {/* Left 56px Berry Pink Icon Disc */}
-                <div className="w-18 h-22 rounded-2xl bg-[#9F2545] text-white flex flex-col items-center justify-center shadow-md shrink-0">
-                  <Shield className="w-7 h-7 mb-1" />
-                  <span className="text-[10px] font-bold leading-none">280mm</span>
-                </div>
-
-                <div className="flex flex-col">
-                  <h3 className="text-zinc-900 font-bold font-[family-name:var(--font-playfair)] text-xl sm:text-2xl leading-tight mb-2">
-                    280mm Extended Wear Wings
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-2.5">
-                    Extra-long coverage with ergonomic double wings that stay firmly in place during active movement and sleep.
-                  </p>
-
-                  <span className="text-xs font-semibold text-[#9F2545]">
-                    Extra Long. Dermatologically Tested.
-                  </span>
-                </div>
-              </motion.div>
-
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-center">
-              
-              {/* FEATURE 3: Smart Choice Value (₹40 Pack) (Gold Accent) */}
-              <motion.div
-                className="relative bg-white/95 backdrop-blur-2xl rounded-[32px] p-6 sm:p-8 border-2 border-amber-300 shadow-[0_15px_40px_rgba(245,158,11,0.12)] hover:shadow-[0_25px_50px_rgba(245,158,11,0.22)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-4 sm:gap-5 min-h-[150px] w-full"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-              >
-                {/* Scalloped Best Value Badge */}
-                <div className="w-12 h-12 rounded-full bg-white border border-amber-300 text-zinc-900 font-extrabold text-[8px] uppercase tracking-wider flex items-center justify-center text-center shadow-sm absolute -top-3.5 right-4 z-10 leading-tight">
-                  Best<br />Value
-                </div>
-
-                {/* Left 56px Golden Sphere Icon Disc */}
-                <div className="w-18 h-22 rounded-full bg-gradient-to-tr from-amber-500 to-amber-300 text-white flex flex-col items-center justify-center shadow-md shrink-0 relative">
-                  <ShoppingBag className="w-6 h-6 mb-0.5" />
-                  <span className="text-xs font-black leading-none">₹40</span>
-                  <span className="text-[7px] font-bold uppercase leading-none mt-0.5">PACK</span>
-                </div>
-
-                <div className="flex flex-col">
-                  <h3 className="text-zinc-900 font-bold font-[family-name:var(--font-playfair)] text-xl sm:text-2xl leading-tight mb-2">
-                    Smart Choice Value (₹40 Pack)
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-2.5">
-                    Delivering high-performance hygiene and premium quality at an accessible price without unnecessary markup.
-                  </p>
-
-                  <span className="text-xs font-semibold text-amber-800">
-                    Dermatologically Tested.
-                  </span>
-                </div>
-              </motion.div>
-
-              {/* LARGER ALIGNED CTA BUTTON */}
-              <div className="flex items-center justify-start sm:justify-center pt-2">
-                <button className="bg-gradient-to-r from-[#9F2545] to-rose-600 hover:from-rose-600 hover:to-[#9F2545] text-white font-bold text-base px-9 py-4 rounded-full transition-all flex items-center gap-2.5 shadow-md hover:shadow-xl hover:scale-105">
-                  <span>Explore Product Specs</span>
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        {/* FLOATING ROUNDED GLASS TRUST BAR (80px HEIGHT, ROUNDED-FULL) */}
-        <motion.div
-          className="w-full max-w-5xl mx-auto h-[76px] sm:h-[84px] rounded-[42px] bg-white/95 backdrop-blur-2xl border border-zinc-200/80 px-8 sm:px-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] flex items-center justify-around gap-4 text-xs sm:text-sm font-semibold text-zinc-700"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+        {/* MAIN 45% / 55% SPLIT GRID LAYOUT WRAPPED IN SCROLL REVEAL */}
+        <ScrollReveal
+          baseOpacity={0.1}
+          enableBlur={true}
+          baseRotation={3}
+          blurStrength={6}
+          stagger={0.1}
+          containerClassName="mb-16"
         >
-          <div className="flex items-center gap-2.5">
-            <CheckCircle2 className="w-5 h-5 text-[#156035]" />
-            <span>Dermatologically Tested</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            
+            {/* LEFT 45% COLUMN: ENLARGED LIFESTYLE PHOTO + FLOATING GLASS CARD */}
+            <div className="reveal-item lg:col-span-5 relative w-full aspect-[4/5] h-[520px] sm:h-[580px] lg:h-[620px] max-w-lg mx-auto lg:max-w-none rounded-[36px] overflow-hidden shadow-2xl border-2 border-white group z-10">
+              {/* Lifestyle Image: /woman-pink-pajamas.png */}
+              <Image
+                src="/woman-pink-pajamas.png"
+                alt="FemmeFlo Woman in Pink Silk Pajamas"
+                fill
+                priority
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+
+              {/* OVERLAPPING FLOATING GLASS CARD: Cloud-Soft & Skin Friendly */}
+              <motion.div
+                className="absolute bottom-6 right-4 left-6 sm:left-auto sm:right-6 sm:w-[300px] bg-white/85 backdrop-blur-2xl border border-white/95 p-6 sm:p-7 rounded-2xl shadow-2xl flex flex-col gap-2.5 z-20"
+                animate={{ y: [-5, 5, -5] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <div className="w-12 h-12 rounded-xl bg-rose-50 border border-rose-200/80 text-[#9F2545] flex items-center justify-center shadow-xs">
+                  <Feather className="w-6 h-6" />
+                </div>
+
+                <h3 className="text-zinc-900 font-bold font-[family-name:var(--font-playfair)] text-lg sm:text-xl leading-tight">
+                  Cloud-Soft &amp; Skin Friendly
+                </h3>
+
+                <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
+                  Hypoallergenic cottony-soft top sheet engineered to prevent rashes, chafing, and skin irritation.
+                </p>
+
+                <div className="pt-2 border-t border-rose-100/60 flex items-center gap-1.5 text-xs font-semibold text-[#9F2545]">
+                  <CheckCircle2 className="w-4 h-4" />
+                  <span>Dermatologically Tested.</span>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* RIGHT 55% COLUMN: FEATURE BLOCKS GRID */}
+            <div className="lg:col-span-7 flex flex-col gap-8 pl-0 lg:pl-2">
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-start">
+                
+                {/* FEATURE 1: 12-Hour Leak Lock Protection (Forest Green #156035) */}
+                <div className="reveal-item bg-white/95 backdrop-blur-2xl rounded-[32px] p-6 sm:p-8 border border-zinc-200/70 shadow-[0_15px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_25px_50px_rgba(21,96,53,0.14)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-4 sm:gap-5 min-h-[150px] w-full">
+                  {/* Left 56px Forest Green Icon Disc */}
+                  <div className="w-18 h-22 rounded-2xl bg-[#156035] text-white flex flex-col items-center justify-center shadow-md shrink-0">
+                    <ShieldCheck className="w-7 h-7 mb-1" />
+                    <span className="text-xs font-bold leading-none">12H</span>
+                  </div>
+
+                  <div className="flex flex-col">
+                    <h3 className="text-zinc-900 font-bold font-[family-name:var(--font-playfair)] text-xl sm:text-2xl leading-tight mb-2">
+                      12-Hour Leak Lock Protection
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-2.5">
+                      Advanced super-absorbent core traps moisture instantly, keeping you fresh, dry, and worry-free all day and night.
+                    </p>
+
+                    <span className="text-xs font-semibold text-[#156035]">
+                      Zero Leaks. Dermatologically Tested.
+                    </span>
+                  </div>
+                </div>
+
+                {/* FEATURE 2: 280mm Extended Wear Wings (Berry Pink #9F2545) */}
+                <div className="reveal-item bg-white/95 backdrop-blur-2xl rounded-[32px] p-6 sm:p-8 border border-zinc-200/70 shadow-[0_15px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_25px_50px_rgba(159,37,69,0.14)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-4 sm:gap-5 min-h-[150px] w-full">
+                  {/* Left 56px Berry Pink Icon Disc */}
+                  <div className="w-18 h-22 rounded-2xl bg-[#9F2545] text-white flex flex-col items-center justify-center shadow-md shrink-0">
+                    <Shield className="w-7 h-7 mb-1" />
+                    <span className="text-[10px] font-bold leading-none">280mm</span>
+                  </div>
+
+                  <div className="flex flex-col">
+                    <h3 className="text-zinc-900 font-bold font-[family-name:var(--font-playfair)] text-xl sm:text-2xl leading-tight mb-2">
+                      280mm Extended Wear Wings
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-2.5">
+                      Extra-long coverage with ergonomic double wings that stay firmly in place during active movement and sleep.
+                    </p>
+
+                    <span className="text-xs font-semibold text-[#9F2545]">
+                      Extra Long. Dermatologically Tested.
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-center">
+                
+                {/* FEATURE 3: Smart Choice Value (₹40 Pack) (Gold Accent) */}
+                <div className="reveal-item relative bg-white/95 backdrop-blur-2xl rounded-[32px] p-6 sm:p-8 border-2 border-amber-300 shadow-[0_15px_40px_rgba(245,158,11,0.12)] hover:shadow-[0_25px_50px_rgba(245,158,11,0.22)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-4 sm:gap-5 min-h-[150px] w-full">
+                  {/* Scalloped Best Value Badge */}
+                  <div className="w-12 h-12 rounded-full bg-white border border-amber-300 text-zinc-900 font-extrabold text-[8px] uppercase tracking-wider flex items-center justify-center text-center shadow-sm absolute -top-3.5 right-4 z-10 leading-tight">
+                    Best<br />Value
+                  </div>
+
+                  {/* Left 56px Golden Sphere Icon Disc */}
+                  <div className="w-18 h-22 rounded-full bg-gradient-to-tr from-amber-500 to-amber-300 text-white flex flex-col items-center justify-center shadow-md shrink-0 relative">
+                    <ShoppingBag className="w-6 h-6 mb-0.5" />
+                    <span className="text-xs font-black leading-none">₹40</span>
+                    <span className="text-[7px] font-bold uppercase leading-none mt-0.5">PACK</span>
+                  </div>
+
+                  <div className="flex flex-col">
+                    <h3 className="text-zinc-900 font-bold font-[family-name:var(--font-playfair)] text-xl sm:text-2xl leading-tight mb-2">
+                      Smart Choice Value (₹40 Pack)
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-2.5">
+                      Delivering high-performance hygiene and premium quality at an accessible price without unnecessary markup.
+                    </p>
+
+                    <span className="text-xs font-semibold text-amber-800">
+                      Dermatologically Tested.
+                    </span>
+                  </div>
+                </div>
+
+                {/* LARGER ALIGNED CTA BUTTON */}
+                <div className="reveal-item flex items-center justify-start sm:justify-center pt-2">
+                  <button className="bg-gradient-to-r from-[#9F2545] to-rose-600 hover:from-rose-600 hover:to-[#9F2545] text-white font-bold text-base px-9 py-4 rounded-full transition-all flex items-center gap-2.5 shadow-md hover:shadow-xl hover:scale-105 cursor-pointer">
+                    <span>Explore Product Specs</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </button>
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
+        </ScrollReveal>
 
-          <div className="hidden sm:block w-px h-5 bg-zinc-200" />
+        {/* FLOATING ROUNDED GLASS TRUST BAR WRAPPED IN SCROLL REVEAL */}
+        <ScrollReveal
+          baseOpacity={0.15}
+          enableBlur={true}
+          baseRotation={2}
+          blurStrength={5}
+          containerClassName="w-full max-w-5xl mx-auto"
+        >
+          <div className="w-full h-[76px] sm:h-[84px] rounded-[42px] bg-white/95 backdrop-blur-2xl border border-zinc-200/80 px-8 sm:px-12 shadow-[0_20px_50px_rgba(0,0,0,0.05)] flex items-center justify-around gap-4 text-xs sm:text-sm font-semibold text-zinc-700">
+            <div className="flex items-center gap-2.5">
+              <CheckCircle2 className="w-5 h-5 text-[#156035]" />
+              <span>Dermatologically Tested</span>
+            </div>
 
-          <div className="flex items-center gap-2.5">
-            <Leaf className="w-5 h-5 text-[#156035]" />
-            <span>Safe &amp; Skin Friendly</span>
+            <div className="hidden sm:block w-px h-5 bg-zinc-200" />
+
+            <div className="flex items-center gap-2.5">
+              <Leaf className="w-5 h-5 text-[#156035]" />
+              <span>Safe &amp; Skin Friendly</span>
+            </div>
+
+            <div className="hidden sm:block w-px h-5 bg-zinc-200" />
+
+            <div className="flex items-center gap-2.5">
+              <Users className="w-5 h-5 text-[#9F2545]" />
+              <span>Trusted by Millions</span>
+            </div>
+
+            <div className="hidden sm:block w-px h-4 bg-zinc-200" />
+
+            <div className="flex items-center gap-2.5">
+              <Globe className="w-5 h-5 text-amber-600" />
+              <span>Made for India</span>
+            </div>
           </div>
-
-          <div className="hidden sm:block w-px h-5 bg-zinc-200" />
-
-          <div className="flex items-center gap-2.5">
-            <Users className="w-5 h-5 text-[#9F2545]" />
-            <span>Trusted by Millions</span>
-          </div>
-
-          <div className="hidden sm:block w-px h-4 bg-zinc-200" />
-
-          <div className="flex items-center gap-2.5">
-            <Globe className="w-5 h-5 text-amber-600" />
-            <span>Made for India</span>
-          </div>
-        </motion.div>
+        </ScrollReveal>
 
       </div>
     </section>

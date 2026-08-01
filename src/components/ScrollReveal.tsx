@@ -17,6 +17,7 @@ interface ScrollRevealProps {
   textClassName?: string;
   rotationEnd?: string;
   wordAnimationEnd?: string;
+  stagger?: number;
 }
 
 const ScrollReveal: React.FC<ScrollRevealProps> = ({
@@ -29,7 +30,8 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   containerClassName = '',
   textClassName = '',
   rotationEnd = 'bottom bottom',
-  wordAnimationEnd = 'bottom bottom'
+  wordAnimationEnd = 'bottom bottom',
+  stagger = 0.05
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -71,19 +73,28 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
     );
 
     const wordElements = el.querySelectorAll<HTMLElement>('.word');
-    const targets = wordElements.length > 0 ? wordElements : el.querySelectorAll<HTMLElement>('.inline-block');
+    const childItems = el.querySelectorAll<HTMLElement>('.reveal-item, .card-reveal');
+
+    const targets: HTMLElement[] =
+      wordElements.length > 0
+        ? Array.from(wordElements)
+        : childItems.length > 0
+        ? Array.from(childItems)
+        : el.children.length > 0
+        ? (Array.from(el.children) as HTMLElement[])
+        : [el];
 
     const opacityAnim = gsap.fromTo(
       targets,
-      { opacity: baseOpacity, willChange: 'opacity, filter' },
+      { opacity: baseOpacity, willChange: 'opacity, filter, transform' },
       {
         ease: 'none',
         opacity: 1,
-        stagger: 0.05,
+        stagger: stagger,
         scrollTrigger: {
           trigger: el,
           scroller,
-          start: 'top bottom-=20%',
+          start: 'top bottom-=15%',
           end: wordAnimationEnd,
           scrub: true
         }
@@ -98,11 +109,11 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
         {
           ease: 'none',
           filter: 'blur(0px)',
-          stagger: 0.05,
+          stagger: stagger,
           scrollTrigger: {
             trigger: el,
             scroller,
-            start: 'top bottom-=20%',
+            start: 'top bottom-=15%',
             end: wordAnimationEnd,
             scrub: true
           }
@@ -115,13 +126,13 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
       opacityAnim.revert();
       if (blurAnim) blurAnim.revert();
     };
-  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength]);
+  }, [scrollContainerRef, enableBlur, baseRotation, baseOpacity, rotationEnd, wordAnimationEnd, blurStrength, stagger]);
 
   return (
     <div ref={containerRef} className={`my-4 ${containerClassName}`}>
-      <span className={`inline-block ${textClassName ? textClassName : 'text-[clamp(1.6rem,4vw,3rem)] leading-[1.5] font-semibold'}`}>
+      <div className={textClassName ? textClassName : ''}>
         {splitText}
-      </span>
+      </div>
     </div>
   );
 };
