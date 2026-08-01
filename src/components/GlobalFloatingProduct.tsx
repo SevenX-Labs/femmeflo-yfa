@@ -80,6 +80,8 @@ export function GlobalFloatingProduct() {
   }, [rawMouseX, rawMouseY]);
 
   useEffect(() => {
+    let isInitialized = false;
+
     const updatePosition = () => {
       if (typeof window === "undefined") return;
       const target = fixedContainerRef.current;
@@ -97,6 +99,16 @@ export function GlobalFloatingProduct() {
       const hRect = heroAnchor ? heroAnchor.getBoundingClientRect() : null;
       const aRect = aboutAnchor ? aboutAnchor.getBoundingClientRect() : null;
       const pRect = productAnchor ? productAnchor.getBoundingClientRect() : null;
+
+      // Ensure valid layout dimensions exist before revealing
+      if (!hRect || hRect.width === 0) {
+        if (!isInitialized) {
+          gsap.set(target, { opacity: 0 });
+          return;
+        }
+      }
+
+      isInitialized = true;
 
       // Center positions of anchors relative to viewport with fallback
       const heroX = hRect && hRect.width > 0 ? hRect.left + hRect.width / 2 : window.innerWidth * 0.75;
@@ -176,8 +188,8 @@ export function GlobalFloatingProduct() {
     // Fixed Root Layer: Below navbar (z-index: 30)
     <div
       ref={fixedContainerRef}
-      className="hidden md:flex fixed top-0 left-0 z-30 pointer-events-none select-none items-center justify-center will-change-transform"
-      style={{ willChange: "transform" }}
+      className="hidden md:flex fixed top-0 left-0 z-30 pointer-events-none select-none items-center justify-center opacity-0 transition-opacity duration-300"
+      style={{ opacity: 0, willChange: "transform, opacity" }}
     >
       {/* Background Soft Glow Orbs */}
       <motion.div

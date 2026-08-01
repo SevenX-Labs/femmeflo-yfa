@@ -188,6 +188,11 @@ export function Hero() {
                 id="hero-product-anchor"
                 className="relative w-full h-full flex items-center justify-center pointer-events-none"
               >
+                {/* Desktop Skeleton Loader (Visible before JS Floating Product mounts) */}
+                <div className="hidden md:flex flex-col items-center justify-center space-y-3 opacity-25 animate-pulse pointer-events-none select-none">
+                  <div className="w-56 h-32 rounded-3xl bg-gradient-to-r from-rose-300/40 via-pink-200/50 to-rose-300/40 shadow-inner" />
+                  <div className="w-36 h-3 rounded-full bg-pink-300/50" />
+                </div>
                 {/* Mobile Dedicated Floating Product (Only visible on screens < 768px) */}
                 <div
                   ref={mobileProductRef}

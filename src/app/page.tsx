@@ -10,10 +10,12 @@ import { ContactSection } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import { GlobalFloatingProduct } from "@/components/GlobalFloatingProduct";
 import { SectionRouteObserver } from "@/components/SectionRouteObserver";
+import { PageLoader } from "@/components/PageLoader";
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-[#FFF0F3] relative">
+      <PageLoader />
       <SectionRouteObserver />
       <GlobalFloatingProduct />
       <Navbar />
