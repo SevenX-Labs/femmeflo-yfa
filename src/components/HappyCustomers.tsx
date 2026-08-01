@@ -1,7 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { Heart } from "lucide-react";
 
 interface CustomerReview {
   id: number;
@@ -15,23 +17,23 @@ const customerReviews: CustomerReview[] = [
   {
     id: 1,
     name: "Priya Sharma",
-    role: "Wellness Enthusiast",
-    quote: "Switching to Femmeflo XL was the best decision I made for my period.",
-    mainImage: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
+    role: "Mumbai • Verified Buyer",
+    quote: "Switching to Femmeflo XL was the best decision I made for my period. Super soft and zero rashes!",
+    mainImage: "/indian-customer-main.png",
   },
   {
     id: 2,
     name: "Ananya Patel",
-    role: "Verified Buyer",
-    quote: "Zero rashes, ultra-soft cotton sheet, and 12-hour leak-free confidence!",
-    mainImage: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80",
+    role: "Ahmedabad • Daily Commuter",
+    quote: "The 280mm extra-wide wings stay firmly in place all day long without any shifting or leaks.",
+    mainImage: "/indian-customer-main.png",
   },
   {
     id: 3,
     name: "Rhea Sen",
-    role: "Daily Commuter",
-    quote: "The 280mm extra-wide wings stay in place all day without shifting.",
-    mainImage: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80",
+    role: "Bengaluru • Wellness Enthusiast",
+    quote: "Ultra-absorbent core and soft top sheet. Gives me complete 12-hour leak-free confidence!",
+    mainImage: "/indian-customer-main.png",
   },
 ];
 
@@ -96,7 +98,7 @@ export function HappyCustomers() {
         </motion.div>
 
         {/* Customer Cloud Container with Ribbon SVG & Avatar Cluster */}
-        <div className="relative w-full max-w-6xl my-4 min-h-[380px] sm:min-h-[440px] flex items-center justify-center">
+        <div className="relative w-full max-w-6xl my-4 min-h-[400px] sm:min-h-[460px] flex items-center justify-center">
 
           {/* Background Hand-Drawn Pink Ribbon SVG with Heart Loops */}
           <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-0 overflow-hidden select-none">
@@ -117,103 +119,120 @@ export function HappyCustomers() {
             </svg>
           </div>
 
-          {/* LEFT CLUSTER: Floating Avatars */}
+          {/* LEFT CLUSTER: Floating Avatars & Heart Badges */}
           <div className="hidden lg:block absolute left-0 inset-y-0 w-5/12 pointer-events-none select-none z-10">
-            {/* Avatar 1 (Top Left circle) */}
+            {/* Avatar 1 */}
             <motion.img
               src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80"
-              alt="Customer"
-              className="absolute top-12 left-[30%] w-14 h-14 rounded-full object-cover shadow-md border-2 border-white"
+              alt="Indian Customer"
+              className="absolute top-8 left-[24%] w-16 h-16 rounded-full object-cover shadow-md border-2 border-white"
               animate={{ y: [-4, 4, -4] }}
               transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
             />
 
-            {/* Avatar 2 (Top Left 2 circle) */}
+            {/* Avatar 2 */}
             <motion.img
               src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
-              alt="Customer"
-              className="absolute top-2 left-[58%] w-16 h-16 rounded-full object-cover shadow-lg border-2 border-white"
+              alt="Indian Customer"
+              className="absolute top-2 left-[56%] w-18 h-18 rounded-2xl object-cover shadow-lg border-2 border-white"
               animate={{ y: [4, -4, 4] }}
               transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
             />
 
-            {/* Avatar 3 (Left Edge square) */}
+            {/* Avatar 3 */}
             <motion.img
               src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=200&q=80"
-              alt="Customer"
-              className="absolute top-[35%] left-[10%] w-14 h-14 rounded-2xl object-cover shadow-md border-2 border-white"
+              alt="Indian Customer"
+              className="absolute top-[38%] left-[8%] w-16 h-16 rounded-2xl object-cover shadow-md border-2 border-white"
               animate={{ y: [-5, 5, -5] }}
               transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
             />
 
-            {/* Avatar 4 (Mid Left rounded card) */}
+            {/* FLOATING BADGE 1: Indian Customer (Top Left) */}
+            <motion.div
+              className="absolute top-[22%] left-[28%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3.5 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20"
+              animate={{ y: [-3, 3, -3] }}
+              transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 shrink-0" />
+              <div className="flex flex-col text-left leading-tight">
+                <span className="text-[10px] font-bold text-rose-600">Indian</span>
+                <span className="text-[10px] font-bold text-rose-600">Customer</span>
+              </div>
+            </motion.div>
+
+            {/* Avatar 4 */}
             <motion.img
               src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=300&q=80"
-              alt="Customer"
-              className="absolute top-[28%] left-[42%] w-20 h-20 rounded-3xl object-cover shadow-lg border-2 border-white"
-              animate={{ y: [5, -5, 5] }}
-              transition={{ duration: 5.8, repeat: Infinity, ease: "easeInOut", delay: 0.9 }}
-            />
-
-            {/* Avatar 5 (Mid Left lower card) */}
-            <motion.img
-              src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=300&q=80"
-              alt="Customer"
-              className="absolute bottom-[20%] left-[82%] w-[72px] h-[72px] rounded-2xl object-cover shadow-md border-2 border-white"
+              alt="Indian Customer"
+              className="absolute bottom-[22%] left-[78%] w-18 h-18 rounded-2xl object-cover shadow-md border-2 border-white"
               animate={{ y: [-4, 4, -4] }}
               transition={{ duration: 4.6, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
             />
 
-            {/* Avatar 6 (Bottom Left circle) */}
+            {/* Avatar 5 */}
             <motion.img
-              src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=200&q=80"
-              alt="Customer"
-              className="absolute bottom-8 left-[28%] w-14 h-14 rounded-full object-cover shadow-sm border-2 border-white"
+              src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=200&q=80"
+              alt="Indian Customer"
+              className="absolute bottom-6 left-[24%] w-15 h-15 rounded-full object-cover shadow-sm border-2 border-white"
               animate={{ y: [4, -4, 4] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
             />
 
-            {/* Avatar 7 (Bottom Left 2 circle) */}
+            {/* Avatar 6 */}
             <motion.img
-              src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80"
-              alt="Customer"
-              className="absolute bottom-2 left-[54%] w-16 h-16 rounded-full object-cover shadow-md border-2 border-white"
+              src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?auto=format&fit=crop&w=200&q=80"
+              alt="Indian Customer"
+              className="absolute bottom-2 left-[50%] w-18 h-18 rounded-2xl object-cover shadow-md border-2 border-white"
               animate={{ y: [-5, 5, -5] }}
               transition={{ duration: 4.4, repeat: Infinity, ease: "easeInOut", delay: 1.8 }}
             />
+
+            {/* FLOATING BADGE 2: Indian Customer (Bottom Left) */}
+            <motion.div
+              className="absolute bottom-[16%] left-[44%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3.5 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20"
+              animate={{ y: [3, -3, 3] }}
+              transition={{ duration: 4.6, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+            >
+              <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 shrink-0" />
+              <div className="flex flex-col text-left leading-tight">
+                <span className="text-[10px] font-bold text-rose-600">Indian</span>
+                <span className="text-[10px] font-bold text-rose-600">Customer</span>
+              </div>
+            </motion.div>
           </div>
 
           {/* CENTER FEATURED CUSTOMER PHOTO & MOBILE FLOATING AVATARS */}
           <div className="relative z-20 my-2">
             {/* Ambient Warm Glow behind Main Photo */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#FFD1C1]/70 to-[#FFE4C4]/70 rounded-full blur-2xl transform scale-125 -z-10" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#FFD1C1]/70 to-[#FFE4C4]/70 rounded-[3rem] blur-2xl transform scale-110 -z-10" />
 
             {/* Mobile Floating Customer Avatars Orbiting Center Photo */}
             <div className="block lg:hidden pointer-events-none select-none">
               <motion.img
                 src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80"
-                alt="Customer"
+                alt="Indian Customer"
                 className="absolute -top-3 -left-3 sm:-top-5 sm:-left-5 w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover shadow-lg border-2 border-white z-30"
                 animate={{ y: [-4, 4, -4] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
               <motion.img
                 src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
-                alt="Customer"
+                alt="Indian Customer"
                 className="absolute -top-3 -right-3 sm:-top-5 sm:-right-5 w-13 h-13 sm:w-15 sm:h-15 rounded-full object-cover shadow-lg border-2 border-white z-30"
                 animate={{ y: [4, -4, 4] }}
                 transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
               />
               <motion.img
                 src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=200&q=80"
-                alt="Customer"
+                alt="Indian Customer"
                 className="absolute -bottom-3 -left-3 sm:-bottom-5 sm:-left-5 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl object-cover shadow-lg border-2 border-white z-30"
                 animate={{ y: [-4, 4, -4] }}
                 transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
               />
               <motion.img
-                src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=200&q=80"
-                alt="Customer"
+                src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=200&q=80"
+                alt="Indian Customer"
                 className="absolute -bottom-3 -right-3 sm:-bottom-5 sm:-right-5 w-13 h-13 sm:w-15 sm:h-15 rounded-full object-cover shadow-lg border-2 border-white z-30"
                 animate={{ y: [4, -4, 4] }}
                 transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut", delay: 0.9 }}
@@ -222,81 +241,99 @@ export function HappyCustomers() {
 
             <motion.div
               className="relative p-1 cursor-pointer group"
-              whileHover={{ scale: 1.04 }}
+              whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               transition={{ duration: 0.2 }}
               onClick={() => setActiveIdx((prev) => (prev + 1) % customerReviews.length)}
             >
+              {/* Main Indian Customer Portrait */}
               <img
                 src={active.mainImage}
                 alt={active.name}
                 draggable={false}
-                className="w-48 h-48 sm:w-64 sm:h-64 rounded-[2.5rem] object-cover shadow-2xl border-4 border-white/90 select-none cursor-pointer group-hover:border-rose-300 transition-colors"
+                className="w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-[2.5rem] object-cover shadow-2xl border-4 border-white/95 select-none cursor-pointer group-hover:border-rose-300 transition-colors"
               />
             </motion.div>
           </div>
 
-          {/* RIGHT CLUSTER: Floating Avatars */}
+          {/* RIGHT CLUSTER: Floating Avatars & Heart Badges */}
           <div className="hidden lg:block absolute right-0 inset-y-0 w-5/12 pointer-events-none select-none z-10">
-            {/* Avatar 8 (Top Right rounded card) */}
+            {/* Avatar 7 */}
             <motion.img
-              src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&q=80"
-              alt="Customer"
-              className="absolute top-[26%] right-[82%] w-20 h-20 rounded-3xl object-cover shadow-lg border-2 border-white"
-              animate={{ y: [-5, 5, -5] }}
-              transition={{ duration: 5.4, repeat: Infinity, ease: "easeInOut" }}
-            />
-
-            {/* Avatar 9 (Top Right circle) */}
-            <motion.img
-              src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=200&q=80"
-              alt="Customer"
+              src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80"
+              alt="Indian Customer"
               className="absolute top-4 right-[58%] w-16 h-16 rounded-full object-cover shadow-md border-2 border-white"
               animate={{ y: [4, -4, 4] }}
               transition={{ duration: 4.7, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
             />
 
-            {/* Avatar 10 (Top Right Edge rounded card) */}
+            {/* Avatar 8 */}
             <motion.img
-              src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=200&q=80"
-              alt="Customer"
-              className="absolute top-16 right-[30%] w-14 h-14 rounded-2xl object-cover shadow-sm border-2 border-white"
+              src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=200&q=80"
+              alt="Indian Customer"
+              className="absolute top-16 right-[24%] w-18 h-18 rounded-2xl object-cover shadow-lg border-2 border-white"
               animate={{ y: [-4, 4, -4] }}
               transition={{ duration: 5.1, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
             />
 
-            {/* Avatar 11 (Mid Right rounded card) */}
+            {/* FLOATING BADGE 3: Indian Customer (Top Right) */}
+            <motion.div
+              className="absolute top-[28%] right-[44%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3.5 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20"
+              animate={{ y: [-4, 4, -4] }}
+              transition={{ duration: 4.4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            >
+              <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 shrink-0" />
+              <div className="flex flex-col text-left leading-tight">
+                <span className="text-[10px] font-bold text-rose-600">Indian</span>
+                <span className="text-[10px] font-bold text-rose-600">Customer</span>
+              </div>
+            </motion.div>
+
+            {/* Avatar 9 */}
             <motion.img
-              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80"
-              alt="Customer"
-              className="absolute top-[38%] right-[44%] w-[72px] h-[72px] rounded-3xl object-cover shadow-lg border-2 border-white"
+              src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=300&q=80"
+              alt="Indian Customer"
+              className="absolute top-[38%] right-[16%] w-18 h-18 rounded-2xl object-cover shadow-lg border-2 border-white"
               animate={{ y: [5, -5, 5] }}
               transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
             />
 
-            {/* Avatar 12 (Mid Right lower card) */}
+            {/* Avatar 10 */}
             <motion.img
-              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=300&q=80"
-              alt="Customer"
-              className="absolute bottom-[22%] right-[82%] w-18 h-18 rounded-2xl object-cover shadow-md border-2 border-white"
+              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80"
+              alt="Indian Customer"
+              className="absolute bottom-[20%] right-[78%] w-18 h-18 rounded-2xl object-cover shadow-md border-2 border-white"
               animate={{ y: [-5, 5, -5] }}
               transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1.4 }}
             />
 
-            {/* Avatar 13 (Bottom Right circle) */}
+            {/* FLOATING BADGE 4: Indian Customer (Bottom Right) */}
+            <motion.div
+              className="absolute bottom-[16%] right-[42%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3.5 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20"
+              animate={{ y: [3, -3, 3] }}
+              transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 1.0 }}
+            >
+              <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 shrink-0" />
+              <div className="flex flex-col text-left leading-tight">
+                <span className="text-[10px] font-bold text-rose-600">Indian</span>
+                <span className="text-[10px] font-bold text-rose-600">Customer</span>
+              </div>
+            </motion.div>
+
+            {/* Avatar 11 */}
             <motion.img
-              src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=200&q=80"
-              alt="Customer"
-              className="absolute bottom-6 right-[56%] w-16 h-16 rounded-full object-cover shadow-md border-2 border-white"
+              src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200&q=80"
+              alt="Indian Customer"
+              className="absolute bottom-6 right-[50%] w-16 h-16 rounded-full object-cover shadow-md border-2 border-white"
               animate={{ y: [4, -4, 4] }}
               transition={{ duration: 5.3, repeat: Infinity, ease: "easeInOut", delay: 1.7 }}
             />
 
-            {/* Avatar 14 (Bottom Right Edge circle) */}
+            {/* Avatar 12 */}
             <motion.img
-              src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=200&q=80"
-              alt="Customer"
-              className="absolute bottom-16 right-[30%] w-14 h-14 rounded-full object-cover shadow-sm border-2 border-white"
+              src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+              alt="Indian Customer"
+              className="absolute bottom-16 right-[24%] w-15 h-15 rounded-full object-cover shadow-sm border-2 border-white"
               animate={{ y: [-4, 4, -4] }}
               transition={{ duration: 4.9, repeat: Infinity, ease: "easeInOut", delay: 2 }}
             />
