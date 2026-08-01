@@ -167,6 +167,7 @@ export function ProductSection() {
                     alt="Femmeflo XL Sanitary Pads"
                     fill
                     priority
+                    unoptimized
                     className="object-contain drop-shadow-2xl"
                   />
                 </div>

@@ -81,32 +81,35 @@ export function GlobalFloatingProduct() {
 
   useEffect(() => {
     const updatePosition = () => {
-      if (typeof window === "undefined" || window.innerWidth < 768) return;
+      if (typeof window === "undefined") return;
       const target = fixedContainerRef.current;
       if (!target) return;
+
+      if (window.innerWidth < 768) {
+        gsap.set(target, { opacity: 0 });
+        return;
+      }
 
       const heroAnchor = document.getElementById("hero-product-anchor");
       const aboutAnchor = document.getElementById("about-product-anchor");
       const productAnchor = document.getElementById("product-price-anchor");
 
-      if (!heroAnchor || !aboutAnchor) return;
-
-      const hRect = heroAnchor.getBoundingClientRect();
-      const aRect = aboutAnchor.getBoundingClientRect();
+      const hRect = heroAnchor ? heroAnchor.getBoundingClientRect() : null;
+      const aRect = aboutAnchor ? aboutAnchor.getBoundingClientRect() : null;
       const pRect = productAnchor ? productAnchor.getBoundingClientRect() : null;
 
-      // Center positions of anchors relative to viewport
-      const heroX = hRect.left + hRect.width / 2;
-      const heroY = hRect.top + hRect.height / 2;
+      // Center positions of anchors relative to viewport with fallback
+      const heroX = hRect && hRect.width > 0 ? hRect.left + hRect.width / 2 : window.innerWidth * 0.75;
+      const heroY = hRect && hRect.height > 0 ? hRect.top + hRect.height / 2 : window.innerHeight * 0.45;
 
-      const aboutX = aRect.left + aRect.width / 2;
-      const aboutY = aRect.top + aRect.height / 2;
+      const aboutX = aRect && aRect.width > 0 ? aRect.left + aRect.width / 2 : window.innerWidth * 0.25;
+      const aboutY = aRect && aRect.height > 0 ? aRect.top + aRect.height / 2 : window.innerHeight * 0.5;
 
       const scrollY = window.scrollY;
 
       // Scroll Y threshold where About section is centered in viewport
-      const aboutDocY = aRect.top + scrollY;
-      const aboutScrollTarget = Math.max(1, aboutDocY + aRect.height / 2 - window.innerHeight * 0.5);
+      const aboutDocY = aRect ? aRect.top + scrollY : 600;
+      const aboutScrollTarget = Math.max(1, aboutDocY + (aRect ? aRect.height / 2 : 200) - window.innerHeight * 0.5);
 
       let curX = heroX;
       let curY = heroY;
@@ -170,10 +173,10 @@ export function GlobalFloatingProduct() {
   }, []);
 
   return (
-    // Fixed Root Layer: Below navbar (z-index: 30), opacity-0 initially until measured
+    // Fixed Root Layer: Below navbar (z-index: 30)
     <div
       ref={fixedContainerRef}
-      className="hidden md:flex fixed top-0 left-0 z-30 pointer-events-none select-none items-center justify-center opacity-0 will-change-transform"
+      className="hidden md:flex fixed top-0 left-0 z-30 pointer-events-none select-none items-center justify-center will-change-transform"
       style={{ willChange: "transform" }}
     >
       {/* Background Soft Glow Orbs */}
@@ -252,6 +255,8 @@ export function GlobalFloatingProduct() {
             width={800}
             height={800}
             priority
+            unoptimized
+            style={{ width: "100%", height: "auto" }}
             className="w-full h-auto object-contain pointer-events-none max-h-[320px] sm:max-h-[520px] lg:max-h-[640px]"
           />
         </div>

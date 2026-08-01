@@ -137,6 +137,7 @@ export function WhyChooseUs() {
               alt="FemmeFlo XXL Sanitary Pads"
               fill
               priority
+              unoptimized
               className="object-contain drop-shadow-2xl"
             />
           </motion.div>
