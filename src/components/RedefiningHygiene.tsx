@@ -184,6 +184,7 @@ export function RedefiningHygiene() {
       <div className="relative w-full overflow-hidden py-4 px-4 sm:px-8">
         <div
           ref={trackRef}
+          style={{ willChange: "transform" }}
           className="flex gap-6 sm:gap-8 px-4 sm:px-12 w-max items-stretch"
         >
           {hygieneCards.map((card, index) => {
