@@ -115,18 +115,7 @@ export function FloatingChatEnquiry() {
     <>
       {/* Floating Action Button */}
       <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
-        {/* Floating Hint Tag */}
-        {!isOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: 10, scale: 0.95 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            className="hidden sm:flex items-center gap-2 bg-white/95 backdrop-blur-md px-4 py-2 rounded-2xl border border-rose-200/80 shadow-lg text-xs font-bold text-[#156035] cursor-pointer hover:shadow-xl transition-all"
-            onClick={() => setIsOpen(true)}
-          >
-            <Sparkles className="w-4 h-4 text-[#E61C5D]" />
-            <span>Need Help? Enquire Now!</span>
-          </motion.div>
-        )}
+
 
         <motion.button
           whileHover={{ scale: 1.08 }}
@@ -154,14 +143,14 @@ export function FloatingChatEnquiry() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed bottom-24 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[380px] md:w-[410px] bg-white backdrop-blur-2xl border border-rose-100 rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.18)] overflow-hidden flex flex-col font-[family-name:var(--font-jakarta)] max-h-[580px]"
+            className="fixed bottom-22 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[380px] md:w-[400px] bg-white backdrop-blur-2xl border border-rose-100 rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.18)] overflow-hidden flex flex-col font-[family-name:var(--font-jakarta)] max-h-[calc(100vh-6.5rem)] sm:max-h-[520px]"
           >
             {/* Improved Header */}
-            <div className="bg-gradient-to-r from-[#156035] via-[#1B4332] to-[#156035] text-white p-4 sm:p-5 flex items-center justify-between">
+            <div className="bg-gradient-to-r from-[#156035] via-[#1B4332] to-[#156035] text-white px-4 py-3.5 sm:px-5 sm:py-4 flex items-center justify-between shrink-0">
               <div className="flex items-center gap-3">
                 <div className="relative w-11 h-11 rounded-2xl bg-white p-1.5 flex items-center justify-center shadow-xs shrink-0">
                   <Image
-                    src="/logo.png"
+                    src="/logo.webp"
                     alt="Femmeflo Logo"
                     width={80}
                     height={80}
@@ -188,7 +177,7 @@ export function FloatingChatEnquiry() {
             </div>
 
             {/* Messages Area */}
-            <div className="flex-1 p-4 overflow-y-auto space-y-3.5 min-h-[220px] max-h-[300px] bg-gradient-to-b from-[#FFF0F3]/30 via-white to-white">
+            <div className="flex-1 p-4 overflow-y-auto space-y-3.5 min-h-[180px] max-h-[260px] sm:max-h-[280px] bg-gradient-to-b from-[#FFF0F3]/30 via-white to-white">
               {messages.map((msg) => (
                 <div
                   key={msg.id}

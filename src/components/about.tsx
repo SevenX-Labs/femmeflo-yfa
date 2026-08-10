@@ -133,12 +133,10 @@ export function About() {
                   className="md:hidden relative w-[220px] h-[220px] flex items-center justify-center pointer-events-auto"
                 >
                   <Image
-                    src="/femmeflo-withoutbg.png"
+                    src="/femmeflo-withoutbg.webp"
                     alt="Femmeflo XL Sanitary Pads"
                     width={400}
                     height={400}
-                    priority
-                    unoptimized
                     className="w-full h-auto object-contain drop-shadow-xl"
                   />
                 </div>

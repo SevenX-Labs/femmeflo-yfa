@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Heart } from "lucide-react";
+import { Heart, Sparkles } from "lucide-react";
 
 interface CustomerReview {
   id: number;
@@ -19,21 +19,21 @@ const customerReviews: CustomerReview[] = [
     name: "Priya Sharma",
     role: "Mumbai • Verified Buyer",
     quote: "Switching to Femmeflo XL was the best decision I made for my period. Super soft and zero rashes!",
-    mainImage: "/indian-customer-main.png",
+    mainImage: "/indian-customer-main.webp",
   },
   {
     id: 2,
     name: "Ananya Patel",
     role: "Ahmedabad • Daily Commuter",
     quote: "The 280mm extra-wide wings stay firmly in place all day long without any shifting or leaks.",
-    mainImage: "/indian-customer-main.png",
+    mainImage: "/indian-customer-main.webp",
   },
   {
     id: 3,
     name: "Rhea Sen",
     role: "Bengaluru • Wellness Enthusiast",
     quote: "Ultra-absorbent core and soft top sheet. Gives me complete 12-hour leak-free confidence!",
-    mainImage: "/indian-customer-main.png",
+    mainImage: "/indian-customer-main.webp",
   },
 ];
 
@@ -79,35 +79,36 @@ export function HappyCustomers() {
       <div className="absolute top-10 left-[-5%] w-[450px] h-[450px] bg-emerald-200/35 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute bottom-10 right-[-5%] w-[500px] h-[500px] bg-sky-200/35 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto flex flex-col items-center text-center relative z-10">
-
-        {/* Header Typography */}
+      <div className="max-w-7xl mx-auto flex flex-col items-center text-center relative z-10 space-y-12">
+        
+        {/* Sub-section Header */}
         <motion.div
-          className="flex flex-col items-center space-y-1 mb-8 sm:mb-12"
-          initial={{ opacity: 0, y: 15 }}
+          className="space-y-3 max-w-xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-900 leading-tight">
-            5 Lakh+
-          </h2>
-          <span className="font-[family-name:var(--font-playfair)] italic font-normal text-[#F06553] text-4xl sm:text-5xl lg:text-6xl">
-            happy customers
-          </span>
+          <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/80 border border-rose-200 text-xs font-bold text-rose-700 shadow-2xs">
+            <Sparkles className="w-4 h-4 text-rose-500" />
+            <span>REAL INDIAN WOMEN REVIEWS</span>
+          </div>
+
+          <h3 className="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-900 font-[family-name:var(--font-playfair)]">
+            Trusted By Thousands
+          </h3>
+
+          <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed font-medium">
+            Read authentic stories from verified Indian buyers who switched to Femmeflo XL for 100% rash-free comfort.
+          </p>
         </motion.div>
 
-        {/* Customer Cloud Container with Ribbon SVG & Avatar Cluster */}
-        <div className="relative w-full max-w-6xl my-4 min-h-[400px] sm:min-h-[460px] flex items-center justify-center">
-
-          {/* Background Hand-Drawn Pink Ribbon SVG with Heart Loops */}
-          <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-0 overflow-hidden select-none">
-            <svg
-              viewBox="0 0 1000 320"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-full max-w-5xl h-auto opacity-75"
-            >
+        {/* MAIN STAGE: Center Interactive Circle + Left/Right Floating Avatars */}
+        <div className="relative w-full flex items-center justify-center min-h-[380px] sm:min-h-[460px] my-4">
+          
+          {/* Background Animated Curved Ribbon Paths (Behind Center Circle) */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40 select-none">
+            <svg viewBox="0 0 1000 360" fill="none" className="w-full h-full">
               {/* Pink Sweeping Ribbon Path */}
               <path
                 d="M 50 180 C 120 220, 160 110, 220 120 C 280 130, 270 240, 200 240 C 140 240, 170 140, 260 170 C 350 200, 420 280, 500 280 C 580 280, 650 200, 740 170 C 830 140, 860 240, 800 240 C 730 240, 720 130, 780 120 C 840 110, 880 220, 950 180"
@@ -123,7 +124,7 @@ export function HappyCustomers() {
           <div className="hidden lg:block absolute left-0 inset-y-0 w-5/12 pointer-events-none select-none z-10">
             {/* Avatar 1 (Indian College Student in Yellow Kurti) */}
             <motion.img
-              src="/avatar-indian-1.png"
+              src="/avatar-indian-1.webp"
               alt="Indian Customer"
               className="absolute top-8 left-[24%] w-16 h-16 rounded-full object-cover shadow-md border-2 border-white"
               animate={{ y: [-4, 4, -4] }}
@@ -132,7 +133,7 @@ export function HappyCustomers() {
 
             {/* Avatar 2 (Indian Woman in Red Saree) */}
             <motion.img
-              src="/avatar-indian-2.png"
+              src="/avatar-indian-2.webp"
               alt="Indian Customer"
               className="absolute top-2 left-[56%] w-18 h-18 rounded-2xl object-cover shadow-lg border-2 border-white"
               animate={{ y: [4, -4, 4] }}
@@ -141,7 +142,7 @@ export function HappyCustomers() {
 
             {/* Avatar 3 (Indian Woman with Glasses in Green Top) */}
             <motion.img
-              src="/avatar-indian-3.png"
+              src="/avatar-indian-3.webp"
               alt="Indian Customer"
               className="absolute top-[38%] left-[8%] w-16 h-16 rounded-2xl object-cover shadow-md border-2 border-white"
               animate={{ y: [-5, 5, -5] }}
@@ -163,7 +164,7 @@ export function HappyCustomers() {
 
             {/* Avatar 4 (Indian Woman in Blue Kurta) */}
             <motion.img
-              src="/avatar-indian-4.png"
+              src="/avatar-indian-4.webp"
               alt="Indian Customer"
               className="absolute bottom-[22%] left-[78%] w-18 h-18 rounded-2xl object-cover shadow-md border-2 border-white"
               animate={{ y: [-4, 4, -4] }}
@@ -172,7 +173,7 @@ export function HappyCustomers() {
 
             {/* Avatar 5 (Indian Woman in Yellow Dupatta & Bindi) */}
             <motion.img
-              src="/avatar-indian-5.png"
+              src="/avatar-indian-5.webp"
               alt="Indian Customer"
               className="absolute bottom-6 left-[24%] w-15 h-15 rounded-full object-cover shadow-sm border-2 border-white"
               animate={{ y: [4, -4, 4] }}
@@ -181,7 +182,7 @@ export function HappyCustomers() {
 
             {/* Avatar 6 (Indian Student in White Kurta & Purple Scarf) */}
             <motion.img
-              src="/avatar-indian-6.png"
+              src="/avatar-indian-6.webp"
               alt="Indian Customer"
               className="absolute bottom-2 left-[50%] w-18 h-18 rounded-2xl object-cover shadow-md border-2 border-white"
               animate={{ y: [-5, 5, -5] }}
@@ -202,42 +203,11 @@ export function HappyCustomers() {
             </motion.div>
           </div>
 
-          {/* CENTER FEATURED CUSTOMER PHOTO & MOBILE FLOATING AVATARS */}
-          <div className="relative z-20 my-2">
-            {/* Ambient Warm Glow behind Main Photo */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#FFD1C1]/70 to-[#FFE4C4]/70 rounded-[3rem] blur-2xl transform scale-110 -z-10" />
-
-            {/* Mobile Floating Customer Avatars Orbiting Center Photo */}
-            <div className="block lg:hidden pointer-events-none select-none">
-              <motion.img
-                src="/avatar-indian-1.png"
-                alt="Indian Customer"
-                className="absolute -top-3 -left-3 sm:-top-5 sm:-left-5 w-12 h-12 sm:w-14 sm:h-14 rounded-full object-cover shadow-lg border-2 border-white z-30"
-                animate={{ y: [-4, 4, -4] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              />
-              <motion.img
-                src="/avatar-indian-2.png"
-                alt="Indian Customer"
-                className="absolute -top-3 -right-3 sm:-top-5 sm:-right-5 w-13 h-13 sm:w-15 sm:h-15 rounded-full object-cover shadow-lg border-2 border-white z-30"
-                animate={{ y: [4, -4, 4] }}
-                transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
-              />
-              <motion.img
-                src="/avatar-indian-5.png"
-                alt="Indian Customer"
-                className="absolute -bottom-3 -left-3 sm:-bottom-5 sm:-left-5 w-12 h-12 sm:w-14 sm:h-14 rounded-2xl object-cover shadow-lg border-2 border-white z-30"
-                animate={{ y: [-4, 4, -4] }}
-                transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-              />
-              <motion.img
-                src="/avatar-indian-6.png"
-                alt="Indian Customer"
-                className="absolute -bottom-3 -right-3 sm:-bottom-5 sm:-right-5 w-13 h-13 sm:w-15 sm:h-15 rounded-full object-cover shadow-lg border-2 border-white z-30"
-                animate={{ y: [4, -4, 4] }}
-                transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut", delay: 0.9 }}
-              />
-            </div>
+          {/* CENTER FEATURED CUSTOMER PORTRAIT CARD */}
+          <div className="relative z-20 flex flex-col items-center">
+            
+            {/* Pulsing Backlight Ring */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-rose-400/20 via-emerald-300/20 to-sky-300/20 blur-xl pointer-events-none animate-pulse" />
 
             <motion.div
               className="relative p-1 cursor-pointer group"
@@ -260,7 +230,7 @@ export function HappyCustomers() {
           <div className="hidden lg:block absolute right-0 inset-y-0 w-5/12 pointer-events-none select-none z-10">
             {/* Avatar 7 (Indian Woman in Teal Shirt) */}
             <motion.img
-              src="/avatar-indian-7.png"
+              src="/avatar-indian-7.webp"
               alt="Indian Customer"
               className="absolute top-4 right-[58%] w-16 h-16 rounded-full object-cover shadow-md border-2 border-white"
               animate={{ y: [4, -4, 4] }}
@@ -269,7 +239,7 @@ export function HappyCustomers() {
 
             {/* Avatar 8 (Indian Woman in Green Saree) */}
             <motion.img
-              src="/avatar-indian-8.png"
+              src="/avatar-indian-8.webp"
               alt="Indian Customer"
               className="absolute top-16 right-[24%] w-18 h-18 rounded-2xl object-cover shadow-lg border-2 border-white"
               animate={{ y: [-4, 4, -4] }}
@@ -291,7 +261,7 @@ export function HappyCustomers() {
 
             {/* Avatar 9 (Indian Woman in Red & Gold Saree) */}
             <motion.img
-              src="/avatar-indian-9.png"
+              src="/avatar-indian-9.webp"
               alt="Indian Customer"
               className="absolute top-[38%] right-[16%] w-18 h-18 rounded-2xl object-cover shadow-lg border-2 border-white"
               animate={{ y: [5, -5, 5] }}
@@ -300,7 +270,7 @@ export function HappyCustomers() {
 
             {/* Avatar 10 (Indian Student in Pink Kurti) */}
             <motion.img
-              src="/avatar-indian-10.png"
+              src="/avatar-indian-10.webp"
               alt="Indian Customer"
               className="absolute bottom-[20%] right-[78%] w-18 h-18 rounded-2xl object-cover shadow-md border-2 border-white"
               animate={{ y: [-5, 5, -5] }}
@@ -322,7 +292,7 @@ export function HappyCustomers() {
 
             {/* Avatar 11 (Indian Professional Woman in White Shirt) */}
             <motion.img
-              src="/avatar-indian-11.png"
+              src="/avatar-indian-11.webp"
               alt="Indian Customer"
               className="absolute bottom-6 right-[50%] w-16 h-16 rounded-full object-cover shadow-md border-2 border-white"
               animate={{ y: [4, -4, 4] }}
@@ -331,14 +301,13 @@ export function HappyCustomers() {
 
             {/* Avatar 12 (Indian Woman in Maroon Ethnic Top) */}
             <motion.img
-              src="/avatar-indian-12.png"
+              src="/avatar-indian-12.webp"
               alt="Indian Customer"
               className="absolute bottom-16 right-[24%] w-15 h-15 rounded-full object-cover shadow-sm border-2 border-white"
               animate={{ y: [-4, 4, -4] }}
               transition={{ duration: 4.9, repeat: Infinity, ease: "easeInOut", delay: 2 }}
             />
           </div>
-
         </div>
 
         {/* BOTTOM TESTIMONIAL QUOTE GLASS CARD */}

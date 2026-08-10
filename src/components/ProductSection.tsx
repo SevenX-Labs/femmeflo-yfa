@@ -3,12 +3,30 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Clock, ShieldCheck, Droplets, Smile, Moon, Zap, Sparkles, Feather, ArrowUpRight, Check, Star, Lock, Heart, Leaf } from "lucide-react";
+import { Clock, ShieldCheck, Droplets, Smile, Moon, Zap, Sparkles, Feather, ArrowUpRight, Check, Star, Lock, Heart, Leaf, Sun, Shield } from "lucide-react";
 import { FairyIcon } from "@/components/FairyIcon";
 
-const extraProducts = [
+// 1. Full Variant Cards Collection
+const allVariantProducts = [
+  {
+    id: "xl-protect",
+    variantNumber: "01",
+    name: "Femmeflo XL Protect",
+    size: "280mm Extended Wear",
+    badge: "Flagship Hero Product",
+    badgeColor: "bg-amber-100/90 text-amber-950 border-amber-300",
+    cardBg: "bg-gradient-to-b from-rose-50/80 via-white/95 to-amber-50/40",
+    borderColor: "border-rose-300/90 hover:border-rose-400 ring-2 ring-rose-200/60",
+    iconColor: "text-[#E61C5D] bg-rose-100/80 border-rose-200",
+    mainIcon: ShieldCheck,
+    statusTag: "Hero Series",
+    statusBg: "bg-[#E61C5D] text-white border-rose-600",
+    description: "Our flagship pad crafted with 12-hour dry-lock technology and cottony soft top sheet for complete day-long confidence.",
+    highlights: ["12-Hour Protection Lock", "Anti-Leak Side Barriers", "Cottony Soft Gentle Sheet"],
+  },
   {
     id: "xxl-overnight",
+    variantNumber: "02",
     name: "Femmeflo XXL Overnight",
     size: "320mm Extra Extended Wear",
     badge: "Overnight Max Flow",
@@ -24,6 +42,7 @@ const extraProducts = [
   },
   {
     id: "regular-active",
+    variantNumber: "03",
     name: "Femmeflo Regular",
     size: "240mm Active Day Wear",
     badge: "Daily Active Comfort",
@@ -38,19 +57,20 @@ const extraProducts = [
     highlights: ["Flexible Ergonomic Fit", "Cottony Soft Top Sheet", "Instant Dry Lock Core"],
   },
   {
-    id: "panty-liners",
-    name: "Femmeflo Panty Liners",
-    size: "155mm Daily Freshness",
-    badge: "Daily Fresh & Breathable",
-    badgeColor: "bg-rose-50 text-rose-900 border-rose-200/90",
-    cardBg: "bg-gradient-to-b from-rose-50/60 via-white/90 to-pink-50/40",
-    borderColor: "border-rose-200/70 hover:border-rose-300",
-    iconColor: "text-[#E61C5D] bg-rose-100/80 border-rose-200",
-    mainIcon: Heart,
-    statusTag: "Micro-Air Series",
-    statusBg: "bg-[#990a37] text-rose-100 border-rose-800/80",
-    description: "1mm barely-there daily liners providing breathable, rash-free freshness for everyday confidence.",
-    highlights: ["1mm Barely-There Profile", "100% Air-Permeable Micro-pores", "Non-Slip Stay-Put Adhesive"],
+    id: "overnight-max",
+    variantNumber: "04",
+    name: "Femmeflo Overnight Max",
+    size: "350mm Extra-Long Wear",
+    badge: "Max Night Coverage",
+    badgeColor: "bg-blue-50 text-blue-900 border-blue-200/90",
+    cardBg: "bg-gradient-to-b from-blue-50/60 via-white/90 to-indigo-50/40",
+    borderColor: "border-blue-200/70 hover:border-blue-300",
+    iconColor: "text-blue-700 bg-blue-100/80 border-blue-200",
+    mainIcon: Star,
+    statusTag: "Ultra Shield Series",
+    statusBg: "bg-blue-950 text-blue-100 border-blue-800/80",
+    description: "Maximum length with ultra-wide rear wings for heavy flow nights and complete uninterrupted sleep.",
+    highlights: ["Ultra-Wide Rear Wings", "360° Leak Guard Contour", "Double Absorb Gel Matrix"],
   },
 ];
 
@@ -225,11 +245,9 @@ export function ProductSection() {
                       <FairyIcon className="w-14 h-14" />
                     </div>
                     <Image
-                      src="/femmeflo-withoutbg.png"
+                      src="/femmeflo-withoutbg.webp"
                       alt="Femmeflo XL Sanitary Pads"
                       fill
-                      priority
-                      unoptimized
                       className="object-contain drop-shadow-2xl"
                     />
                   </div>
@@ -240,7 +258,7 @@ export function ProductSection() {
 
         </div>
 
-        {/* ULTRA-PREMIUM MINI PRODUCT CARDS SUB-SECTION */}
+        {/* ULTRA-PREMIUM DETAILED VARIANT CARDS GRID */}
         <div className="pt-12 sm:pt-16 border-t border-rose-200/80">
           
           {/* Sub-section Header */}
@@ -257,9 +275,9 @@ export function ProductSection() {
             </p>
           </div>
 
-          {/* 3 Authentic Mini Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-6 lg:gap-8">
-            {extraProducts.map((prod, index) => {
+          {/* 4 Authentic Detailed Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6 lg:gap-8">
+            {allVariantProducts.map((prod, index) => {
               const MainIcon = prod.mainIcon;
               return (
                 <motion.div
@@ -267,15 +285,15 @@ export function ProductSection() {
                   initial={{ opacity: 0, y: 25 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.12, ease: "easeOut" }}
+                  transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
                   whileHover={{ y: -5 }}
-                  className={`group relative rounded-3xl ${prod.cardBg} backdrop-blur-xl border ${prod.borderColor} p-6 sm:p-7 shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.07)] transition-all duration-300 flex flex-col justify-between overflow-hidden ring-1 ring-white/80`}
+                  className={`group relative rounded-3xl ${prod.cardBg} backdrop-blur-xl border ${prod.borderColor} p-6 sm:p-7 shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_45px_rgba(0,0,0,0.07)] transition-all duration-300 flex flex-col justify-between overflow-hidden ring-1 ring-white/80 cursor-pointer`}
                 >
                   <div className="space-y-5">
-                    {/* Top Row: Clean Authentic Micro-Badge + Category Pill */}
+                    {/* Top Row: Icon + Category Pill */}
                     <div className="flex items-center justify-between">
-                      <div className={`w-9 h-9 rounded-full ${prod.iconColor} border flex items-center justify-center shrink-0`}>
-                        <MainIcon className="w-4 h-4 stroke-[2]" />
+                      <div className={`w-10 h-10 rounded-full ${prod.iconColor} border flex items-center justify-center shrink-0`}>
+                        <MainIcon className="w-5 h-5 stroke-[2]" />
                       </div>
 
                       <span className={`px-3 py-1 rounded-full text-[11px] font-bold border ${prod.badgeColor}`}>
@@ -314,7 +332,7 @@ export function ProductSection() {
                   {/* Card Bottom Executive Series Status Badge */}
                   <div className="pt-5 mt-6 border-t border-zinc-200/60 flex items-center justify-between">
                     <span className="text-[11px] font-extrabold text-zinc-400 uppercase tracking-widest">
-                      Variant 0{index + 2}
+                      Variant {prod.variantNumber}
                     </span>
                     <div className={`inline-flex items-center gap-1.5 text-xs font-bold px-3.5 py-1.5 rounded-full border ${prod.statusBg} shadow-2xs select-none`}>
                       <Sparkles className="w-3 h-3 shrink-0" />

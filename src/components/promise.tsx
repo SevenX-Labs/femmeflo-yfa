@@ -62,10 +62,9 @@ export function PromiseSection() {
           >
             {/* White Swirling Cotton Texture Local Image */}
             <Image
-              src="/promise-comfort.png"
+              src="/promise-comfort.webp"
               alt="Soft cotton swirl fabric"
               fill
-              priority
               draggable={false}
               className="object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none select-none"
             />
@@ -109,10 +108,9 @@ export function PromiseSection() {
           >
             {/* Light Blue Water Splash Local Image */}
             <Image
-              src="/promise-protection.png"
+              src="/promise-protection.webp"
               alt="Water splash protection"
               fill
-              priority
               draggable={false}
               className="object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none select-none"
             />
@@ -189,10 +187,9 @@ export function PromiseSection() {
           >
             {/* Light Blue Water Droplets + Sunbeam Local Image */}
             <Image
-              src="/promise-freshness.png"
+              src="/promise-freshness.webp"
               alt="Fresh water droplets and sunlight"
               fill
-              priority
               draggable={false}
               className="object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none select-none"
             />

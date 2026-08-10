@@ -22,15 +22,14 @@ export function Navbar() {
       <div className="w-full py-3 sm:py-4 px-4 sm:px-8 lg:px-12">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* 1. Left: Brand Logo */}
-          <Link href="/" className="flex items-center group shrink-0">
+          <Link href="/" className="flex items-center group shrink-0 cursor-pointer">
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt="Femmeflo Logo"
               width={420}
               height={130}
-              className="h-10 sm:h-14 lg:h-18 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+              className="h-14 sm:h-18 lg:h-22 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
               priority
-              unoptimized
             />
           </Link>
 
@@ -44,7 +43,7 @@ export function Navbar() {
                     <Link
                       href={item.href}
                       onClick={() => setActiveIndex(index)}
-                      className={`relative py-1 text-[13px] sm:text-[14px] lg:text-[15px] font-extrabold tracking-widest uppercase transition-colors duration-200 ${
+                      className={`relative py-1 text-[13px] sm:text-[14px] lg:text-[15px] font-extrabold tracking-widest uppercase transition-colors duration-200 cursor-pointer ${
                         isActive
                           ? "text-[#156035]"
                           : "text-[#156035]/80 hover:text-[#156035]"
@@ -68,7 +67,7 @@ export function Navbar() {
           {/* 3. Mobile Hamburger Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-xl text-[#156035] hover:bg-emerald-50 transition-colors"
+            className="md:hidden p-2 rounded-xl text-[#156035] hover:bg-emerald-50 transition-colors cursor-pointer"
             aria-label="Toggle Mobile Menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -95,7 +94,7 @@ export function Navbar() {
                       setActiveIndex(index);
                       setMobileMenuOpen(false);
                     }}
-                    className={`block text-sm font-extrabold tracking-wider uppercase py-1.5 ${
+                    className={`block text-sm font-extrabold tracking-wider uppercase py-1.5 cursor-pointer ${
                       activeIndex === index
                         ? "text-[#156035]"
                         : "text-zinc-700 hover:text-[#156035]"
@@ -111,7 +110,7 @@ export function Navbar() {
               <Link
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full py-2.5 bg-[#156035] text-white rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-xs"
+                className="w-full py-2.5 bg-[#156035] text-white rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-xs cursor-pointer"
               >
                 <MessageCircle className="w-4 h-4 text-[#FDE047]" />
                 <span>Contact Sales &amp; Enquiries</span>

@@ -147,19 +147,19 @@ export function RedefiningHygiene() {
     <section
       ref={sectionRef}
       id="hygiene"
-      className="relative z-20 w-full h-screen bg-gradient-to-b from-[#FFF0F3] via-[#FFF6F8] to-[#FFF0F3] font-[family-name:var(--font-jakarta)] flex flex-col justify-center overflow-hidden py-8 sm:py-12"
+      className="relative z-20 w-full h-screen bg-gradient-to-b from-[#FFF0F3] via-[#FFF6F8] to-[#FFF0F3] font-[family-name:var(--font-jakarta)] flex flex-col justify-center overflow-hidden py-4 sm:py-6"
     >
       {/* Background Soft Glow Orbs */}
       <div className="absolute top-1/2 left-[-10%] w-[500px] h-[500px] bg-rose-200/30 rounded-full blur-[120px] pointer-events-none -z-10" />
       <div className="absolute bottom-10 right-[-10%] w-[500px] h-[500px] bg-emerald-100/40 rounded-full blur-[120px] pointer-events-none -z-10" />
 
       {/* Header Block */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 mb-6 sm:mb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 mb-2 sm:mb-3">
         <motion.span
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-block text-xs sm:text-sm font-extrabold tracking-[0.25em] text-[#156035] uppercase mb-2"
+          className="inline-block text-xs sm:text-sm font-extrabold tracking-[0.2em] text-[#156035] uppercase mb-1"
         >
           Redefining Hygiene
         </motion.span>
@@ -169,7 +169,7 @@ export function RedefiningHygiene() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-3xl sm:text-5xl lg:text-6xl font-bold text-zinc-900 tracking-tight leading-[1.15]"
+          className="text-2xl sm:text-4xl lg:text-5xl font-bold text-zinc-900 tracking-tight leading-[1.15]"
         >
           Premium Protection &amp;{" "}
           <span className="font-[family-name:var(--font-playfair)] italic font-semibold text-[#156035]">
@@ -177,30 +177,57 @@ export function RedefiningHygiene() {
           </span>
         </motion.h2>
 
-        <LotusDivider />
+        <div className="flex items-center justify-center gap-4 my-2">
+          <div className="h-[1.5px] w-12 sm:w-20 bg-gradient-to-r from-transparent via-[#156035]/40 to-[#156035]" />
+          <svg
+            viewBox="0 0 40 24"
+            fill="none"
+            className="w-6 h-5 text-[#156035]"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 2C20 2 15 9 15 15C15 17.8 17.2 20 20 20C22.8 20 25 17.8 25 15C25 9 20 2 20 2Z"
+              fill="currentColor"
+              fillOpacity="0.2"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            />
+            <path
+              d="M20 20C13 20 6 15 6 11C6 11 11 11 15 15C17 17 19 19 20 20Z"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            />
+            <path
+              d="M20 20C27 20 34 15 34 11C34 11 29 11 25 15C23 17 21 19 20 20Z"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            />
+          </svg>
+          <div className="h-[1.5px] w-12 sm:w-20 bg-gradient-to-l from-transparent via-[#156035]/40 to-[#156035]" />
+        </div>
       </div>
 
       {/* GSAP Lenis-Synced Horizontal Track */}
-      <div className="relative w-full overflow-hidden py-4 px-4 sm:px-8">
+      <div className="relative w-full overflow-hidden py-2 px-4 sm:px-8 my-auto">
         <div
           ref={trackRef}
           style={{ willChange: "transform" }}
-          className="flex gap-6 sm:gap-8 px-4 sm:px-12 w-max items-stretch"
+          className="flex gap-5 sm:gap-7 px-4 sm:px-12 w-max items-stretch"
         >
           {hygieneCards.map((card, index) => {
             const Icon = card.icon;
             return (
               <div
                 key={card.id}
-                className="w-[290px] sm:w-[360px] lg:w-[410px] shrink-0 bg-white/90 backdrop-blur-xl border border-rose-100/90 rounded-3xl p-6 sm:p-8 shadow-[0_15px_35px_-10px_rgba(230,28,93,0.08)] hover:shadow-[0_25px_50px_-10px_rgba(230,28,93,0.18)] hover:border-[#156035]/30 transition-all duration-300 flex flex-col justify-between group"
+                className="w-[280px] sm:w-[340px] lg:w-[380px] shrink-0 bg-white/95 backdrop-blur-xl border border-rose-100/90 rounded-3xl p-5 sm:p-6 shadow-[0_15px_35px_-10px_rgba(230,28,93,0.08)] hover:shadow-[0_25px_50px_-10px_rgba(230,28,93,0.18)] hover:border-[#156035]/30 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
               >
                 <div>
                   {/* Top Icon Pill */}
-                  <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center justify-between mb-3 sm:mb-4">
                     <div
-                      className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${card.badgeColor} flex items-center justify-center border border-white/60 shadow-xs transition-transform duration-300 group-hover:scale-110`}
+                      className={`w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br ${card.badgeColor} flex items-center justify-center border border-white/60 shadow-xs transition-transform duration-300 group-hover:scale-110`}
                     >
-                      <Icon className={`w-7 h-7 ${card.iconColor}`} />
+                      <Icon className={`w-5.5 h-5.5 ${card.iconColor}`} />
                     </div>
                     <span className="text-xs font-extrabold text-zinc-400 tracking-widest">
                       0{index + 1}
@@ -208,24 +235,24 @@ export function RedefiningHygiene() {
                   </div>
 
                   {/* Subtitle Badge */}
-                  <span className="inline-block text-xs font-bold tracking-wider text-[#156035] bg-[#EBF6EF] px-3 py-1 rounded-full mb-3">
+                  <span className="inline-block text-[11px] sm:text-xs font-bold tracking-wider text-[#156035] bg-[#EBF6EF] px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full mb-2 sm:mb-2.5">
                     {card.subtitle}
                   </span>
 
                   {/* Title */}
-                  <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 mb-3 group-hover:text-[#156035] transition-colors">
+                  <h3 className="text-lg sm:text-xl font-bold text-zinc-900 mb-1.5 sm:mb-2 group-hover:text-[#156035] transition-colors">
                     {card.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-zinc-600 text-sm sm:text-base leading-relaxed">
+                  <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed">
                     {card.description}
                   </p>
                 </div>
 
                 {/* Decorative Bottom Bar */}
-                <div className="mt-6 pt-4 border-t border-rose-100/60 flex items-center justify-between">
-                  <span className="text-xs font-semibold text-zinc-400 group-hover:text-[#156035] transition-colors">
+                <div className="mt-4 pt-3 border-t border-rose-100/60 flex items-center justify-between">
+                  <span className="text-[11px] sm:text-xs font-semibold text-zinc-400 group-hover:text-[#156035] transition-colors">
                     Femmeflo Care Tech
                   </span>
                   <div className="w-2 h-2 rounded-full bg-[#156035]/30 group-hover:bg-[#156035] group-hover:scale-125 transition-all" />
@@ -233,14 +260,6 @@ export function RedefiningHygiene() {
               </div>
             );
           })}
-        </div>
-      </div>
-
-      {/* Floating Hint Tag */}
-      <div className="max-w-7xl mx-auto px-4 text-center mt-4 sm:mt-6">
-        <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-zinc-500 uppercase bg-white/80 backdrop-blur-md px-4 py-2 rounded-full border border-rose-100 shadow-xs">
-          <span className="w-2 h-2 rounded-full bg-[#156035] animate-ping" />
-          <span>Scroll down to slide cards right to left</span>
         </div>
       </div>
     </section>

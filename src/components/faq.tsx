@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus, HelpCircle, Sparkles, ArrowRight } from "lucide-react";
 import { FairyIcon } from "@/components/FairyIcon";
+import AnimatedList from "@/components/AnimatedList";
 
 interface FAQItem {
   id: string;
@@ -65,11 +66,64 @@ const faqs: FAQItem[] = [
 ];
 
 export function FAQSection() {
-  const [openId, setOpenId] = useState<string | null>("puberty");
+  const [openId, setOpenId] = useState<string | null>(null);
 
   const toggle = (id: string) => {
     setOpenId((prev) => (prev === id ? null : id));
   };
+
+  const faqElements = faqs.map((item) => {
+    const isOpen = openId === item.id;
+    return (
+      <div
+        key={item.id}
+        className={`rounded-2xl transition-all duration-300 border cursor-pointer ${
+          isOpen
+            ? "bg-gradient-to-r from-rose-50/90 to-white border-rose-200/90 shadow-sm"
+            : "bg-white/90 hover:bg-rose-100/50 border-zinc-100"
+        }`}
+        onClick={() => toggle(item.id)}
+      >
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            toggle(item.id);
+          }}
+          className="w-full px-5 py-4.5 flex items-center justify-between text-left gap-4 focus:outline-none cursor-pointer"
+          aria-expanded={isOpen}
+        >
+          <span className="text-base sm:text-lg font-bold text-zinc-900 font-[family-name:var(--font-jakarta)] leading-snug">
+            {item.question}
+          </span>
+          <span
+            className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
+              isOpen
+                ? "bg-[#E61C5D] text-white rotate-180"
+                : "bg-rose-100/70 text-[#E61C5D]"
+            }`}
+          >
+            {isOpen ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
+          </span>
+        </button>
+
+        <AnimatePresence initial={false}>
+          {isOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="overflow-hidden"
+            >
+              <div className="px-5 pb-5 pt-1 text-sm sm:text-base text-zinc-600 leading-relaxed border-t border-rose-100/60 mt-1">
+                {item.answer}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    );
+  });
 
   return (
     <section
@@ -121,71 +175,21 @@ export function FAQSection() {
           </div>
         </motion.div>
 
-        {/* Right Side: Clean Accordion List */}
+        {/* Right Side: AnimatedList Accordion Component */}
         <motion.div
-          className="lg:col-span-7 w-full space-y-4"
+          className="lg:col-span-7 w-full"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.15 }}
         >
-          <div className="bg-white/80 backdrop-blur-xl border border-rose-100 rounded-3xl p-4 sm:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.04)] space-y-3">
-            {faqs.map((item) => {
-              const isOpen = openId === item.id;
-              return (
-                <div
-                  key={item.id}
-                  className={`rounded-2xl transition-all duration-300 border cursor-pointer ${
-                    isOpen
-                      ? "bg-gradient-to-r from-rose-50/90 to-white border-rose-200/90 shadow-sm"
-                      : "bg-white/90 hover:bg-rose-100/50 border-zinc-100"
-                  }`}
-                  onClick={() => toggle(item.id)}
-                >
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      toggle(item.id);
-                    }}
-                    className="w-full px-5 py-4.5 flex items-center justify-between text-left gap-4 focus:outline-none cursor-pointer"
-                    aria-expanded={isOpen}
-                  >
-                    <span className="text-base sm:text-lg font-bold text-zinc-900 font-[family-name:var(--font-jakarta)] leading-snug">
-                      {item.question}
-                    </span>
-                    <span
-                      className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-300 ${
-                        isOpen
-                          ? "bg-[#E61C5D] text-white rotate-180"
-                          : "bg-rose-100/70 text-[#E61C5D]"
-                      }`}
-                    >
-                      {isOpen ? (
-                        <Minus className="w-4 h-4" />
-                      ) : (
-                        <Plus className="w-4 h-4" />
-                      )}
-                    </span>
-                  </button>
-
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: "auto", opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="overflow-hidden"
-                      >
-                        <div className="px-5 pb-5 pt-1 text-sm sm:text-base text-zinc-600 leading-relaxed border-t border-rose-100/60 mt-1">
-                          {item.answer}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              );
-            })}
+          <div className="bg-white/80 backdrop-blur-xl border border-rose-100 rounded-3xl p-4 sm:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.04)]">
+            <AnimatedList
+              childrenItems={faqElements}
+              enableArrowNavigation={true}
+              showGradients={true}
+              displayScrollbar={true}
+            />
           </div>
         </motion.div>
 

@@ -66,21 +66,21 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full bg-white px-4 sm:px-6 lg:px-8 pt-6 sm:pt-10 pb-16 sm:pb-20 flex flex-col justify-between overflow-hidden font-[family-name:var(--font-jakarta)] border-b border-zinc-100"
+      className="relative w-full bg-white px-4 sm:px-6 lg:px-8 pt-2 sm:pt-4 pb-8 sm:pb-12 overflow-hidden font-[family-name:var(--font-jakarta)] border-b border-zinc-100"
     >
       {/* Ambient Background Glow Orbs */}
       <div className="absolute top-1/4 left-[-8%] w-[450px] h-[450px] bg-emerald-100/40 rounded-full blur-[110px] pointer-events-none -z-10" />
       <div className="absolute top-1/3 right-[2%] w-[450px] h-[450px] bg-rose-100/40 rounded-full blur-[120px] pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-8 items-center py-4">
-        {/* Left Column: Copy & Corporate Enquire CTAs */}
-        <div className="flex flex-col items-start z-10 space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#EBF6EF] border border-[#CCE9D7] text-xs sm:text-sm font-extrabold text-[#156035] shadow-2xs">
-            <Sparkles className="w-4 h-4 text-[#156035]" />
+      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mt-1 sm:mt-2">
+        {/* Left Column: Copy & Feature Badges */}
+        <div className="flex flex-col items-start z-10 space-y-4 sm:space-y-5">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EBF6EF] border border-[#CCE9D7] text-xs font-extrabold text-[#156035] shadow-2xs">
+            <Sparkles className="w-3.5 h-3.5 text-[#156035]" />
             <span>Glow • Trusted Feminine Care</span>
           </div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-900 leading-[1.08]">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900 leading-[1.08]">
             Feel{" "}
             <span className="font-[family-name:var(--font-playfair)] italic font-semibold text-[#156035]">
               Fresh.
@@ -92,75 +92,51 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className="text-zinc-600 text-base sm:text-lg max-w-md leading-relaxed">
+          <p className="text-zinc-600 text-sm sm:text-base max-w-md leading-relaxed">
             Experience superior comfort, dependable leak protection, and
             confidence throughout your day with{" "}
             <strong className="text-zinc-900 font-semibold">Femmeflo XL</strong> sanitary pads.
           </p>
 
-          {/* Action Buttons (Enquire Now & Product Overview) */}
-          <div className="flex flex-wrap items-center gap-4 pt-2">
-            <Link
-              href="#contact"
-              className="inline-flex items-center gap-3 bg-gradient-to-r from-[#E61C5D] to-rose-600 text-white font-bold text-base px-8 py-3.5 rounded-full shadow-[0_10px_28px_rgba(230,28,93,0.3)] hover:shadow-[0_14px_35px_rgba(230,28,93,0.45)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
-            >
-              <span>Enquire Now</span>
-              <span className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center">
-                <ArrowUpRight className="w-4 h-4 text-white" />
-              </span>
-            </Link>
-
-            <Link
-              href="#about"
-              className="group relative inline-flex items-center gap-3 pl-7 pr-2.5 py-2.5 rounded-full border-2 border-[#156035] text-[#156035] font-bold text-base transition-all duration-300 hover:bg-[#156035] hover:text-white active:scale-[0.98]"
-            >
-              <span>Product Overview</span>
-              <span className="relative w-9 h-9 shrink-0 rounded-full bg-[#156035] text-white flex items-center justify-center overflow-hidden shadow-2xs transition-colors duration-300 group-hover:bg-white group-hover:text-[#156035]">
-                <ArrowUpRight className="w-4 h-4 transition-transform duration-300 ease-in-out group-hover:translate-x-[200%] group-hover:-translate-y-[200%]" />
-                <ArrowUpRight className="absolute w-4 h-4 -translate-x-[200%] translate-y-[200%] transition-transform duration-300 ease-in-out group-hover:translate-x-0 group-hover:translate-y-0" />
-              </span>
-            </Link>
-          </div>
-
           {/* 4 Feature Cards Grid */}
-          <div className="pt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 w-full">
-            <div className="bg-[#EBF6EF]/60 border border-emerald-200/90 p-3.5 rounded-2xl shadow-2xs hover:bg-[#EBF6EF] transition-all flex flex-col items-center text-center">
-              <div className="w-9 h-9 rounded-xl bg-emerald-100/90 text-[#156035] flex items-center justify-center mb-2 shadow-2xs">
-                <ShieldCheck className="w-4.5 h-4.5" />
+          <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-2.5 w-full">
+            <div className="bg-[#EBF6EF]/60 border border-emerald-200/90 p-3 rounded-2xl shadow-2xs hover:bg-[#EBF6EF] transition-all flex flex-col items-center text-center">
+              <div className="w-8 h-8 rounded-xl bg-emerald-100/90 text-[#156035] flex items-center justify-center mb-1.5 shadow-2xs">
+                <ShieldCheck className="w-4 h-4" />
               </div>
               <span className="text-xs font-extrabold text-zinc-900">12 Hour</span>
-              <span className="text-[11px] font-semibold text-emerald-800">Protection</span>
+              <span className="text-[10px] font-semibold text-emerald-800">Protection</span>
             </div>
 
-            <div className="bg-rose-50/60 border border-rose-200/90 p-3.5 rounded-2xl shadow-2xs hover:bg-rose-50 transition-all flex flex-col items-center text-center">
-              <div className="w-9 h-9 rounded-xl bg-rose-100/90 text-[#E61C5D] flex items-center justify-center mb-2 shadow-2xs">
-                <Lock className="w-4.5 h-4.5" />
+            <div className="bg-rose-50/60 border border-rose-200/90 p-3 rounded-2xl shadow-2xs hover:bg-rose-50 transition-all flex flex-col items-center text-center">
+              <div className="w-8 h-8 rounded-xl bg-rose-100/90 text-[#E61C5D] flex items-center justify-center mb-1.5 shadow-2xs">
+                <Lock className="w-4 h-4" />
               </div>
               <span className="text-xs font-extrabold text-zinc-900">Leak Lock</span>
-              <span className="text-[11px] font-semibold text-rose-800">Technology</span>
+              <span className="text-[10px] font-semibold text-rose-800">Technology</span>
             </div>
 
-            <div className="bg-[#EBF6EF]/60 border border-emerald-200/90 p-3.5 rounded-2xl shadow-2xs hover:bg-[#EBF6EF] transition-all flex flex-col items-center text-center">
-              <div className="w-9 h-9 rounded-xl bg-emerald-100/90 text-[#156035] flex items-center justify-center mb-2 shadow-2xs">
-                <Feather className="w-4.5 h-4.5" />
+            <div className="bg-[#EBF6EF]/60 border border-emerald-200/90 p-3 rounded-2xl shadow-2xs hover:bg-[#EBF6EF] transition-all flex flex-col items-center text-center">
+              <div className="w-8 h-8 rounded-xl bg-emerald-100/90 text-[#156035] flex items-center justify-center mb-1.5 shadow-2xs">
+                <Feather className="w-4 h-4" />
               </div>
               <span className="text-xs font-extrabold text-zinc-900">Cotton Soft</span>
-              <span className="text-[11px] font-semibold text-emerald-800">Touch</span>
+              <span className="text-[10px] font-semibold text-emerald-800">Touch</span>
             </div>
 
-            <div className="bg-rose-50/60 border border-rose-200/90 p-3.5 rounded-2xl shadow-2xs hover:bg-rose-50 transition-all flex flex-col items-center text-center">
-              <div className="w-9 h-9 rounded-xl bg-rose-100/90 text-[#E61C5D] flex items-center justify-center mb-2 shadow-2xs">
-                <Leaf className="w-4.5 h-4.5" />
+            <div className="bg-rose-50/60 border border-rose-200/90 p-3 rounded-2xl shadow-2xs hover:bg-rose-50 transition-all flex flex-col items-center text-center">
+              <div className="w-8 h-8 rounded-xl bg-rose-100/90 text-[#E61C5D] flex items-center justify-center mb-1.5 shadow-2xs">
+                <Leaf className="w-4 h-4" />
               </div>
               <span className="text-xs font-extrabold text-zinc-900">Skin Friendly</span>
-              <span className="text-[11px] font-semibold text-rose-800">&amp; Safe</span>
+              <span className="text-[10px] font-semibold text-rose-800">&amp; Safe</span>
             </div>
           </div>
         </div>
 
         {/* Right Column: Hero Product Showcase Container */}
         <div className="relative flex items-center justify-center w-full">
-          <div className="relative w-full max-w-[480px] sm:max-w-[540px] aspect-square rounded-full p-4 sm:p-5 bg-gradient-to-b from-rose-50/80 via-emerald-50/40 to-white/90 backdrop-blur-xl border border-rose-100 shadow-[0_25px_60px_-15px_rgba(21,96,53,0.12)] flex items-center justify-center">
+          <div className="relative w-full max-w-[400px] sm:max-w-[460px] aspect-square rounded-full p-4 sm:p-5 bg-gradient-to-b from-rose-50/80 via-emerald-50/40 to-white/90 backdrop-blur-xl border border-rose-100 shadow-[0_25px_60px_-15px_rgba(21,96,53,0.12)] flex items-center justify-center">
             {/* Ambient Backlight Glow */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-emerald-200/40 via-rose-100/40 to-teal-100/30 blur-2xl pointer-events-none -z-10" />
 
@@ -187,13 +163,12 @@ export function Hero() {
                   className="md:hidden relative w-[260px] h-[260px] flex items-center justify-center pointer-events-auto"
                 >
                   <Image
-                    src="/femmeflo-withoutbg.png"
+                    src="/femmeflo-withoutbg.webp"
                     alt="Femmeflo XL Sanitary Pads Real Product Image"
                     width={400}
                     height={400}
                     className="w-full h-auto object-contain drop-shadow-2xl"
                     priority
-                    unoptimized
                   />
                 </div>
               </div>

@@ -157,6 +157,11 @@ export function GlobalFloatingProduct() {
         rotY = 15 * p1;
       }
 
+      // Clamp X position so the floating product box never gets cut off on screen edges
+      const currentWidth = window.innerWidth >= 1280 ? 560 : window.innerWidth >= 1024 ? 520 : 440;
+      const halfW = currentWidth / 2;
+      curX = Math.max(halfW + 16, Math.min(window.innerWidth - halfW - 16, curX));
+
       // Apply 60FPS transform update
       gsap.set(target, {
         x: curX,
@@ -223,7 +228,7 @@ export function GlobalFloatingProduct() {
 
       {/* Product Image Container */}
       <motion.div
-        className="relative w-[260px] sm:w-[520px] lg:w-[640px] flex items-center justify-center"
+        className="relative w-[260px] sm:w-[440px] lg:w-[520px] xl:w-[560px] flex items-center justify-center"
         style={{
           x: mouseX,
           y: mouseY,
@@ -262,14 +267,13 @@ export function GlobalFloatingProduct() {
           </div>
 
           <Image
-            src="/femmeflo-withoutbg.png"
+            src="/femmeflo-withoutbg.webp"
             alt="Femmeflo XL Sanitary Pads"
             width={800}
             height={800}
             priority
-            unoptimized
             style={{ width: "100%", height: "auto" }}
-            className="w-full h-auto object-contain pointer-events-none max-h-[320px] sm:max-h-[520px] lg:max-h-[640px]"
+            className="w-full h-auto object-contain pointer-events-none max-h-[300px] sm:max-h-[440px] lg:max-h-[500px]"
           />
         </div>
       </motion.div>

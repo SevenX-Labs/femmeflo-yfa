@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
@@ -275,10 +276,13 @@ export function WhyChooseUs() {
 
                 {/* LARGER ALIGNED CTA BUTTON */}
                 <div className="reveal-item flex items-center justify-start sm:justify-center pt-2">
-                  <button className="bg-gradient-to-r from-[#9F2545] to-rose-600 hover:from-rose-600 hover:to-[#9F2545] text-white font-bold text-base px-9 py-4 rounded-full transition-all flex items-center gap-2.5 shadow-md hover:shadow-xl hover:scale-105 cursor-pointer">
+                  <Link
+                    href="#products"
+                    className="bg-gradient-to-r from-[#9F2545] to-rose-600 hover:from-rose-600 hover:to-[#9F2545] text-white font-bold text-base px-9 py-4 rounded-full transition-all flex items-center gap-2.5 shadow-md hover:shadow-xl hover:scale-105 cursor-pointer"
+                  >
                     <span>Explore Product Specs</span>
                     <ArrowRight className="w-5 h-5" />
-                  </button>
+                  </Link>
                 </div>
 
               </div>
