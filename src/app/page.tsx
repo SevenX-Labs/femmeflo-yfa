@@ -1,5 +1,7 @@
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
+import { ProductFeaturesSection } from "@/components/ProductFeaturesSection";
+import { RedefiningHygiene } from "@/components/RedefiningHygiene";
 import { About } from "@/components/about";
 import { ProductSection } from "@/components/ProductSection";
 import { PromiseSection } from "@/components/promise";
@@ -9,6 +11,7 @@ import { FAQSection } from "@/components/faq";
 import { ContactSection } from "@/components/contact";
 import { Footer } from "@/components/footer";
 import { GlobalFloatingProduct } from "@/components/GlobalFloatingProduct";
+import { FloatingChatEnquiry } from "@/components/FloatingChatEnquiry";
 import { SectionRouteObserver } from "@/components/SectionRouteObserver";
 import { PageLoader } from "@/components/PageLoader";
 
@@ -18,11 +21,14 @@ export default function Home() {
       <PageLoader />
       <SectionRouteObserver />
       <GlobalFloatingProduct />
+      <FloatingChatEnquiry />
       <Navbar />
       <main className="flex-1 flex flex-col">
         <Hero />
         <About />
         <ProductSection />
+        <ProductFeaturesSection />
+        <RedefiningHygiene />
         <PromiseSection />
         <WhyChooseUs />
         <HappyCustomers />

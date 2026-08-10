@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Sparkles, Globe, MessageCircle, Share2, ShieldCheck, Heart, Leaf } from "lucide-react";
+import { Sparkles, Globe, MessageCircle, Share2, ShieldCheck, Heart, Leaf, Mail } from "lucide-react";
 
 export function Footer() {
   return (
@@ -95,13 +95,19 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Key Assurance */}
+          {/* Key Assurance & Official Contact */}
           <div className="space-y-3">
             <h4 className="font-bold text-white text-xs uppercase tracking-wider">
-              Quality Assurance
+              Sales &amp; Enquiries
             </h4>
-            <ul className="space-y-2 text-xs text-emerald-100/70">
-              <li className="flex items-center gap-1.5">
+            <ul className="space-y-2.5 text-xs text-emerald-100/70">
+              <li className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-[#FF85A1] shrink-0" />
+                <a href="mailto:sales@femmeflo.in" className="text-white font-bold hover:text-[#FF85A1] transition-colors">
+                  sales@femmeflo.in
+                </a>
+              </li>
+              <li className="flex items-center gap-1.5 pt-1">
                 <Heart className="w-3.5 h-3.5 text-[#FF85A1]" />
                 <span>100% Dermatologically Tested</span>
               </li>
@@ -113,7 +119,6 @@ export function Footer() {
                 <ShieldCheck className="w-3.5 h-3.5 text-[#FDE047]" />
                 <span>Advanced Leak Lock Core</span>
               </li>
-              <li>0% Harsh Chemicals / Toxin Free</li>
             </ul>
           </div>
 

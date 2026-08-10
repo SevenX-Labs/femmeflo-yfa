@@ -118,7 +118,7 @@ export function ContactSection() {
 
             {/* Let's Connect CTA Button */}
             <a
-              href="mailto:masakocnt@gmail.com"
+              href="mailto:sales@femmeflo.in"
               className="inline-flex items-center gap-2.5 bg-gradient-to-r from-[#E61C5D] to-rose-600 text-white font-bold text-sm sm:text-base px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
             >
               <span>Let&apos;s Connect</span>
@@ -206,7 +206,7 @@ export function ContactSection() {
                 <div>
                   <h4 className="font-bold text-xs uppercase tracking-wider text-[#156035]">CUSTOMER SUPPORT</h4>
                   <a href="tel:+9122440634371" className="text-zinc-900 font-bold hover:text-[#E61C5D] transition-colors text-base">
-                    +91 22- 440634371
+                    +91 98206 76562
                   </a>
                 </div>
               </div>
@@ -218,8 +218,8 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h4 className="font-bold text-xs uppercase tracking-wider text-[#E61C5D]">EMAIL US</h4>
-                  <a href="mailto:masakocnt@gmail.com" className="text-[#E61C5D] font-bold hover:underline text-base">
-                    masakocnt@gmail.com
+                  <a href="mailto:sales@femmeflo.in" className="text-[#E61C5D] font-bold hover:underline text-base block">
+                    sales@femmeflo.in
                   </a>
                 </div>
               </div>
@@ -238,17 +238,7 @@ export function ContactSection() {
               </div>
 
               {/* Visit Our Website */}
-              <div className="flex items-center gap-4 pt-4 border-t border-rose-50">
-                <div className="w-10 h-10 rounded-2xl bg-rose-100/80 text-[#E61C5D] flex items-center justify-center shrink-0 shadow-2xs">
-                  <Globe className="w-5 h-5" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-xs uppercase tracking-wider text-[#E61C5D]">VISIT OUR WEBSITE</h4>
-                  <a href="https://www.femmeflo.com" target="_blank" rel="noopener noreferrer" className="text-zinc-900 font-bold hover:text-[#E61C5D] transition-colors">
-                    www.femmeflo.com
-                  </a>
-                </div>
-              </div>
+              
 
             </div>
 
