@@ -171,7 +171,7 @@ export function About() {
 
           {/* Paragraph Copy */}
           <p className="text-zinc-600 text-base sm:text-lg leading-relaxed">
-            At Femmeflo, we believe every woman deserves effortless confidence during her cycle. Our extra-large sanitary pads feature an ultra-absorbent core, cloud-soft top sheet, and advanced leak-lock technology designed to keep you completely dry and worry-free all day and night.
+            <strong className="text-zinc-900 font-semibold">Femmeflo</strong> is the flagship sanitary pad product brand by <strong className="text-[#156035] font-semibold">Masako Enterprises Private Limited</strong>, crafted to deliver effortless period confidence to women across India. Featuring an ultra-absorbent core, cloud-soft top sheet, and 3D leak-lock technology, Femmeflo XL sanitary pads are engineered to keep you completely dry, comfortable, and worry-free all day and night.
           </p>
 
           {/* Feature Highlights Grid */}

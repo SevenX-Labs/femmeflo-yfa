@@ -28,7 +28,7 @@ export function Footer() {
             </p>
 
             <p className="text-emerald-100/70 text-xs leading-relaxed max-w-sm">
-              Providing women the confidence to move and live without worry during their periods. High-performance sanitary pads designed for ultimate comfort and protection.
+              Femmeflo is the premium sanitary pad product brand by <span className="text-[#4ADE80] font-semibold">Masako Enterprises Private Limited</span>, engineered for ultimate period comfort, 100% leak protection, and rash-free security.
             </p>
 
             {/* Social Badges */}
