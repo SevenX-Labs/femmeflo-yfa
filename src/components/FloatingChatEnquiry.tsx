@@ -1,18 +1,13 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   MessageCircle,
   X,
   Send,
-  Sparkles,
-  CheckCircle2,
-  PhoneCall,
-  Mail,
   ExternalLink,
-  MessageSquare,
+  CheckCircle2,
 } from "lucide-react";
 
 interface ChatMessage {
@@ -25,33 +20,11 @@ interface ChatMessage {
 }
 
 const quickTopics = [
-  { label: "🌸 Product & Size Guide", key: "product" },
-  { label: "📦 Order & Delivery", key: "order" },
-  { label: "💼 Bulk & Wholesale", key: "wholesale" },
-  { label: "💬 WhatsApp Support", key: "whatsapp" },
+  { label: "🌸 Product & Price", key: "What is the price and features of Femmeflo XL?" },
+  { label: "📦 Delivery & Order", key: "How fast is delivery and shipping for Femmeflo?" },
+  { label: "💼 Wholesale & Bulk", key: "How can I order wholesale or become a distributor?" },
+  { label: "💬 Contact Support", key: "How can I contact Femmeflo customer care?" },
 ];
-
-const topicResponses: Record<
-  string,
-  { text: string; actionUrl?: string; actionText?: string }
-> = {
-  product: {
-    text: "Femmeflo XL features 320mm extra-long pads with 3D fast-lock gel absorption, engineered for 12-hour leakproof and 100% rash-free day & night protection!",
-  },
-  order: {
-    text: "We ship all corporate & retailer orders within 24 hours across India! Standard delivery takes 2-4 business days with eco-friendly discrete packaging.",
-  },
-  wholesale: {
-    text: "Looking for wholesale or distribution pricing? Reach out directly to our corporate sales department at sales@femmeflo.in or call +91 98206 76562.",
-    actionUrl: "mailto:sales@femmeflo.in",
-    actionText: "Email Sales (sales@femmeflo.in)",
-  },
-  whatsapp: {
-    text: "Click below to connect directly with our customer care team on WhatsApp for instant 1-on-1 assistance!",
-    actionUrl: "https://wa.me/919820676562",
-    actionText: "Open WhatsApp Chat",
-  },
-};
 
 export function FloatingChatEnquiry() {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,7 +32,7 @@ export function FloatingChatEnquiry() {
     {
       id: "1",
       sender: "bot",
-      text: "Hi there! 👋 Welcome to Femmeflo Care. How can we help you today?",
+      text: "Hi there! 👋 I'm Aria from Femmeflo Care. How can I help you today?",
       time: "Just now",
     },
   ]);
@@ -75,15 +48,16 @@ export function FloatingChatEnquiry() {
     if (isOpen) {
       scrollToBottom();
     }
-  }, [messages, isOpen]);
+  }, [messages, isOpen, isTyping]);
 
-  const handleSendUserMessage = (textToSend: string, topicKey?: string) => {
-    if (!textToSend.trim()) return;
+  const handleSendMessage = async (textToSend: string) => {
+    const trimmed = textToSend.trim();
+    if (!trimmed || isTyping) return;
 
     const userMsg: ChatMessage = {
       id: Date.now().toString(),
       sender: "user",
-      text: textToSend,
+      text: trimmed,
       time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
     };
 
@@ -91,178 +65,251 @@ export function FloatingChatEnquiry() {
     setInputText("");
     setIsTyping(true);
 
-    setTimeout(() => {
-      const topicData = topicKey ? topicResponses[topicKey] : undefined;
-      const replyText =
-        topicData?.text ||
-        "Thank you for reaching out! Our team has received your enquiry. You can also email us directly at sales@femmeflo.in or call +91 98206 76562.";
+    try {
+      // Call secure Server API Endpoint (No API keys exposed to browser)
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: [...messages, userMsg].map((m) => ({
+            sender: m.sender,
+            text: m.text,
+          })),
+        }),
+      });
+
+      const data = await res.json();
+      const botText =
+        data.reply ||
+        "Femmeflo XL offers 12-hour leakproof 100% rash-free protection for just ₹40! 🌸 Reach out on WhatsApp (+91 98206 76562) for instant support.";
+
+      // Check if user is asking about whatsapp or sales
+      const lowerText = trimmed.toLowerCase();
+      let actionUrl: string | undefined = undefined;
+      let actionText: string | undefined = undefined;
+
+      if (lowerText.includes("whatsapp") || lowerText.includes("chat")) {
+        actionUrl = "https://wa.me/919820676562";
+        actionText = "Open WhatsApp Chat";
+      } else if (
+        lowerText.includes("wholesale") ||
+        lowerText.includes("bulk") ||
+        lowerText.includes("distributor") ||
+        lowerText.includes("buy")
+      ) {
+        actionUrl = "mailto:sales@femmeflo.in";
+        actionText = "Email Corporate Sales";
+      }
 
       const botMsg: ChatMessage = {
         id: (Date.now() + 1).toString(),
         sender: "bot",
-        text: replyText,
+        text: botText,
         time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
-        actionUrl: topicData?.actionUrl,
-        actionText: topicData?.actionText,
+        actionUrl,
+        actionText,
       };
 
       setMessages((prev) => [...prev, botMsg]);
+    } catch (err) {
+      console.error("Chat error:", err);
+      const fallbackMsg: ChatMessage = {
+        id: (Date.now() + 1).toString(),
+        sender: "bot",
+        text: "Femmeflo XL sanitary pads feature 3D fast-lock absorption & cottony soft rash-free comfort for ₹40! 🌸 Feel free to WhatsApp us directly at +91 98206 76562.",
+        time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+        actionUrl: "https://wa.me/919820676562",
+        actionText: "Chat on WhatsApp",
+      };
+      setMessages((prev) => [...prev, fallbackMsg]);
+    } finally {
       setIsTyping(false);
-    }, 700);
+    }
   };
 
   return (
     <>
-      {/* Floating Action Button */}
-      <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
-
-
-        <motion.button
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.92 }}
-          onClick={() => setIsOpen(!isOpen)}
-          className="relative w-14 h-14 rounded-full bg-gradient-to-r from-[#156035] to-[#1B4332] text-white flex items-center justify-center shadow-[0_10px_25px_rgba(21,96,53,0.4)] border border-white/20 hover:shadow-[0_15px_35px_rgba(21,96,53,0.55)] transition-all cursor-pointer"
-          aria-label="Toggle Enquiry Chat"
-        >
+      {/* Floating Chat Button (Highest z-index: z-[100]) */}
+      <motion.button
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Toggle live chat support"
+        className="fixed bottom-6 right-6 z-[100] p-4 rounded-full bg-gradient-to-r from-[#E61C5D] to-[#156035] text-white shadow-2xl hover:scale-105 transition-all flex items-center justify-center group focus:outline-none ring-4 ring-white/80"
+        whileHover={{ scale: 1.08 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <AnimatePresence mode="wait">
           {isOpen ? (
-            <X className="w-6 h-6 text-white" />
+            <motion.div
+              key="close"
+              initial={{ rotate: -90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: 90, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <X className="w-6 h-6" />
+            </motion.div>
           ) : (
-            <>
-              <MessageCircle className="w-7 h-7 text-white" />
-              <span className="absolute top-1 right-1 w-3.5 h-3.5 bg-emerald-400 rounded-full border-2 border-white animate-pulse" />
-            </>
+            <motion.div
+              key="chat"
+              initial={{ rotate: 90, opacity: 0 }}
+              animate={{ rotate: 0, opacity: 1 }}
+              exit={{ rotate: -90, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="relative flex items-center justify-center"
+            >
+              <MessageCircle className="w-6 h-6" />
+              {/* Online Green Pulsing Indicator */}
+              <span className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 border-2 border-white rounded-full animate-ping" />
+              <span className="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 border-2 border-white rounded-full" />
+            </motion.div>
           )}
-        </motion.button>
-      </div>
+        </AnimatePresence>
+      </motion.button>
 
-      {/* Floating Chat Modal Drawer */}
+      {/* Floating Chat Modal Box (Highest z-index: z-[100], bounded below top navbar) */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            initial={{ opacity: 0, y: 24, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed bottom-22 right-4 sm:right-6 z-50 w-[calc(100vw-2rem)] sm:w-[380px] md:w-[400px] bg-white backdrop-blur-2xl border border-rose-100 rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.18)] overflow-hidden flex flex-col font-[family-name:var(--font-jakarta)] max-h-[calc(100vh-6.5rem)] sm:max-h-[520px]"
+            exit={{ opacity: 0, y: 24, scale: 0.95 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="fixed bottom-20 right-4 sm:right-6 z-[100] w-[calc(100vw-2rem)] sm:w-[360px] max-h-[calc(100vh-6rem)] h-[460px] sm:h-[480px] bg-white/98 backdrop-blur-2xl border border-rose-100 rounded-3xl shadow-2xl flex flex-col overflow-hidden ring-1 ring-black/5"
           >
-            {/* Improved Header */}
-            <div className="bg-gradient-to-r from-[#156035] via-[#1B4332] to-[#156035] text-white px-4 py-3.5 sm:px-5 sm:py-4 flex items-center justify-between shrink-0">
+            {/* Header Bar */}
+            <div className="bg-gradient-to-r from-[#E61C5D] via-rose-600 to-[#156035] p-3.5 sm:p-4 text-white flex items-center justify-between shadow-md shrink-0">
               <div className="flex items-center gap-3">
-                <div className="relative w-11 h-11 rounded-2xl bg-white p-1.5 flex items-center justify-center shadow-xs shrink-0">
-                  <Image
-                    src="/logo.webp"
-                    alt="Femmeflo Logo"
-                    width={80}
-                    height={80}
-                    className="w-full h-full object-contain"
-                  />
-                  <span className="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-emerald-400 rounded-full border-2 border-white" />
+                <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/20 border border-white/40 flex items-center justify-center overflow-hidden shrink-0">
+                  <span className="text-base sm:text-lg">🌸</span>
+                  <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 border border-white rounded-full" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-extrabold text-white flex items-center gap-1.5">
-                    Femmeflo Care Team
-                    <CheckCircle2 className="w-4 h-4 text-emerald-300 fill-emerald-300/20" />
+                  <h4 className="font-bold text-xs sm:text-sm leading-snug flex items-center gap-1.5">
+                    <span>Aria</span>
+                    <span className="text-[10px] font-normal px-2 py-0.5 rounded-full bg-white/20 backdrop-blur-sm border border-white/30">
+                      Femmeflo Care
+                    </span>
                   </h4>
-                  <p className="text-[11px] text-emerald-100/90 font-medium">Online • Instant Support</p>
+                  <p className="text-[10px] sm:text-[11px] text-rose-100/90 flex items-center gap-1">
+                    <CheckCircle2 className="w-3 h-3 text-emerald-300" />
+                    <span>Instant AI Support • Active Now</span>
+                  </p>
                 </div>
               </div>
-
               <button
                 onClick={() => setIsOpen(false)}
-                className="text-white/80 hover:text-white p-1.5 rounded-xl hover:bg-white/10 transition-colors"
-                aria-label="Close Chat"
+                className="p-1.5 rounded-full hover:bg-white/20 transition-colors text-white/90 hover:text-white"
+                aria-label="Close chat window"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            {/* Messages Area */}
-            <div className="flex-1 p-4 overflow-y-auto space-y-3.5 min-h-[180px] max-h-[260px] sm:max-h-[280px] bg-gradient-to-b from-[#FFF0F3]/30 via-white to-white">
+            {/* Chat Body & Messages Area (data-lenis-prevent allows native mobile touch scrolling) */}
+            <div
+              data-lenis-prevent
+              className="flex-1 p-3.5 sm:p-4 overflow-y-auto overscroll-contain touch-pan-y space-y-3 bg-gradient-to-b from-rose-50/30 to-white text-xs [scrollbar-width:thin]"
+            >
               {messages.map((msg) => (
-                <div
+                <motion.div
                   key={msg.id}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.2 }}
                   className={`flex flex-col ${
                     msg.sender === "user" ? "items-end" : "items-start"
                   }`}
                 >
                   <div
-                    className={`max-w-[88%] px-4 py-3 rounded-2xl text-xs sm:text-sm leading-relaxed ${
+                    className={`max-w-[85%] px-3.5 py-2.5 rounded-2xl text-xs leading-relaxed shadow-sm ${
                       msg.sender === "user"
-                        ? "bg-[#156035] text-white rounded-br-xs shadow-xs font-medium"
-                        : "bg-white border border-rose-100/90 text-zinc-800 rounded-bl-xs shadow-xs"
+                        ? "bg-[#E61C5D] text-white rounded-br-none font-medium"
+                        : "bg-white text-zinc-800 border border-rose-100 rounded-bl-none shadow-rose-100/50"
                     }`}
                   >
-                    <p>{msg.text}</p>
+                    <p className="whitespace-pre-line">{msg.text.replace(/\*\*(.*?)\*\*/g, "$1")}</p>
+
+                    {/* Optional Interactive Action Button */}
                     {msg.actionUrl && (
                       <a
                         href={msg.actionUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 mt-2 text-xs font-extrabold text-[#E61C5D] hover:underline bg-rose-50 px-3 py-1.5 rounded-xl border border-rose-100"
+                        className="mt-2.5 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white text-[11px] font-bold shadow-md transition-all hover:scale-102"
                       >
-                        <span>{msg.actionText}</span>
-                        <ExternalLink className="w-3.5 h-3.5" />
+                        <span>{msg.actionText || "Connect Now"}</span>
+                        <ExternalLink className="w-3 h-3" />
                       </a>
                     )}
                   </div>
-                  <span className="text-[10px] font-semibold text-zinc-400 mt-1 px-1">
-                    {msg.time}
-                  </span>
-                </div>
+                  <span className="text-[9px] text-zinc-400 mt-1 px-1">{msg.time}</span>
+                </motion.div>
               ))}
 
               {/* Typing Indicator */}
               {isTyping && (
-                <div className="flex items-center gap-1.5 bg-white border border-rose-100 px-4 py-3 rounded-2xl rounded-bl-xs w-max">
-                  <span className="w-2 h-2 rounded-full bg-[#156035] animate-bounce" />
-                  <span className="w-2 h-2 rounded-full bg-[#156035] animate-bounce [animation-delay:0.2s]" />
-                  <span className="w-2 h-2 rounded-full bg-[#156035] animate-bounce [animation-delay:0.4s]" />
-                </div>
+                <motion.div
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="flex items-center gap-2 bg-white border border-rose-100 px-3.5 py-2.5 rounded-2xl rounded-bl-none w-max shadow-sm"
+                >
+                  <span className="text-zinc-500 text-[11px]">Aria is typing</span>
+                  <div className="flex gap-1 items-center">
+                    <span className="w-1.5 h-1.5 bg-[#E61C5D] rounded-full animate-bounce" />
+                    <span
+                      className="w-1.5 h-1.5 bg-[#156035] rounded-full animate-bounce"
+                      style={{ animationDelay: "0.15s" }}
+                    />
+                    <span
+                      className="w-1.5 h-1.5 bg-[#E61C5D] rounded-full animate-bounce"
+                      style={{ animationDelay: "0.3s" }}
+                    />
+                  </div>
+                </motion.div>
               )}
 
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Harmonized Quick Topic Chips */}
-            <div className="p-3 bg-rose-50/40 border-t border-rose-100/70">
-              <p className="text-[11px] font-extrabold text-zinc-500 mb-2 uppercase tracking-wider">
-                Quick Enquiries:
-              </p>
-              <div className="flex flex-wrap gap-1.5">
-                {quickTopics.map((topic) => (
-                  <button
-                    key={topic.key}
-                    onClick={() => handleSendUserMessage(topic.label, topic.key)}
-                    className="text-xs font-bold text-[#156035] bg-white border border-[#156035]/25 hover:bg-[#156035] hover:text-white px-3 py-1.5 rounded-full transition-all shadow-2xs cursor-pointer active:scale-95"
-                  >
-                    {topic.label}
-                  </button>
-                ))}
-              </div>
+            {/* Quick Topic Chips (data-lenis-prevent allows native horizontal swipe) */}
+            <div
+              data-lenis-prevent
+              className="p-2 sm:p-2.5 bg-rose-50/60 border-t border-rose-100 flex gap-1.5 overflow-x-auto overscroll-contain touch-pan-x shrink-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {quickTopics.map((topic, i) => (
+                <button
+                  key={i}
+                  onClick={() => handleSendMessage(topic.key)}
+                  disabled={isTyping}
+                  className="px-2.5 py-1.5 rounded-full bg-white border border-rose-200 text-[#156035] text-[11px] font-medium whitespace-nowrap hover:bg-rose-50 hover:border-rose-300 transition-all shrink-0 shadow-2xs"
+                >
+                  {topic.label}
+                </button>
+              ))}
             </div>
 
-            {/* Improved Input Bar */}
+            {/* Input Form Footer */}
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                handleSendUserMessage(inputText);
+                handleSendMessage(inputText);
               }}
-              className="p-3 bg-white border-t border-zinc-100 flex items-center gap-2"
+              className="p-2.5 sm:p-3 bg-white border-t border-rose-100 flex items-center gap-2 shrink-0"
             >
               <input
                 type="text"
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
-                placeholder="Type your enquiry..."
-                className="flex-1 text-xs sm:text-sm bg-zinc-50 border border-zinc-200 rounded-2xl px-4 py-2.5 focus:outline-none focus:border-[#156035] focus:bg-white text-zinc-900 placeholder:text-zinc-400 transition-colors"
+                placeholder="Ask about Femmeflo products or order info..."
+                className="flex-1 text-xs px-3.5 py-2.5 rounded-full bg-zinc-50 border border-zinc-200 focus:outline-none focus:border-[#E61C5D] focus:bg-white text-zinc-800 placeholder:text-zinc-400"
               />
               <button
                 type="submit"
-                disabled={!inputText.trim()}
-                className="w-10 h-10 rounded-2xl bg-[#156035] text-white flex items-center justify-center disabled:opacity-40 hover:bg-[#1B4332] active:scale-95 transition-all shadow-md cursor-pointer shrink-0"
-                aria-label="Send Message"
+                disabled={!inputText.trim() || isTyping}
+                className="p-2.5 rounded-full bg-gradient-to-r from-[#E61C5D] to-[#156035] text-white disabled:opacity-40 disabled:cursor-not-allowed hover:scale-105 transition-all shadow-md shrink-0"
+                aria-label="Send message"
               >
-                <Send className="w-4 h-4 text-white" />
+                <Send className="w-4 h-4" />
               </button>
             </form>
           </motion.div>

@@ -238,8 +238,8 @@ export function ProductSection() {
                   id="product-price-anchor"
                   className="relative w-full h-full flex items-center justify-center pointer-events-none"
                 >
-                  {/* Product Pack Image Container */}
-                  <div className="relative w-52 h-40 sm:w-64 sm:h-48 select-none">
+                  {/* Product Pack Image Container (Mobile Fallback) */}
+                  <div className="block lg:hidden relative w-52 h-40 sm:w-64 sm:h-48 select-none">
                     {/* Floating Animated Fairy over Product */}
                     <div className="absolute -top-6 -right-2 z-30">
                       <FairyIcon className="w-14 h-14" />

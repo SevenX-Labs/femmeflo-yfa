@@ -272,7 +272,7 @@ export function GlobalFloatingProduct() {
                     ease: "linear",
                   }}
                 >
-                  <FairyIcon className="w-18 h-18 sm:w-26 sm:h-26" />
+                  <FairyIcon className="w-20 h-20 sm:w-28 sm:h-28 drop-shadow-xl" />
                 </motion.div>
               </div>
             </motion.div>

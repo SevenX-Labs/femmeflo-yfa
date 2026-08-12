@@ -1,16 +1,28 @@
 import dynamic from "next/dynamic";
 import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
-import { ProductFeaturesSection } from "@/components/ProductFeaturesSection";
-import { RedefiningHygiene } from "@/components/RedefiningHygiene";
 import { About } from "@/components/about";
 import { ProductSection } from "@/components/ProductSection";
-import { PromiseSection } from "@/components/promise";
-import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { GlobalFloatingProduct } from "@/components/GlobalFloatingProduct";
 import { SectionRouteObserver } from "@/components/SectionRouteObserver";
 
-// Dynamically import below-the-fold interactive components to optimize initial JS bundle & TBT
+// Dynamically import below-the-fold components to reduce initial JS payload and minimize main-thread execution time
+const ProductFeaturesSection = dynamic(
+  () => import("@/components/ProductFeaturesSection").then((mod) => mod.ProductFeaturesSection)
+);
+
+const RedefiningHygiene = dynamic(
+  () => import("@/components/RedefiningHygiene").then((mod) => mod.RedefiningHygiene)
+);
+
+const PromiseSection = dynamic(
+  () => import("@/components/promise").then((mod) => mod.PromiseSection)
+);
+
+const WhyChooseUs = dynamic(
+  () => import("@/components/WhyChooseUs").then((mod) => mod.WhyChooseUs)
+);
+
 const HappyCustomers = dynamic(
   () => import("@/components/HappyCustomers").then((mod) => mod.HappyCustomers)
 );
