@@ -190,7 +190,7 @@ export default function ContactPage() {
               className="mt-4 text-zinc-600 text-base sm:text-lg max-w-2xl leading-relaxed"
             >
               Have questions about Femmeflo XL, bulk orders, dealership partnerships, or customer support? Send us a message below.
-            </p>
+            </motion.p>
 
             {/* 4 Quick Stat Badges */}
             <motion.div
