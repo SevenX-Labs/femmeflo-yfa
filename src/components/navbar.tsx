@@ -44,8 +44,8 @@ export function Navbar() {
   }, [pathname]);
 
   return (
-    <header className="relative w-full font-[family-name:var(--font-jakarta)] z-50 bg-[url('/navbar-bg-transparent.webp')] bg-[length:100%_100%] bg-no-repeat bg-bottom pb-2.5 sm:pb-3">
-      <div className="w-full py-1 sm:py-1.5 lg:py-2 px-4 sm:px-8 lg:px-12 relative z-20">
+    <header className="relative w-full font-[family-name:var(--font-jakarta)] z-50 bg-[url('/navbar-bg-transparent.webp')] bg-[length:100%_100%] bg-no-repeat bg-bottom pb-5 sm:pb-7">
+      <div className="w-full pt-2 sm:pt-3 lg:pt-3.5 pb-2 px-4 sm:px-8 lg:px-12 relative z-20">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* 1. Left: Brand Logo */}
           <Link href="/" className="flex items-center group shrink-0 cursor-pointer">
@@ -54,7 +54,7 @@ export function Navbar() {
               alt="Femmeflo Logo"
               width={600}
               height={200}
-              className="h-12 sm:h-16 lg:h-[90px] xl:h-[110px] 2xl:h-[125px] w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+              className="h-10 sm:h-12 lg:h-[60px] xl:h-[70px] w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
               priority
             />
           </Link>
