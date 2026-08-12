@@ -124,9 +124,9 @@ export function GlobalFloatingProduct() {
       }
 
       // Clamp X position so the floating product box never gets cut off on screen edges
-      const currentWidth = window.innerWidth >= 1280 ? 560 : window.innerWidth >= 1024 ? 520 : 440;
+      const currentWidth = window.innerWidth >= 1280 ? 510 : window.innerWidth >= 1024 ? 470 : 400;
       const halfW = currentWidth / 2;
-      curX = Math.max(halfW + 16, Math.min(window.innerWidth - halfW - 16, curX));
+      curX = Math.max(halfW + 16, Math.min(window.innerWidth - halfW - 32, curX));
 
       // Apply 60FPS transform update
       gsap.set(target, {
@@ -159,10 +159,10 @@ export function GlobalFloatingProduct() {
   }, []);
 
   return (
-    // Fixed Root Layer: Below navbar (z-index: 30)
+    // Fixed Root Layer: Below navbar (z-index: 40)
     <div
       ref={fixedContainerRef}
-      className="hidden lg:flex fixed top-0 left-0 z-30 pointer-events-none select-none items-center justify-center opacity-0 transition-opacity duration-300"
+      className="hidden lg:flex fixed top-0 left-0 z-40 pointer-events-none select-none items-center justify-center opacity-0 transition-opacity duration-300"
       style={{ opacity: 0, willChange: "transform, opacity" }}
     >
       {/* Background Soft Glow Orbs */}
@@ -197,7 +197,7 @@ export function GlobalFloatingProduct() {
 
       {/* Product Image Container */}
       <motion.div
-        className="relative w-[260px] sm:w-[440px] lg:w-[520px] xl:w-[560px] flex items-center justify-center"
+        className="relative w-[260px] sm:w-[400px] lg:w-[470px] xl:w-[510px] flex items-center justify-center"
         style={{
           x: mouseX,
           y: mouseY,
