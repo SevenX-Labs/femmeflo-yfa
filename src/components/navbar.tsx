@@ -7,7 +7,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, MessageCircle } from "lucide-react";
 
 const navItems = [
-  { name: "HOME", href: "#hero" },
   { name: "ABOUT US", href: "#about" },
   { name: "PRODUCTS", href: "#products" },
   { name: "CONTACT US", href: "#contact" },
@@ -28,7 +27,7 @@ export function Navbar() {
               alt="Femmeflo Logo"
               width={600}
               height={200}
-              className="h-16 sm:h-20 lg:h-28 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+              className="h-24 sm:h-32 lg:h-[180px] w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
               priority
             />
           </Link>
