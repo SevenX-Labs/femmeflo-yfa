@@ -54,7 +54,7 @@ export function Navbar() {
               alt="Femmeflo Logo"
               width={600}
               height={200}
-              className="h-11 sm:h-14 lg:h-[70px] xl:h-[80px] w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+              className="h-11 sm:h-14 lg:h-[72px] xl:h-[84px] w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
               priority
             />
           </Link>
