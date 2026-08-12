@@ -19,41 +19,145 @@ export async function POST(req: Request) {
     const smtpPass = process.env.SMTP_PASS;
     const receiverEmail = process.env.CONTACT_RECEIVER_EMAIL || "sales@femmeflo.in";
 
-    // Format rich HTML email content
+    const cleanPhone = phone ? phone.replace(/[^0-9+]/g, '') : '';
+
+    // Format Ultra-Premium Mobile-Responsive HTML Email Template
     const htmlContent = `
-      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #f0f0f0; border-radius: 12px; padding: 24px; background-color: #ffffff;">
-        <div style="background-color: #156035; padding: 16px 24px; border-radius: 8px; text-align: center; margin-bottom: 24px;">
-          <h2 style="color: #ffffff; margin: 0; font-size: 20px;">New Contact Query - Femmeflo</h2>
-        </div>
-        
-        <table style="width: 100%; border-collapse: collapse;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Femmeflo Inquiry</title>
+  <style>
+    @media only screen and (max-width: 600px) {
+      .email-container { width: 100% !important; padding: 12px !important; }
+      .content-padding { padding: 18px 14px !important; }
+      .mobile-stack { display: block !important; width: 100% !important; margin-bottom: 8px !important; }
+      .action-btn { display: block !important; width: 100% !important; box-sizing: border-box !important; margin-right: 0 !important; margin-bottom: 10px !important; text-align: center !important; }
+    }
+  </style>
+</head>
+<body style="margin: 0; padding: 0; background-color: #f4f6f8; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #1f2937;">
+  <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #f4f6f8; padding: 24px 0;">
+    <tr>
+      <td align="center">
+        <!-- Main Email Card Container -->
+        <table role="presentation" class="email-container" width="600" border="0" cellspacing="0" cellpadding="0" style="background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 12px 35px rgba(0,0,0,0.07); border: 1px solid #e5e7eb; max-width: 600px; width: 100%;">
+          
+          <!-- Header Banner -->
           <tr>
-            <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-weight: bold; width: 140px; color: #555555;">Full Name:</td>
-            <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; color: #111111;">${name}</td>
+            <td style="background-color: #156035; padding: 28px 24px; text-align: center;">
+              <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td align="center">
+                    <span style="font-size: 28px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; font-family: Georgia, serif;">Femmeflo</span>
+                    <span style="display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 2.5px; color: #a7f3d0; margin-top: 4px; font-weight: 700;">Feel Fresh. Feel Free.</span>
+                  </td>
+                </tr>
+              </table>
+            </td>
           </tr>
+
+          <!-- Subheader / Status Badge Bar -->
           <tr>
-            <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-weight: bold; color: #555555;">Email Address:</td>
-            <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; color: #111111;"><a href="mailto:${email}">${email}</a></td>
+            <td style="background-color: #FAF5F7; padding: 12px 24px; border-bottom: 1px solid #f3e8ff;" align="center">
+              <span style="display: inline-block; background-color: #E61C5D; color: #ffffff; font-size: 11px; font-weight: 800; padding: 5px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px;">
+                🌸 NEW WEBSITE CONTACT INQUIRY
+              </span>
+            </td>
           </tr>
+
+          <!-- Body Content -->
           <tr>
-            <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-weight: bold; color: #555555;">Contact / Phone:</td>
-            <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; color: #111111;">${phone || "Not Provided"}</td>
+            <td class="content-padding" style="padding: 28px 24px;">
+              <h2 style="margin: 0 0 6px 0; font-size: 20px; font-weight: 700; color: #111827;">
+                Inquiry Details
+              </h2>
+              <p style="margin: 0 0 20px 0; font-size: 13px; color: #6b7280; line-height: 1.5;">
+                A visitor submitted a new inquiry via the Femmeflo Contact Form (<code style="background-color: #EBF6EF; padding: 2px 6px; border-radius: 4px; color: #156035; font-size: 12px;">/contact</code>).
+              </p>
+
+              <!-- Customer Details Card Table -->
+              <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="background-color: #f9fafb; border-radius: 12px; border: 1px solid #e5e7eb; margin-bottom: 20px; overflow: hidden;">
+                <tr>
+                  <td style="padding: 14px 16px; border-bottom: 1px solid #e5e7eb; font-size: 13px; font-weight: 700; color: #4b5563; width: 36%;">
+                    👤 Customer Name:
+                  </td>
+                  <td style="padding: 14px 16px; border-bottom: 1px solid #e5e7eb; font-size: 14px; font-weight: 700; color: #111827;">
+                    ${name}
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 14px 16px; border-bottom: 1px solid #e5e7eb; font-size: 13px; font-weight: 700; color: #4b5563;">
+                    ✉️ Email Address:
+                  </td>
+                  <td style="padding: 14px 16px; border-bottom: 1px solid #e5e7eb; font-size: 14px; font-weight: 600;">
+                    <a href="mailto:${email}" style="color: #E61C5D; text-decoration: none;">${email}</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 14px 16px; border-bottom: 1px solid #e5e7eb; font-size: 13px; font-weight: 700; color: #4b5563;">
+                    📞 Contact Phone:
+                  </td>
+                  <td style="padding: 14px 16px; border-bottom: 1px solid #e5e7eb; font-size: 14px; font-weight: 600; color: #111827;">
+                    ${phone ? `<a href="tel:${cleanPhone}" style="color: #156035; text-decoration: none;">${phone}</a>` : '<span style="color: #9ca3af; font-style: italic;">Not Provided</span>'}
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 14px 16px; font-size: 13px; font-weight: 700; color: #4b5563;">
+                    🏷️ Query Category:
+                  </td>
+                  <td style="padding: 14px 16px; font-size: 13px;">
+                    <span style="display: inline-block; background-color: #EBF6EF; color: #156035; font-weight: 700; padding: 4px 10px; border-radius: 6px; border: 1px solid #cce9d7;">
+                      ${productQuery || "General Inquiry"}
+                    </span>
+                  </td>
+                </tr>
+              </table>
+
+              <!-- Customer Message Box -->
+              <div style="background-color: #FFF5F7; border-left: 4px solid #E61C5D; border-radius: 8px; padding: 18px; margin-bottom: 24px;">
+                <span style="display: block; font-size: 11px; text-transform: uppercase; font-weight: 800; color: #E61C5D; letter-spacing: 0.5px; margin-bottom: 6px;">
+                  💬 CUSTOMER MESSAGE
+                </span>
+                <p style="margin: 0; font-size: 14px; color: #1f2937; line-height: 1.6; white-space: pre-wrap; word-break: break-word;">${message}</p>
+              </div>
+
+              <!-- Quick Action Call-To-Action Buttons -->
+              <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
+                <tr>
+                  <td align="center">
+                    <a href="mailto:${email}?subject=Re:%20Femmeflo%20Inquiry%20-%20${encodeURIComponent(productQuery || "General Inquiry")}" class="action-btn" style="display: inline-block; background-color: #E61C5D; color: #ffffff; font-size: 13px; font-weight: 700; text-decoration: none; padding: 13px 22px; border-radius: 8px; margin-right: 8px; margin-bottom: 8px;">
+                      ✉️ Reply Directly to ${name}
+                    </a>
+                    ${phone ? `
+                    <a href="https://wa.me/${cleanPhone.replace(/[^0-9]/g, '')}" class="action-btn" style="display: inline-block; background-color: #25D366; color: #ffffff; font-size: 13px; font-weight: 700; text-decoration: none; padding: 13px 22px; border-radius: 8px; margin-bottom: 8px;">
+                      💬 Chat on WhatsApp
+                    </a>
+                    ` : ''}
+                  </td>
+                </tr>
+              </table>
+
+            </td>
           </tr>
+
+          <!-- Footer Notice -->
           <tr>
-            <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-weight: bold; color: #555555;">Product / Query:</td>
-            <td style="padding: 10px 0; border-bottom: 1px solid #f0f0f0; color: #E61C5D; font-weight: bold;">${productQuery || "General Inquiry"}</td>
+            <td style="background-color: #f9fafb; padding: 20px 24px; border-top: 1px solid #e5e7eb; text-align: center; font-size: 12px; color: #6b7280; line-height: 1.5;">
+              <strong style="color: #111827;">Masako Enterprises Private Limited</strong><br>
+              Femmeflo Official Website Notification System<br>
+              <span style="font-size: 11px; color: #9ca3af; margin-top: 4px; display: block;">This email was automatically generated from visitor submission on <a href="https://femmeflo.in" style="color: #156035; text-decoration: none;">femmeflo.in</a></span>
+            </td>
           </tr>
+
         </table>
-        
-        <div style="margin-top: 20px; padding: 16px; background-color: #FAF5F7; border-left: 4px solid #E61C5D; border-radius: 4px;">
-          <p style="margin: 0 0 8px 0; font-weight: bold; color: #E61C5D;">User Message:</p>
-          <p style="margin: 0; color: #333333; line-height: 1.6; white-space: pre-wrap;">${message}</p>
-        </div>
-        
-        <div style="margin-top: 24px; text-align: center; color: #888888; font-size: 12px;">
-          <p>Submitted via Femmeflo Website Contact Form</p>
-        </div>
-      </div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
     `;
 
     if (smtpHost && smtpUser && smtpPass) {
