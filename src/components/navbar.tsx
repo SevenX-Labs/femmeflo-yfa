@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, MessageCircle } from "lucide-react";
 
@@ -13,8 +14,34 @@ const navItems = [
 ];
 
 export function Navbar() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const pathname = usePathname();
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    if (pathname === "/contact") {
+      setActiveIndex(2);
+      return;
+    }
+
+    const handleScroll = () => {
+      const aboutEl = document.getElementById("about");
+      const productsEl = document.getElementById("products");
+      const scrollY = window.scrollY;
+
+      if (productsEl && scrollY >= productsEl.offsetTop - 220) {
+        setActiveIndex(1);
+      } else if (aboutEl && scrollY >= aboutEl.offsetTop - 220) {
+        setActiveIndex(0);
+      } else {
+        setActiveIndex(null);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [pathname]);
 
   return (
     <header className="relative w-full font-[family-name:var(--font-jakarta)] z-50 bg-[url('/navbar-bg-transparent.webp')] bg-[length:100%_100%] bg-no-repeat bg-bottom pb-2.5 sm:pb-3">
@@ -42,19 +69,21 @@ export function Navbar() {
                     <Link
                       href={item.href}
                       onClick={() => setActiveIndex(index)}
-                      className={`relative py-1 text-[13px] sm:text-[14px] lg:text-[15px] font-extrabold tracking-widest uppercase transition-colors duration-200 cursor-pointer ${
+                      className={`group relative py-1.5 font-[family-name:var(--font-outfit)] text-[14px] sm:text-[15px] lg:text-[16px] font-bold tracking-[0.18em] uppercase transition-all duration-200 cursor-pointer ${
                         isActive
-                          ? "text-white"
-                          : "text-white/80 hover:text-white"
+                          ? "text-white drop-shadow-xs"
+                          : "text-white/90 hover:text-white"
                       }`}
                     >
-                      {item.name}
-                      {isActive && (
+                      <span>{item.name}</span>
+                      {isActive ? (
                         <motion.span
-                          layoutId="navActiveLinePink"
+                          layoutId="navActiveLineWhite"
                           className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-white rounded-full"
                           transition={{ type: "spring", stiffness: 380, damping: 30 }}
                         />
+                      ) : (
+                        <span className="absolute bottom-0 left-0 w-0 group-hover:w-full h-[2.5px] bg-white/80 rounded-full transition-all duration-300" />
                       )}
                     </Link>
                   </li>
@@ -93,7 +122,7 @@ export function Navbar() {
                       setActiveIndex(index);
                       setMobileMenuOpen(false);
                     }}
-                    className={`block text-sm font-extrabold tracking-wider uppercase py-1.5 cursor-pointer ${
+                    className={`block text-sm font-[family-name:var(--font-outfit)] font-bold tracking-[0.16em] uppercase py-1.5 cursor-pointer ${
                       activeIndex === index
                         ? "text-[#00873A]"
                         : "text-zinc-700 hover:text-[#00873A]"
