@@ -416,7 +416,7 @@ export function ProductFeaturesSection() {
           <div className="w-full max-w-[340px] bg-white rounded-2xl p-5 shadow-sm border border-rose-100 flex flex-col items-center text-center">
             <div className="w-full flex items-center justify-center p-2 mb-2">
               <Image
-                src="/femmeflo-withoutbg.png"
+                src="/femmeflo-withoutbg.webp"
                 alt="Femmeflo XL Pad Showcase"
                 width={280}
                 height={170}
