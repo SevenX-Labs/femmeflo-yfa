@@ -64,7 +64,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full bg-white pb-12 sm:pb-16 overflow-hidden font-[family-name:var(--font-jakarta)] border-b border-zinc-100 flex flex-col"
+      className="relative w-full bg-white pb-6 sm:pb-8 overflow-hidden font-[family-name:var(--font-jakarta)] border-b border-zinc-100 flex flex-col"
     >
       <Navbar />
       <div className="w-full px-4 sm:px-6 lg:px-8 pt-0 flex-1 relative">
