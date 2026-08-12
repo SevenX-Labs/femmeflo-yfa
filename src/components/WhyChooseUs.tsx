@@ -38,8 +38,8 @@ export function WhyChooseUs() {
       {/* BOTTOM-LEFT: Full-Width Sweeping Berry Pink & Forest Green Ribbon Curves */}
       <div className="absolute bottom-0 left-0 right-0 pointer-events-none select-none z-0 opacity-85 w-full h-[220px] sm:h-[300px]">
         <svg viewBox="0 0 1440 300" preserveAspectRatio="none" fill="none" className="w-full h-full">
-          <path d="M -80 250 C 350 90, 850 320, 1520 120" stroke="#E61C5D" strokeWidth="28" strokeLinecap="round" fill="none" opacity="0.7" />
-          <path d="M -80 285 C 370 125, 870 355, 1520 155" stroke="#10B981" strokeWidth="22" strokeLinecap="round" fill="none" opacity="0.7" />
+          <path d="M -80 250 C 350 90, 850 320, 1520 120" stroke="#F0006E" strokeWidth="28" strokeLinecap="round" fill="none" />
+          <path d="M -80 285 C 370 125, 870 355, 1520 155" stroke="#008228" strokeWidth="22" strokeLinecap="round" fill="none" />
         </svg>
       </div>
 

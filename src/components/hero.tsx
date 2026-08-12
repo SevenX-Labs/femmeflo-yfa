@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Sparkles, ArrowUpRight, ShieldCheck, Lock, Feather, Leaf } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Navbar } from "@/components/navbar";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -62,15 +63,17 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full bg-white px-4 sm:px-6 lg:px-8 pt-2 sm:pt-4 pb-8 sm:pb-12 overflow-hidden font-[family-name:var(--font-jakarta)] border-b border-zinc-100"
+      className="relative w-full bg-white pb-12 sm:pb-16 overflow-hidden font-[family-name:var(--font-jakarta)] border-b border-zinc-100 flex flex-col"
     >
-      {/* Ambient Background Glow Orbs */}
-      <div className="absolute top-1/4 left-[-8%] w-[450px] h-[450px] bg-emerald-100/40 rounded-full blur-[110px] pointer-events-none -z-10" />
-      <div className="absolute top-1/3 right-[2%] w-[450px] h-[450px] bg-rose-100/40 rounded-full blur-[120px] pointer-events-none -z-10" />
+      <Navbar />
+      <div className="w-full px-4 sm:px-6 lg:px-8 pt-0 flex-1 relative">
+        {/* Ambient Background Glow Orbs */}
+        <div className="absolute top-1/4 left-[-8%] w-[450px] h-[450px] bg-emerald-100/40 rounded-full blur-[110px] pointer-events-none -z-10" />
+        <div className="absolute top-1/3 right-[2%] w-[450px] h-[450px] bg-rose-100/40 rounded-full blur-[120px] pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mt-1 sm:mt-2">
-        {/* Left Column: Copy & Feature Badges */}
-        <div className="flex flex-col items-start z-10 space-y-4 sm:space-y-5">
+        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mt-1 sm:mt-2">
+          {/* Left Column: Copy & Feature Badges */}
+          <div className="flex flex-col items-start z-10 space-y-4 sm:space-y-5">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EBF6EF] border border-[#CCE9D7] text-xs font-extrabold text-[#156035] shadow-2xs">
             <Sparkles className="w-3.5 h-3.5 text-[#156035]" />
             <span>Next-Gen Feminine Hygiene</span>
@@ -166,6 +169,7 @@ export function Hero() {
               </div>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>

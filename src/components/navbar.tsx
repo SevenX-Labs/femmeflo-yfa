@@ -18,17 +18,17 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="relative w-full font-[family-name:var(--font-jakarta)] z-50 bg-white border-b border-zinc-100">
-      <div className="w-full py-3 sm:py-4 px-4 sm:px-8 lg:px-12">
+    <header className="relative w-full font-[family-name:var(--font-jakarta)] z-50 bg-[url('/navbar-bg-transparent.webp')] bg-[length:100%_100%] bg-no-repeat bg-bottom pb-4 sm:pb-6">
+      <div className="w-full py-2 sm:py-3 lg:py-4 px-4 sm:px-8 lg:px-12 relative z-20">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* 1. Left: Brand Logo */}
           <Link href="/" className="flex items-center group shrink-0 cursor-pointer">
             <Image
-              src="/logo.webp"
+              src="/femmeflo-logo.webp"
               alt="Femmeflo Logo"
-              width={420}
-              height={130}
-              className="h-14 sm:h-18 lg:h-22 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+              width={600}
+              height={200}
+              className="h-16 sm:h-20 lg:h-28 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.03]"
               priority
             />
           </Link>
@@ -45,15 +45,15 @@ export function Navbar() {
                       onClick={() => setActiveIndex(index)}
                       className={`relative py-1 text-[13px] sm:text-[14px] lg:text-[15px] font-extrabold tracking-widest uppercase transition-colors duration-200 cursor-pointer ${
                         isActive
-                          ? "text-[#156035]"
-                          : "text-[#156035]/80 hover:text-[#156035]"
+                          ? "text-white"
+                          : "text-white/80 hover:text-white"
                       }`}
                     >
                       {item.name}
                       {isActive && (
                         <motion.span
                           layoutId="navActiveLinePink"
-                          className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#156035] rounded-full"
+                          className="absolute bottom-0 left-0 right-0 h-[2.5px] bg-white rounded-full"
                           transition={{ type: "spring", stiffness: 380, damping: 30 }}
                         />
                       )}
@@ -67,10 +67,10 @@ export function Navbar() {
           {/* 3. Mobile Hamburger Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-xl text-[#156035] hover:bg-emerald-50 transition-colors cursor-pointer"
+            className="md:hidden p-2 rounded-xl text-white hover:bg-white/10 transition-colors cursor-pointer"
             aria-label="Toggle Mobile Menu"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
           </button>
         </div>
       </div>

@@ -49,7 +49,7 @@ export default function Home() {
       <SectionRouteObserver />
       <GlobalFloatingProduct />
       <FloatingChatEnquiry />
-      <Navbar />
+      {/* <Navbar /> */}
       <main className="flex-1 flex flex-col">
         <Hero />
         <About />
