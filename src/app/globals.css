@@ -11,6 +11,19 @@
     color: #1e293b;
     overflow-x: hidden;
   }
+
+  /* Prevent Image Dragging & Long Press Download Context Menu across entire website */
+  img, svg {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    -webkit-user-drag: none !important;
+    -khtml-user-drag: none !important;
+    -moz-user-drag: none !important;
+    -o-user-drag: none !important;
+    -webkit-touch-callout: none !important;
+  }
 }
 
 /* Staggered Roll Animation Styles */
@@ -67,6 +80,3 @@
 .span-mother2 span:nth-child(6) { transition-delay: 0.15s; }
 .span-mother2 span:nth-child(7) { transition-delay: 0.18s; }
 .span-mother2 span:nth-child(8) { transition-delay: 0.21s; }
-
-
-

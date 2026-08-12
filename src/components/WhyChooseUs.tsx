@@ -133,11 +133,10 @@ export function WhyChooseUs() {
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           >
             <Image
-              src="/femmeflo-withoutbg.png"
+              src="/femmeflo-withoutbg.webp"
               alt="FemmeFlo XXL Sanitary Pads"
               fill
               priority
-              unoptimized
               className="object-contain drop-shadow-2xl"
             />
           </motion.div>
@@ -156,9 +155,9 @@ export function WhyChooseUs() {
             
             {/* LEFT 45% COLUMN: ENLARGED LIFESTYLE PHOTO + FLOATING GLASS CARD */}
             <div className="reveal-item lg:col-span-5 relative w-full aspect-[4/5] h-[520px] sm:h-[580px] lg:h-[620px] max-w-lg mx-auto lg:max-w-none rounded-[36px] overflow-hidden shadow-2xl border-2 border-white group z-10">
-              {/* Lifestyle Image: /woman-pink-pajamas.png */}
+              {/* Lifestyle Image: /woman-pink-pajamas.webp */}
               <Image
-                src="/woman-pink-pajamas.png"
+                src="/woman-pink-pajamas.webp"
                 alt="FemmeFlo Woman in Pink Silk Pajamas"
                 fill
                 priority

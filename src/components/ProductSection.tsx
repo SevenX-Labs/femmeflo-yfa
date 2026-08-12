@@ -20,7 +20,7 @@ const allVariantProducts = [
     iconColor: "text-[#E61C5D] bg-rose-100/80 border-rose-200",
     mainIcon: ShieldCheck,
     statusTag: "Hero Series",
-    statusBg: "bg-[#E61C5D] text-white border-rose-600",
+    statusBg: "bg-rose-50 text-[#E61C5D] border-rose-200/90",
     description: "Our flagship pad crafted with 12-hour dry-lock technology and cottony soft top sheet for complete day-long confidence.",
     highlights: ["12-Hour Protection Lock", "Anti-Leak Side Barriers", "Cottony Soft Gentle Sheet"],
   },
@@ -36,7 +36,7 @@ const allVariantProducts = [
     iconColor: "text-purple-700 bg-purple-100/80 border-purple-200",
     mainIcon: Moon,
     statusTag: "Signature Series",
-    statusBg: "bg-purple-950 text-purple-100 border-purple-800/80",
+    statusBg: "bg-purple-50 text-purple-800 border-purple-200/90",
     description: "Engineered for heavy night flow, featuring 360° leak-proof coverage for restful, worry-free sleep.",
     highlights: ["14-Hour Heavy Flow Lock", "Extra-Wide Quad Wings", "Deep Instant Absorb Core"],
   },
@@ -52,7 +52,7 @@ const allVariantProducts = [
     iconColor: "text-[#156035] bg-emerald-100/80 border-emerald-200",
     mainIcon: Leaf,
     statusTag: "Active Series",
-    statusBg: "bg-[#0d4023] text-emerald-100 border-emerald-800/80",
+    statusBg: "bg-emerald-50 text-[#156035] border-emerald-200/90",
     description: "Ultra-flexible, feather-light protection created for active workdays and effortless mobility.",
     highlights: ["Flexible Ergonomic Fit", "Cottony Soft Top Sheet", "Instant Dry Lock Core"],
   },
@@ -68,7 +68,7 @@ const allVariantProducts = [
     iconColor: "text-blue-700 bg-blue-100/80 border-blue-200",
     mainIcon: Star,
     statusTag: "Ultra Shield Series",
-    statusBg: "bg-blue-950 text-blue-100 border-blue-800/80",
+    statusBg: "bg-blue-50 text-blue-800 border-blue-200/90",
     description: "Maximum length with ultra-wide rear wings for heavy flow nights and complete uninterrupted sleep.",
     highlights: ["Ultra-Wide Rear Wings", "360° Leak Guard Contour", "Double Absorb Gel Matrix"],
   },
@@ -238,9 +238,9 @@ export function ProductSection() {
                   id="product-price-anchor"
                   className="relative w-full h-full flex items-center justify-center pointer-events-none"
                 >
-                  {/* Fallback Product Pack Image for Mobile Screen Viewports (< lg) */}
-                  <div className="block lg:hidden relative w-52 h-40 sm:w-64 sm:h-48 select-none">
-                    {/* Floating Animated Fairy over Mobile Product */}
+                  {/* Product Pack Image Container */}
+                  <div className="relative w-52 h-40 sm:w-64 sm:h-48 select-none">
+                    {/* Floating Animated Fairy over Product */}
                     <div className="absolute -top-6 -right-2 z-30">
                       <FairyIcon className="w-14 h-14" />
                     </div>
@@ -248,6 +248,8 @@ export function ProductSection() {
                       src="/femmeflo-withoutbg.webp"
                       alt="Femmeflo XL Sanitary Pads"
                       fill
+                      draggable={false}
+                      onContextMenu={(e) => e.preventDefault()}
                       className="object-contain drop-shadow-2xl"
                     />
                   </div>

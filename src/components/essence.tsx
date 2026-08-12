@@ -319,7 +319,7 @@ export function EssenceSection() {
             <div className="flex items-center gap-4 ml-auto">
               <div className="hidden sm:block relative w-20 h-12">
                 <Image
-                  src="/femmeflo-withoutbg.png"
+                  src="/femmeflo-withoutbg.webp"
                   alt="Femmeflo product"
                   fill
                   className="object-contain"

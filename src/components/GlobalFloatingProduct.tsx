@@ -75,19 +75,21 @@ export function GlobalFloatingProduct() {
       rawMouseY.set(normY * 12);
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [rawMouseX, rawMouseY]);
 
   useEffect(() => {
+    let ticking = false;
     let isInitialized = false;
 
     const updatePosition = () => {
+      ticking = false;
       if (typeof window === "undefined") return;
       const target = fixedContainerRef.current;
       if (!target) return;
 
-      if (window.innerWidth < 768) {
+      if (window.innerWidth < 1024) {
         gsap.set(target, { opacity: 0 });
         return;
       }
@@ -110,33 +112,34 @@ export function GlobalFloatingProduct() {
 
       isInitialized = true;
 
-      // Center positions of anchors relative to viewport with fallback
+      // Center positions of anchors relative to viewport with fallbacks
       const heroX = hRect && hRect.width > 0 ? hRect.left + hRect.width / 2 : window.innerWidth * 0.75;
       const heroY = hRect && hRect.height > 0 ? hRect.top + hRect.height / 2 : window.innerHeight * 0.45;
 
       const aboutX = aRect && aRect.width > 0 ? aRect.left + aRect.width / 2 : window.innerWidth * 0.25;
       const aboutY = aRect && aRect.height > 0 ? aRect.top + aRect.height / 2 : window.innerHeight * 0.5;
 
+      const productX = pRect && pRect.width > 0 ? pRect.left + pRect.width / 2 : window.innerWidth * 0.75;
+      const productY = pRect && pRect.height > 0 ? pRect.top + pRect.height / 2 : window.innerHeight * 0.5;
+
       const scrollY = window.scrollY;
 
-      // Scroll Y threshold where About section is centered in viewport
+      // Scroll Y thresholds
       const aboutDocY = aRect ? aRect.top + scrollY : 600;
       const aboutScrollTarget = Math.max(1, aboutDocY + (aRect ? aRect.height / 2 : 200) - window.innerHeight * 0.5);
+
+      const productDocY = pRect ? pRect.top + scrollY : 1300;
+      const productScrollTarget = Math.max(aboutScrollTarget + 100, productDocY + (pRect ? pRect.height / 2 : 200) - window.innerHeight * 0.5);
 
       let curX = heroX;
       let curY = heroY;
       let scale = 1;
       let rotZ = 0;
       let rotY = 0;
+      let opacity = 1;
 
       if (pRect && scrollY > aboutScrollTarget) {
         // Stage 2: Transition from About (Left) to Product Section (Right)
-        const productDocY = pRect.top + scrollY;
-        const productScrollTarget = Math.max(aboutScrollTarget + 100, productDocY + pRect.height / 2 - window.innerHeight * 0.5);
-
-        const productX = pRect.left + pRect.width / 2;
-        const productY = pRect.top + pRect.height / 2;
-
         const rawP2 = Math.max(0, Math.min(1, (scrollY - aboutScrollTarget) / (productScrollTarget - aboutScrollTarget)));
         const p2 = rawP2 < 0.5 ? 2 * rawP2 * rawP2 : 1 - Math.pow(-2 * rawP2 + 2, 2) / 2;
 
@@ -145,6 +148,12 @@ export function GlobalFloatingProduct() {
         scale = 0.88 + 0.12 * p2;
         rotZ = -8 + 8 * p2;
         rotY = 15 - 15 * p2;
+
+        // ONLY fade out when ProductSection is scrolling OFF the top of the viewport (pRect.bottom < 150)
+        if (pRect.bottom < 200) {
+          const fadeP = Math.max(0, Math.min(1, (200 - pRect.bottom) / 250));
+          opacity = 1 - fadeP;
+        }
       } else {
         // Stage 1: Transition from Hero (Right) to About (Left)
         const rawP1 = Math.max(0, Math.min(1, scrollY / aboutScrollTarget));
@@ -171,21 +180,24 @@ export function GlobalFloatingProduct() {
         scale: scale,
         rotationZ: rotZ,
         rotationY: rotY,
-        opacity: 1,
+        opacity: opacity,
       });
     };
 
-    // Attach passive scroll and resize listeners for smooth 60FPS precision
-    window.addEventListener("scroll", updatePosition, { passive: true });
-    window.addEventListener("resize", updatePosition, { passive: true });
-    
-    // Initial position on load
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(updatePosition);
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
     updatePosition();
-    requestAnimationFrame(updatePosition);
 
     return () => {
-      window.removeEventListener("scroll", updatePosition);
-      window.removeEventListener("resize", updatePosition);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
     };
   }, []);
 
@@ -193,7 +205,7 @@ export function GlobalFloatingProduct() {
     // Fixed Root Layer: Below navbar (z-index: 30)
     <div
       ref={fixedContainerRef}
-      className="hidden md:flex fixed top-0 left-0 z-30 pointer-events-none select-none items-center justify-center opacity-0 transition-opacity duration-300"
+      className="hidden lg:flex fixed top-0 left-0 z-30 pointer-events-none select-none items-center justify-center opacity-0 transition-opacity duration-300"
       style={{ opacity: 0, willChange: "transform, opacity" }}
     >
       {/* Background Soft Glow Orbs */}
@@ -272,8 +284,10 @@ export function GlobalFloatingProduct() {
             width={800}
             height={800}
             priority
+            draggable={false}
+            onContextMenu={(e) => e.preventDefault()}
             style={{ width: "100%", height: "auto" }}
-            className="w-full h-auto object-contain pointer-events-none max-h-[300px] sm:max-h-[440px] lg:max-h-[500px]"
+            className="w-full h-auto object-contain pointer-events-none select-none max-h-[300px] sm:max-h-[440px] lg:max-h-[500px]"
           />
         </div>
       </motion.div>

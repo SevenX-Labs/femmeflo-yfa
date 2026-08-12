@@ -20,6 +20,14 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Femmeflo - Feel Fresh. Feel Free.",
   description: "Experience superior comfort, dependable leak protection, and confidence throughout your day with Femmeflo XL sanitary pads.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.png",
+  },
 };
 
 export const viewport = {
@@ -45,4 +53,3 @@ export default function RootLayout({
     </html>
   );
 }
-

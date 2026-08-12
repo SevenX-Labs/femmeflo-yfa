@@ -193,7 +193,7 @@ export default function FloatingProduct() {
             }}
           >
             <Image
-              src="/femmeflo-withoutbg.png"
+              src="/femmeflo-withoutbg.webp"
               alt="Femmeflo XL Sanitary Pads"
               width={650}
               height={650}

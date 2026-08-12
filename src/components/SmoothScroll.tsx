@@ -14,14 +14,16 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
     // Register GSAP ScrollTrigger plugin for syncing
     gsap.registerPlugin(ScrollTrigger);
 
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: prefersReducedMotion ? 0 : 0.85,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
       gestureOrientation: "vertical",
-      smoothWheel: true,
+      smoothWheel: !prefersReducedMotion,
       wheelMultiplier: 1.0,
-      touchMultiplier: 1.5,
+      touchMultiplier: 1.2,
     });
 
     (window as unknown as { lenis: Lenis | null }).lenis = lenis;
@@ -50,17 +52,36 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
             e.preventDefault();
             lenis.scrollTo(targetElement as HTMLElement, {
               offset: -20,
-              duration: 1.4,
+              duration: prefersReducedMotion ? 0 : 1.0,
             });
           }
         }
       }
     };
 
+    // Disable right-click context menu and drag on images across website
+    const handleContextMenu = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (target && (target.tagName === "IMG" || target.closest("img"))) {
+        e.preventDefault();
+      }
+    };
+
+    const handleDragStart = (e: DragEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (target && (target.tagName === "IMG" || target.closest("img"))) {
+        e.preventDefault();
+      }
+    };
+
     document.addEventListener("click", handleAnchorClick);
+    document.addEventListener("contextmenu", handleContextMenu);
+    document.addEventListener("dragstart", handleDragStart);
 
     return () => {
       document.removeEventListener("click", handleAnchorClick);
+      document.removeEventListener("contextmenu", handleContextMenu);
+      document.removeEventListener("dragstart", handleDragStart);
       gsap.ticker.remove(updateTicker);
       lenis.destroy();
       (window as unknown as { lenis: Lenis | null }).lenis = null;
