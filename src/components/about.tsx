@@ -175,7 +175,7 @@ export function About() {
             <div className="bg-white/75 backdrop-blur-2xl border border-white/90 p-3 sm:p-3.5 rounded-2xl shadow-xs hover:bg-white/90 transition-all">
               <Clock className="w-5 h-5 text-[#00873A] mb-1" />
               <h3 className="text-xs sm:text-sm font-bold text-zinc-900 flex items-center gap-1">
-                <span className="text-[10px] font-bold text-[#00873A] uppercase tracking-wider">Upto</span>
+                <span className="font-[family-name:var(--font-playfair)] italic font-medium text-[8.5px] sm:text-[9.5px] text-[#00873A] normal-case">Up to</span>
                 <span>12-Hour Defense</span>
               </h3>
               <p className="text-[11px] sm:text-xs text-zinc-500 mt-0.5 leading-snug">Instant fluid conversion for uninterrupted days.</p>

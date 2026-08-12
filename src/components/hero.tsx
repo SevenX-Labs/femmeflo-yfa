@@ -105,7 +105,7 @@ export function Hero() {
                 <ShieldCheck className="w-4 h-4" />
               </div>
               <span className="text-[11px] sm:text-xs font-extrabold text-zinc-900 flex items-center justify-center gap-0.5">
-                <span className="text-[9px] font-bold text-emerald-700 uppercase tracking-wider">Upto</span>
+                <span className="font-[family-name:var(--font-playfair)] italic font-medium text-[8px] sm:text-[9px] text-emerald-700 normal-case mr-0.5">Up to</span>
                 <span>12 Hrs</span>
               </span>
               <span className="text-[9px] sm:text-[10px] font-semibold text-emerald-800">Dry Defense</span>
