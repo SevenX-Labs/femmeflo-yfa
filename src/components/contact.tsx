@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   MapPin,
@@ -117,13 +118,13 @@ export function ContactSection() {
             </p>
 
             {/* Let's Connect CTA Button */}
-            <a
-              href="mailto:sales@femmeflo.in"
-              className="inline-flex items-center gap-2.5 bg-gradient-to-r from-[#E61C5D] to-rose-600 text-white font-bold text-sm sm:text-base px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2.5 bg-gradient-to-r from-[#E61C5D] to-rose-600 text-white font-bold text-sm sm:text-base px-8 py-3.5 rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer"
             >
               <span>Let&apos;s Connect</span>
               <ArrowRight className="w-5 h-5" />
-            </a>
+            </Link>
 
             {/* 3 Pillar Badges Row */}
             <div className="pt-6 border-t border-rose-100/80 w-full flex flex-wrap items-center gap-6 text-xs sm:text-sm font-semibold text-zinc-700">

@@ -7,9 +7,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, MessageCircle } from "lucide-react";
 
 const navItems = [
-  { name: "ABOUT US", href: "#about" },
-  { name: "PRODUCTS", href: "#products" },
-  { name: "CONTACT US", href: "#contact" },
+  { name: "ABOUT US", href: "/#about" },
+  { name: "PRODUCTS", href: "/#products" },
+  { name: "CONTACT US", href: "/contact" },
 ];
 
 export function Navbar() {
@@ -107,7 +107,7 @@ export function Navbar() {
 
             <div className="mt-4 pt-3 border-t border-zinc-100">
               <Link
-                href="#contact"
+                href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full py-2.5 bg-[#156035] text-white rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-xs cursor-pointer"
               >

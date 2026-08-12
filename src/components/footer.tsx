@@ -168,7 +168,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#contact" className="hover:text-[#4ADE80] transition-colors inline-flex items-center gap-1.5 group cursor-pointer">
+                <Link href="/contact" className="hover:text-[#4ADE80] transition-colors inline-flex items-center gap-1.5 group cursor-pointer">
                   <span className="text-emerald-700 group-hover:text-[#4ADE80] transition-colors">•</span>
                   <span>Contact &amp; Support</span>
                 </Link>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus, HelpCircle, Sparkles, ArrowRight } from "lucide-react";
 import { FairyIcon } from "@/components/FairyIcon";
@@ -165,13 +166,13 @@ export function FAQSection() {
 
           {/* Action Link */}
           <div className="pt-2">
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 text-[#E61C5D] font-extrabold text-sm uppercase tracking-wider hover:text-[#c4154c] transition-colors group"
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 text-[#E61C5D] font-extrabold text-sm uppercase tracking-wider hover:text-[#c4154c] transition-colors group cursor-pointer"
             >
               <span>All FAQs & Support</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </a>
+            </Link>
           </div>
         </motion.div>
 
