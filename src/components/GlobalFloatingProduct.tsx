@@ -255,7 +255,7 @@ export function GlobalFloatingProduct() {
           {/* Continuous Upright Rotating Orbit around WHOLE Product Box (Moves WITH product) */}
           <div className="absolute inset-0 pointer-events-none flex items-center justify-center z-[60]">
             <motion.div
-              className="w-[80%] h-[80%] relative flex items-center justify-center"
+              className="w-[75%] h-[75%] relative flex items-center justify-center"
               animate={{ rotate: 360 }}
               transition={{
                 duration: 8.5,
