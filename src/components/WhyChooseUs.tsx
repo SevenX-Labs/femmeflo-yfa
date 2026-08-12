@@ -35,11 +35,11 @@ export function WhyChooseUs() {
         </svg>
       </div>
 
-      {/* BOTTOM-LEFT: Sweeping Berry Pink & Forest Green Ribbon Curves */}
-      <div className="absolute bottom-0 left-0 pointer-events-none select-none z-0 opacity-85 w-[520px] h-[300px]">
-        <svg viewBox="0 0 520 300" fill="none" className="w-full h-full">
-          <path d="M -80 250 C 90 90, 230 320, 540 160" stroke="#9F2545" strokeWidth="28" fill="none" opacity="0.85" />
-          <path d="M -80 280 C 110 120, 250 350, 540 190" stroke="#156035" strokeWidth="22" fill="none" opacity="0.85" />
+      {/* BOTTOM-LEFT: Full-Width Sweeping Berry Pink & Forest Green Ribbon Curves */}
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none select-none z-0 opacity-85 w-full h-[220px] sm:h-[300px]">
+        <svg viewBox="0 0 1440 300" preserveAspectRatio="none" fill="none" className="w-full h-full">
+          <path d="M -80 250 C 350 90, 850 320, 1520 120" stroke="#E61C5D" strokeWidth="28" strokeLinecap="round" fill="none" opacity="0.7" />
+          <path d="M -80 285 C 370 125, 870 355, 1520 155" stroke="#10B981" strokeWidth="22" strokeLinecap="round" fill="none" opacity="0.7" />
         </svg>
       </div>
 
@@ -115,14 +115,14 @@ export function WhyChooseUs() {
               enableBlur={false}
               baseRotation={2}
               containerClassName="mb-2"
-              textClassName="text-3xl sm:text-5xl lg:text-[64px] font-bold tracking-tight text-zinc-900 font-[family-name:var(--font-playfair)] leading-[1.08]"
+              textClassName="text-3xl sm:text-5xl lg:text-[60px] font-bold tracking-tight text-zinc-900 font-[family-name:var(--font-playfair)] leading-[1.08]"
             >
-              Redefining Period Care for Ultimate Comfort, Protection, and Freshness.
+              The Femmeflo Advantage &amp; Quality Standards.
             </ScrollReveal>
 
             {/* Subtitle */}
             <p className="text-zinc-600 text-base lg:text-lg leading-[1.65] font-normal max-w-[520px] mt-2">
-              Experience the ultimate in comfort and confidence with advanced absorption technology and luxurious, skin-loving materials.
+              Engineered for hospital-grade leak protection, dermatological skin safety, and uncompromised everyday value.
             </p>
           </motion.div>
 
@@ -175,16 +175,16 @@ export function WhyChooseUs() {
                 </div>
 
                 <h3 className="text-zinc-900 font-bold font-[family-name:var(--font-playfair)] text-lg sm:text-xl leading-tight">
-                  Cloud-Soft &amp; Skin Friendly
+                  Silken Touch &amp; Skin Safety
                 </h3>
 
                 <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal">
-                  Hypoallergenic cottony-soft top sheet engineered to prevent rashes, chafing, and skin irritation.
+                  Hypoallergenic topsheet engineered to eliminate friction and prevent skin irritation.
                 </p>
 
                 <div className="pt-2 border-t border-rose-100/60 flex items-center gap-1.5 text-xs font-semibold text-[#9F2545]">
                   <CheckCircle2 className="w-4 h-4" />
-                  <span>Dermatologically Tested.</span>
+                  <span>Dermatologically Certified.</span>
                 </div>
               </motion.div>
             </div>
@@ -194,7 +194,7 @@ export function WhyChooseUs() {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 items-start">
                 
-                {/* FEATURE 1: 12-Hour Leak Lock Protection (Forest Green #156035) */}
+                {/* FEATURE 1: 12-Hour Moisture Defense (Forest Green #156035) */}
                 <div className="reveal-item bg-white/95 backdrop-blur-2xl rounded-[32px] p-6 sm:p-8 border border-zinc-200/70 shadow-[0_15px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_25px_50px_rgba(21,96,53,0.14)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-4 sm:gap-5 min-h-[150px] w-full">
                   {/* Left 56px Forest Green Icon Disc */}
                   <div className="w-18 h-22 rounded-2xl bg-[#156035] text-white flex flex-col items-center justify-center shadow-md shrink-0">
@@ -204,20 +204,20 @@ export function WhyChooseUs() {
 
                   <div className="flex flex-col">
                     <h3 className="text-zinc-900 font-bold font-[family-name:var(--font-playfair)] text-xl sm:text-2xl leading-tight mb-2">
-                      12-Hour Leak Lock Protection
+                      12-Hour Moisture Defense
                     </h3>
 
                     <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-2.5">
-                      Advanced super-absorbent core traps moisture instantly, keeping you fresh, dry, and worry-free all day and night.
+                      Super-absorbent polymer matrix locks heavy fluid into dry gel instantly.
                     </p>
 
                     <span className="text-xs font-semibold text-[#156035]">
-                      Zero Leaks. Dermatologically Tested.
+                      Zero Spills. Certified Safe.
                     </span>
                   </div>
                 </div>
 
-                {/* FEATURE 2: 280mm Extended Wear Wings (Berry Pink #9F2545) */}
+                {/* FEATURE 2: 280mm Extended Profile (Berry Pink #9F2545) */}
                 <div className="reveal-item bg-white/95 backdrop-blur-2xl rounded-[32px] p-6 sm:p-8 border border-zinc-200/70 shadow-[0_15px_40px_rgba(0,0,0,0.04)] hover:shadow-[0_25px_50px_rgba(159,37,69,0.14)] hover:-translate-y-1.5 transition-all duration-300 flex items-start gap-4 sm:gap-5 min-h-[150px] w-full">
                   {/* Left 56px Berry Pink Icon Disc */}
                   <div className="w-18 h-22 rounded-2xl bg-[#9F2545] text-white flex flex-col items-center justify-center shadow-md shrink-0">
@@ -227,15 +227,15 @@ export function WhyChooseUs() {
 
                   <div className="flex flex-col">
                     <h3 className="text-zinc-900 font-bold font-[family-name:var(--font-playfair)] text-xl sm:text-2xl leading-tight mb-2">
-                      280mm Extended Wear Wings
+                      280mm Extended Profile
                     </h3>
 
                     <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-2.5">
-                      Extra-long coverage with ergonomic double wings that stay firmly in place during active movement and sleep.
+                      Double wing anchors maintain alignment during active workdays and sleep.
                     </p>
 
                     <span className="text-xs font-semibold text-[#9F2545]">
-                      Extra Long. Dermatologically Tested.
+                      Extra Long. Secure Fit.
                     </span>
                   </div>
                 </div>
@@ -259,16 +259,19 @@ export function WhyChooseUs() {
                   </div>
 
                   <div className="flex flex-col">
-                    <h3 className="text-zinc-900 font-bold font-[family-name:var(--font-playfair)] text-xl sm:text-2xl leading-tight mb-2">
-                      Smart Choice Value (₹40 Pack)
+                    <h3 className="text-zinc-900 font-bold font-[family-name:var(--font-playfair)] text-xl sm:text-2xl leading-tight mb-1">
+                      Smart Choice Value
+                      <span className="block font-[family-name:var(--font-jakarta)] text-sm sm:text-base font-semibold text-amber-800 tracking-normal mt-0.5">
+                        (₹40 Pack)
+                      </span>
                     </h3>
 
                     <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed font-normal mb-2.5">
-                      Delivering high-performance hygiene and premium quality at an accessible price without unnecessary markup.
+                      High-performance hygiene delivered at an honest price without bloated retail markups.
                     </p>
 
                     <span className="text-xs font-semibold text-amber-800">
-                      Dermatologically Tested.
+                      Verified Value Standard.
                     </span>
                   </div>
                 </div>

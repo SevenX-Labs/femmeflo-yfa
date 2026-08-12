@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport = {
-  themeColor: "#FAF8F5",
+  themeColor: "#FFFFFF",
   colorScheme: "light" as const,
   width: "device-width",
   initialScale: 1,
@@ -47,7 +47,7 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${jakarta.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans bg-[#FAF8F5] text-zinc-800 selection:bg-rose-200 selection:text-rose-900">
+      <body className="min-h-full flex flex-col font-sans bg-white text-zinc-800 selection:bg-rose-200 selection:text-rose-900">
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>

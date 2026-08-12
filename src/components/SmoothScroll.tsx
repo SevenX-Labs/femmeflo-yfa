@@ -51,8 +51,8 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
           if (targetElement) {
             e.preventDefault();
             lenis.scrollTo(targetElement as HTMLElement, {
-              offset: -20,
-              duration: prefersReducedMotion ? 0 : 1.0,
+              offset: 70,
+              duration: prefersReducedMotion ? 0 : 0.8,
             });
           }
         }

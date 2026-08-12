@@ -78,7 +78,7 @@ export function ProductSection() {
   return (
     <section
       id="products"
-      className="relative w-full bg-gradient-to-b from-[#FDF0F5] via-[#FFF3F7] to-[#FCE8F0] border-b border-pink-200/60 px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28 overflow-hidden font-[family-name:var(--font-jakarta)]"
+      className="relative w-full bg-gradient-to-b from-[#FDF0F5] via-[#FFF3F7] to-[#FCE8F0] border-b border-pink-200/60 px-4 sm:px-6 lg:px-8 pt-10 sm:pt-16 lg:pt-20 pb-16 sm:pb-24 overflow-hidden font-[family-name:var(--font-jakarta)]"
     >
       {/* Dynamic GPU-Accelerated Background Mesh Orbs */}
       <div
@@ -126,62 +126,62 @@ export function ProductSection() {
             {/* 4 Feature Highlights Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 w-full pt-2">
               
-              {/* Feature 1: 12-Hour Protection */}
+              {/* Feature 1: 12-Hour Moisture Guard */}
               <div className="flex items-start gap-3.5">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#156035] to-emerald-700 text-white flex items-center justify-center shrink-0 shadow-md mt-0.5">
                   <Clock className="w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-zinc-900 font-[family-name:var(--font-playfair)]">
-                    12-Hour Protection
+                    12-Hour Moisture Guard
                   </h3>
                   <p className="text-xs text-zinc-600 mt-0.5 leading-relaxed">
-                    Leak-free confidence all day long.
+                    Continuous dry lock all day long.
                   </p>
                 </div>
               </div>
 
-              {/* Feature 2: Secure Wings */}
+              {/* Feature 2: Anchor Wings */}
               <div className="flex items-start gap-3.5">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#156035] to-emerald-700 text-white flex items-center justify-center shrink-0 shadow-md mt-0.5">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-zinc-900 font-[family-name:var(--font-playfair)]">
-                    Secure Wings
+                    Anchor Wings
                   </h3>
                   <p className="text-xs text-zinc-600 mt-0.5 leading-relaxed">
-                    Stays in place for maximum security.
+                    Stays firmly positioned during movement.
                   </p>
                 </div>
               </div>
 
-              {/* Feature 3: Leak Lock */}
+              {/* Feature 3: Gel-Matrix Core */}
               <div className="flex items-start gap-3.5">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#156035] to-emerald-700 text-white flex items-center justify-center shrink-0 shadow-md mt-0.5">
                   <Droplets className="w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-zinc-900 font-[family-name:var(--font-playfair)]">
-                    Leak Lock
+                    Gel-Matrix Core
                   </h3>
                   <p className="text-xs text-zinc-600 mt-0.5 leading-relaxed">
-                    Advanced core absorbs flow instantly.
+                    Polymer micro-beads trap flow instantly.
                   </p>
                 </div>
               </div>
 
-              {/* Feature 4: Cottony Soft */}
+              {/* Feature 4: Silken Weave */}
               <div className="flex items-start gap-3.5">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#156035] to-emerald-700 text-white flex items-center justify-center shrink-0 shadow-md mt-0.5">
                   <Smile className="w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="text-base font-bold text-zinc-900 font-[family-name:var(--font-playfair)]">
-                    Cottony Soft
+                    Silken Weave
                   </h3>
                   <p className="text-xs text-zinc-600 mt-0.5 leading-relaxed">
-                    Gentle on skin to prevent irritation.
+                    Gentle touch designed for delicate skin.
                   </p>
                 </div>
               </div>
@@ -228,10 +228,7 @@ export function ProductSection() {
                 {/* Ambient Glow */}
                 <div className="absolute w-[300px] h-[300px] rounded-full bg-gradient-to-tr from-[#E61C5D]/15 to-[#156035]/15 blur-2xl pointer-events-none" />
 
-                {/* Bottom Tag Pill */}
-                <div className="absolute bottom-5 sm:bottom-6 left-1/2 -translate-x-1/2 z-20 bg-white/90 backdrop-blur-md border border-zinc-200/80 px-4 py-2 rounded-full shadow-md pointer-events-none select-none whitespace-nowrap">
-                  <span className="text-xs font-bold text-zinc-800">Cotton Soft • Leak Lock</span>
-                </div>
+
 
                 {/* Floating Product Target Anchor: GSAP scroll animation on desktop + static fallback on mobile */}
                 <div

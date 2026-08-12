@@ -21,7 +21,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative w-full bg-gradient-to-b from-[#FFF9F7] via-[#FDF3F5] to-[#FAF5F7] px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28 text-zinc-900 overflow-hidden font-[family-name:var(--font-jakarta)] border-b border-rose-100/50"
+      className="relative w-full bg-gradient-to-b from-[#FFF9F7] via-[#FDF3F5] to-[#FAF5F7] px-4 sm:px-6 lg:px-8 pt-10 sm:pt-16 lg:pt-20 pb-16 sm:pb-24 text-zinc-900 overflow-hidden font-[family-name:var(--font-jakarta)] border-b border-rose-100/50"
     >
       {/* Background Decorative Ambient Radial Lighting Orbs */}
       <div className="absolute top-0 right-[-5%] w-[550px] h-[550px] bg-rose-200/35 rounded-full blur-[140px] pointer-events-none -z-10" />
@@ -218,7 +218,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h4 className="font-bold text-xs uppercase tracking-wider text-[#E61C5D]">EMAIL US</h4>
-                  <a href="mailto:sales@femmeflo.in" className="text-[#E61C5D] font-bold hover:underline text-base block">
+                  <a href="mailto:sales@femmeflo.in" className="text-zinc-900 font-bold hover:text-[#E61C5D] transition-colors text-base block">
                     sales@femmeflo.in
                   </a>
                 </div>

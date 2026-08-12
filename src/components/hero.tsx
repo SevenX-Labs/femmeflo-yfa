@@ -40,13 +40,9 @@ export function Hero() {
           y: 40,
           duration: 0.5,
           ease: "power2.out",
-          onComplete: () => {
-            if (el) el.style.visibility = "hidden";
-          },
         });
       },
       onEnterBack: () => {
-        if (el) el.style.visibility = "visible";
         gsap.to(el, {
           opacity: 1,
           scale: 1,
@@ -77,7 +73,7 @@ export function Hero() {
         <div className="flex flex-col items-start z-10 space-y-4 sm:space-y-5">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#EBF6EF] border border-[#CCE9D7] text-xs font-extrabold text-[#156035] shadow-2xs">
             <Sparkles className="w-3.5 h-3.5 text-[#156035]" />
-            <span>Glow • Trusted Feminine Care</span>
+            <span>Next-Gen Feminine Hygiene</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-zinc-900 leading-[1.08]">
@@ -93,9 +89,8 @@ export function Hero() {
           </h1>
 
           <p className="text-zinc-600 text-sm sm:text-base max-w-md leading-relaxed">
-            Experience superior comfort, dependable leak protection, and
-            confidence throughout your day with{" "}
-            <strong className="text-zinc-900 font-semibold">Femmeflo XL</strong> sanitary pads.
+            Effortless day-to-night security engineered for total peace of mind with{" "}
+            <strong className="text-zinc-900 font-semibold">Femmeflo XL</strong> pads.
           </p>
 
           {/* 4 Feature Cards Grid */}
@@ -104,32 +99,32 @@ export function Hero() {
               <div className="w-8 h-8 rounded-xl bg-emerald-100/90 text-[#156035] flex items-center justify-center mb-1.5 shadow-2xs">
                 <ShieldCheck className="w-4 h-4" />
               </div>
-              <span className="text-xs font-extrabold text-zinc-900">12 Hour</span>
-              <span className="text-[10px] font-semibold text-emerald-800">Protection</span>
+              <span className="text-xs font-extrabold text-zinc-900">12-Hour</span>
+              <span className="text-[10px] font-semibold text-emerald-800">Dry Defense</span>
             </div>
 
             <div className="bg-rose-50/60 border border-rose-200/90 p-3 rounded-2xl shadow-2xs hover:bg-rose-50 transition-all flex flex-col items-center text-center">
               <div className="w-8 h-8 rounded-xl bg-rose-100/90 text-[#E61C5D] flex items-center justify-center mb-1.5 shadow-2xs">
                 <Lock className="w-4 h-4" />
               </div>
-              <span className="text-xs font-extrabold text-zinc-900">Leak Lock</span>
-              <span className="text-[10px] font-semibold text-rose-800">Technology</span>
+              <span className="text-xs font-extrabold text-zinc-900">Zero-Leak</span>
+              <span className="text-[10px] font-semibold text-rose-800">Side Barriers</span>
             </div>
 
             <div className="bg-[#EBF6EF]/60 border border-emerald-200/90 p-3 rounded-2xl shadow-2xs hover:bg-[#EBF6EF] transition-all flex flex-col items-center text-center">
               <div className="w-8 h-8 rounded-xl bg-emerald-100/90 text-[#156035] flex items-center justify-center mb-1.5 shadow-2xs">
                 <Feather className="w-4 h-4" />
               </div>
-              <span className="text-xs font-extrabold text-zinc-900">Cotton Soft</span>
-              <span className="text-[10px] font-semibold text-emerald-800">Touch</span>
+              <span className="text-xs font-extrabold text-zinc-900">Silken Top</span>
+              <span className="text-[10px] font-semibold text-emerald-800">Chafing-Free</span>
             </div>
 
             <div className="bg-rose-50/60 border border-rose-200/90 p-3 rounded-2xl shadow-2xs hover:bg-rose-50 transition-all flex flex-col items-center text-center">
               <div className="w-8 h-8 rounded-xl bg-rose-100/90 text-[#E61C5D] flex items-center justify-center mb-1.5 shadow-2xs">
                 <Leaf className="w-4 h-4" />
               </div>
-              <span className="text-xs font-extrabold text-zinc-900">Skin Friendly</span>
-              <span className="text-[10px] font-semibold text-rose-800">&amp; Safe</span>
+              <span className="text-xs font-extrabold text-zinc-900">Dermat-Safe</span>
+              <span className="text-[10px] font-semibold text-rose-800">Irritation-Free</span>
             </div>
           </div>
         </div>
@@ -142,10 +137,7 @@ export function Hero() {
 
             {/* Inner Glass Card */}
             <div className="relative w-full h-full rounded-full bg-white/95 backdrop-blur-2xl border-2 border-white p-6 sm:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.06)] flex items-center justify-center overflow-hidden">
-              <div className="absolute bottom-5 sm:bottom-6 left-1/2 -translate-x-1/2 z-20 bg-white/95 backdrop-blur-md border border-rose-100 px-4 py-2 rounded-2xl shadow-md flex items-center gap-2.5 pointer-events-none select-none whitespace-nowrap">
-                <div className="w-2.5 h-2.5 rounded-full bg-[#156035] animate-ping" />
-                <span className="text-xs font-extrabold text-[#156035]">XL Extra Long • 6 Units</span>
-              </div>
+
 
               {/* Anchor Target for Floating Product on Desktop */}
               <div

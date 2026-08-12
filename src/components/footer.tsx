@@ -228,15 +228,15 @@ export function Footer() {
             <ul className="space-y-2 text-xs text-emerald-100/70 pt-1">
               <li className="flex items-center gap-2">
                 <Heart className="w-3.5 h-3.5 text-[#FF85A1] shrink-0" />
-                <span>100% Dermatologically Tested</span>
+                <span>Dermatologically Certified Standards</span>
               </li>
               <li className="flex items-center gap-2">
                 <Leaf className="w-3.5 h-3.5 text-[#4ADE80] shrink-0" />
-                <span>Cotton Soft Anti-Rash Top Sheet</span>
+                <span>Chafing-Free Silken Layer</span>
               </li>
               <li className="flex items-center gap-2">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#FDE047] shrink-0" />
-                <span>12-Hour Instant Leak Lock Core</span>
+                <span>12-Hour Moisture Barrier Core</span>
               </li>
             </ul>
           </div>

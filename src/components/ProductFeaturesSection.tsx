@@ -30,9 +30,9 @@ const leftFeatures: Feature[] = [
   {
     id: 1,
     icon: Feather,
-    title: "Cottony Soft Comfort",
-    tagline: "100% Organic Feel",
-    description: "Ultra-soft top layer gentle against skin day and night, eliminating friction.",
+    title: "Silken Surface Layer",
+    tagline: "Chafing-Free Weave",
+    description: "Soft texture glides smoothly against delicate skin without friction.",
     badgeBg: "bg-rose-50 border-rose-200 text-[#E61C5D]",
     textColor: "text-[#E61C5D]",
     borderColor: "border-rose-300",
@@ -42,9 +42,9 @@ const leftFeatures: Feature[] = [
   {
     id: 2,
     icon: Droplets,
-    title: "2x Instant Absorption",
-    tagline: "Fast-Lock Core",
-    description: "Pulls moisture deep into the core fast, maintaining a continuously dry feel.",
+    title: "Rapid Absorb Action",
+    tagline: "Polymer Micro-Beads",
+    description: "Pulls heavy moisture deep into core within seconds, maintaining dry feel.",
     badgeBg: "bg-teal-50 border-teal-200 text-teal-700",
     textColor: "text-teal-700",
     borderColor: "border-teal-300",
@@ -54,9 +54,9 @@ const leftFeatures: Feature[] = [
   {
     id: 3,
     icon: ShieldCheck,
-    title: "Rash-Free Protection",
-    tagline: "Dermat-Approved",
-    description: "Dermatologically tested, hypoallergenic materials guard against chafing.",
+    title: "Dermat-Tested Safety",
+    tagline: "Hypoallergenic Shield",
+    description: "Formulated without harsh chemicals to guard against redness and irritation.",
     badgeBg: "bg-emerald-50 border-emerald-200 text-[#156035]",
     textColor: "text-[#156035]",
     borderColor: "border-emerald-300",
@@ -69,9 +69,9 @@ const rightFeatures: Feature[] = [
   {
     id: 4,
     icon: Wind,
-    title: "Odorless Confidence",
+    title: "Ventilated Airflow",
     tagline: "Micro-Porous Filter",
-    description: "Micro-porous odor neutralizer keeps you feeling fresh and clean all day.",
+    description: "Breathable channel matrix allows continuous air passage to neutralize odors.",
     badgeBg: "bg-rose-50 border-rose-200 text-rose-600",
     textColor: "text-rose-600",
     borderColor: "border-rose-300",
@@ -81,9 +81,9 @@ const rightFeatures: Feature[] = [
   {
     id: 5,
     icon: Layers,
-    title: "3D Gel Core Tech",
-    tagline: "Super-Absorbent Polymer",
-    description: "Super-absorbent polymer beads lock liquid into leakproof gel for 100% safety.",
+    title: "3D Gel Matrix",
+    tagline: "Lock Technology",
+    description: "Converts fluid into solid gel to prevent back-flow and heavy-flow staining.",
     badgeBg: "bg-sky-50 border-sky-200 text-sky-700",
     textColor: "text-sky-700",
     borderColor: "border-sky-300",
@@ -93,9 +93,9 @@ const rightFeatures: Feature[] = [
   {
     id: 6,
     icon: Maximize2,
-    title: "Extra-Wide XL Coverage",
+    title: "Extended Wing Profile",
     tagline: "320mm Extra-Long",
-    description: "320mm length with wider rear wings designed for maximum heavy-flow security.",
+    description: "Wider wing geometry designed for maximum heavy-flow security.",
     badgeBg: "bg-amber-50 border-amber-200 text-amber-700",
     textColor: "text-amber-700",
     borderColor: "border-amber-300",
@@ -346,7 +346,7 @@ export function ProductFeaturesSection() {
               {/* Bottom Spec Badge */}
               <div className="w-full space-y-2">
                 <div className="inline-flex items-center justify-center bg-[#EBF6EF] text-[#156035] text-[11px] font-extrabold tracking-wider uppercase px-4 py-1.5 rounded-full border border-emerald-100 shadow-2xs">
-                  XL • 320MM EXTRA LONG
+                  XL • 280MM EXTRA LONG
                 </div>
 
                 <div className="flex items-center justify-center gap-1.5 text-[10px] text-zinc-500 font-medium">

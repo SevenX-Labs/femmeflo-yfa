@@ -53,14 +53,14 @@ const faqs: FAQItem[] = [
     id: "femmeflo-xl",
     question: "Why choose Femmeflo XL sanitary pads?",
     answer:
-      "Femmeflo XL provides 280mm extended length, 12-hour leak-lock absorption, a cloud-soft cottony top sheet to prevent rashes, and ergonomic double wings for complete freedom during active days and sleep.",
+      "Femmeflo XL combines a 280mm profile, 12-hour instant gel core, silken surface layer to prevent chafing, and double wing anchors at an accessible ₹40 price point.",
     category: "Femmeflo Care",
   },
   {
     id: "rash-free",
-    question: "Is Femmeflo rash-free and skin friendly?",
+    question: "Is Femmeflo suitable for sensitive skin?",
     answer:
-      "Yes! Femmeflo pads are crafted with a dermatologically tested, cotton-soft top sheet free from harsh chemicals, artificial chlorine, or irritating dyes to ensure 100% skin-friendly protection.",
+      "Yes. Femmeflo pads feature a dermatologically tested silken layer free of harsh chemicals, artificial fragrances, or chlorine bleaching.",
     category: "Femmeflo Care",
   },
 ];

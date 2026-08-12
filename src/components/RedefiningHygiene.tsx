@@ -1,165 +1,105 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ShieldCheck, HeartHandshake, Droplets, Feather, Sparkles } from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
+import {
+  ShieldCheck,
+  HeartHandshake,
+  Droplets,
+  Feather,
+  Sparkles,
+  ChevronLeft,
+  ChevronRight,
+  CheckCircle2,
+} from "lucide-react";
 
 const hygieneCards = [
   {
     id: 1,
     icon: ShieldCheck,
-    title: "Affordable Excellence",
-    subtitle: "Accessible Luxury Care",
+    title: "Direct Value Standard",
+    subtitle: "Accessible Care Model",
     description:
-      "We believe every woman deserves access to world-class feminine care. Femmeflo XL offers hospital-grade protection at an honest price without compromising quality.",
+      "Crafted without bloated middleman fees or excessive retail markups. Delivers uncompromised manufacturing precision directly at a fair ₹40 price point.",
+    highlights: ["Direct-to-consumer pricing", "Transparent ₹40 pack value"],
     badgeColor: "from-emerald-500/10 to-emerald-500/20 text-[#156035]",
     iconColor: "text-[#156035]",
   },
   {
     id: 2,
     icon: HeartHandshake,
-    title: "Skin-Safe & Certified",
-    subtitle: "100% Rash-Free Comfort",
+    title: "Skin Sensitivity Guard",
+    subtitle: "Hypoallergenic Formulated",
     description:
-      "Crafted with a dermatologically tested, 100% cottony-soft topsheet engineered specifically for delicate Indian skin, preventing chafing and irritation.",
+      "Engineered to eliminate friction, chafing, and redness during active movement. Features a silken top layer tailored for delicate skin types.",
+    highlights: ["Dermat-tested formulation", "Zero synthetic additives or dyes"],
     badgeColor: "from-rose-500/10 to-rose-500/20 text-[#E61C5D]",
     iconColor: "text-[#E61C5D]",
   },
   {
     id: 3,
     icon: Droplets,
-    title: "3D Fast-Lock Absorption",
-    subtitle: "Instant Fluid Lock Gel",
+    title: "Polymer Fluid Matrix",
+    subtitle: "Instant Gel Conversion",
     description:
-      "Powered by ultra-absorbent polymer micro-beads that rapidly convert heavy flow into gel within seconds, ensuring dry comfort for up to 12 hours.",
+      "High-capacity micro-beads trap heavy flow into solid gel in seconds. Prevents surface dampness and liquid re-wetting throughout extended wear.",
+    highlights: ["Rapid fluid encapsulation", "Continuous dry top surface"],
     badgeColor: "from-teal-500/10 to-teal-500/20 text-teal-700",
     iconColor: "text-teal-700",
   },
   {
     id: 4,
     icon: Feather,
-    title: "XL Ergonomic Contour",
-    subtitle: "320mm Zero-Leak Wings",
+    title: "Ergonomic Side Anchors",
+    subtitle: "Quad-Wing Stability",
     description:
-      "Designed with an extra-long 320mm profile and wider rear wings that wrap securely around your underwear, providing complete side and back leak guards.",
+      "Flexible side wings wrap securely around underwear contours to prevent lateral displacement and side staining during daytime activities.",
+    highlights: ["Quad-anchor wing design", "Stays firmly in alignment"],
     badgeColor: "from-amber-500/10 to-amber-500/20 text-amber-700",
     iconColor: "text-amber-700",
   },
   {
     id: 5,
     icon: Sparkles,
-    title: "Breathable Odor Neutralizer",
-    subtitle: "All-Day Freshness",
+    title: "Ventilated Airflow Grid",
+    subtitle: "Micro-Porous Layer",
     description:
-      "Equipped with micro-porous breathable backsheet layers that maintain air circulation while effectively neutralizing period odors all day long.",
+      "Breathable backsheet matrix permits continuous air passage while neutralizing period odors to maintain a clean feeling all day long.",
+    highlights: ["Micro-channel ventilation", "Active odor trapping barrier"],
     badgeColor: "from-pink-500/10 to-pink-500/20 text-[#E61C5D]",
     iconColor: "text-[#E61C5D]",
   },
 ];
 
-function LotusDivider() {
-  return (
-    <div className="flex items-center justify-center gap-4 my-5">
-      <div className="h-[1.5px] w-16 sm:w-24 bg-gradient-to-r from-transparent via-[#156035]/40 to-[#156035]" />
-      <svg
-        viewBox="0 0 40 24"
-        fill="none"
-        className="w-8 h-6 text-[#156035]"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M20 2C20 2 15 9 15 15C15 17.8 17.2 20 20 20C22.8 20 25 17.8 25 15C25 9 20 2 20 2Z"
-          fill="currentColor"
-          fillOpacity="0.2"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        />
-        <path
-          d="M20 20C13 20 6 15 6 11C6 11 11 11 15 15C17 17 19 19 20 20Z"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        />
-        <path
-          d="M20 20C27 20 34 15 34 11C34 11 29 11 25 15C23 17 21 19 20 20Z"
-          stroke="currentColor"
-          strokeWidth="1.5"
-        />
-      </svg>
-      <div className="h-[1.5px] w-16 sm:w-24 bg-gradient-to-l from-transparent via-[#156035]/40 to-[#156035]" />
-    </div>
-  );
-}
-
 export function RedefiningHygiene() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const section = sectionRef.current;
-    const track = trackRef.current;
-    if (!section || !track) return;
-
-    // Calculate exact horizontal scroll translation distance including track paddings
-    const getScrollAmount = () => {
-      const trackWidth = track.scrollWidth;
-      const windowWidth = window.innerWidth;
-      return Math.max(0, trackWidth - windowWidth + 96);
-    };
-
-    const ctx = gsap.context(() => {
-      const scrollAmount = getScrollAmount();
-
-      gsap.to(track, {
-        x: () => -getScrollAmount(),
-        ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          pin: true,
-          pinSpacing: true,
-          anticipatePin: 1,
-          scrub: 1,
-          start: "top top",
-          end: () => `+=${scrollAmount + 100}`,
-          invalidateOnRefresh: true,
-          refreshPriority: 10,
-        },
-      });
-
-      // Recalculate ScrollTrigger on window resize / layout stabilization
-      const timer = setTimeout(() => {
-        ScrollTrigger.refresh();
-      }, 500);
-
-      return () => clearTimeout(timer);
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+  const handleSlide = (direction: "left" | "right") => {
+    const el = containerRef.current;
+    if (!el) return;
+    const scrollAmount = 360;
+    el.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <section
-      ref={sectionRef}
       id="hygiene"
-      className="relative z-20 w-full h-screen bg-gradient-to-b from-[#FFF0F3] via-[#FFF6F8] to-[#FFF0F3] font-[family-name:var(--font-jakarta)] flex flex-col justify-center overflow-hidden py-4 sm:py-6"
+      className="relative z-20 w-full bg-gradient-to-b from-[#FFF0F3] via-[#FFF6F8] to-[#FFF0F3] font-[family-name:var(--font-jakarta)] py-16 sm:py-24 overflow-hidden border-b border-pink-100"
     >
       {/* Background Soft Glow Orbs */}
       <div className="absolute top-1/2 left-[-10%] w-[500px] h-[500px] bg-rose-200/30 rounded-full blur-[120px] pointer-events-none -z-10" />
       <div className="absolute bottom-10 right-[-10%] w-[500px] h-[500px] bg-emerald-100/40 rounded-full blur-[120px] pointer-events-none -z-10" />
 
       {/* Header Block */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 mb-2 sm:mb-3">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 mb-8 sm:mb-12">
         <motion.span
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="inline-block text-xs sm:text-sm font-extrabold tracking-[0.2em] text-[#156035] uppercase mb-1"
+          className="inline-block text-xs sm:text-sm font-extrabold tracking-[0.2em] text-[#156035] uppercase mb-1.5"
         >
           Redefining Hygiene
         </motion.span>
@@ -176,90 +116,97 @@ export function RedefiningHygiene() {
             Unmatched Comfort
           </span>
         </motion.h2>
-
-        <div className="flex items-center justify-center gap-4 my-2">
-          <div className="h-[1.5px] w-12 sm:w-20 bg-gradient-to-r from-transparent via-[#156035]/40 to-[#156035]" />
-          <svg
-            viewBox="0 0 40 24"
-            fill="none"
-            className="w-6 h-5 text-[#156035]"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M20 2C20 2 15 9 15 15C15 17.8 17.2 20 20 20C22.8 20 25 17.8 25 15C25 9 20 2 20 2Z"
-              fill="currentColor"
-              fillOpacity="0.2"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            />
-            <path
-              d="M20 20C13 20 6 15 6 11C6 11 11 11 15 15C17 17 19 19 20 20Z"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            />
-            <path
-              d="M20 20C27 20 34 15 34 11C34 11 29 11 25 15C23 17 21 19 20 20Z"
-              stroke="currentColor"
-              strokeWidth="1.5"
-            />
-          </svg>
-          <div className="h-[1.5px] w-12 sm:w-20 bg-gradient-to-l from-transparent via-[#156035]/40 to-[#156035]" />
-        </div>
       </div>
 
-      {/* GSAP Lenis-Synced Horizontal Track */}
-      <div className="relative w-full overflow-hidden py-2 px-4 sm:px-8 my-auto">
-        <div
-          ref={trackRef}
-          style={{ willChange: "transform" }}
-          className="flex gap-5 sm:gap-7 px-4 sm:px-12 w-max items-stretch"
+      {/* Carousel Track Container with Side Arrow Controls on Left & Right Sides */}
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Left Side Floating Navigation Arrow */}
+        <button
+          onClick={() => handleSlide("left")}
+          aria-label="Slide previous cards"
+          className="absolute -left-2 sm:left-2 top-1/2 -translate-y-1/2 z-30 w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-white backdrop-blur-md border-2 border-[#156035] text-[#156035] shadow-2xl hover:bg-[#156035] hover:text-white transition-all duration-300 hover:scale-110 active:scale-95 flex items-center justify-center cursor-pointer"
         >
-          {hygieneCards.map((card, index) => {
-            const Icon = card.icon;
-            return (
-              <div
-                key={card.id}
-                className="w-[280px] sm:w-[340px] lg:w-[380px] shrink-0 bg-white/95 backdrop-blur-xl border border-rose-100/90 rounded-3xl p-5 sm:p-6 shadow-[0_15px_35px_-10px_rgba(230,28,93,0.08)] hover:shadow-[0_25px_50px_-10px_rgba(230,28,93,0.18)] hover:border-[#156035]/30 transition-all duration-300 flex flex-col justify-between group cursor-pointer"
-              >
-                <div>
-                  {/* Top Icon Pill */}
-                  <div className="flex items-center justify-between mb-3 sm:mb-4">
-                    <div
-                      className={`w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br ${card.badgeColor} flex items-center justify-center border border-white/60 shadow-xs transition-transform duration-300 group-hover:scale-110`}
-                    >
-                      <Icon className={`w-5.5 h-5.5 ${card.iconColor}`} />
+          <ChevronLeft className="w-6 h-6 stroke-[2.5]" />
+        </button>
+
+        {/* Right Side Floating Navigation Arrow */}
+        <button
+          onClick={() => handleSlide("right")}
+          aria-label="Slide next cards"
+          className="absolute -right-2 sm:right-2 top-1/2 -translate-y-1/2 z-30 w-12 h-12 sm:w-13 sm:h-13 rounded-full bg-[#156035] border-2 border-[#156035] text-white shadow-2xl hover:bg-emerald-800 hover:border-emerald-800 transition-all duration-300 hover:scale-110 active:scale-95 flex items-center justify-center cursor-pointer"
+        >
+          <ChevronRight className="w-6 h-6 stroke-[2.5]" />
+        </button>
+
+        {/* Scrollable Track */}
+        <div
+          ref={containerRef}
+          className="w-full overflow-x-auto overscroll-x-contain touch-pan-x py-4 px-2 sm:px-6 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+        >
+          <div className="flex gap-5 sm:gap-7 w-max items-stretch pb-4">
+            {hygieneCards.map((card, index) => {
+              const Icon = card.icon;
+              return (
+                <motion.div
+                  key={card.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.08 }}
+                  className="w-[290px] sm:w-[350px] lg:w-[370px] shrink-0 bg-white/95 backdrop-blur-xl border border-rose-100/90 rounded-3xl p-6 sm:p-7 shadow-[0_15px_35px_-10px_rgba(230,28,93,0.08)] hover:shadow-[0_25px_50px_-10px_rgba(230,28,93,0.18)] hover:border-[#156035]/30 transition-all duration-300 flex flex-col justify-between group"
+                >
+                  <div>
+                    {/* Top Icon Pill */}
+                    <div className="flex items-center justify-between mb-4">
+                      <div
+                        className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${card.badgeColor} flex items-center justify-center border border-white/60 shadow-xs transition-transform duration-300 group-hover:scale-110`}
+                      >
+                        <Icon className={`w-6 h-6 ${card.iconColor}`} />
+                      </div>
+                      <span className="text-xs font-extrabold text-zinc-400 tracking-widest">
+                        0{index + 1}
+                      </span>
                     </div>
-                    <span className="text-xs font-extrabold text-zinc-400 tracking-widest">
-                      0{index + 1}
+
+                    {/* Subtitle Badge */}
+                    <span className="inline-block text-xs font-bold tracking-wider text-[#156035] bg-[#EBF6EF] px-3 py-1 rounded-full mb-3">
+                      {card.subtitle}
                     </span>
+
+                    {/* Title */}
+                    <h3 className="text-xl font-bold text-zinc-900 mb-2 group-hover:text-[#156035] transition-colors">
+                      {card.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed">
+                      {card.description}
+                    </p>
+
+                    {/* Key Highlights Bullet List */}
+                    {card.highlights && (
+                      <div className="mt-4 pt-3.5 border-t border-rose-100/80 space-y-1.5">
+                        {card.highlights.map((item, i) => (
+                          <div key={i} className="flex items-center gap-2 text-xs font-semibold text-zinc-700">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-[#156035] shrink-0" />
+                            <span>{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
 
-                  {/* Subtitle Badge */}
-                  <span className="inline-block text-[11px] sm:text-xs font-bold tracking-wider text-[#156035] bg-[#EBF6EF] px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full mb-2 sm:mb-2.5">
-                    {card.subtitle}
-                  </span>
-
-                  {/* Title */}
-                  <h3 className="text-lg sm:text-xl font-bold text-zinc-900 mb-1.5 sm:mb-2 group-hover:text-[#156035] transition-colors">
-                    {card.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed">
-                    {card.description}
-                  </p>
-                </div>
-
-                {/* Decorative Bottom Bar */}
-                <div className="mt-4 pt-3 border-t border-rose-100/60 flex items-center justify-between">
-                  <span className="text-[11px] sm:text-xs font-semibold text-zinc-400 group-hover:text-[#156035] transition-colors">
-                    Femmeflo Care Tech
-                  </span>
-                  <div className="w-2 h-2 rounded-full bg-[#156035]/30 group-hover:bg-[#156035] group-hover:scale-125 transition-all" />
-                </div>
-              </div>
-            );
-          })}
+                  {/* Decorative Bottom Bar */}
+                  <div className="mt-6 pt-4 border-t border-rose-100/60 flex items-center justify-between">
+                    <span className="text-xs font-semibold text-zinc-400 group-hover:text-[#156035] transition-colors">
+                      Femmeflo Care Tech
+                    </span>
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#156035]/30 group-hover:bg-[#156035] group-hover:scale-125 transition-all" />
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

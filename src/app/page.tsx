@@ -45,7 +45,7 @@ const FloatingChatEnquiry = dynamic(
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#FFF0F3] relative">
+    <div className="min-h-screen flex flex-col bg-white relative">
       <SectionRouteObserver />
       <GlobalFloatingProduct />
       <FloatingChatEnquiry />

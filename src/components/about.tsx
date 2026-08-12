@@ -77,7 +77,7 @@ export function About() {
   return (
     <section
       id="about"
-      className="relative w-full bg-gradient-to-b from-[#EBF7F0] via-[#E4F3EA] to-[#ECF7F1] border-b border-emerald-200/50 px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28 overflow-hidden font-[family-name:var(--font-jakarta)]"
+      className="relative w-full bg-gradient-to-b from-[#EBF7F0] via-[#E4F3EA] to-[#ECF7F1] border-b border-emerald-200/50 px-4 sm:px-6 lg:px-8 pt-10 sm:pt-16 lg:pt-20 pb-16 sm:pb-24 overflow-hidden font-[family-name:var(--font-jakarta)]"
     >
       {/* Background Soft Glow Orbs */}
       <div className="absolute top-1/2 left-[-5%] w-[320px] sm:w-[450px] h-[320px] sm:h-[450px] bg-emerald-300/35 rounded-full blur-3xl pointer-events-none -z-10" />
@@ -114,13 +114,7 @@ export function About() {
                 }}
               />
 
-              {/* Floating Quality Stamp Badge */}
-              <div className="absolute bottom-5 sm:bottom-6 left-1/2 -translate-x-1/2 z-20 bg-white/90 backdrop-blur-md border border-zinc-200/80 px-4 py-2 rounded-2xl shadow-md flex items-center gap-2.5 pointer-events-none select-none whitespace-nowrap">
-                <Leaf className="w-5 h-5 text-[#156035]" />
-                <div>
-                  <p className="text-xs font-bold text-zinc-900">100% Dermatologically Tested</p>
-                </div>
-              </div>
+
 
               {/* Anchor Target for Floating Product */}
               <div
@@ -156,46 +150,46 @@ export function About() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#EBF6EF] border border-[#CCE9D7] text-xs sm:text-sm font-medium text-[#166534] shadow-xs">
             <Sparkles className="w-4 h-4 text-[#156035]" />
-            <span>About Femmeflo</span>
+            <span>About Masako Enterprises</span>
           </div>
 
           {/* Heading */}
           <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-zinc-900 leading-[1.15]">
-            Crafted for Your Comfort,{" "}
+            Pioneering Premium Care,{" "}
             <span className="font-[family-name:var(--font-playfair)] italic font-semibold text-[#E61C5D]">
-              Engineered for Freedom.
+              Designed for Every Woman.
             </span>
           </h2>
 
           {/* Paragraph Copy */}
           <p className="text-zinc-600 text-base sm:text-lg leading-relaxed">
-            <strong className="text-zinc-900 font-semibold">Femmeflo</strong> is the flagship sanitary pad product brand by <strong className="text-[#156035] font-semibold">Masako Enterprises Private Limited</strong>, crafted to deliver effortless period confidence to women across India. Featuring an ultra-absorbent core, cloud-soft top sheet, and 3D leak-lock technology, Femmeflo XL sanitary pads are engineered to keep you completely dry, comfortable, and worry-free all day and night.
+            <strong className="text-zinc-900 font-semibold">Femmeflo</strong> is the flagship hygiene brand by <strong className="text-[#156035] font-semibold">Masako Enterprises Private Limited</strong>. We combine medical-grade production standards with silken luxury, delivering accessible high-performance protection to women across India.
           </p>
 
           {/* Feature Highlights Grid */}
           <div className="grid grid-cols-2 gap-4 w-full pt-2">
             <div className="bg-white/70 backdrop-blur-2xl border-2 border-white/90 p-4 rounded-2xl shadow-md hover:shadow-xl hover:bg-white/85 transition-all">
               <Feather className="w-6 h-6 text-[#E61C5D] mb-1" />
-              <h3 className="text-sm font-bold text-zinc-900">Cotton Soft Core</h3>
-              <p className="text-xs text-zinc-500 mt-1">Breathable fabric preventing rashes and irritation.</p>
+              <h3 className="text-sm font-bold text-zinc-900">Silken Surface</h3>
+              <p className="text-xs text-zinc-500 mt-1">Prevents friction during active movement.</p>
             </div>
 
             <div className="bg-white/70 backdrop-blur-2xl border-2 border-white/90 p-4 rounded-2xl shadow-md hover:shadow-xl hover:bg-white/85 transition-all">
               <Clock className="w-6 h-6 text-[#156035] mb-1" />
-              <h3 className="text-sm font-bold text-zinc-900">12-Hour Protection</h3>
-              <p className="text-xs text-zinc-500 mt-1">Rapid absorption channels for all-day security.</p>
+              <h3 className="text-sm font-bold text-zinc-900">12-Hour Defense</h3>
+              <p className="text-xs text-zinc-500 mt-1">Instant fluid conversion for uninterrupted days.</p>
             </div>
 
             <div className="bg-white/70 backdrop-blur-2xl border-2 border-white/90 p-4 rounded-2xl shadow-md hover:shadow-xl hover:bg-white/85 transition-all">
               <ShieldCheck className="w-6 h-6 text-[#E61C5D] mb-1" />
-              <h3 className="text-sm font-bold text-zinc-900">Zero Leak Lock</h3>
-              <p className="text-xs text-zinc-500 mt-1">Double side-wings for edge-to-edge confidence.</p>
+              <h3 className="text-sm font-bold text-zinc-900">Double-Wing Anchor</h3>
+              <p className="text-xs text-zinc-500 mt-1">Contoured geometry holds firm on all sides.</p>
             </div>
 
             <div className="bg-white/70 backdrop-blur-2xl border-2 border-white/90 p-4 rounded-2xl shadow-md hover:shadow-xl hover:bg-white/85 transition-all">
               <Sprout className="w-6 h-6 text-[#156035] mb-1" />
-              <h3 className="text-sm font-bold text-zinc-900">Toxin Free</h3>
-              <p className="text-xs text-zinc-500 mt-1">0% artificial fragrance, chlorine or harsh dyes.</p>
+              <h3 className="text-sm font-bold text-zinc-900">Zero Additives</h3>
+              <p className="text-xs text-zinc-500 mt-1">Pure composition free of chlorine and synthetic dyes.</p>
             </div>
           </div>
 
