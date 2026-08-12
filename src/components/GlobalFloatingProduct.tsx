@@ -74,7 +74,7 @@ export function GlobalFloatingProduct() {
       const heroY = hRect && hRect.height > 0 ? hRect.top + hRect.height / 2 : window.innerHeight * 0.45;
 
       const aboutX = aRect && aRect.width > 0 ? aRect.left + aRect.width / 2 : window.innerWidth * 0.25;
-      const aboutY = aRect && aRect.height > 0 ? aRect.top + aRect.height / 2 + 40 : window.innerHeight * 0.5;
+      const aboutY = aRect && aRect.height > 0 ? aRect.top + aRect.height / 2 + 10 : window.innerHeight * 0.5;
 
       const productX = pRect && pRect.width > 0 ? pRect.left + pRect.width / 2 : window.innerWidth * 0.75;
       const productY = pRect && pRect.height > 0 ? pRect.top + pRect.height / 2 : window.innerHeight * 0.5;
