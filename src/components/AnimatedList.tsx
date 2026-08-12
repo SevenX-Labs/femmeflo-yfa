@@ -82,30 +82,31 @@ export const AnimatedList: React.FC<AnimatedListProps> = ({
     setBottomGradientOpacity(scrollHeight <= clientHeight ? 0 : Math.min(bottomDistance / 50, 1));
   };
 
-  useEffect(() => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (!enableArrowNavigation) return;
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "ArrowDown" || (e.key === "Tab" && !e.shiftKey)) {
+
+    const target = e.target as HTMLElement | null;
+    if (target && ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName)) {
+      return;
+    }
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      setKeyboardNav(true);
+      setSelectedIndex((prev) => Math.min(prev + 1, itemList.length - 1));
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      setKeyboardNav(true);
+      setSelectedIndex((prev) => Math.max(prev - 1, 0));
+    } else if (e.key === "Enter") {
+      if (selectedIndex >= 0 && selectedIndex < itemList.length) {
         e.preventDefault();
-        setKeyboardNav(true);
-        setSelectedIndex((prev) => Math.min(prev + 1, itemList.length - 1));
-      } else if (e.key === "ArrowUp" || (e.key === "Tab" && e.shiftKey)) {
-        e.preventDefault();
-        setKeyboardNav(true);
-        setSelectedIndex((prev) => Math.max(prev - 1, 0));
-      } else if (e.key === "Enter") {
-        if (selectedIndex >= 0 && selectedIndex < itemList.length) {
-          e.preventDefault();
-          if (onItemSelect) {
-            onItemSelect(itemList[selectedIndex], selectedIndex);
-          }
+        if (onItemSelect) {
+          onItemSelect(itemList[selectedIndex], selectedIndex);
         }
       }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [itemList, selectedIndex, onItemSelect, enableArrowNavigation]);
+    }
+  };
 
   useEffect(() => {
     if (!keyboardNav || selectedIndex < 0 || !listRef.current) return;
@@ -133,7 +134,9 @@ export const AnimatedList: React.FC<AnimatedListProps> = ({
     <div className={`relative w-full ${className}`}>
       <div
         ref={listRef}
-        className={`max-h-[620px] overflow-y-auto pr-2 ${
+        tabIndex={enableArrowNavigation ? 0 : -1}
+        onKeyDown={handleKeyDown}
+        className={`max-h-[620px] overflow-y-auto pr-2 focus:outline-none ${
           displayScrollbar
             ? "[&::-webkit-scrollbar]:w-[6px] [&::-webkit-scrollbar-track]:bg-rose-50/50 [&::-webkit-scrollbar-thumb]:bg-rose-200 [&::-webkit-scrollbar-thumb]:rounded-full"
             : "scrollbar-hide"
