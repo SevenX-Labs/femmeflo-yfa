@@ -7,53 +7,10 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Heart, Leaf } from "lucide-react";
 import { FairyIcon } from "@/components/FairyIcon";
+import { BackgroundParticles } from "@/components/BackgroundParticles";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
-}
-
-// Background Particles (hearts and leaves)
-function BackgroundParticles() {
-  const particles = [
-    { type: "heart", top: "15%", left: "12%", size: 18, delay: 0, duration: 7 },
-    { type: "heart", top: "45%", left: "80%", size: 22, delay: 2, duration: 8 },
-    { type: "heart", top: "75%", left: "20%", size: 16, delay: 1, duration: 6.5 },
-    { type: "heart", top: "25%", left: "70%", size: 20, delay: 3, duration: 9 },
-    { type: "leaf", top: "20%", left: "85%", size: 22, delay: 0.5, duration: 7.5 },
-    { type: "leaf", top: "60%", left: "10%", size: 24, delay: 2.5, duration: 8.5 },
-    { type: "leaf", top: "80%", left: "75%", size: 20, delay: 1.5, duration: 7 },
-    { type: "leaf", top: "10%", left: "40%", size: 18, delay: 3.5, duration: 9.5 },
-  ];
-
-  return (
-    <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-      {particles.map((p, index) => (
-        <motion.div
-          key={index}
-          className="absolute opacity-45 select-none"
-          style={{ top: p.top, left: p.left }}
-          animate={{
-            y: [-10, 15, -10],
-            x: [-8, 8, -8],
-            rotate: [-12, 12, -12],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{
-            duration: p.duration,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: p.delay,
-          }}
-        >
-          {p.type === "heart" ? (
-            <Heart size={p.size} className="text-[#E61C5D] fill-[#E61C5D] drop-shadow-sm" />
-          ) : (
-            <Leaf size={p.size} className="text-[#156035] fill-[#156035] drop-shadow-sm" />
-          )}
-        </motion.div>
-      ))}
-    </div>
-  );
 }
 
 export function GlobalFloatingProduct() {

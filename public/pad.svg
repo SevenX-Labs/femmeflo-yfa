@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <g transform="rotate(-45, 50, 50)">
+    <!-- Wings -->
+    <path d="M 20,40 Q 5,50 20,60 L 35,55 L 35,45 Z" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" />
+    <path d="M 80,40 Q 95,50 80,60 L 65,55 L 65,45 Z" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" />
+    <!-- Main Body -->
+    <rect x="35" y="10" width="30" height="80" rx="15" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" />
+    <!-- Blue Absorbent Center -->
+    <rect x="42" y="25" width="16" height="50" rx="8" fill="#93C5FD" opacity="0.8" />
+  </g>
+</svg>

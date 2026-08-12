@@ -7,6 +7,7 @@ import { Sparkles, ArrowUpRight, ShieldCheck, Lock, Feather, Leaf } from "lucide
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Navbar } from "@/components/navbar";
+import { BackgroundParticles } from "@/components/BackgroundParticles";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -70,6 +71,7 @@ export function Hero() {
         {/* Ambient Background Glow Orbs */}
         <div className="absolute top-1/4 left-[-8%] w-[450px] h-[450px] bg-emerald-100/40 rounded-full blur-[110px] pointer-events-none -z-10" />
         <div className="absolute top-1/3 right-[2%] w-[450px] h-[450px] bg-rose-100/40 rounded-full blur-[120px] pointer-events-none -z-10" />
+        <BackgroundParticles />
 
         <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mt-1 sm:mt-2">
           {/* Left Column: Copy & Feature Badges */}
