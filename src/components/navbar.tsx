@@ -95,8 +95,8 @@ export function Navbar() {
                     }}
                     className={`block text-sm font-extrabold tracking-wider uppercase py-1.5 cursor-pointer ${
                       activeIndex === index
-                        ? "text-[#156035]"
-                        : "text-zinc-700 hover:text-[#156035]"
+                        ? "text-[#00873A]"
+                        : "text-zinc-700 hover:text-[#00873A]"
                     }`}
                   >
                     {item.name}
@@ -109,7 +109,7 @@ export function Navbar() {
               <Link
                 href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full py-2.5 bg-[#156035] text-white rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-xs cursor-pointer"
+                className="w-full py-2.5 bg-[#00873A] hover:bg-[#007532] text-white rounded-xl text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-xs cursor-pointer transition-colors"
               >
                 <MessageCircle className="w-4 h-4 text-[#FDE047]" />
                 <span>Contact Sales &amp; Enquiries</span>
