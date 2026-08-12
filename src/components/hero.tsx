@@ -104,7 +104,10 @@ export function Hero() {
               <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-emerald-100/90 text-[#00873A] flex items-center justify-center mb-1 sm:mb-1.5 shadow-2xs">
                 <ShieldCheck className="w-4 h-4" />
               </div>
-              <span className="text-[11px] sm:text-xs font-extrabold text-zinc-900">12-Hour</span>
+              <span className="text-[11px] sm:text-xs font-extrabold text-zinc-900 flex items-center justify-center gap-0.5">
+                <span className="text-[9px] font-bold text-emerald-700 uppercase tracking-wider">Upto</span>
+                <span>12 Hrs</span>
+              </span>
               <span className="text-[9px] sm:text-[10px] font-semibold text-emerald-800">Dry Defense</span>
             </div>
 
