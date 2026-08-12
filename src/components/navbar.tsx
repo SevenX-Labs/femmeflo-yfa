@@ -45,7 +45,7 @@ export function Navbar() {
 
   return (
     <header className="relative w-full font-[family-name:var(--font-jakarta)] z-50 bg-[url('/navbar-bg-transparent.webp')] bg-[length:100%_100%] bg-no-repeat bg-bottom pb-1 sm:pb-2 lg:pb-3">
-      <div className="w-full pt-1.5 sm:pt-2.5 lg:pt-3 pb-0 px-4 sm:px-8 lg:px-12 relative z-20">
+      <div className="w-full pt-0.5 sm:pt-1 lg:pt-1 pb-0 px-4 sm:px-8 lg:px-12 relative z-20">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* 1. Left: Brand Logo */}
           <Link href="/" className="flex items-center group shrink-0 cursor-pointer">
