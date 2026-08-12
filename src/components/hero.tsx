@@ -95,7 +95,7 @@ export function Hero() {
 
           <p className="text-zinc-600 text-xs sm:text-sm lg:text-base max-w-md leading-relaxed">
             Effortless day-to-night security engineered for total peace of mind with{" "}
-            <strong className="text-zinc-900 font-semibold">Femmeflo XL</strong> pads.
+            <strong className="text-zinc-900 font-semibold">Femmeflo</strong> pads.
           </p>
 
           {/* 4 Feature Cards Grid */}
