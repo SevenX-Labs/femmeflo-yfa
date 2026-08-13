@@ -256,7 +256,7 @@ export function Hero() {
                         alt="Femmeflo Confident Happy Women"
                         width={720}
                         height={580}
-                        className="w-auto h-[105%] sm:h-[115%] lg:h-[124%] max-h-none object-contain drop-shadow-lg opacity-98 transform -translate-y-2 sm:-translate-y-3"
+                        className="w-auto h-full max-h-[90%] sm:max-h-[96%] lg:max-h-[105%] object-contain drop-shadow-lg opacity-98 transform -translate-y-1 sm:-translate-y-2"
                         priority
                       />
                     ) : (
