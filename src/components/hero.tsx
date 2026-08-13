@@ -17,21 +17,19 @@ if (typeof window !== "undefined") {
 const girlStorySlides = [
   {
     id: 1,
+    image: "/hero-front.webp",
     badge: "✦ COMFORT THAT MOVES WITH YOU",
     title: "FEEL CONFIDENT.",
     subtitle: "EVERY SINGLE DAY.",
+    isSplashed: true,
   },
   {
     id: 2,
-    badge: "✦ MADE FOR YOUR EVERYDAY",
-    title: "STAY FRESH.",
-    subtitle: "STAY COMFORTABLE.",
-  },
-  {
-    id: 3,
-    badge: "✦ YOUR COMFORT, YOUR WAY",
-    title: "MOVE FREELY.",
-    subtitle: "LIVE CONFIDENTLY.",
+    image: "/hero-front2.webp",
+    badge: "✦ MADE FOR EVERYDAY",
+    title: "COMFORT THAT CONNECTS US.",
+    subtitle: "Comfort wherever life takes you.",
+    isSplashed: false,
   },
 ];
 
@@ -130,65 +128,65 @@ export function Hero() {
                 }}
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[420px] lg:w-[480px] h-[300px] sm:h-[420px] lg:h-[480px] rounded-full pointer-events-none z-0 flex items-center justify-center"
               >
-                {/* 1. Concentric Expanding Ripple Wave Rings radiating outward */}
+                {/* 1. Subtle & Delicate Soft Pink Ripple Wave Rings radiating outward */}
                 <motion.div
                   animate={{
-                    scale: [0.95, 1.3, 1.6],
-                    opacity: [0.65, 0.25, 0],
+                    scale: [0.98, 1.15, 1.32],
+                    opacity: [0.35, 0.12, 0],
                   }}
                   transition={{
-                    duration: 3.6,
+                    duration: 3.8,
                     repeat: Infinity,
                     ease: "easeOut",
                     delay: 0,
                   }}
-                  className="absolute inset-0 rounded-full border-2 border-white/90 shadow-sm pointer-events-none"
+                  className="absolute inset-0 rounded-full border border-rose-300/45 pointer-events-none"
                 />
                 <motion.div
                   animate={{
-                    scale: [0.95, 1.3, 1.6],
-                    opacity: [0.6, 0.2, 0],
+                    scale: [0.98, 1.15, 1.32],
+                    opacity: [0.3, 0.1, 0],
                   }}
                   transition={{
-                    duration: 3.6,
+                    duration: 3.8,
                     repeat: Infinity,
                     ease: "easeOut",
-                    delay: 1.2,
+                    delay: 1.25,
                   }}
-                  className="absolute inset-0 rounded-full border-2 border-rose-200/70 shadow-sm pointer-events-none"
+                  className="absolute inset-0 rounded-full border border-rose-200/40 pointer-events-none"
                 />
                 <motion.div
                   animate={{
-                    scale: [0.95, 1.3, 1.6],
-                    opacity: [0.55, 0.18, 0],
+                    scale: [0.98, 1.15, 1.32],
+                    opacity: [0.25, 0.08, 0],
                   }}
                   transition={{
-                    duration: 3.6,
+                    duration: 3.8,
                     repeat: Infinity,
                     ease: "easeOut",
-                    delay: 2.4,
+                    delay: 2.5,
                   }}
-                  className="absolute inset-0 rounded-full border-2 border-emerald-200/60 shadow-sm pointer-events-none"
+                  className="absolute inset-0 rounded-full border border-pink-200/35 pointer-events-none"
                 />
 
-                {/* Rotating Soft Gradient Ring Glow */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-rose-300/35 via-white/85 to-emerald-200/35 blur-xl animate-[spin_20s_linear_infinite] opacity-80" />
+                {/* Rotating Soft Pink Gradient Ring Glow */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#E61C5D]/20 via-rose-100/40 to-pink-50/20 blur-xl animate-[spin_22s_linear_infinite] opacity-70" />
 
-                {/* Outer Glass Ring Border with Breathing Pulse */}
+                {/* Outer Pink Tinted Glass Ring Border with Breathing Pulse */}
                 <motion.div
                   animate={{
-                    scale: [1, 1.03, 1],
+                    scale: [1, 1.02, 1],
                   }}
                   transition={{
-                    duration: 3,
+                    duration: 3.5,
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
-                  className="absolute inset-2 rounded-full border border-white/90 bg-white/45 backdrop-blur-md shadow-[0_20px_50px_rgba(230,28,93,0.08)]"
+                  className="absolute inset-2 rounded-full border border-rose-100/70 bg-white/45 backdrop-blur-md shadow-[0_15px_40px_rgba(230,28,93,0.06)]"
                 />
 
-                {/* Inner Pulsing Glass Aura Disc */}
-                <div className="w-[84%] h-[84%] rounded-full bg-gradient-to-br from-white/90 via-[#FFF8FA]/80 to-rose-50/60 backdrop-blur-xl border border-white/95 shadow-inner animate-pulse" />
+                {/* Inner Pulsing Soft Pink Glass Aura Disc */}
+                <div className="w-[84%] h-[84%] rounded-full bg-gradient-to-br from-white/95 via-[#FFF5F8]/70 to-rose-50/40 backdrop-blur-xl border border-rose-100/70 shadow-inner opacity-90 animate-pulse" />
               </motion.div>
 
               {/* Floating Upper Glass Badge */}
@@ -207,20 +205,35 @@ export function Hero() {
                 </AnimatePresence>
               </div>
 
-              {/* Central Girls Image (On Circular Stage with Pink Splash) */}
+              {/* Central Girls Image Container (Carousel Slide 1 & 2) */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none pt-4 pb-2 z-10">
-                <Image
-                  src="/hero-front.webp"
-                  alt="Femmeflo Confident Happy Women"
-                  width={720}
-                  height={580}
-                  className="w-auto h-[105%] sm:h-[115%] lg:h-[124%] max-h-none object-contain drop-shadow-lg opacity-98 transition-all duration-500 transform -translate-y-2 sm:-translate-y-3"
-                  priority
-                />
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentStory.image}
+                    initial={{ opacity: 0, scale: 0.97 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.97 }}
+                    transition={{ duration: 0.45, ease: "easeInOut" }}
+                    className="w-full h-full flex items-center justify-center pointer-events-none"
+                  >
+                    <Image
+                      src={currentStory.image}
+                      alt="Femmeflo Confident Happy Women"
+                      width={720}
+                      height={580}
+                      className={`w-auto h-[105%] sm:h-[115%] lg:h-[124%] max-h-none object-contain drop-shadow-lg opacity-98 transform -translate-y-2 sm:-translate-y-3 ${
+                        !currentStory.isSplashed
+                          ? "[mask-image:radial-gradient(ellipse_at_center,_black_50%,_transparent_88%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,_black_50%,_transparent_88%)]"
+                          : ""
+                      }`}
+                      priority
+                    />
+                  </motion.div>
+                </AnimatePresence>
               </div>
 
-              {/* Floating Lower Glass Story Text & Slider Dots */}
-              <div className="relative z-30 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-2 w-full pb-1">
+              {/* Floating Lower Glass Story Text */}
+              <div className="relative z-30 flex items-end justify-start w-full pb-1">
                 
                 {/* Floating Translucent Lower Story Message */}
                 <AnimatePresence mode="wait">
@@ -241,22 +254,6 @@ export function Hero() {
                   </motion.div>
                 </AnimatePresence>
 
-                {/* Minimal Interactive Slide Indicators (● ○ ○) */}
-                <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-rose-100/70 shadow-xs">
-                  {girlStorySlides.map((s, idx) => (
-                    <button
-                      key={s.id}
-                      onClick={() => setActiveSlide(idx)}
-                      className={`transition-all cursor-pointer rounded-full ${
-                        activeSlide === idx
-                          ? "w-2.5 h-2.5 bg-[#E61C5D] scale-110"
-                          : "w-2 h-2 bg-rose-200 hover:bg-rose-300"
-                      }`}
-                      title={`Go to slide ${s.id}`}
-                    />
-                  ))}
-                </div>
-
               </div>
 
             </div>
@@ -264,13 +261,16 @@ export function Hero() {
             {/* RIGHT SIDE: Brand Headline & Product Stage (~ 50% Visual Ratio) */}
             <div className="lg:col-span-6 relative w-full h-[360px] sm:h-[460px] lg:h-[520px] xl:h-[560px] max-h-[62vh] flex flex-col justify-between items-center lg:items-end lg:pr-2">
               
-              {/* Brand Text Block (Top Right on Desktop) */}
+              {/* Brand Text Block (Pink & Green Combo with Curvy Font Accent) */}
               <div className="w-full text-center lg:text-right py-0 px-2 z-20 flex flex-col items-center lg:items-end">
-                <h1 className="text-xl sm:text-2xl lg:text-3xl xl:text-[34px] font-extrabold tracking-[0.14em] text-[#156035] uppercase font-[family-name:var(--font-outfit)] leading-tight">
-                  FEEL FRESH. FEEL FREE.
+                <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-[40px] font-black tracking-tight leading-none drop-shadow-2xs flex flex-wrap items-center justify-center lg:justify-end gap-x-2 sm:gap-x-3">
+                  <span className="text-[#156035] uppercase font-[family-name:var(--font-outfit)]">FEEL FRESH.</span>
+                  <span className="text-[#E61C5D] font-[family-name:var(--font-playfair)] italic capitalize font-extrabold tracking-normal">Feel Free.</span>
                 </h1>
-                <p className="text-xs sm:text-sm font-medium text-[#E61C5D] font-[family-name:var(--font-playfair)] italic mt-0.5">
-                  Comfort. Confidence. Freedom.
+                <p className="text-xs sm:text-sm font-semibold text-zinc-700 font-[family-name:var(--font-playfair)] italic tracking-wide mt-1.5 flex items-center gap-2">
+                  <span className="text-[#156035]">Comfort.</span>
+                  <span className="text-[#E61C5D]">Confidence.</span>
+                  <span className="text-[#156035]">Freedom.</span>
                 </p>
               </div>
 

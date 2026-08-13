@@ -32,7 +32,7 @@ export function FloatingChatEnquiry() {
     {
       id: "1",
       sender: "bot",
-      text: "Hi there! 👋 I'm Aria from Femmeflo Care. How can I help you today?",
+      text: "Hello! 👋 Welcome to Femmeflo Customer Care. How can we assist you today?",
       time: "Just now",
     },
   ]);
@@ -185,9 +185,9 @@ export function FloatingChatEnquiry() {
                 </div>
                 <div>
                   <h4 className="font-bold text-xs sm:text-sm leading-snug flex items-center gap-1.5">
-                    <span>Aria</span>
+                    <span>Femmeflo Support</span>
                     <span className="text-[10px] font-normal px-2 py-0.5 rounded-full bg-white/20 backdrop-blur-sm border border-white/30">
-                      Femmeflo Care
+                      Official Care
                     </span>
                   </h4>
                   <p className="text-[10px] sm:text-[11px] text-rose-100/90 flex items-center gap-1">
@@ -253,7 +253,7 @@ export function FloatingChatEnquiry() {
                   animate={{ opacity: 1, y: 0 }}
                   className="flex items-center gap-2 bg-white border border-rose-100 px-3.5 py-2.5 rounded-2xl rounded-bl-none w-max shadow-sm"
                 >
-                  <span className="text-zinc-500 text-[11px]">Aria is typing</span>
+                  <span className="text-zinc-500 text-[11px]">Femmeflo Support is typing</span>
                   <div className="flex gap-1 items-center">
                     <span className="w-1.5 h-1.5 bg-[#E61C5D] rounded-full animate-bounce" />
                     <span
