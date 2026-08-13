@@ -213,22 +213,24 @@ export function HappyCustomers() {
           <div className="relative z-20 flex flex-col items-center">
             
             {/* Pulsing Backlight Ring */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-rose-400/20 via-emerald-300/20 to-sky-300/20 blur-xl pointer-events-none animate-pulse" />
+            <div className="absolute inset-0 rounded-[2.2rem] bg-gradient-to-tr from-rose-400/25 via-emerald-300/20 to-sky-300/25 blur-2xl pointer-events-none animate-pulse" />
 
             <motion.div
-              className="relative p-1 cursor-pointer group"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
+              className="relative p-1 group"
+              whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
-              onClick={() => setActiveIdx((prev) => (prev + 1) % customerReviews.length)}
             >
-              {/* Main Indian Customer Portrait */}
-              <img
-                src={active.mainImage}
-                alt={active.name}
-                draggable={false}
-                className="w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-[2.5rem] object-cover shadow-2xl border-4 border-white/95 select-none cursor-pointer group-hover:border-rose-300 transition-colors"
-              />
+              {/* Main Indian Customer Video (Landscape Autoplay loop) */}
+              <div className="relative overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white/95 group-hover:border-rose-300 transition-colors bg-black/5">
+                <video
+                  src="/happy-customre.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-[300px] sm:w-[440px] md:w-[520px] lg:w-[560px] xl:w-[620px] max-w-[92vw] aspect-[640/304] object-cover select-none"
+                />
+              </div>
             </motion.div>
           </div>
 
