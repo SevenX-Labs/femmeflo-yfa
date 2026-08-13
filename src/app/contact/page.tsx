@@ -24,7 +24,9 @@ import {
   ExternalLink,
   ChevronDown,
   ChevronUp,
-  MessageCircle
+  MessageCircle,
+  HelpCircle,
+  Layers,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -48,6 +50,7 @@ export default function ContactPage() {
     name: "",
     email: "",
     phone: "",
+    queryType: "Bulk Order / Wholesale Enquiry",
     message: "",
   });
 
@@ -59,7 +62,7 @@ export default function ContactPage() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     if (errorMsg) setErrorMsg("");
@@ -280,21 +283,45 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  {/* Phone / WhatsApp No. */}
-                  <div>
-                    <label className="block text-xs font-extrabold uppercase tracking-wider text-zinc-700 mb-2">
-                      Phone / WhatsApp No.
-                    </label>
-                    <div className="relative">
-                      <Phone className="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="+91 98765 43210"
-                        className="w-full pl-10 pr-4 py-3 rounded-xl border border-zinc-200 focus:border-[#E61C5D] focus:ring-2 focus:ring-rose-100 text-sm font-medium text-zinc-900 outline-none transition-all bg-white"
-                      />
+                  {/* Query Category Dropdown & Phone Row */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label className="block text-xs font-extrabold uppercase tracking-wider text-zinc-700 mb-2">
+                        SELECTED CATEGORY <span className="text-[#E61C5D]">*</span>
+                      </label>
+                      <div className="relative">
+                        <Layers className="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                        <select
+                          name="queryType"
+                          value={formData.queryType}
+                          onChange={handleChange}
+                          required
+                          className="w-full pl-10 pr-10 py-3 rounded-xl border border-zinc-200 focus:border-[#E61C5D] focus:ring-2 focus:ring-rose-100 text-sm font-medium text-zinc-900 outline-none transition-all bg-white appearance-none cursor-pointer"
+                        >
+                          <option value="Bulk Order / Wholesale Enquiry">Bulk Order / Wholesale Enquiry</option>
+                          <option value="Distributor & Dealership Opportunity">Distributor & Dealership Opportunity</option>
+                          <option value="Product Feedback & Support">Product Feedback & Support</option>
+                          <option value="General Inquiry">General Inquiry</option>
+                        </select>
+                        <ChevronDown className="w-4 h-4 text-zinc-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-extrabold uppercase tracking-wider text-zinc-700 mb-2">
+                        Phone / WhatsApp No.
+                      </label>
+                      <div className="relative">
+                        <Phone className="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                        <input
+                          type="tel"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          placeholder="+91 98765 43210"
+                          className="w-full pl-10 pr-4 py-3 rounded-xl border border-zinc-200 focus:border-[#E61C5D] focus:ring-2 focus:ring-rose-100 text-sm font-medium text-zinc-900 outline-none transition-all bg-white"
+                        />
+                      </div>
                     </div>
                   </div>
 
