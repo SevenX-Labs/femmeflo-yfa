@@ -322,6 +322,8 @@ export function EssenceSection() {
                   src="/femmeflo-withoutbg.webp"
                   alt="Femmeflo product"
                   fill
+                  sizes="80px"
+                  loading="lazy"
                   className="object-contain"
                 />
               </div>

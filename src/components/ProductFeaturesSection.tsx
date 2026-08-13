@@ -335,11 +335,11 @@ export function ProductFeaturesSection() {
                   alt="Femmeflo XL Sanitary Pad Showcase"
                   width={320}
                   height={200}
+                  sizes="(max-width: 640px) 280px, 320px"
+                  loading="lazy"
                   draggable={false}
                   onContextMenu={(e) => e.preventDefault()}
                   className="w-auto h-auto max-h-[190px] object-contain drop-shadow-xl hover:scale-105 transition-transform duration-500 select-none"
-                  priority
-                  unoptimized
                 />
               </div>
 
@@ -420,8 +420,9 @@ export function ProductFeaturesSection() {
                 alt="Femmeflo XL Pad Showcase"
                 width={280}
                 height={170}
+                sizes="280px"
+                loading="lazy"
                 className="w-auto max-h-[160px] object-contain drop-shadow-md"
-                unoptimized
               />
             </div>
 

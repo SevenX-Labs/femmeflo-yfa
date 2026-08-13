@@ -240,7 +240,8 @@ export function GlobalFloatingProduct() {
             alt="Femmeflo XL Sanitary Pads"
             width={800}
             height={800}
-            priority
+            sizes="(max-width: 640px) 300px, (max-width: 1024px) 440px, 500px"
+            loading="lazy"
             draggable={false}
             onContextMenu={(e) => e.preventDefault()}
             style={{ width: "100%", height: "auto" }}

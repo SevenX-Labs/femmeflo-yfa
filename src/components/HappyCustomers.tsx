@@ -124,6 +124,7 @@ export function HappyCustomers() {
           <div className="hidden lg:block absolute left-0 inset-y-0 w-5/12 pointer-events-none select-none z-10">
             {/* Avatar 1 (Indian College Student in Yellow Kurti) */}
             <motion.img
+              loading="lazy"
               src="/avatar-indian-1.webp"
               alt="Indian Customer"
               className="absolute top-8 left-[24%] w-16 h-16 rounded-full object-cover shadow-md border-2 border-white"
@@ -133,6 +134,7 @@ export function HappyCustomers() {
 
             {/* Avatar 2 (Indian Woman in Red Saree) */}
             <motion.img
+              loading="lazy"
               src="/avatar-indian-2.webp"
               alt="Indian Customer"
               className="absolute top-2 left-[56%] w-18 h-18 rounded-2xl object-cover shadow-lg border-2 border-white"
@@ -142,6 +144,7 @@ export function HappyCustomers() {
 
             {/* Avatar 3 (Indian Woman with Glasses in Green Top) */}
             <motion.img
+              loading="lazy"
               src="/avatar-indian-3.webp"
               alt="Indian Customer"
               className="absolute top-[38%] left-[8%] w-16 h-16 rounded-2xl object-cover shadow-md border-2 border-white"
@@ -164,6 +167,7 @@ export function HappyCustomers() {
 
             {/* Avatar 4 (Indian Woman in Blue Kurta) */}
             <motion.img
+              loading="lazy"
               src="/avatar-indian-4.webp"
               alt="Indian Customer"
               className="absolute bottom-[22%] left-[78%] w-18 h-18 rounded-2xl object-cover shadow-md border-2 border-white"
@@ -173,6 +177,7 @@ export function HappyCustomers() {
 
             {/* Avatar 5 (Indian Woman in Yellow Dupatta & Bindi) */}
             <motion.img
+              loading="lazy"
               src="/avatar-indian-5.webp"
               alt="Indian Customer"
               className="absolute bottom-6 left-[24%] w-15 h-15 rounded-full object-cover shadow-sm border-2 border-white"
@@ -182,6 +187,7 @@ export function HappyCustomers() {
 
             {/* Avatar 6 (Indian Student in White Kurta & Purple Scarf) */}
             <motion.img
+              loading="lazy"
               src="/avatar-indian-6.webp"
               alt="Indian Customer"
               className="absolute bottom-2 left-[50%] w-18 h-18 rounded-2xl object-cover shadow-md border-2 border-white"
@@ -230,6 +236,7 @@ export function HappyCustomers() {
           <div className="hidden lg:block absolute right-0 inset-y-0 w-5/12 pointer-events-none select-none z-10">
             {/* Avatar 7 (Indian Woman in Teal Shirt) */}
             <motion.img
+              loading="lazy"
               src="/avatar-indian-7.webp"
               alt="Indian Customer"
               className="absolute top-4 right-[58%] w-16 h-16 rounded-full object-cover shadow-md border-2 border-white"
@@ -239,6 +246,7 @@ export function HappyCustomers() {
 
             {/* Avatar 8 (Indian Woman in Green Saree) */}
             <motion.img
+              loading="lazy"
               src="/avatar-indian-8.webp"
               alt="Indian Customer"
               className="absolute top-16 right-[24%] w-18 h-18 rounded-2xl object-cover shadow-lg border-2 border-white"
@@ -261,6 +269,7 @@ export function HappyCustomers() {
 
             {/* Avatar 9 (Indian Woman in Red & Gold Saree) */}
             <motion.img
+              loading="lazy"
               src="/avatar-indian-9.webp"
               alt="Indian Customer"
               className="absolute top-[38%] right-[16%] w-18 h-18 rounded-2xl object-cover shadow-lg border-2 border-white"
@@ -270,6 +279,7 @@ export function HappyCustomers() {
 
             {/* Avatar 10 (Indian Student in Pink Kurti) */}
             <motion.img
+              loading="lazy"
               src="/avatar-indian-10.webp"
               alt="Indian Customer"
               className="absolute bottom-[20%] right-[78%] w-18 h-18 rounded-2xl object-cover shadow-md border-2 border-white"
@@ -292,6 +302,7 @@ export function HappyCustomers() {
 
             {/* Avatar 11 (Indian Professional Woman in White Shirt) */}
             <motion.img
+              loading="lazy"
               src="/avatar-indian-11.webp"
               alt="Indian Customer"
               className="absolute bottom-6 right-[50%] w-16 h-16 rounded-full object-cover shadow-md border-2 border-white"
@@ -301,6 +312,7 @@ export function HappyCustomers() {
 
             {/* Avatar 12 (Indian Woman in Maroon Ethnic Top) */}
             <motion.img
+              loading="lazy"
               src="/avatar-indian-12.webp"
               alt="Indian Customer"
               className="absolute bottom-16 right-[24%] w-15 h-15 rounded-full object-cover shadow-sm border-2 border-white"

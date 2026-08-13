@@ -1,15 +1,13 @@
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export function BackgroundParticles() {
   const particles = [
     { type: "flower", top: "15%", left: "15%", size: 48, delay: 0, duration: 7, src: "/flower.svg" },
-    { type: "pad", top: "45%", left: "80%", size: 80, delay: 2, duration: 8, src: "/pad.webp" },
+    { type: "pad", top: "45%", left: "80%", size: 75, delay: 2, duration: 8, src: "/pad.webp" },
     { type: "flower", top: "75%", left: "20%", size: 40, delay: 1, duration: 6.5, src: "/flower.svg" },
-    { type: "pad", top: "25%", left: "70%", size: 75, delay: 3, duration: 9, src: "/pad.webp" },
-    { type: "flower", top: "20%", left: "85%", size: 52, delay: 0.5, duration: 7.5, src: "/flower.svg" },
-    { type: "pad", top: "60%", left: "10%", size: 85, delay: 2.5, duration: 8.5, src: "/pad.webp" },
-    { type: "flower", top: "80%", left: "75%", size: 45, delay: 1.5, duration: 7, src: "/flower.svg" },
-    { type: "pad", top: "10%", left: "40%", size: 80, delay: 3.5, duration: 9.5, src: "/pad.webp" },
+    { type: "pad", top: "25%", left: "70%", size: 70, delay: 3, duration: 9, src: "/pad.webp" },
+    { type: "flower", top: "20%", left: "85%", size: 48, delay: 0.5, duration: 7.5, src: "/flower.svg" },
   ];
 
   return (
@@ -22,9 +20,9 @@ export function BackgroundParticles() {
           initial={{ opacity: 0.5, y: 0, rotate: 0 }}
           animate={{
             opacity: [0.5, 1, 0.5],
-            y: [-15, 15, -15],
-            x: [-10, 10, -10],
-            rotate: [-15, 15, -15],
+            y: [-12, 12, -12],
+            x: [-8, 8, -8],
+            rotate: [-12, 12, -12],
           }}
           transition={{
             duration: p.duration,
@@ -33,11 +31,14 @@ export function BackgroundParticles() {
             ease: "easeInOut",
           }}
         >
-          <img 
+          <Image
             src={p.src} 
             alt={p.type} 
-            style={{ width: p.size, height: "auto" }} 
-            className="object-contain drop-shadow-lg"
+            width={p.size}
+            height={p.size}
+            sizes={`${p.size}px`}
+            loading="lazy"
+            className="object-contain drop-shadow-lg w-auto h-auto"
           />
         </motion.div>
       ))}

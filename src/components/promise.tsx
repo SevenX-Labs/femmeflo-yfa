@@ -65,6 +65,8 @@ export function PromiseSection() {
               src="/promise-comfort.webp"
               alt="Soft cotton swirl fabric"
               fill
+              sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 33vw"
+              loading="lazy"
               draggable={false}
               className="object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none select-none"
             />
@@ -111,6 +113,8 @@ export function PromiseSection() {
               src="/promise-protection.webp"
               alt="Water splash protection"
               fill
+              sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 33vw"
+              loading="lazy"
               draggable={false}
               className="object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none select-none"
             />
@@ -190,6 +194,8 @@ export function PromiseSection() {
               src="/promise-freshness.webp"
               alt="Fresh water droplets and sunlight"
               fill
+              sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 33vw"
+              loading="lazy"
               draggable={false}
               className="object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none select-none"
             />

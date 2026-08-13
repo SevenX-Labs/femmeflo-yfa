@@ -3,8 +3,15 @@ import { Navbar } from "@/components/navbar";
 import { Hero } from "@/components/hero";
 import { About } from "@/components/about";
 import { ProductSection } from "@/components/ProductSection";
-import { GlobalFloatingProduct } from "@/components/GlobalFloatingProduct";
-import { SectionRouteObserver } from "@/components/SectionRouteObserver";
+
+// Client-only interactive components
+const GlobalFloatingProduct = dynamic(
+  () => import("@/components/GlobalFloatingProduct").then((mod) => mod.GlobalFloatingProduct)
+);
+
+const SectionRouteObserver = dynamic(
+  () => import("@/components/SectionRouteObserver").then((mod) => mod.SectionRouteObserver)
+);
 
 // Dynamically import below-the-fold components to reduce initial JS payload and minimize main-thread execution time
 const ProductFeaturesSection = dynamic(

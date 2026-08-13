@@ -125,7 +125,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative w-full bg-gradient-to-b from-[#FFF9F7] via-[#FFFCFA] to-[#FFF5F7] font-[family-name:var(--font-jakarta)] flex flex-col justify-between overflow-x-hidden min-h-[calc(100svh-10px)] lg:max-h-[860px] pb-3 sm:pb-5"
+      className="relative w-full bg-gradient-to-b from-[#FFF9F7] via-[#FFFCFA] to-[#FFF5F7] font-[family-name:var(--font-jakarta)] flex flex-col justify-between overflow-hidden min-h-[calc(100vh-10px)] pb-3 sm:pb-5"
     >
       {/* 1. EXISTING NAVBAR (STAYS EXACTLY AS IS) */}
       <Navbar />
@@ -256,6 +256,7 @@ export function Hero() {
                         alt="Femmeflo Confident Happy Women"
                         width={720}
                         height={580}
+                        sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 45vw"
                         className="w-auto h-[102%] sm:h-[110%] lg:h-[118%] max-h-none object-contain drop-shadow-xl opacity-98 transform translate-y-0 sm:-translate-y-1 [mask-image:linear-gradient(to_bottom,black_88%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,black_88%,transparent_100%)]"
                         priority
                       />
@@ -266,8 +267,8 @@ export function Hero() {
                           alt="Femmeflo Confident Happy Women"
                           width={720}
                           height={580}
+                          sizes="(max-width: 640px) 270px, (max-width: 1024px) 380px, 430px"
                           className="w-full h-full object-cover scale-105 [mask-image:radial-gradient(circle_at_center,_black_70%,_transparent_98%)] [-webkit-mask-image:radial-gradient(circle_at_center,_black_70%,_transparent_98%)]"
-                          priority
                         />
                       </div>
                     )}
@@ -354,6 +355,8 @@ export function Hero() {
                     alt="Femmeflo Brand Accent"
                     width={20}
                     height={20}
+                    sizes="20px"
+                    loading="lazy"
                     className="w-full h-full object-contain"
                   />
                 </div>

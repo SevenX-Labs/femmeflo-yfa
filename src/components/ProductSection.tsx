@@ -78,7 +78,7 @@ export function ProductSection() {
   return (
     <section
       id="products"
-      className="relative w-full bg-gradient-to-b from-[#FDF0F5] via-[#FFF3F7] to-[#FCE8F0] border-b border-pink-200/60 px-4 sm:px-6 lg:px-8 pt-10 sm:pt-16 lg:pt-20 pb-16 sm:pb-24 overflow-hidden font-[family-name:var(--font-jakarta)]"
+      className="relative w-full bg-gradient-to-b from-[#FDF0F5] via-[#FFF3F7] to-[#FCE8F0] border-b border-pink-200/60 px-4 sm:px-6 lg:px-8 pt-10 sm:pt-16 lg:pt-20 pb-16 sm:pb-24 overflow-hidden font-[family-name:var(--font-manrope)]"
     >
       {/* Dynamic GPU-Accelerated Background Mesh Orbs */}
       <div
@@ -115,7 +115,7 @@ export function ProductSection() {
 
             {/* Heading */}
             <div className="space-y-3">
-              <h2 className="text-5xl sm:text-6xl font-bold tracking-tight text-zinc-900 font-[family-name:var(--font-playfair)]">
+              <h2 className="text-5xl sm:text-6xl font-black tracking-tight text-zinc-900 font-[family-name:var(--font-playfair)]">
                 Femmeflo XL
               </h2>
               <div className="inline-block px-4 py-1.5 rounded-full bg-rose-100/80 border border-rose-200/90 text-[#E61C5D] font-semibold text-sm sm:text-base shadow-xs">
@@ -245,6 +245,8 @@ export function ProductSection() {
                       src="/femmeflo-withoutbg.webp"
                       alt="Femmeflo XL Sanitary Pads"
                       fill
+                      sizes="(max-width: 640px) 300px, (max-width: 1024px) 400px, 480px"
+                      loading="lazy"
                       draggable={false}
                       onContextMenu={(e) => e.preventDefault()}
                       className="object-contain drop-shadow-2xl"
@@ -266,7 +268,7 @@ export function ProductSection() {
               <Sparkles className="w-4 h-4 text-[#E61C5D]" />
               <span>Full Feminine Care Collection</span>
             </div>
-            <h3 className="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-900 font-[family-name:var(--font-playfair)]">
+            <h3 className="text-3xl sm:text-5xl font-black tracking-tight text-zinc-900 font-[family-name:var(--font-playfair)]">
               Tailored Solutions For Every Need
             </h3>
             <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed max-w-xl mx-auto">
@@ -302,7 +304,7 @@ export function ProductSection() {
 
                     {/* Title & Length Spec Pill */}
                     <div className="space-y-1.5">
-                      <h4 className="text-2xl font-bold text-zinc-900 font-[family-name:var(--font-playfair)]">
+                      <h4 className="text-2xl sm:text-[26px] font-black tracking-tight text-zinc-900 font-[family-name:var(--font-playfair)]">
                         {prod.name}
                       </h4>
                       <div className="inline-block px-2.5 py-0.5 rounded-md bg-white/90 border border-zinc-200/80 text-xs font-bold text-zinc-700 shadow-2xs">

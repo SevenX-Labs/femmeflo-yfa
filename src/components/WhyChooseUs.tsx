@@ -136,7 +136,8 @@ export function WhyChooseUs() {
               src="/femmeflo-withoutbg.webp"
               alt="FemmeFlo XXL Sanitary Pads"
               fill
-              priority
+              sizes="(max-width: 640px) 320px, 420px"
+              loading="lazy"
               className="object-contain drop-shadow-2xl"
             />
           </motion.div>
@@ -160,7 +161,8 @@ export function WhyChooseUs() {
                 src="/woman-pink-pajamas.webp"
                 alt="FemmeFlo Woman in Pink Silk Pajamas"
                 fill
-                priority
+                sizes="(max-width: 640px) 90vw, (max-width: 1024px) 50vw, 42vw"
+                loading="lazy"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
 

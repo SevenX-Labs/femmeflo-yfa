@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Plus_Jakarta_Sans, Outfit, Montserrat } from "next/font/google";
+import { Playfair_Display, Plus_Jakarta_Sans, Outfit, Montserrat, Manrope } from "next/font/google";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -25,6 +25,12 @@ const outfit = Outfit({
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
   display: "swap",
 });
@@ -57,7 +63,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${jakarta.variable} ${outfit.variable} ${montserrat.variable} h-full antialiased`}
+      className={`${playfair.variable} ${jakarta.variable} ${outfit.variable} ${montserrat.variable} ${manrope.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-sans bg-white text-zinc-800 selection:bg-rose-200 selection:text-rose-900">
         <SmoothScroll>{children}</SmoothScroll>

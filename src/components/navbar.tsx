@@ -54,8 +54,9 @@ export function Navbar() {
               alt="Femmeflo Logo"
               width={600}
               height={200}
-              className="h-12 sm:h-15 lg:h-[72px] xl:h-[82px] w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+              quality={100}
               priority
+              className="h-12 sm:h-15 lg:h-[72px] xl:h-[82px] w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
             />
           </Link>
 
@@ -69,7 +70,7 @@ export function Navbar() {
                     <Link
                       href={item.href}
                       onClick={() => setActiveIndex(index)}
-                      className={`group relative py-1.5 font-[family-name:var(--font-outfit)] text-[13px] sm:text-[14px] lg:text-[15px] font-bold tracking-[0.18em] uppercase transition-all duration-200 cursor-pointer ${
+                      className={`group relative py-1.5 font-[family-name:var(--font-jakarta)] text-[13px] sm:text-[14px] lg:text-[15px] font-black tracking-[0.25em] uppercase transition-all duration-200 cursor-pointer ${
                         isActive
                           ? "text-white drop-shadow-xs"
                           : "text-white/90 hover:text-white"
@@ -122,7 +123,7 @@ export function Navbar() {
                       setActiveIndex(index);
                       setMobileMenuOpen(false);
                     }}
-                    className={`block text-sm font-[family-name:var(--font-outfit)] font-bold tracking-[0.16em] uppercase py-1.5 cursor-pointer ${
+                    className={`block text-sm font-[family-name:var(--font-jakarta)] font-black tracking-[0.25em] uppercase py-1.5 cursor-pointer ${
                       activeIndex === index
                         ? "text-[#00873A]"
                         : "text-zinc-700 hover:text-[#00873A]"

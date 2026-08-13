@@ -93,6 +93,8 @@ export function Footer() {
                 alt="Femmeflo Logo"
                 width={600}
                 height={200}
+                quality={100}
+                loading="lazy"
                 className="h-16 sm:h-20 lg:h-24 xl:h-28 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02] filter brightness-110 drop-shadow-md"
               />
             </Link>

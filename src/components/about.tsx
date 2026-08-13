@@ -129,6 +129,8 @@ export function About() {
                     alt="Femmeflo XL Sanitary Pads"
                     width={400}
                     height={400}
+                    sizes="220px"
+                    loading="lazy"
                     className="w-full h-auto object-contain drop-shadow-xl"
                   />
                 </div>
