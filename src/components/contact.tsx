@@ -194,7 +194,7 @@ export function ContactSection() {
                 <div>
                   <h4 className="font-bold text-xs uppercase tracking-wider text-[#E61C5D]">NAVI MUMBAI OFFICE</h4>
                   <p className="text-zinc-700 font-medium leading-relaxed mt-0.5">
-                    207, 2nd Floor, Bldg No. 1(6), Sector-2, Millennium Business Park, Mahape, Navi Mumbai 400710, Maharashtra (India)
+                    207 Building no 1 Millenium Business Park, Sector-2 Mahape Navi Mumbai 400710
                   </p>
                 </div>
               </div>
@@ -246,7 +246,7 @@ export function ContactSection() {
             {/* Google Maps Button Inside Card */}
             <div className="mt-8 pt-4">
               <a
-                href="https://maps.google.com/?q=Millennium+Business+Park,+Mahape,+Navi+Mumbai"
+                href="https://maps.google.com/?q=207+Building+no+1+Millenium+Business+Park,+Sector-2,+Mahape,+Navi+Mumbai+400710"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full py-3.5 px-6 rounded-full bg-rose-50/90 border border-rose-200/80 text-[#E61C5D] font-bold text-xs sm:text-sm flex items-center justify-center gap-2 hover:bg-[#E61C5D] hover:text-white transition-all shadow-2xs group"

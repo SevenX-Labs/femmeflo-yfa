@@ -4,7 +4,7 @@ import nodemailer from "nodemailer";
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { name, email, phone, productQuery, message } = body;
+    const { name, email, phone, message } = body;
 
     if (!name || !email || !message) {
       return NextResponse.json(
@@ -97,21 +97,11 @@ export async function POST(req: Request) {
                   </td>
                 </tr>
                 <tr>
-                  <td style="padding: 14px 16px; border-bottom: 1px solid #e5e7eb; font-size: 13px; font-weight: 700; color: #4b5563;">
+                  <td style="padding: 14px 16px; font-size: 13px; font-weight: 700; color: #4b5563;">
                     📞 Contact Phone:
                   </td>
-                  <td style="padding: 14px 16px; border-bottom: 1px solid #e5e7eb; font-size: 14px; font-weight: 600; color: #111827;">
+                  <td style="padding: 14px 16px; font-size: 14px; font-weight: 600; color: #111827;">
                     ${phone ? `<a href="tel:${cleanPhone}" style="color: #156035; text-decoration: none;">${phone}</a>` : '<span style="color: #9ca3af; font-style: italic;">Not Provided</span>'}
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding: 14px 16px; font-size: 13px; font-weight: 700; color: #4b5563;">
-                    🏷️ Query Category:
-                  </td>
-                  <td style="padding: 14px 16px; font-size: 13px;">
-                    <span style="display: inline-block; background-color: #EBF6EF; color: #156035; font-weight: 700; padding: 4px 10px; border-radius: 6px; border: 1px solid #cce9d7;">
-                      ${productQuery || "General Inquiry"}
-                    </span>
                   </td>
                 </tr>
               </table>
@@ -128,7 +118,7 @@ export async function POST(req: Request) {
               <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 10px;">
                 <tr>
                   <td align="center">
-                    <a href="mailto:${email}?subject=Re:%20Femmeflo%20Inquiry%20-%20${encodeURIComponent(productQuery || "General Inquiry")}" class="action-btn" style="display: inline-block; background-color: #E61C5D; color: #ffffff; font-size: 13px; font-weight: 700; text-decoration: none; padding: 13px 22px; border-radius: 8px; margin-right: 8px; margin-bottom: 8px;">
+                    <a href="mailto:${email}?subject=Re:%20Femmeflo%20Inquiry" class="action-btn" style="display: inline-block; background-color: #E61C5D; color: #ffffff; font-size: 13px; font-weight: 700; text-decoration: none; padding: 13px 22px; border-radius: 8px; margin-right: 8px; margin-bottom: 8px;">
                       ✉️ Reply Directly to ${name}
                     </a>
                     ${phone ? `
@@ -175,7 +165,7 @@ export async function POST(req: Request) {
         from: `"Femmeflo Web Form" <${smtpUser}>`,
         to: receiverEmail,
         replyTo: email,
-        subject: `[Femmeflo Query] ${productQuery || "New Inquiry"} from ${name}`,
+        subject: `[Femmeflo Query] New Inquiry from ${name}`,
         html: htmlContent,
       });
 
@@ -186,7 +176,6 @@ export async function POST(req: Request) {
       console.log("Name:", name);
       console.log("Email:", email);
       console.log("Phone:", phone);
-      console.log("Product/Query:", productQuery);
       console.log("Message:", message);
       console.log("=====================================");
 

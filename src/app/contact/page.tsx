@@ -16,15 +16,9 @@ import {
   AlertCircle,
   User,
   MessageSquare,
-  Layers,
   ArrowRight,
   ShieldCheck,
-  Leaf,
-  Heart,
   Globe,
-  Package,
-  Briefcase,
-  HelpCircle,
   Copy,
   Check,
   ExternalLink,
@@ -34,20 +28,6 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const queryCategories = [
-  { id: "product", label: "Product Query", icon: Package, value: "Femmeflo XL Sanitary Pads (40mm)" },
-  { id: "bulk", label: "Bulk & Wholesale", icon: Briefcase, value: "Bulk Order / Wholesale Enquiry" },
-  { id: "distributor", label: "Distributor Inquiry", icon: Layers, value: "Distributor & Dealership Opportunity" },
-  { id: "support", label: "Customer Care", icon: HelpCircle, value: "Product Feedback & Quality Support" },
-];
-
-const quickPrompts = [
-  "I want to inquire about bulk wholesale rates for Femmeflo XL.",
-  "How can I become an authorized distributor in my district?",
-  "Requesting product catalog and sample kits for retail store.",
-  "What is the absorption capacity and shelf life of Femmeflo XL?",
-];
-
 const contactFaqs = [
   {
     q: "How fast will the Femmeflo team respond to my inquiry?",
@@ -55,7 +35,7 @@ const contactFaqs = [
   },
   {
     q: "Can I request samples before placing a bulk/wholesale order?",
-    a: "Yes! We provide sample kits to verified retail partners and prospective distributors. Select 'Bulk Order / Wholesale Enquiry' above to request samples."
+    a: "Yes! We provide sample kits to verified retail partners and prospective distributors. Send us a message using the contact form above to request samples."
   },
   {
     q: "How can I contact sales directly on WhatsApp?",
@@ -68,7 +48,6 @@ export default function ContactPage() {
     name: "",
     email: "",
     phone: "",
-    productQuery: "Femmeflo XL Sanitary Pads (40mm)",
     message: "",
   });
 
@@ -80,21 +59,10 @@ export default function ContactPage() {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     if (errorMsg) setErrorMsg("");
-  };
-
-  const handleCategorySelect = (val: string) => {
-    setFormData((prev) => ({ ...prev, productQuery: val }));
-  };
-
-  const handlePromptClick = (prompt: string) => {
-    setFormData((prev) => ({
-      ...prev,
-      message: prev.message ? `${prev.message}\n${prompt}` : prompt,
-    }));
   };
 
   const copyToClipboard = (text: string, type: "phone" | "email") => {
@@ -135,7 +103,6 @@ export default function ContactPage() {
         name: "",
         email: "",
         phone: "",
-        productQuery: "Femmeflo XL Sanitary Pads (40mm)",
         message: "",
       });
     } catch (err: any) {
@@ -236,36 +203,8 @@ export default function ContactPage() {
                   Send Your Query
                 </h2>
                 <p className="text-zinc-500 text-sm mt-1">
-                  Select your query category and complete the details below.
+                  Complete the details below to send us your message.
                 </p>
-              </div>
-
-              {/* Category Pills Switcher */}
-              <div className="mb-6">
-                <label className="block text-xs font-extrabold uppercase tracking-wider text-zinc-700 mb-2.5">
-                  Select Inquiry Category
-                </label>
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                  {queryCategories.map((cat) => {
-                    const Icon = cat.icon;
-                    const isSelected = formData.productQuery === cat.value;
-                    return (
-                      <button
-                        key={cat.id}
-                        type="button"
-                        onClick={() => handleCategorySelect(cat.value)}
-                        className={`p-3 rounded-2xl border text-left flex flex-col items-center sm:items-start text-center sm:text-left transition-all cursor-pointer ${
-                          isSelected
-                            ? "bg-rose-50/90 border-[#E61C5D] text-[#E61C5D] shadow-2xs font-bold"
-                            : "bg-zinc-50/60 border-zinc-200/80 text-zinc-600 hover:bg-rose-50/40 hover:border-rose-200"
-                        }`}
-                      >
-                        <Icon className={`w-4 h-4 mb-1.5 ${isSelected ? "text-[#E61C5D]" : "text-zinc-500"}`} />
-                        <span className="text-xs font-semibold leading-tight">{cat.label}</span>
-                      </button>
-                    );
-                  })}
-                </div>
               </div>
 
               {submitted ? (
@@ -341,44 +280,21 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  {/* Phone & Category Dropdown */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-xs font-extrabold uppercase tracking-wider text-zinc-700 mb-2">
-                        Phone / WhatsApp No.
-                      </label>
-                      <div className="relative">
-                        <Phone className="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                        <input
-                          type="tel"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          placeholder="+91 98765 43210"
-                          className="w-full pl-10 pr-4 py-3 rounded-xl border border-zinc-200 focus:border-[#E61C5D] focus:ring-2 focus:ring-rose-100 text-sm font-medium text-zinc-900 outline-none transition-all bg-white"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-extrabold uppercase tracking-wider text-zinc-700 mb-2">
-                        Selected Category
-                      </label>
-                      <div className="relative">
-                        <Layers className="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-                        <select
-                          name="productQuery"
-                          value={formData.productQuery}
-                          onChange={handleChange}
-                          className="w-full pl-10 pr-4 py-3 rounded-xl border border-zinc-200 focus:border-[#E61C5D] focus:ring-2 focus:ring-rose-100 text-sm font-medium text-zinc-900 outline-none transition-all bg-white cursor-pointer"
-                        >
-                          <option value="Femmeflo XL Sanitary Pads (40mm)">Femmeflo XL Sanitary Pads (40mm)</option>
-                          <option value="Bulk Order / Wholesale Enquiry">Bulk Order / Wholesale Enquiry</option>
-                          <option value="Distributor & Dealership Opportunity">Distributor &amp; Dealership Opportunity</option>
-                          <option value="Product Feedback & Support">Product Feedback &amp; Support</option>
-                          <option value="General Inquiry">General Inquiry</option>
-                        </select>
-                      </div>
+                  {/* Phone / WhatsApp No. */}
+                  <div>
+                    <label className="block text-xs font-extrabold uppercase tracking-wider text-zinc-700 mb-2">
+                      Phone / WhatsApp No.
+                    </label>
+                    <div className="relative">
+                      <Phone className="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="+91 98765 43210"
+                        className="w-full pl-10 pr-4 py-3 rounded-xl border border-zinc-200 focus:border-[#E61C5D] focus:ring-2 focus:ring-rose-100 text-sm font-medium text-zinc-900 outline-none transition-all bg-white"
+                      />
                     </div>
                   </div>
 
@@ -404,25 +320,6 @@ export default function ContactPage() {
                         required
                         className="w-full pl-10 pr-4 py-3 rounded-xl border border-zinc-200 focus:border-[#E61C5D] focus:ring-2 focus:ring-rose-100 text-sm font-medium text-zinc-900 outline-none transition-all resize-none bg-white"
                       />
-                    </div>
-                  </div>
-
-                  {/* Quick Message Prompts */}
-                  <div>
-                    <span className="block text-[11px] font-bold text-zinc-400 uppercase tracking-wider mb-2">
-                      ⚡ Tap to auto-fill common queries:
-                    </span>
-                    <div className="flex flex-wrap gap-2">
-                      {quickPrompts.map((p, idx) => (
-                        <button
-                          key={idx}
-                          type="button"
-                          onClick={() => handlePromptClick(p)}
-                          className="text-[11px] px-3 py-1.5 rounded-full bg-rose-50/80 border border-rose-200/70 text-zinc-700 hover:bg-[#E61C5D] hover:text-white transition-all text-left cursor-pointer"
-                        >
-                          + {p}
-                        </button>
-                      ))}
                     </div>
                   </div>
 
@@ -488,7 +385,7 @@ export default function ContactPage() {
                     <div>
                       <h4 className="font-extrabold text-xs uppercase tracking-wider text-[#E61C5D]">NAVI MUMBAI OFFICE</h4>
                       <p className="text-zinc-600 text-xs font-medium leading-relaxed mt-0.5">
-                        207, 2nd Floor, Bldg No. 1(6), Sector-2, MBP, Mahape, Navi Mumbai 400710
+                        207 Building no 1 Millenium Business Park, Sector-2 Mahape Navi Mumbai 400710
                       </p>
                     </div>
                   </div>
@@ -555,7 +452,7 @@ export default function ContactPage() {
 
               {/* Google Maps External Button */}
               <a
-                href="https://maps.google.com/?q=Millennium+Business+Park,+Mahape,+Navi+Mumbai"
+                href="https://maps.google.com/?q=207+Building+no+1+Millenium+Business+Park,+Sector-2,+Mahape,+Navi+Mumbai+400710"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full p-4 rounded-3xl bg-white border border-rose-100 shadow-2xs flex items-center justify-between text-xs font-extrabold text-zinc-800 hover:text-[#E61C5D] hover:border-rose-300 transition-all group cursor-pointer"
