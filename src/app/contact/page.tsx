@@ -106,6 +106,7 @@ export default function ContactPage() {
         name: "",
         email: "",
         phone: "",
+        queryType: "Bulk Order / Wholesale Enquiry",
         message: "",
       });
     } catch (err: any) {
