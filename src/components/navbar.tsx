@@ -50,7 +50,7 @@ export function Navbar() {
           {/* 1. Left: Brand Logo */}
           <Link href="/" className="flex items-center group shrink-0 cursor-pointer">
             <Image
-              src="/logo.png"
+              src="/logo-copy.png"
               alt="Femmeflo Logo"
               width={600}
               height={200}

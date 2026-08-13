@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Sparkles,
   Globe,
@@ -85,19 +86,16 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-14 text-sm pt-4">
           
           {/* COLUMN 1: Brand & Corporate Summary (4 Cols) */}
-          <div className="lg:col-span-4 space-y-6">
-            <div className="flex items-center gap-3">
-              <span className="text-3xl sm:text-4xl font-extrabold tracking-tight font-[family-name:var(--font-playfair)] text-white">
-                Femmeflo
-              </span>
-              <span className="text-xs bg-gradient-to-r from-[#E61C5D] to-rose-600 text-white font-extrabold px-2.5 py-0.5 rounded-full shadow-sm">
-                XL
-              </span>
-            </div>
-
-            <p className="text-[#FF85A1] font-serif italic text-base font-semibold">
-              &ldquo;Feel fresh feel free&rdquo;
-            </p>
+          <div className="lg:col-span-4 space-y-5">
+            <Link href="/" className="inline-block group cursor-pointer">
+              <Image
+                src="/logo-copy.png"
+                alt="Femmeflo Logo"
+                width={600}
+                height={200}
+                className="h-16 sm:h-20 lg:h-24 xl:h-28 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02] filter brightness-110 drop-shadow-md"
+              />
+            </Link>
 
             <p className="text-emerald-100/75 text-xs sm:text-sm leading-relaxed max-w-sm">
               Femmeflo is the flagship feminine hygiene brand by{" "}
