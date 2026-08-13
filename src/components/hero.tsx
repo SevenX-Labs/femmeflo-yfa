@@ -44,14 +44,36 @@ const girlStorySlides = [
 export function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
   const mobileProductRef = useRef<HTMLDivElement>(null);
+  const touchStartX = useRef<number | null>(null);
 
-  // Auto-advance story slides every 5 seconds
+  // Auto-advance story slides every 4.5 seconds across desktop & mobile
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveSlide((prev) => (prev + 1) % girlStorySlides.length);
-    }, 5000);
+    }, 4500);
     return () => clearInterval(timer);
   }, []);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchStartX.current - touchEndX;
+
+    if (Math.abs(diff) > 35) {
+      if (diff > 0) {
+        // Swipe Left -> Next Slide
+        setActiveSlide((prev) => (prev + 1) % girlStorySlides.length);
+      } else {
+        // Swipe Right -> Previous Slide
+        setActiveSlide((prev) => (prev - 1 + girlStorySlides.length) % girlStorySlides.length);
+      }
+    }
+    touchStartX.current = null;
+  };
 
   useEffect(() => {
     if (typeof window === "undefined" || window.innerWidth >= 768) return;
@@ -119,8 +141,12 @@ export function Hero() {
         <div className="w-full flex-1 flex flex-col justify-center my-auto py-0">
           <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-center w-full min-h-[300px] sm:min-h-[380px] lg:min-h-[440px]">
             
-            {/* LEFT SIDE: Animated Circular Glass Stage behind Girls Visual */}
-            <div className="lg:col-span-6 relative w-full h-[360px] sm:h-[460px] lg:h-[520px] xl:h-[560px] max-h-[62vh] flex flex-col justify-between items-center lg:items-start p-2">
+            {/* LEFT SIDE: Animated Circular Glass Stage behind Girls Visual (Touch Swipe Enabled) */}
+            <div
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
+              className="lg:col-span-6 relative w-full h-[360px] sm:h-[460px] lg:h-[520px] xl:h-[560px] max-h-[62vh] flex flex-col justify-between items-center lg:items-start p-2 select-none"
+            >
               
               {/* Animated & Vibrating Soft Circular Glass Stage / Halo Disc with Expanding Ripple Waves */}
               <motion.div
