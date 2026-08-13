@@ -31,6 +31,14 @@ const girlStorySlides = [
     subtitle: "Comfort wherever life takes you.",
     isSplashed: false,
   },
+  {
+    id: 3,
+    image: "/hero-front3.webp",
+    badge: "✦ LIVE WITHOUT LIMITS",
+    title: "MOVE FREELY.",
+    subtitle: "Stay confident.",
+    isSplashed: false,
+  },
 ];
 
 export function Hero() {
@@ -189,8 +197,8 @@ export function Hero() {
                 <div className="w-[84%] h-[84%] rounded-full bg-gradient-to-br from-white/95 via-[#FFF5F8]/70 to-rose-50/40 backdrop-blur-xl border border-rose-100/70 shadow-inner opacity-90 animate-pulse" />
               </motion.div>
 
-              {/* Floating Upper Glass Badge */}
-              <div className="relative z-30 flex justify-start w-full pt-1">
+              {/* Floating Upper Glass Badge (Fully Visible inside Container) */}
+              <div className="relative z-30 flex justify-start w-full pt-1 pl-1 sm:pl-2">
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={currentStory.badge}
@@ -198,14 +206,14 @@ export function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 6 }}
                     transition={{ duration: 0.35 }}
-                    className="px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-rose-100/90 shadow-xs text-[10px] sm:text-xs font-extrabold tracking-wider text-[#E61C5D] uppercase"
+                    className="px-3.5 sm:px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-rose-100/90 shadow-xs text-[10px] sm:text-xs font-extrabold tracking-wider text-[#E61C5D] uppercase shrink-0"
                   >
                     {currentStory.badge}
                   </motion.div>
                 </AnimatePresence>
               </div>
 
-              {/* Central Girls Image Container (Carousel Slide 1 & 2) */}
+              {/* Central Girls Image Container (Carousel Slide 1, 2 & 3) */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none pt-4 pb-2 z-10">
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -216,24 +224,33 @@ export function Hero() {
                     transition={{ duration: 0.45, ease: "easeInOut" }}
                     className="w-full h-full flex items-center justify-center pointer-events-none"
                   >
-                    <Image
-                      src={currentStory.image}
-                      alt="Femmeflo Confident Happy Women"
-                      width={720}
-                      height={580}
-                      className={`w-auto h-[105%] sm:h-[115%] lg:h-[124%] max-h-none object-contain drop-shadow-lg opacity-98 transform -translate-y-2 sm:-translate-y-3 ${
-                        !currentStory.isSplashed
-                          ? "[mask-image:radial-gradient(ellipse_at_center,_black_50%,_transparent_88%)] [-webkit-mask-image:radial-gradient(ellipse_at_center,_black_50%,_transparent_88%)]"
-                          : ""
-                      }`}
-                      priority
-                    />
+                    {currentStory.isSplashed ? (
+                      <Image
+                        src={currentStory.image}
+                        alt="Femmeflo Confident Happy Women"
+                        width={720}
+                        height={580}
+                        className="w-auto h-[105%] sm:h-[115%] lg:h-[124%] max-h-none object-contain drop-shadow-lg opacity-98 transform -translate-y-2 sm:-translate-y-3"
+                        priority
+                      />
+                    ) : (
+                      <div className="relative w-[270px] sm:w-[380px] lg:w-[430px] h-[270px] sm:h-[380px] lg:h-[430px] rounded-full overflow-hidden flex items-center justify-center transform -translate-y-2 sm:-translate-y-3 shadow-2xl border-4 border-white/90 bg-white/40 backdrop-blur-xs">
+                        <Image
+                          src={currentStory.image}
+                          alt="Femmeflo Confident Happy Women"
+                          width={720}
+                          height={580}
+                          className="w-full h-full object-cover scale-105 [mask-image:radial-gradient(circle_at_center,_black_70%,_transparent_98%)] [-webkit-mask-image:radial-gradient(circle_at_center,_black_70%,_transparent_98%)]"
+                          priority
+                        />
+                      </div>
+                    )}
                   </motion.div>
                 </AnimatePresence>
               </div>
 
-              {/* Floating Lower Glass Story Text */}
-              <div className="relative z-30 flex items-end justify-start w-full pb-1">
+              {/* Floating Lower Glass Story Text & Slider Indicators */}
+              <div className="relative z-30 flex items-end justify-between w-full pb-1 pl-1 sm:pl-2 pr-1 gap-2">
                 
                 {/* Floating Translucent Lower Story Message */}
                 <AnimatePresence mode="wait">
@@ -243,7 +260,7 @@ export function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.35 }}
-                    className="bg-white/90 backdrop-blur-md px-4 py-2 rounded-2xl border border-rose-100/80 shadow-xs max-w-[260px] sm:max-w-xs"
+                    className="bg-white/90 backdrop-blur-md px-3.5 sm:px-4 py-2 rounded-2xl border border-rose-100/80 shadow-xs max-w-[210px] sm:max-w-xs"
                   >
                     <h3 className="text-xs sm:text-sm font-extrabold text-[#156035] tracking-wider uppercase font-[family-name:var(--font-outfit)] leading-tight">
                       {currentStory.title}
@@ -253,6 +270,22 @@ export function Hero() {
                     </p>
                   </motion.div>
                 </AnimatePresence>
+
+                {/* Minimal Interactive 3-Slide Indicators (● ○ ○) */}
+                <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-rose-100/70 shadow-xs">
+                  {girlStorySlides.map((s, idx) => (
+                    <button
+                      key={s.id}
+                      onClick={() => setActiveSlide(idx)}
+                      className={`transition-all cursor-pointer rounded-full ${
+                        activeSlide === idx
+                          ? "w-2.5 h-2.5 bg-[#E61C5D] scale-110"
+                          : "w-2 h-2 bg-rose-200 hover:bg-rose-300"
+                      }`}
+                      title={`Go to slide ${s.id}`}
+                    />
+                  ))}
+                </div>
 
               </div>
 
