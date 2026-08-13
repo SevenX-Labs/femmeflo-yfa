@@ -89,7 +89,7 @@ export function Footer() {
           <div className="lg:col-span-4 space-y-5">
             <Link href="/" className="inline-block group cursor-pointer">
               <Image
-                src="/logo-copy.png"
+                src="/femmeflo-white-tagline.png"
                 alt="Femmeflo Logo"
                 width={600}
                 height={200}
