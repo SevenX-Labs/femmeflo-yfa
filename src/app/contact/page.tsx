@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { BackgroundParticles } from "@/components/BackgroundParticles";
@@ -16,7 +15,6 @@ import {
   AlertCircle,
   User,
   MessageSquare,
-  ArrowRight,
   ShieldCheck,
   Globe,
   Copy,
@@ -25,7 +23,6 @@ import {
   ChevronDown,
   ChevronUp,
   MessageCircle,
-  HelpCircle,
   Layers,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -33,16 +30,20 @@ import { motion, AnimatePresence } from "framer-motion";
 const contactFaqs = [
   {
     q: "How fast will the Femmeflo team respond to my inquiry?",
-    a: "Our customer care & sales team typically responds within 2 to 4 business hours during working days (Mon-Sat, 9:30 AM - 6:30 PM)."
+    a: "Our corporate and distributor desk typically reviews and responds to all direct messages within 2 to 4 business hours.",
   },
   {
-    q: "Can I request samples before placing a bulk/wholesale order?",
-    a: "Yes! We provide sample kits to verified retail partners and prospective distributors. Send us a message using the contact form above to request samples."
+    q: "Do you offer bulk supply and distributor pricing across India?",
+    a: "Yes! We work directly with retail chains, pharmacies, NGOs, and regional distributors across all Indian states with dedicated wholesale margins.",
   },
   {
-    q: "How can I contact sales directly on WhatsApp?",
-    a: "You can click the 'Chat on WhatsApp Directly' button on this page or message us directly at +91 98206 76562 for instant response."
-  }
+    q: "Can I request physical product samples for institutional testing?",
+    a: "Certainly. Send us your firm/institution credentials via this form or email us at sales@femmeflo.in and our sample coordinator will assist you.",
+  },
+  {
+    q: "Where is Femmeflo manufactured?",
+    a: "Femmeflo XL sanitary pads are proudly manufactured in India under stringent ISO & GMP certified hygiene laboratories with 100% rash-free cotton materials.",
+  },
 ];
 
 export default function ContactPage() {
@@ -56,6 +57,7 @@ export default function ContactPage() {
 
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [ticketId, setTicketId] = useState("84920");
   const [errorMsg, setErrorMsg] = useState("");
   const [copiedPhone, setCopiedPhone] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -68,15 +70,16 @@ export default function ContactPage() {
     if (errorMsg) setErrorMsg("");
   };
 
-  const copyToClipboard = (text: string, type: "phone" | "email") => {
-    navigator.clipboard.writeText(text);
-    if (type === "phone") {
-      setCopiedPhone(true);
-      setTimeout(() => setCopiedPhone(false), 2000);
-    } else {
-      setCopiedEmail(true);
-      setTimeout(() => setCopiedEmail(false), 2000);
-    }
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("sales@femmeflo.in");
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000);
+  };
+
+  const handleCopyPhone = () => {
+    navigator.clipboard.writeText("+91 98206 76562");
+    setCopiedPhone(true);
+    setTimeout(() => setCopiedPhone(false), 2000);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -101,6 +104,7 @@ export default function ContactPage() {
         throw new Error(data.error || "Failed to send message.");
       }
 
+      setTicketId(Math.floor(10000 + Math.random() * 90000).toString());
       setSubmitted(true);
       setFormData({
         name: "",
@@ -109,8 +113,9 @@ export default function ContactPage() {
         queryType: "Bulk Order / Wholesale Enquiry",
         message: "",
       });
-    } catch (err: any) {
-      setErrorMsg(err.message || "An unexpected error occurred. Please try again.");
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : "An unexpected error occurred. Please try again.";
+      setErrorMsg(message);
     } finally {
       setLoading(false);
     }
@@ -227,7 +232,7 @@ export default function ContactPage() {
                     Thank you for reaching out to Femmeflo. Your message has been logged and forwarded to our sales team. We will get back to you shortly.
                   </p>
                   <div className="px-4 py-2 bg-white rounded-xl border border-emerald-200 text-xs font-mono text-[#156035]">
-                    Reference Ticket: FF-{(Math.random() * 89999 + 10000).toFixed(0)}
+                    Reference Ticket: FF-{ticketId}
                   </div>
                   <button
                     onClick={() => setSubmitted(false)}
@@ -432,7 +437,7 @@ export default function ContactPage() {
                       </div>
                     </div>
                     <button
-                      onClick={() => copyToClipboard("+919820676562", "phone")}
+                      onClick={handleCopyPhone}
                       className="p-2 rounded-xl text-zinc-400 hover:text-[#156035] hover:bg-emerald-50 transition-all cursor-pointer"
                       title="Copy Phone Number"
                     >
@@ -454,7 +459,7 @@ export default function ContactPage() {
                       </div>
                     </div>
                     <button
-                      onClick={() => copyToClipboard("sales@femmeflo.in", "email")}
+                      onClick={handleCopyEmail}
                       className="p-2 rounded-xl text-zinc-400 hover:text-[#E61C5D] hover:bg-rose-50 transition-all cursor-pointer"
                       title="Copy Email Address"
                     >

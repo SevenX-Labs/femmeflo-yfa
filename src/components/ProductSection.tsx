@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Clock, ShieldCheck, Droplets, Smile, Moon, Zap, Sparkles, Feather, ArrowUpRight, Check, Star, Lock, Heart, Leaf, Sun, Shield } from "lucide-react";
+import { Clock, ShieldCheck, Droplets, Smile, Moon, Sparkles, Check, Star, Leaf } from "lucide-react";
 import { FairyIcon } from "@/components/FairyIcon";
 
 // 1. Full Variant Cards Collection

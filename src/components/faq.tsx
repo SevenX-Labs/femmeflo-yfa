@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus, HelpCircle, Sparkles, ArrowRight } from "lucide-react";
+import { Plus, Minus, Sparkles, ArrowRight } from "lucide-react";
 import { FairyIcon } from "@/components/FairyIcon";
 import AnimatedList from "@/components/AnimatedList";
 

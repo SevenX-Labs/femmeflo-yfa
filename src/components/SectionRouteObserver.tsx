@@ -4,22 +4,21 @@ import { useEffect } from "react";
 
 export function SectionRouteObserver() {
   useEffect(() => {
-    const handleScroll = () => {
-      // Find all sections on the page with an ID attribute
-      const sections = document.querySelectorAll<HTMLElement>("section[id]");
-      const viewportCenter = window.innerHeight * 0.4; // 40% threshold for snappy section detection
+    let ticking = false;
 
+    const checkActiveSection = () => {
+      ticking = false;
+      const sections = document.querySelectorAll<HTMLElement>("section[id]");
+      const viewportCenter = window.innerHeight * 0.4;
       let activeSectionId = "";
 
       sections.forEach((section) => {
         const rect = section.getBoundingClientRect();
-        // Check if section covers the upper-center viewport area
         if (rect.top <= viewportCenter && rect.bottom >= 100) {
           activeSectionId = section.id;
         }
       });
 
-      // Update URL hash without polluting browser history or causing page jumps
       if (activeSectionId === "hero" || !activeSectionId) {
         if (window.location.hash !== "") {
           window.history.replaceState(null, "", window.location.pathname + window.location.search);
@@ -32,8 +31,15 @@ export function SectionRouteObserver() {
       }
     };
 
+    const handleScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(checkActiveSection);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Initial check on mount
+    checkActiveSection();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);

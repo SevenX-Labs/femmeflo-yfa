@@ -15,7 +15,6 @@ import {
   Leaf,
   Heart,
   CheckCircle2,
-  Users
 } from "lucide-react";
 
 export function ContactSection() {

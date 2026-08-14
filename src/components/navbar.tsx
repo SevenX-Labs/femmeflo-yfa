@@ -23,7 +23,10 @@ export function Navbar() {
   useEffect(() => {
     if (pathname === "/contact") return;
 
-    const handleScroll = () => {
+    let ticking = false;
+
+    const updateActiveNav = () => {
+      ticking = false;
       const aboutEl = document.getElementById("about");
       const productsEl = document.getElementById("products");
       const scrollY = window.scrollY;
@@ -37,8 +40,15 @@ export function Navbar() {
       }
     };
 
+    const handleScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(updateActiveNav);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    updateActiveNav();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [pathname]);
 

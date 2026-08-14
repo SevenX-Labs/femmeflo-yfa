@@ -26,13 +26,17 @@ const quickTopics = [
   { label: "💬 Contact Support", key: "How can I contact Femmeflo customer care?" },
 ];
 
+let msgCounter = 0;
+const createMsgId = (prefix: string) => `${prefix}-${Date.now()}-${++msgCounter}`;
+const getFormattedTime = () => new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
 export function FloatingChatEnquiry() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
-      id: "1",
+      id: "welcome-1",
       sender: "bot",
-      text: "Hello! 👋 Welcome to Femmeflo Customer Care. How can we assist you today?",
+      text: "Namaste! 🙏 Welcome to Femmeflo. How can we help you today with our 100% rash-free sanitary pads?",
       time: "Just now",
     },
   ]);
@@ -55,10 +59,10 @@ export function FloatingChatEnquiry() {
     if (!trimmed || isTyping) return;
 
     const userMsg: ChatMessage = {
-      id: Date.now().toString(),
+      id: createMsgId("user"),
       sender: "user",
       text: trimmed,
-      time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+      time: getFormattedTime(),
     };
 
     setMessages((prev) => [...prev, userMsg]);
@@ -102,10 +106,10 @@ export function FloatingChatEnquiry() {
       }
 
       const botMsg: ChatMessage = {
-        id: (Date.now() + 1).toString(),
+        id: createMsgId("bot"),
         sender: "bot",
         text: botText,
-        time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+        time: getFormattedTime(),
         actionUrl,
         actionText,
       };
@@ -114,10 +118,10 @@ export function FloatingChatEnquiry() {
     } catch (err) {
       console.error("Chat error:", err);
       const fallbackMsg: ChatMessage = {
-        id: (Date.now() + 1).toString(),
+        id: createMsgId("bot-err"),
         sender: "bot",
         text: "Femmeflo XL sanitary pads feature 3D fast-lock absorption & cottony soft rash-free comfort for ₹40! 🌸 Feel free to WhatsApp us directly at +91 98206 76562.",
-        time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+        time: getFormattedTime(),
         actionUrl: "https://wa.me/919820676562",
         actionText: "Chat on WhatsApp",
       };

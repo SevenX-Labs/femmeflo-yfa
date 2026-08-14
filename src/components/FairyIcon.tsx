@@ -9,7 +9,8 @@ export function FairyIcon({ className = "w-22 h-22 sm:w-30 sm:h-30" }: { classNa
     <div className={`relative inline-flex items-center justify-center select-none ${className}`}>
       {/* Main Levitating Fairy Container */}
       <motion.div
-        className="w-full h-full relative z-10 flex items-center justify-center scale-[1.08]"
+        className="w-full h-full relative z-10 flex items-center justify-center scale-[1.08] transform-gpu"
+        style={{ willChange: "transform" }}
         animate={{
           y: [-6, 6, -6],
           rotate: [-3, 4, -3],
@@ -36,7 +37,8 @@ export function FairyIcon({ className = "w-22 h-22 sm:w-30 sm:h-30" }: { classNa
           {/* ISOLATED FLUTTERING GOLDEN FAIRY WINGS */}
           <motion.div
             id="official-yellow-fairy-wings"
-            className="absolute top-[8%] left-[42%] w-[54%] h-[48%] z-10 origin-[10%_52%]"
+            className="absolute top-[8%] left-[42%] w-[54%] h-[48%] z-10 origin-[10%_52%] transform-gpu"
+            style={{ willChange: "transform" }}
             animate={{
               scaleX: [1, 0.35, 1.12, 0.42, 1],
               scaleY: [1, 1.06, 0.95, 1.04, 1],

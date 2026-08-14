@@ -150,3 +150,9 @@
   background-size: 200% 100%;
   animation: shimmer 1.2s ease-in-out infinite;
 }
+
+/* Off-screen Content Rendering Optimization (Reduces initial DOM paint & TBT) */
+.section-deferred-render {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 600px;
+}

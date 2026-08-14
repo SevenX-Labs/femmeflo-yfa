@@ -66,10 +66,10 @@ export const AnimatedList: React.FC<AnimatedListProps> = ({
   }, []);
 
   const handleItemClick = useCallback(
-    (item: any, index: number) => {
+    (item: React.ReactNode | string, index: number) => {
       setSelectedIndex(index);
       if (onItemSelect) {
-        onItemSelect(item, index);
+        onItemSelect(item as string, index);
       }
     },
     [onItemSelect]

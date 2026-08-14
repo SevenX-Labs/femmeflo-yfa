@@ -192,10 +192,11 @@ export async function POST(req: Request) {
         message: "Enquiry received! (Dev mode: Configure SMTP in .env to send real emails)",
       });
     }
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("Error in contact API route:", err);
+    const message = err instanceof Error ? err.message : "Failed to process enquiry";
     return NextResponse.json(
-      { error: err.message || "Failed to process enquiry" },
+      { error: message },
       { status: 500 }
     );
   }

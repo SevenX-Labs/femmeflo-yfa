@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Heart, Leaf } from "lucide-react";
 import { FairyIcon } from "@/components/FairyIcon";
 import { BackgroundParticles } from "@/components/BackgroundParticles";
 
@@ -24,16 +23,26 @@ export function GlobalFloatingProduct() {
   const mouseY = useSpring(rawMouseY, { stiffness: 50, damping: 20 });
 
   useEffect(() => {
+    let mouseRaf = 0;
+
     const handleMouseMove = (e: MouseEvent) => {
-      const { innerWidth, innerHeight } = window;
-      const normX = (e.clientX / innerWidth - 0.5) * 2;
-      const normY = (e.clientY / innerHeight - 0.5) * 2;
-      rawMouseX.set(normX * 18);
-      rawMouseY.set(normY * 12);
+      if (window.innerWidth < 1024) return;
+      if (mouseRaf) return;
+      mouseRaf = requestAnimationFrame(() => {
+        mouseRaf = 0;
+        const { innerWidth, innerHeight } = window;
+        const normX = (e.clientX / innerWidth - 0.5) * 2;
+        const normY = (e.clientY / innerHeight - 0.5) * 2;
+        rawMouseX.set(normX * 18);
+        rawMouseY.set(normY * 12);
+      });
     };
 
     window.addEventListener("mousemove", handleMouseMove, { passive: true });
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      if (mouseRaf) cancelAnimationFrame(mouseRaf);
+    };
   }, [rawMouseX, rawMouseY]);
 
   useEffect(() => {

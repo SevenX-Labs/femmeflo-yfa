@@ -5,9 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import {
   Sparkles,
-  Globe,
-  MessageCircle,
-  Share2,
   ShieldCheck,
   Heart,
   Leaf,

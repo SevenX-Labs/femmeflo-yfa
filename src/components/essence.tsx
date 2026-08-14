@@ -9,19 +9,12 @@ import {
   Smile,
   Zap,
   ArrowRight,
-  CheckCircle2,
-  User,
-  MapPin,
   Star,
   Sparkles,
   Leaf,
-  Lock,
-  Award,
   Users,
   Globe,
-  ChevronRight,
-  Activity,
-  Shield
+  ChevronRight
 } from "lucide-react";
 
 export function EssenceSection() {

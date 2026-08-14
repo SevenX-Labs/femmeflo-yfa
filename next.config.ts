@@ -4,57 +4,34 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   compress: true,
   poweredByHeader: false,
+  experimental: {
+    optimizePackageImports: ["lucide-react", "framer-motion"],
+  },
   images: {
     formats: ["image/avif", "image/webp"],
-    minimumCacheTTL: 0,
+    minimumCacheTTL: 86400,
     deviceSizes: [640, 750, 828, 1080, 1200],
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
   },
   async headers() {
     return [
       {
-        // Public images, icons & media: no-cache so newly uploaded or updated images reflect instantly
-        source: "/:all*(svg|jpg|jpeg|png|webp|avif|ico)",
+        // Public images, icons & media: cached with stale-while-revalidate for instant performance
+        source: "/:all*(svg|jpg|jpeg|png|webp|avif|ico|mp4)",
         headers: [
           {
             key: "Cache-Control",
-            value: "no-cache, no-store, max-age=0, must-revalidate",
-          },
-          {
-            key: "Pragma",
-            value: "no-cache",
-          },
-          {
-            key: "Expires",
-            value: "0",
+            value: "public, max-age=86400, stale-while-revalidate=604800",
           },
         ],
       },
       {
-        // Static font files: can be cached safely since font files are permanent
+        // Static font files: immutable long-term caching
         source: "/:all*(woff2|woff|ttf|otf)",
         headers: [
           {
             key: "Cache-Control",
             value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
-      {
-        // HTML pages & routes: ensure immediate real-time loading of newly deployed Vercel versions
-        source: "/((?!api|_next/static|_next/image).*)",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "no-cache, no-store, max-age=0, must-revalidate",
-          },
-          {
-            key: "Pragma",
-            value: "no-cache",
-          },
-          {
-            key: "Expires",
-            value: "0",
           },
         ],
       },
