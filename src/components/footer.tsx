@@ -89,13 +89,13 @@ export function Footer() {
           <div className="lg:col-span-4 space-y-5">
             <Link href="/" className="inline-block group cursor-pointer">
               <Image
-                src="/femmeflo-white-tagline.png"
+                src="/logo-copy.png"
                 alt="Femmeflo Logo"
                 width={600}
                 height={200}
                 quality={100}
                 loading="lazy"
-                className="h-16 sm:h-20 lg:h-24 xl:h-28 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02] filter brightness-110 drop-shadow-md"
+                className="h-14 sm:h-16 lg:h-20 xl:h-22 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
               />
             </Link>
 

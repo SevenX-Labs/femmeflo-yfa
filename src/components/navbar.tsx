@@ -8,9 +8,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, MessageCircle } from "lucide-react";
 
 const navItems = [
-  { name: "ABOUT US", href: "/#about" },
-  { name: "PRODUCTS", href: "/#products" },
-  { name: "CONTACT US", href: "/contact" },
+  { name: "About Us", href: "/#about" },
+  { name: "Products", href: "/#products" },
+  { name: "Contact Us", href: "/contact" },
 ];
 
 export function Navbar() {
@@ -44,7 +44,10 @@ export function Navbar() {
   }, [pathname]);
 
   return (
-    <header className="relative w-full z-50 font-[family-name:var(--font-jakarta)] bg-[url('/navbar-bg-transparent.webp')] bg-[length:100%_100%] bg-no-repeat bg-bottom pb-7 sm:pb-9 lg:pb-11">
+    <header
+      className="relative w-full z-50 font-playfair bg-[url('/navbar-bg-transparent.webp')] bg-[length:100%_100%] bg-no-repeat bg-bottom pb-7 sm:pb-9 lg:pb-11"
+      style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, 'Times New Roman', serif" }}
+    >
       <div className="w-full pt-3 sm:pt-4 lg:pt-4.5 px-4 sm:px-8 lg:px-12 relative z-20">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* 1. Left: Brand Logo */}
@@ -60,7 +63,7 @@ export function Navbar() {
             />
           </Link>
 
-          {/* 2. Right: Desktop Minimal Nav Links + Circular Menu Button */}
+          {/* 2. Right: Desktop Minimal Nav Links with Playfair Display / Georgia Luxury Serif */}
           <nav className="hidden md:flex items-center gap-7 lg:gap-9">
             <ul className="flex items-center gap-6 sm:gap-8 lg:gap-10">
               {navItems.map((item, index) => {
@@ -70,7 +73,8 @@ export function Navbar() {
                     <Link
                       href={item.href}
                       onClick={() => setActiveIndex(index)}
-                      className={`group relative py-1.5 font-[family-name:var(--font-jakarta)] text-[13px] sm:text-[14px] lg:text-[15px] font-black tracking-[0.25em] uppercase transition-all duration-200 cursor-pointer ${
+                      style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, 'Times New Roman', serif" }}
+                      className={`group relative py-1.5 font-playfair text-[15px] sm:text-[16px] lg:text-[17px] font-bold tracking-[0.06em] uppercase transition-all duration-200 cursor-pointer ${
                         isActive
                           ? "text-white drop-shadow-xs"
                           : "text-white/90 hover:text-white"
@@ -112,7 +116,8 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden absolute top-full left-0 right-0 z-50 bg-white/98 backdrop-blur-2xl border-b border-rose-100 px-6 py-5 shadow-2xl overflow-hidden"
+            style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, 'Times New Roman', serif" }}
+            className="md:hidden absolute top-full left-0 right-0 z-50 bg-white/98 backdrop-blur-2xl border-b border-rose-100 px-6 py-5 shadow-2xl overflow-hidden font-playfair"
           >
             <ul className="flex flex-col gap-3">
               {navItems.map((item, index) => (
@@ -123,7 +128,8 @@ export function Navbar() {
                       setActiveIndex(index);
                       setMobileMenuOpen(false);
                     }}
-                    className={`block text-sm font-[family-name:var(--font-jakarta)] font-black tracking-[0.25em] uppercase py-1.5 cursor-pointer ${
+                    style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, 'Times New Roman', serif" }}
+                    className={`block text-base font-playfair font-bold tracking-[0.06em] uppercase py-1.5 cursor-pointer ${
                       activeIndex === index
                         ? "text-[#00873A]"
                         : "text-zinc-700 hover:text-[#00873A]"
@@ -135,7 +141,7 @@ export function Navbar() {
               ))}
             </ul>
 
-            <div className="mt-4 pt-3 border-t border-zinc-100">
+            <div className="mt-4 pt-3 border-t border-zinc-100 font-sans">
               <Link
                 href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
