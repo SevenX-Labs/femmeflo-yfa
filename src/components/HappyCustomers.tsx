@@ -18,21 +18,21 @@ const customerReviews: CustomerReview[] = [
     id: 1,
     name: "Priya Sharma",
     role: "Verified Buyer • Uttar Pradesh",
-    quote: "I no longer worry about rashes or chafing during long active days. Truly dependable comfort.",
+    quote: "I used top commercial brands for years and always suffered from rashes. Ever since switching to Femmeflo, my period days feel 100% comfortable and irritation-free.",
     mainImage: "/indian-customer-main.webp",
   },
   {
     id: 2,
     name: "Ananya Patel",
     role: "Daily Commuter • Gujarat",
-    quote: "The 280mm double wing anchors keep the pad firmly in place all day without shifting.",
+    quote: "Other pads used to bunch up and shift during my train commute. Femmeflo's 280mm double wings lock firmly in place with zero leaks all day.",
     mainImage: "/indian-customer-main.webp",
   },
   {
     id: 3,
     name: "Rhea Sen",
     role: "Community Member • West Bengal",
-    quote: "Solid absorbency at an honest ₹40 price point. Switching to Femmeflo was completely effortless.",
+    quote: "Why pay triple for plastic pads? Femmeflo offers pure organic cotton softness, supreme absorbency, and unbeatable comfort that no other brand delivers.",
     mainImage: "/indian-customer-main.webp",
   },
 ];
@@ -145,73 +145,73 @@ export function HappyCustomers() {
           <div className="hidden lg:block absolute left-0 inset-y-0 w-[28%] xl:w-[32%] z-10">
             {/* Avatar 1 */}
             <div className="absolute top-4 left-[10%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-1.webp" alt="Happy Customer" className="w-14 h-14 xl:w-16 xl:h-16 rounded-full object-cover shadow-md border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
-                <p className="text-xs font-bold text-rose-600">प्रिया शर्मा</p>
-                <p className="text-[11px] text-zinc-600 leading-relaxed">क्वालिटी बहुत अच्छी है, 5 स्टार! ⭐</p>
+              <img loading="lazy" src="/avatar-indian-1.webp" alt="Customer Review" className="w-14 h-14 xl:w-16 xl:h-16 rounded-full object-cover shadow-md border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute top-full left-0 mt-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+                <div className="flex items-center gap-1 mb-1">
+                  <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
+                  <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
+                </div>
+                <p className="text-xs text-zinc-800 font-medium leading-snug">पहले दूसरे पैड्स से रैशेस होते थे, जबसे Femmeflo लिया है तबसे 100% आराम है! ⭐</p>
               </div>
             </div>
 
             {/* Avatar 2 */}
             <div className="absolute top-2 left-[55%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-2.webp" alt="Happy Customer" className="w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
-                <p className="text-xs font-bold text-rose-600">अनन्या पटेल</p>
-                <p className="text-[11px] text-zinc-600 leading-relaxed">12 घंटे तक लीकेज-फ्री प्रोटेक्शन! ✅</p>
+              <img loading="lazy" src="/avatar-indian-2.webp" alt="Customer Review" className="w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute top-full right-0 mt-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+                <div className="flex items-center gap-1 mb-1">
+                  <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
+                  <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
+                </div>
+                <p className="text-xs text-zinc-800 font-medium leading-snug">कई ब्रांड्स ट्राय किए, पर Femmeflo जैसा सॉफ्ट कम्फर्ट और सूखापन कहीं नहीं मिला! ✅</p>
               </div>
             </div>
 
             {/* Avatar 3 */}
             <div className="absolute top-[42%] left-[6%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-3.webp" alt="Happy Customer" className="w-14 h-14 xl:w-16 xl:h-16 rounded-2xl object-cover shadow-md border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
-                <p className="text-xs font-bold text-rose-600">मीरा जोशी</p>
-                <p className="text-[11px] text-zinc-600 leading-relaxed">100% रैश-फ्री, बेस्ट क्वालिटी! 💯</p>
-              </div>
-            </div>
-
-            {/* FLOATING BADGE 1 */}
-            <div className="absolute top-[24%] left-[20%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20 animate-float-alt transform-gpu">
-              <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 shrink-0" />
-              <div className="flex flex-col text-left leading-tight">
-                <span className="text-xs font-bold text-rose-600">Happy</span>
-                <span className="text-xs font-bold text-rose-600">Customer</span>
+              <img loading="lazy" src="/avatar-indian-3.webp" alt="Customer Review" className="w-14 h-14 xl:w-16 xl:h-16 rounded-2xl object-cover shadow-md border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full left-0 mb-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+                <div className="flex items-center gap-1 mb-1">
+                  <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
+                  <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
+                </div>
+                <p className="text-xs text-zinc-800 font-medium leading-snug">पुराने पैड्स खिसक जाते थे, Femmeflo के डबल विंग्स से दिनभर पूरी सुरक्षा मिलती है! 🛡️</p>
               </div>
             </div>
 
             {/* Avatar 4 */}
             <div className="absolute top-[44%] left-[62%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-4.webp" alt="Happy Customer" className="w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
-                <p className="text-xs font-bold text-rose-600">रिया गुप्ता</p>
-                <p className="text-[11px] text-zinc-600 leading-relaxed">डबल विंग से पूरी सुरक्षा मिलती है! 🛡️</p>
+              <img loading="lazy" src="/avatar-indian-4.webp" alt="Customer Review" className="w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full right-0 mb-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+                <div className="flex items-center gap-1 mb-1">
+                  <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
+                  <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
+                </div>
+                <p className="text-xs text-zinc-800 font-medium leading-snug">पहले हैवी फ्लो में डर रहता था, Femmeflo XL ने वो लीकेज की चिंता ही खत्म कर दी! 📏</p>
               </div>
             </div>
 
             {/* Avatar 5 */}
             <div className="absolute bottom-4 left-[8%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-5.webp" alt="Happy Customer" className="w-14 h-14 xl:w-15 xl:h-15 rounded-full object-cover shadow-sm border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
-                <p className="text-xs font-bold text-rose-600">काव्या सिंह</p>
-                <p className="text-[11px] text-zinc-600 leading-relaxed">सॉफ्ट कॉटन फील, स्किन-फ्रेंडली! 🌿</p>
+              <img loading="lazy" src="/avatar-indian-5.webp" alt="Customer Review" className="w-14 h-14 xl:w-15 xl:h-15 rounded-full object-cover shadow-sm border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full left-0 mb-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+                <div className="flex items-center gap-1 mb-1">
+                  <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
+                  <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
+                </div>
+                <p className="text-xs text-zinc-800 font-medium leading-snug">बाजार के महंगे ब्रांड्स छोड़े, Femmeflo का कॉटन फील सच में बेमिसाल है! 💧</p>
               </div>
             </div>
 
             {/* Avatar 6 */}
             <div className="absolute bottom-2 left-[54%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-6.webp" alt="Happy Customer" className="w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
-                <p className="text-xs font-bold text-rose-600">नेहा वर्मा</p>
-                <p className="text-[11px] text-zinc-600 leading-relaxed">280mm XL साइज़, परफेक्ट कवरेज! 📏</p>
-              </div>
-            </div>
-
-            {/* FLOATING BADGE 2 */}
-            <div className="absolute bottom-[22%] left-[16%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20 animate-float-slow transform-gpu">
-              <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 shrink-0" />
-              <div className="flex flex-col text-left leading-tight">
-                <span className="text-xs font-bold text-rose-600">Happy</span>
-                <span className="text-xs font-bold text-rose-600">Customer</span>
+              <img loading="lazy" src="/avatar-indian-6.webp" alt="Customer Review" className="w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full right-0 mb-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+                <div className="flex items-center gap-1 mb-1">
+                  <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
+                  <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
+                </div>
+                <p className="text-xs text-zinc-800 font-medium leading-snug">पहले प्लास्टिक लेयर से जलन होती थी, Femmeflo का नेचुरल कॉटन सबसे सेफ लगा! 🌿</p>
               </div>
             </div>
           </div>
@@ -247,73 +247,73 @@ export function HappyCustomers() {
           <div className="hidden lg:block absolute right-0 inset-y-0 w-[28%] xl:w-[32%] z-10">
             {/* Avatar 7 */}
             <div className="absolute top-2 right-[55%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-7.webp" alt="Happy Customer" className="w-14 h-14 xl:w-16 xl:h-16 rounded-full object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
-                <p className="text-xs font-bold text-rose-600">सोनम राठौर</p>
-                <p className="text-[11px] text-zinc-600 leading-relaxed">नाइट यूज़ में भी लीक नहीं होता! 🌙</p>
+              <img loading="lazy" src="/avatar-indian-7.webp" alt="Customer Review" className="w-14 h-14 xl:w-16 xl:h-16 rounded-full object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute top-full left-0 mt-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+                <div className="flex items-center gap-1 mb-1">
+                  <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
+                  <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
+                </div>
+                <p className="text-xs text-zinc-800 font-medium leading-snug">नाइट में दाग लगने की टेंशन रहती थी, Femmeflo से रातभर सुकून की नींद मिलती है! 🌙</p>
               </div>
             </div>
 
             {/* Avatar 8 */}
             <div className="absolute top-4 right-[10%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-8.webp" alt="Happy Customer" className="w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
-                <p className="text-xs font-bold text-rose-600">दिव्या मिश्रा</p>
-                <p className="text-[11px] text-zinc-600 leading-relaxed">हाइपोएलर्जेनिक, जलन-मुक्त! ✨</p>
-              </div>
-            </div>
-
-            {/* FLOATING BADGE 3 */}
-            <div className="absolute top-[24%] right-[20%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20 animate-float-alt transform-gpu">
-              <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 shrink-0" />
-              <div className="flex flex-col text-left leading-tight">
-                <span className="text-xs font-bold text-rose-600">Happy</span>
-                <span className="text-xs font-bold text-rose-600">Customer</span>
+              <img loading="lazy" src="/avatar-indian-8.webp" alt="Customer Review" className="w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute top-full right-0 mt-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+                <div className="flex items-center gap-1 mb-1">
+                  <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
+                  <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
+                </div>
+                <p className="text-xs text-zinc-800 font-medium leading-snug">मैंने अपनी बहनों को भी Femmeflo पर स्विच कराया, ऐसा कम्फर्ट कहीं और नहीं मिला! ✨</p>
               </div>
             </div>
 
             {/* Avatar 9 */}
             <div className="absolute top-[42%] right-[6%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-9.webp" alt="Happy Customer" className="w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
-                <p className="text-xs font-bold text-rose-600">पूजा यादव</p>
-                <p className="text-[11px] text-zinc-600 leading-relaxed">एंटी-स्टेन टेक्नोलॉजी काम करती है! 👍</p>
+              <img loading="lazy" src="/avatar-indian-9.webp" alt="Customer Review" className="w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full right-0 mb-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+                <div className="flex items-center gap-1 mb-1">
+                  <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
+                  <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
+                </div>
+                <p className="text-xs text-zinc-800 font-medium leading-snug">पहले हर 3 घंटे में बदलना पड़ता था, Femmeflo का 12 घंटे का प्रोटेक्शन सच में बेस्ट है! 👗</p>
               </div>
             </div>
 
             {/* Avatar 10 */}
             <div className="absolute top-[44%] right-[62%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-10.webp" alt="Happy Customer" className="w-14 h-14 xl:w-16 xl:h-16 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
-                <p className="text-xs font-bold text-rose-600">श्रुति तिवारी</p>
-                <p className="text-[11px] text-zinc-600 leading-relaxed">प्रीमियम क्वालिटी, वैल्यू फॉर मनी! 💎</p>
-              </div>
-            </div>
-
-            {/* FLOATING BADGE 4 */}
-            <div className="absolute bottom-[22%] right-[16%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20 animate-float-slow transform-gpu">
-              <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 shrink-0" />
-              <div className="flex flex-col text-left leading-tight">
-                <span className="text-xs font-bold text-rose-600">Happy</span>
-                <span className="text-xs font-bold text-rose-600">Customer</span>
+              <img loading="lazy" src="/avatar-indian-10.webp" alt="Customer Review" className="w-14 h-14 xl:w-16 xl:h-16 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full left-0 mb-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+                <div className="flex items-center gap-1 mb-1">
+                  <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
+                  <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
+                </div>
+                <p className="text-xs text-zinc-800 font-medium leading-snug">सेंसिटिव स्किन के लिए इससे बेहतर कुछ नहीं, दूसरे पैड्स से बहुत ज्यादा आरामदेह! 🌸</p>
               </div>
             </div>
 
             {/* Avatar 11 */}
             <div className="absolute bottom-2 right-[54%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-11.webp" alt="Happy Customer" className="w-14 h-14 xl:w-16 xl:h-16 rounded-full object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
-                <p className="text-xs font-bold text-rose-600">आरती चौहान</p>
-                <p className="text-[11px] text-zinc-600 leading-relaxed">वेरीफाइड खरीदार, हर बार यही! 🔁</p>
+              <img loading="lazy" src="/avatar-indian-11.webp" alt="Customer Review" className="w-14 h-14 xl:w-16 xl:h-16 rounded-full object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full left-0 mb-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+                <div className="flex items-center gap-1 mb-1">
+                  <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
+                  <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
+                </div>
+                <p className="text-xs text-zinc-800 font-medium leading-snug">ऑफिस और ट्रैवल में Femmeflo ही मेरा भरोसा है, कम्फर्ट का कोई मुकाबला नहीं! 💎</p>
               </div>
             </div>
 
             {/* Avatar 12 */}
             <div className="absolute bottom-4 right-[8%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-12.webp" alt="Happy Customer" className="w-14 h-14 xl:w-15 xl:h-15 rounded-full object-cover shadow-sm border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
-                <p className="text-xs font-bold text-rose-600">स्वाति राजपूत</p>
-                <p className="text-[11px] text-zinc-600 leading-relaxed">फैमिली पैक में और भी सस्ता! 🎁</p>
+              <img loading="lazy" src="/avatar-indian-12.webp" alt="Customer Review" className="w-14 h-14 xl:w-15 xl:h-15 rounded-full object-cover shadow-sm border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full right-0 mb-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+                <div className="flex items-center gap-1 mb-1">
+                  <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
+                  <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
+                </div>
+                <p className="text-xs text-zinc-800 font-medium leading-snug">एक बार Femmeflo यूज़ किया तो दूसरा कोई पसंद नहीं आएगा, बेस्ट कम्फर्ट! 🛍️</p>
               </div>
             </div>
           </div>

@@ -136,3 +136,17 @@
   will-change: transform;
 }
 
+/* Video Skeleton Shimmer Loader */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 1.2s ease-in-out infinite;
+}

@@ -261,14 +261,16 @@ export function Hero() {
                         priority
                       />
                     ) : (
-                      <div className="relative w-[270px] sm:w-[380px] lg:w-[430px] h-[270px] sm:h-[380px] lg:h-[430px] rounded-full overflow-hidden flex items-center justify-center transform -translate-y-2 sm:-translate-y-3 shadow-2xl border-4 border-white/90 bg-white/40 backdrop-blur-xs">
+                      <div className="relative w-[270px] sm:w-[380px] lg:w-[430px] h-[270px] sm:h-[380px] lg:h-[430px] rounded-full overflow-hidden flex items-center justify-center transform -translate-y-2 sm:-translate-y-3 shadow-2xl border-4 border-white/95 bg-white/40 backdrop-blur-xs">
                         <Image
                           src={currentStory.image}
                           alt="Femmeflo Confident Happy Women"
-                          width={720}
-                          height={580}
+                          width={1200}
+                          height={960}
+                          quality={100}
+                          priority
                           sizes="(max-width: 640px) 270px, (max-width: 1024px) 380px, 430px"
-                          className="w-full h-full object-cover scale-105 [mask-image:radial-gradient(circle_at_center,_black_70%,_transparent_98%)] [-webkit-mask-image:radial-gradient(circle_at_center,_black_70%,_transparent_98%)]"
+                          className="w-full h-full object-cover select-none"
                         />
                       </div>
                     )}
