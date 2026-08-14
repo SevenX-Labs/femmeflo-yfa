@@ -110,7 +110,7 @@ export function ProductSection() {
             {/* Badge */}
             <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#156035]/10 border border-[#156035]/20 text-xs font-bold text-[#156035] uppercase tracking-wider shadow-2xs">
               <Star className="w-3.5 h-3.5 fill-[#156035]" />
-              <span>Hero Flagship Product</span>
+              <span>Flagship Product</span>
             </div>
 
             {/* Heading */}
