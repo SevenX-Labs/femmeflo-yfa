@@ -17,22 +17,22 @@ const customerReviews: CustomerReview[] = [
   {
     id: 1,
     name: "Priya Sharma",
-    role: "Mumbai • Verified Buyer",
-    quote: "I no longer worry about chafing during 10-hour office shifts. Absolutely dependable quality.",
+    role: "Verified Buyer • Uttar Pradesh",
+    quote: "I no longer worry about rashes or chafing during long active days. Truly dependable comfort.",
     mainImage: "/indian-customer-main.webp",
   },
   {
     id: 2,
     name: "Ananya Patel",
-    role: "Ahmedabad • Daily Commuter",
+    role: "Daily Commuter • Gujarat",
     quote: "The 280mm double wing anchors keep the pad firmly in place all day without shifting.",
     mainImage: "/indian-customer-main.webp",
   },
   {
     id: 3,
     name: "Rhea Sen",
-    role: "Bengaluru • Wellness Enthusiast",
-    quote: "Solid absorbency at an honest ₹40 price point. Switching to Femmeflo was effortless.",
+    role: "Community Member • West Bengal",
+    quote: "Solid absorbency at an honest ₹40 price point. Switching to Femmeflo was completely effortless.",
     mainImage: "/indian-customer-main.webp",
   },
 ];
@@ -43,7 +43,7 @@ export function HappyCustomers() {
   const active = customerReviews[activeIdx];
 
   return (
-    <section
+    <section  
       id="happy-customers"
       className="relative w-full bg-gradient-to-br from-[#EDF9F3] via-[#FFF3F5] to-[#EBF5FC] border-b border-rose-100/60 px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28 overflow-hidden font-[family-name:var(--font-jakarta)]"
     >
@@ -120,206 +120,171 @@ export function HappyCustomers() {
             </svg>
           </div>
 
-          {/* LEFT CLUSTER: Floating Avatars & Heart Badges */}
-          <div className="hidden lg:block absolute left-0 inset-y-0 w-5/12 pointer-events-none select-none z-10">
+          {/* LEFT CLUSTER: Floating Avatars & Heart Badges (GPU Accelerated) */}
+          <div className="hidden lg:block absolute left-0 inset-y-0 w-[28%] xl:w-[32%] pointer-events-none select-none z-10">
             {/* Avatar 1 (Indian College Student in Yellow Kurti) */}
-            <motion.img
+            <img
               loading="lazy"
               src="/avatar-indian-1.webp"
               alt="Indian Customer"
-              className="absolute top-8 left-[24%] w-16 h-16 rounded-full object-cover shadow-md border-2 border-white"
-              animate={{ y: [-4, 4, -4] }}
-              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-4 left-[10%] w-14 h-14 xl:w-16 xl:h-16 rounded-full object-cover shadow-md border-2 border-white animate-float-slow transform-gpu"
             />
 
             {/* Avatar 2 (Indian Woman in Red Saree) */}
-            <motion.img
+            <img
               loading="lazy"
               src="/avatar-indian-2.webp"
               alt="Indian Customer"
-              className="absolute top-2 left-[56%] w-18 h-18 rounded-2xl object-cover shadow-lg border-2 border-white"
-              animate={{ y: [4, -4, 4] }}
-              transition={{ duration: 5.2, repeat: Infinity, ease: "easeInOut", delay: 0.3 }}
+              className="absolute top-2 left-[55%] w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-alt transform-gpu"
             />
 
             {/* Avatar 3 (Indian Woman with Glasses in Green Top) */}
-            <motion.img
+            <img
               loading="lazy"
               src="/avatar-indian-3.webp"
               alt="Indian Customer"
-              className="absolute top-[38%] left-[8%] w-16 h-16 rounded-2xl object-cover shadow-md border-2 border-white"
-              animate={{ y: [-5, 5, -5] }}
-              transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+              className="absolute top-[42%] left-[6%] w-14 h-14 xl:w-16 xl:h-16 rounded-2xl object-cover shadow-md border-2 border-white animate-float-slow transform-gpu"
             />
 
             {/* FLOATING BADGE 1: Indian Customer (Top Left) */}
-            <motion.div
-              className="absolute top-[22%] left-[28%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3.5 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20"
-              animate={{ y: [-3, 3, -3] }}
-              transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
+            <div
+              className="absolute top-[24%] left-[20%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20 animate-float-alt transform-gpu"
             >
               <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 shrink-0" />
               <div className="flex flex-col text-left leading-tight">
                 <span className="text-[10px] font-bold text-rose-600">Indian</span>
                 <span className="text-[10px] font-bold text-rose-600">Customer</span>
               </div>
-            </motion.div>
+            </div>
 
             {/* Avatar 4 (Indian Woman in Blue Kurta) */}
-            <motion.img
+            <img
               loading="lazy"
               src="/avatar-indian-4.webp"
               alt="Indian Customer"
-              className="absolute bottom-[22%] left-[78%] w-18 h-18 rounded-2xl object-cover shadow-md border-2 border-white"
-              animate={{ y: [-4, 4, -4] }}
-              transition={{ duration: 4.6, repeat: Infinity, ease: "easeInOut", delay: 1.2 }}
+              className="absolute top-[44%] left-[62%] w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu"
             />
 
             {/* Avatar 5 (Indian Woman in Yellow Dupatta & Bindi) */}
-            <motion.img
+            <img
               loading="lazy"
               src="/avatar-indian-5.webp"
               alt="Indian Customer"
-              className="absolute bottom-6 left-[24%] w-15 h-15 rounded-full object-cover shadow-sm border-2 border-white"
-              animate={{ y: [4, -4, 4] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+              className="absolute bottom-4 left-[8%] w-14 h-14 xl:w-15 xl:h-15 rounded-full object-cover shadow-sm border-2 border-white animate-float-slow transform-gpu"
             />
 
             {/* Avatar 6 (Indian Student in White Kurta & Purple Scarf) */}
-            <motion.img
+            <img
               loading="lazy"
               src="/avatar-indian-6.webp"
               alt="Indian Customer"
-              className="absolute bottom-2 left-[50%] w-18 h-18 rounded-2xl object-cover shadow-md border-2 border-white"
-              animate={{ y: [-5, 5, -5] }}
-              transition={{ duration: 4.4, repeat: Infinity, ease: "easeInOut", delay: 1.8 }}
+              className="absolute bottom-2 left-[54%] w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu"
             />
 
             {/* FLOATING BADGE 2: Indian Customer (Bottom Left) */}
-            <motion.div
-              className="absolute bottom-[16%] left-[44%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3.5 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20"
-              animate={{ y: [3, -3, 3] }}
-              transition={{ duration: 4.6, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+            <div
+              className="absolute bottom-[22%] left-[16%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20 animate-float-slow transform-gpu"
             >
               <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 shrink-0" />
               <div className="flex flex-col text-left leading-tight">
                 <span className="text-[10px] font-bold text-rose-600">Indian</span>
                 <span className="text-[10px] font-bold text-rose-600">Customer</span>
               </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* CENTER FEATURED CUSTOMER PORTRAIT CARD */}
           <div className="relative z-20 flex flex-col items-center">
             
             {/* Pulsing Backlight Ring */}
-            <div className="absolute inset-0 rounded-[2.2rem] bg-gradient-to-tr from-rose-400/25 via-emerald-300/20 to-sky-300/25 blur-2xl pointer-events-none animate-pulse" />
+            <div className="absolute inset-0 rounded-[2.2rem] bg-gradient-to-tr from-rose-400/20 via-emerald-300/15 to-sky-300/20 pointer-events-none transform-gpu" />
 
-            <motion.div
-              className="relative p-1 group"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.2 }}
-            >
+            <div className="relative p-1 group transition-transform duration-200 hover:scale-[1.02] transform-gpu">
               {/* Main Indian Customer Video (Landscape Autoplay loop) */}
-              <div className="relative overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white/95 group-hover:border-rose-300 transition-colors bg-black/5">
+              <div className="relative overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white/95 group-hover:border-rose-300 transition-colors bg-black/5 aspect-video w-[300px] sm:w-[400px] md:w-[460px] lg:w-[490px] xl:w-[540px] max-w-[88vw]">
                 <video
-                  src="/happy-customre.mp4"
+                  src="/happy-customer.mp4"
                   autoPlay
                   loop
                   muted
                   playsInline
-                  className="w-[300px] sm:w-[440px] md:w-[520px] lg:w-[560px] xl:w-[620px] max-w-[92vw] aspect-[640/304] object-cover select-none"
+                  className="w-full h-full object-cover select-none pointer-events-none"
                 />
+
               </div>
-            </motion.div>
+            </div>
           </div>
 
-          {/* RIGHT CLUSTER: Floating Avatars & Heart Badges */}
-          <div className="hidden lg:block absolute right-0 inset-y-0 w-5/12 pointer-events-none select-none z-10">
+          {/* RIGHT CLUSTER: Floating Avatars & Heart Badges (GPU Accelerated) */}
+          <div className="hidden lg:block absolute right-0 inset-y-0 w-[28%] xl:w-[32%] pointer-events-none select-none z-10">
             {/* Avatar 7 (Indian Woman in Teal Shirt) */}
-            <motion.img
+            <img
               loading="lazy"
               src="/avatar-indian-7.webp"
               alt="Indian Customer"
-              className="absolute top-4 right-[58%] w-16 h-16 rounded-full object-cover shadow-md border-2 border-white"
-              animate={{ y: [4, -4, 4] }}
-              transition={{ duration: 4.7, repeat: Infinity, ease: "easeInOut", delay: 0.4 }}
+              className="absolute top-2 right-[55%] w-14 h-14 xl:w-16 xl:h-16 rounded-full object-cover shadow-md border-2 border-white animate-float-alt transform-gpu"
             />
 
             {/* Avatar 8 (Indian Woman in Green Saree) */}
-            <motion.img
+            <img
               loading="lazy"
               src="/avatar-indian-8.webp"
               alt="Indian Customer"
-              className="absolute top-16 right-[24%] w-18 h-18 rounded-2xl object-cover shadow-lg border-2 border-white"
-              animate={{ y: [-4, 4, -4] }}
-              transition={{ duration: 5.1, repeat: Infinity, ease: "easeInOut", delay: 0.8 }}
+              className="absolute top-4 right-[10%] w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-slow transform-gpu"
             />
 
             {/* FLOATING BADGE 3: Indian Customer (Top Right) */}
-            <motion.div
-              className="absolute top-[28%] right-[44%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3.5 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20"
-              animate={{ y: [-4, 4, -4] }}
-              transition={{ duration: 4.4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+            <div
+              className="absolute top-[24%] right-[20%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20 animate-float-alt transform-gpu"
             >
               <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 shrink-0" />
               <div className="flex flex-col text-left leading-tight">
                 <span className="text-[10px] font-bold text-rose-600">Indian</span>
                 <span className="text-[10px] font-bold text-rose-600">Customer</span>
               </div>
-            </motion.div>
+            </div>
 
             {/* Avatar 9 (Indian Woman in Red & Gold Saree) */}
-            <motion.img
+            <img
               loading="lazy"
               src="/avatar-indian-9.webp"
               alt="Indian Customer"
-              className="absolute top-[38%] right-[16%] w-18 h-18 rounded-2xl object-cover shadow-lg border-2 border-white"
-              animate={{ y: [5, -5, 5] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
+              className="absolute top-[42%] right-[6%] w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-slow transform-gpu"
             />
 
             {/* Avatar 10 (Indian Student in Pink Kurti) */}
-            <motion.img
+            <img
               loading="lazy"
               src="/avatar-indian-10.webp"
               alt="Indian Customer"
-              className="absolute bottom-[20%] right-[78%] w-18 h-18 rounded-2xl object-cover shadow-md border-2 border-white"
-              animate={{ y: [-5, 5, -5] }}
-              transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 1.4 }}
+              className="absolute top-[44%] right-[62%] w-14 h-14 xl:w-16 xl:h-16 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu"
             />
 
             {/* FLOATING BADGE 4: Indian Customer (Bottom Right) */}
-            <motion.div
-              className="absolute bottom-[16%] right-[42%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3.5 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20"
-              animate={{ y: [3, -3, 3] }}
-              transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 1.0 }}
+            <div
+              className="absolute bottom-[22%] right-[16%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20 animate-float-slow transform-gpu"
             >
               <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 shrink-0" />
               <div className="flex flex-col text-left leading-tight">
                 <span className="text-[10px] font-bold text-rose-600">Indian</span>
                 <span className="text-[10px] font-bold text-rose-600">Customer</span>
               </div>
-            </motion.div>
+            </div>
 
             {/* Avatar 11 (Indian Professional Woman in White Shirt) */}
-            <motion.img
+            <img
               loading="lazy"
               src="/avatar-indian-11.webp"
               alt="Indian Customer"
-              className="absolute bottom-6 right-[50%] w-16 h-16 rounded-full object-cover shadow-md border-2 border-white"
-              animate={{ y: [4, -4, 4] }}
-              transition={{ duration: 5.3, repeat: Infinity, ease: "easeInOut", delay: 1.7 }}
+              className="absolute bottom-2 right-[54%] w-14 h-14 xl:w-16 xl:h-16 rounded-full object-cover shadow-md border-2 border-white animate-float-alt transform-gpu"
             />
 
             {/* Avatar 12 (Indian Woman in Maroon Ethnic Top) */}
-            <motion.img
+            <img
               loading="lazy"
               src="/avatar-indian-12.webp"
               alt="Indian Customer"
-              className="absolute bottom-16 right-[24%] w-15 h-15 rounded-full object-cover shadow-sm border-2 border-white"
-              animate={{ y: [-4, 4, -4] }}
-              transition={{ duration: 4.9, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+              className="absolute bottom-4 right-[8%] w-14 h-14 xl:w-15 xl:h-15 rounded-full object-cover shadow-sm border-2 border-white animate-float-slow transform-gpu"
             />
           </div>
         </div>

@@ -1,7 +1,12 @@
 @import "tailwindcss";
 
-:root {
-  color-scheme: light;
+@theme {
+  --font-sans: var(--font-jakarta), "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-jakarta: var(--font-jakarta), "Plus Jakarta Sans", sans-serif;
+  --font-playfair: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-outfit: var(--font-outfit), "Outfit", sans-serif;
+  --font-montserrat: var(--font-montserrat), "Montserrat", sans-serif;
+  --font-manrope: var(--font-manrope), "Manrope", sans-serif;
 }
 
 @layer base {
@@ -9,6 +14,7 @@
     color-scheme: light;
     background-color: #FAF8F5;
     color: #1e293b;
+    font-family: var(--font-jakarta), "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
   }
 
@@ -24,6 +30,26 @@
     -o-user-drag: none !important;
     -webkit-touch-callout: none !important;
   }
+}
+
+.font-jakarta {
+  font-family: var(--font-jakarta), "Plus Jakarta Sans", sans-serif !important;
+}
+
+.font-playfair {
+  font-family: var(--font-playfair), "Playfair Display", Georgia, serif !important;
+}
+
+.font-outfit {
+  font-family: var(--font-outfit), "Outfit", sans-serif !important;
+}
+
+.font-montserrat {
+  font-family: var(--font-montserrat), "Montserrat", sans-serif !important;
+}
+
+.font-manrope {
+  font-family: var(--font-manrope), "Manrope", sans-serif !important;
 }
 
 /* Staggered Roll Animation Styles */
@@ -80,3 +106,33 @@
 .span-mother2 span:nth-child(6) { transition-delay: 0.15s; }
 .span-mother2 span:nth-child(7) { transition-delay: 0.18s; }
 .span-mother2 span:nth-child(8) { transition-delay: 0.21s; }
+
+/* GPU-Accelerated Smooth Float Animations for Zero-Lag Performance */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translate3d(0, 0px, 0);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
+}
+
+@keyframes float-alt {
+  0%, 100% {
+    transform: translate3d(0, 0px, 0);
+  }
+  50% {
+    transform: translate3d(0, 6px, 0);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 4.2s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-float-alt {
+  animation: float-alt 4.8s ease-in-out infinite;
+  will-change: transform;
+}
+
