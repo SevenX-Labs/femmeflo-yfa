@@ -2,13 +2,12 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Navbar } from "@/components/navbar";
 import { BackgroundParticles } from "@/components/BackgroundParticles";
+import { FairyIcon } from "@/components/FairyIcon";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -344,9 +343,40 @@ export function Hero() {
                 id="hero-product-anchor"
                 className="relative w-full flex-1 flex items-center justify-center pointer-events-none"
               >
-                <div className="flex flex-col items-center justify-center opacity-10 animate-pulse pointer-events-none select-none">
-                  <div className="w-60 h-40 rounded-3xl bg-gradient-to-r from-emerald-200/40 via-rose-200/50 to-emerald-200/40 shadow-inner" />
+                {/* Desktop Target Anchor Placeholder for GSAP */}
+                <div className="hidden lg:flex flex-col items-center justify-center opacity-0 pointer-events-none select-none">
+                  <div className="w-60 h-40" />
                 </div>
+
+                {/* Mobile / Tablet Dedicated Hero Product Showcase */}
+                <motion.div
+                  animate={{
+                    y: [-5, 5, -5],
+                    rotate: [-1, 1, -1],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="flex lg:hidden relative w-[240px] sm:w-[320px] h-[190px] sm:h-[240px] items-center justify-center pointer-events-auto select-none"
+                >
+                  {/* Floating Animated Fairy over Product */}
+                  <div className="absolute -top-5 -right-1 sm:-top-7 sm:-right-3 z-30 pointer-events-none">
+                    <FairyIcon className="w-14 h-14 sm:w-18 sm:h-18" />
+                  </div>
+
+                  <Image
+                    src="/femmeflo-withoutbg.webp"
+                    alt="Femmeflo XL Sanitary Pads"
+                    fill
+                    sizes="(max-width: 640px) 260px, 340px"
+                    priority
+                    draggable={false}
+                    onContextMenu={(e) => e.preventDefault()}
+                    className="object-contain drop-shadow-[0_20px_35px_rgba(0,0,0,0.15)]"
+                  />
+                </motion.div>
               </div>
 
               {/* Subtle Decorative Accent Flower */}

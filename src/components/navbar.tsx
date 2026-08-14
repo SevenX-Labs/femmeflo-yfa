@@ -15,14 +15,13 @@ const navItems = [
 
 export function Navbar() {
   const pathname = usePathname();
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [scrollActiveIndex, setScrollActiveIndex] = useState<number | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const activeIndex = pathname === "/contact" ? 2 : scrollActiveIndex;
+
   useEffect(() => {
-    if (pathname === "/contact") {
-      setActiveIndex(2);
-      return;
-    }
+    if (pathname === "/contact") return;
 
     const handleScroll = () => {
       const aboutEl = document.getElementById("about");
@@ -30,11 +29,11 @@ export function Navbar() {
       const scrollY = window.scrollY;
 
       if (productsEl && scrollY >= productsEl.offsetTop - 220) {
-        setActiveIndex(1);
+        setScrollActiveIndex(1);
       } else if (aboutEl && scrollY >= aboutEl.offsetTop - 220) {
-        setActiveIndex(0);
+        setScrollActiveIndex(0);
       } else {
-        setActiveIndex(null);
+        setScrollActiveIndex(null);
       }
     };
 
@@ -45,7 +44,7 @@ export function Navbar() {
 
   return (
     <header
-      className="relative w-full z-50 font-playfair bg-[url('/navbar-bg-transparent.webp')] bg-[length:100%_100%] bg-no-repeat bg-bottom pb-7 sm:pb-9 lg:pb-11"
+      className="relative w-full z-50 font-playfair bg-[url('/navbar-bg-transparent.webp')] bg-[length:100%_100%] bg-no-repeat bg-bottom pb-16 sm:pb-16 md:pb-9 lg:pb-11"
       style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, 'Times New Roman', serif" }}
     >
       <div className="w-full pt-3 sm:pt-4 lg:pt-4.5 px-4 sm:px-8 lg:px-12 relative z-20">
@@ -72,7 +71,7 @@ export function Navbar() {
                   <li key={item.name}>
                     <Link
                       href={item.href}
-                      onClick={() => setActiveIndex(index)}
+                      onClick={() => setScrollActiveIndex(index)}
                       style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, 'Times New Roman', serif" }}
                       className={`group relative py-1.5 font-playfair text-[15px] sm:text-[16px] lg:text-[17px] font-bold tracking-[0.06em] uppercase transition-all duration-200 cursor-pointer ${
                         isActive
@@ -125,7 +124,7 @@ export function Navbar() {
                   <Link
                     href={item.href}
                     onClick={() => {
-                      setActiveIndex(index);
+                      setScrollActiveIndex(index);
                       setMobileMenuOpen(false);
                     }}
                     style={{ fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, 'Times New Roman', serif" }}
