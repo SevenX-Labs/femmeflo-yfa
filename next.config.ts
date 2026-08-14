@@ -4,12 +4,6 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   compress: true,
   poweredByHeader: false,
-  experimental: {
-    staleTimes: {
-      dynamic: 0,
-      static: 0,
-    },
-  },
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 0,
