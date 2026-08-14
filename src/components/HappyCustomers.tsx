@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Heart, Sparkles } from "lucide-react";
@@ -39,6 +39,27 @@ const customerReviews: CustomerReview[] = [
 
 export function HappyCustomers() {
   const [activeIdx, setActiveIdx] = useState(0);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const vid = videoRef.current;
+    if (!vid) return;
+    const show = () => setVideoLoaded(true);
+    // If already loaded (cached), show immediately
+    if (vid.readyState >= 3) { show(); return; }
+    vid.addEventListener("loadeddata", show);
+    vid.addEventListener("canplay", show);
+    vid.addEventListener("playing", show);
+    // Fallback: always reveal after 2s even if events don't fire
+    const timer = setTimeout(show, 2000);
+    return () => {
+      vid.removeEventListener("loadeddata", show);
+      vid.removeEventListener("canplay", show);
+      vid.removeEventListener("playing", show);
+      clearTimeout(timer);
+    };
+  }, []);
 
   const active = customerReviews[activeIdx];
 
@@ -152,7 +173,7 @@ export function HappyCustomers() {
             >
               <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 shrink-0" />
               <div className="flex flex-col text-left leading-tight">
-                <span className="text-[10px] font-bold text-rose-600">Indian</span>
+                <span className="text-[10px] font-bold text-rose-600">Happy</span>
                 <span className="text-[10px] font-bold text-rose-600">Customer</span>
               </div>
             </div>
@@ -187,7 +208,7 @@ export function HappyCustomers() {
             >
               <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 shrink-0" />
               <div className="flex flex-col text-left leading-tight">
-                <span className="text-[10px] font-bold text-rose-600">Indian</span>
+                <span className="text-[10px] font-bold text-rose-600">Happy</span>
                 <span className="text-[10px] font-bold text-rose-600">Customer</span>
               </div>
             </div>
@@ -202,15 +223,20 @@ export function HappyCustomers() {
             <div className="relative p-1 group transition-transform duration-200 hover:scale-[1.02] transform-gpu">
               {/* Main Indian Customer Video (Landscape Autoplay loop) */}
               <div className="relative overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white/95 group-hover:border-rose-300 transition-colors bg-black/5 aspect-video w-[300px] sm:w-[400px] md:w-[460px] lg:w-[490px] xl:w-[540px] max-w-[88vw]">
+                {/* Skeleton loader while video buffers */}
+                {!videoLoaded && (
+                  <div className="absolute inset-0 z-10 bg-gradient-to-r from-rose-50 via-white to-rose-50 animate-shimmer" />
+                )}
                 <video
+                  ref={videoRef}
                   src="/happy-customer.mp4"
                   autoPlay
                   loop
                   muted
                   playsInline
-                  className="w-full h-full object-cover select-none pointer-events-none"
+                  preload="auto"
+                  className={`w-full h-full object-cover select-none pointer-events-none transition-opacity duration-500 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
                 />
-
               </div>
             </div>
           </div>
@@ -239,7 +265,7 @@ export function HappyCustomers() {
             >
               <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 shrink-0" />
               <div className="flex flex-col text-left leading-tight">
-                <span className="text-[10px] font-bold text-rose-600">Indian</span>
+                <span className="text-[10px] font-bold text-rose-600">Happy</span>
                 <span className="text-[10px] font-bold text-rose-600">Customer</span>
               </div>
             </div>
@@ -266,7 +292,7 @@ export function HappyCustomers() {
             >
               <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 shrink-0" />
               <div className="flex flex-col text-left leading-tight">
-                <span className="text-[10px] font-bold text-rose-600">Indian</span>
+                <span className="text-[10px] font-bold text-rose-600">Happy</span>
                 <span className="text-[10px] font-bold text-rose-600">Customer</span>
               </div>
             </div>
