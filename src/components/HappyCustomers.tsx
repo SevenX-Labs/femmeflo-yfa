@@ -231,13 +231,16 @@ export function HappyCustomers() {
                 )}
                 <video
                   ref={videoRef}
-                  src="/happy-customer-21.mp4"
+                  src="/happy-customer.mp4"
                   autoPlay
                   loop
                   muted
                   playsInline
                   preload="auto"
-                  className={`w-full h-full object-cover select-none pointer-events-none transition-opacity duration-500 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
+                  onLoadedData={() => setVideoLoaded(true)}
+                  onCanPlay={() => setVideoLoaded(true)}
+                  onPlaying={() => setVideoLoaded(true)}
+                  className={`w-full h-full object-cover select-none pointer-events-none transition-opacity duration-300 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
                 />
               </div>
             </div>
