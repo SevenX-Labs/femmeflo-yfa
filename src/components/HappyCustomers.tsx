@@ -112,7 +112,7 @@ export function HappyCustomers() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/80 border border-rose-200 text-xs font-bold text-rose-700 shadow-2xs">
             <Sparkles className="w-4 h-4 text-rose-500" />
-            <span>REAL INDIAN WOMEN REVIEWS</span>
+            <span>REAL HAPPY WOMEN REVIEWS</span>
           </div>
 
           <h3 className="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-900 font-[family-name:var(--font-playfair)]">
@@ -120,7 +120,7 @@ export function HappyCustomers() {
           </h3>
 
           <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed font-medium">
-            Read authentic stories from verified Indian buyers who switched to Femmeflo XL for 100% rash-free comfort.
+            Read authentic stories from verified happy customers who switched to Femmeflo XL for 100% rash-free comfort.
           </p>
         </motion.div>
 
@@ -147,7 +147,7 @@ export function HappyCustomers() {
             <img
               loading="lazy"
               src="/avatar-indian-1.webp"
-              alt="Indian Customer"
+              alt="Happy Customer"
               className="absolute top-4 left-[10%] w-14 h-14 xl:w-16 xl:h-16 rounded-full object-cover shadow-md border-2 border-white animate-float-slow transform-gpu"
             />
 
@@ -155,7 +155,7 @@ export function HappyCustomers() {
             <img
               loading="lazy"
               src="/avatar-indian-2.webp"
-              alt="Indian Customer"
+              alt="Happy Customer"
               className="absolute top-2 left-[55%] w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-alt transform-gpu"
             />
 
@@ -163,11 +163,11 @@ export function HappyCustomers() {
             <img
               loading="lazy"
               src="/avatar-indian-3.webp"
-              alt="Indian Customer"
+              alt="Happy Customer"
               className="absolute top-[42%] left-[6%] w-14 h-14 xl:w-16 xl:h-16 rounded-2xl object-cover shadow-md border-2 border-white animate-float-slow transform-gpu"
             />
 
-            {/* FLOATING BADGE 1: Indian Customer (Top Left) */}
+            {/* FLOATING BADGE 1: Happy Customer (Top Left) */}
             <div
               className="absolute top-[24%] left-[20%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20 animate-float-alt transform-gpu"
             >
@@ -182,7 +182,7 @@ export function HappyCustomers() {
             <img
               loading="lazy"
               src="/avatar-indian-4.webp"
-              alt="Indian Customer"
+              alt="Happy Customer"
               className="absolute top-[44%] left-[62%] w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu"
             />
 
@@ -190,7 +190,7 @@ export function HappyCustomers() {
             <img
               loading="lazy"
               src="/avatar-indian-5.webp"
-              alt="Indian Customer"
+              alt="Happy Customer"
               className="absolute bottom-4 left-[8%] w-14 h-14 xl:w-15 xl:h-15 rounded-full object-cover shadow-sm border-2 border-white animate-float-slow transform-gpu"
             />
 
@@ -198,11 +198,11 @@ export function HappyCustomers() {
             <img
               loading="lazy"
               src="/avatar-indian-6.webp"
-              alt="Indian Customer"
+              alt="Happy Customer"
               className="absolute bottom-2 left-[54%] w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu"
             />
 
-            {/* FLOATING BADGE 2: Indian Customer (Bottom Left) */}
+            {/* FLOATING BADGE 2: Happy Customer (Bottom Left) */}
             <div
               className="absolute bottom-[22%] left-[16%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20 animate-float-slow transform-gpu"
             >
@@ -221,7 +221,7 @@ export function HappyCustomers() {
             <div className="absolute inset-0 rounded-[2.2rem] bg-gradient-to-tr from-rose-400/20 via-emerald-300/15 to-sky-300/20 pointer-events-none transform-gpu" />
 
             <div className="relative p-1 group transition-transform duration-200 hover:scale-[1.02] transform-gpu">
-              {/* Main Indian Customer Video (Landscape Autoplay loop) */}
+              {/* Main Happy Customer Video (Landscape Autoplay loop) */}
               <div className="relative overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white/95 group-hover:border-rose-300 transition-colors bg-black/5 aspect-video w-[300px] sm:w-[400px] md:w-[460px] lg:w-[490px] xl:w-[540px] max-w-[88vw]">
                 {/* Skeleton loader while video buffers */}
                 {!videoLoaded && (
@@ -247,7 +247,7 @@ export function HappyCustomers() {
             <img
               loading="lazy"
               src="/avatar-indian-7.webp"
-              alt="Indian Customer"
+              alt="Happy Customer"
               className="absolute top-2 right-[55%] w-14 h-14 xl:w-16 xl:h-16 rounded-full object-cover shadow-md border-2 border-white animate-float-alt transform-gpu"
             />
 
@@ -255,11 +255,11 @@ export function HappyCustomers() {
             <img
               loading="lazy"
               src="/avatar-indian-8.webp"
-              alt="Indian Customer"
+              alt="Happy Customer"
               className="absolute top-4 right-[10%] w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-slow transform-gpu"
             />
 
-            {/* FLOATING BADGE 3: Indian Customer (Top Right) */}
+            {/* FLOATING BADGE 3: Happy Customer (Top Right) */}
             <div
               className="absolute top-[24%] right-[20%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20 animate-float-alt transform-gpu"
             >
@@ -274,7 +274,7 @@ export function HappyCustomers() {
             <img
               loading="lazy"
               src="/avatar-indian-9.webp"
-              alt="Indian Customer"
+              alt="Happy Customer"
               className="absolute top-[42%] right-[6%] w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-slow transform-gpu"
             />
 
@@ -282,11 +282,11 @@ export function HappyCustomers() {
             <img
               loading="lazy"
               src="/avatar-indian-10.webp"
-              alt="Indian Customer"
+              alt="Happy Customer"
               className="absolute top-[44%] right-[62%] w-14 h-14 xl:w-16 xl:h-16 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu"
             />
 
-            {/* FLOATING BADGE 4: Indian Customer (Bottom Right) */}
+            {/* FLOATING BADGE 4: Happy Customer (Bottom Right) */}
             <div
               className="absolute bottom-[22%] right-[16%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20 animate-float-slow transform-gpu"
             >
@@ -301,7 +301,7 @@ export function HappyCustomers() {
             <img
               loading="lazy"
               src="/avatar-indian-11.webp"
-              alt="Indian Customer"
+              alt="Happy Customer"
               className="absolute bottom-2 right-[54%] w-14 h-14 xl:w-16 xl:h-16 rounded-full object-cover shadow-md border-2 border-white animate-float-alt transform-gpu"
             />
 
@@ -309,7 +309,7 @@ export function HappyCustomers() {
             <img
               loading="lazy"
               src="/avatar-indian-12.webp"
-              alt="Indian Customer"
+              alt="Happy Customer"
               className="absolute bottom-4 right-[8%] w-14 h-14 xl:w-15 xl:h-15 rounded-full object-cover shadow-sm border-2 border-white animate-float-slow transform-gpu"
             />
           </div>
