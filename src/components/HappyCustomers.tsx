@@ -231,7 +231,7 @@ export function HappyCustomers() {
                 )}
                 <video
                   ref={videoRef}
-                  src="/happy-customer.mp4"
+                  src="/happy-customer-21.mp4"
                   autoPlay
                   loop
                   muted

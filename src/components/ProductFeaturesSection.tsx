@@ -94,7 +94,7 @@ const rightFeatures: Feature[] = [
     id: 6,
     icon: Maximize2,
     title: "Extended Wing Profile",
-    tagline: "320mm Extra-Long",
+    tagline: "Extra-Long",
     description: "Wider wing geometry designed for maximum heavy-flow security.",
     badgeBg: "bg-amber-50 border-amber-200 text-amber-700",
     textColor: "text-amber-700",
@@ -427,7 +427,7 @@ export function ProductFeaturesSection() {
             </div>
 
             <div className="inline-flex items-center justify-center bg-[#EBF6EF] text-[#156035] text-xs font-extrabold tracking-wider uppercase px-4 py-1.5 rounded-full border border-emerald-100">
-              XL • 320MM EXTRA LONG
+              XL • 280MM EXTRA LONG
             </div>
           </div>
 

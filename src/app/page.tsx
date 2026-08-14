@@ -30,9 +30,7 @@ const WhyChooseUs = dynamic(
   () => import("@/components/WhyChooseUs").then((mod) => mod.WhyChooseUs)
 );
 
-const HappyCustomers = dynamic(
-  () => import("@/components/HappyCustomers").then((mod) => mod.HappyCustomers)
-);
+import { HappyCustomers } from "@/components/HappyCustomers";
 
 const FAQSection = dynamic(
   () => import("@/components/faq").then((mod) => mod.FAQSection)
