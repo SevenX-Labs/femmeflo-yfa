@@ -2,43 +2,10 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
-import { Heart, Sparkles } from "lucide-react";
-
-interface CustomerReview {
-  id: number;
-  name: string;
-  role: string;
-  quote: string;
-  mainImage: string;
-}
-
-const customerReviews: CustomerReview[] = [
-  {
-    id: 1,
-    name: "Priya Sharma",
-    role: "Verified Buyer • Uttar Pradesh",
-    quote: "I used top commercial brands for years and always suffered from rashes. Ever since switching to Femmeflo, my period days feel 100% comfortable and irritation-free.",
-    mainImage: "/indian-customer-main.webp",
-  },
-  {
-    id: 2,
-    name: "Ananya Patel",
-    role: "Daily Commuter • Gujarat",
-    quote: "Other pads used to bunch up and shift during my train commute. Femmeflo's 280mm double wings lock firmly in place with zero leaks all day.",
-    mainImage: "/indian-customer-main.webp",
-  },
-  {
-    id: 3,
-    name: "Rhea Sen",
-    role: "Community Member • West Bengal",
-    quote: "Why pay triple for plastic pads? Femmeflo offers pure organic cotton softness, supreme absorbency, and unbeatable comfort that no other brand delivers.",
-    mainImage: "/indian-customer-main.webp",
-  },
-];
+import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
 
 export function HappyCustomers() {
-  const [activeIdx, setActiveIdx] = useState(0);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -61,12 +28,10 @@ export function HappyCustomers() {
     };
   }, []);
 
-  const active = customerReviews[activeIdx];
-
   return (
     <section  
       id="happy-customers"
-      className="relative w-full bg-gradient-to-br from-[#EDF9F3] via-[#FFF3F5] to-[#EBF5FC] border-b border-rose-100/60 px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 overflow-hidden font-[family-name:var(--font-jakarta)]"
+      className="relative w-full bg-gradient-to-br from-[#EDF9F3] via-[#FFF3F5] to-[#EBF5FC] border-b border-rose-100/60 px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-10 overflow-hidden font-[family-name:var(--font-jakarta)]"
     >
       {/* LUXURY TOP ANIMATED WAVY HEADER SVG */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none select-none">
@@ -74,7 +39,7 @@ export function HappyCustomers() {
           viewBox="0 0 1440 120"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-12 sm:h-16 fill-white/80 backdrop-blur-md"
+          className="w-full h-10 sm:h-12 fill-white/80 backdrop-blur-md"
           animate={{ x: [-10, 10, -10] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         >
@@ -88,7 +53,7 @@ export function HappyCustomers() {
           viewBox="0 0 1440 120"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-12 sm:h-16 fill-rose-100/60"
+          className="w-full h-10 sm:h-12 fill-rose-100/60"
           animate={{ x: [10, -10, 10] }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         >
@@ -100,32 +65,32 @@ export function HappyCustomers() {
       <div className="absolute top-10 left-[-5%] w-[450px] h-[450px] bg-emerald-200/35 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute bottom-10 right-[-5%] w-[500px] h-[500px] bg-sky-200/35 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto flex flex-col items-center text-center relative z-10 space-y-3 sm:space-y-4">
+      <div className="max-w-7xl mx-auto flex flex-col items-center justify-center text-center relative z-10 space-y-2 sm:space-y-3">
         
         {/* Sub-section Header */}
         <motion.div
-          className="space-y-2.5 max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
+          className="space-y-1 max-w-xl mx-auto"
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/90 border border-rose-300 text-xs sm:text-sm font-bold text-rose-700 shadow-sm">
-            <Sparkles className="w-4 h-4 text-rose-500" />
-            <span>REAL HAPPY WOMEN REVIEWS</span>
+          <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-white/90 border border-rose-300 text-[11px] font-bold text-rose-700 shadow-2xs">
+            <Sparkles className="w-3.5 h-3.5 text-rose-500" />
+            <span>REAL REVIEWS & EXPERIENCES</span>
           </div>
 
-          <h3 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-900 font-[family-name:var(--font-playfair)]">
-            Trusted By Thousands
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-zinc-900 font-[family-name:var(--font-playfair)]">
+            Loved by Women Across India
           </h3>
 
-          <p className="text-zinc-600 text-sm sm:text-base leading-relaxed font-medium max-w-lg mx-auto">
-            Read authentic stories from verified happy customers who switched to Femmeflo XL for 100% rash-free comfort.
+          <p className="text-zinc-600 text-xs sm:text-sm leading-snug font-medium max-w-md mx-auto">
+            Authentic feedback from verified customers who made the switch to Femmeflo XL for 100% rash-free comfort.
           </p>
         </motion.div>
 
         {/* MAIN STAGE: Center Interactive Circle + Left/Right Floating Avatars */}
-        <div className="relative w-full flex items-center justify-center min-h-[310px] sm:min-h-[350px] my-0">
+        <div className="relative w-full flex items-center justify-center min-h-[290px] sm:min-h-[330px] my-0">
           
           {/* Background Animated Curved Ribbon Paths (Behind Center Circle) */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40 select-none">
@@ -144,9 +109,9 @@ export function HappyCustomers() {
           {/* LEFT CLUSTER: Floating Avatars with Hindi Testimonial Tooltips */}
           <div className="hidden lg:block absolute left-0 inset-y-0 w-[28%] xl:w-[32%] z-10">
             {/* Avatar 1 */}
-            <div className="absolute top-4 left-[10%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-1.webp" alt="Customer Review" className="w-14 h-14 xl:w-16 xl:h-16 rounded-full object-cover shadow-md border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute top-full left-0 mt-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+            <div className="absolute top-1 left-[10%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-1.webp" alt="Customer Review" className="w-13 h-13 xl:w-15 xl:h-15 rounded-full object-cover shadow-md border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute top-full left-0 mt-1.5 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
                 <div className="flex items-center gap-1 mb-1">
                   <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
                   <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
@@ -156,9 +121,9 @@ export function HappyCustomers() {
             </div>
 
             {/* Avatar 2 */}
-            <div className="absolute top-2 left-[55%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-2.webp" alt="Customer Review" className="w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute top-full right-0 mt-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+            <div className="absolute top-0 left-[55%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-2.webp" alt="Customer Review" className="w-14 h-14 xl:w-16 xl:h-16 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute top-full right-0 mt-1.5 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
                 <div className="flex items-center gap-1 mb-1">
                   <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
                   <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
@@ -168,9 +133,9 @@ export function HappyCustomers() {
             </div>
 
             {/* Avatar 3 */}
-            <div className="absolute top-[42%] left-[6%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-3.webp" alt="Customer Review" className="w-14 h-14 xl:w-16 xl:h-16 rounded-2xl object-cover shadow-md border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute bottom-full left-0 mb-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+            <div className="absolute top-[38%] left-[6%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-3.webp" alt="Customer Review" className="w-13 h-13 xl:w-15 xl:h-15 rounded-2xl object-cover shadow-md border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full left-0 mb-1.5 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
                 <div className="flex items-center gap-1 mb-1">
                   <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
                   <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
@@ -180,9 +145,9 @@ export function HappyCustomers() {
             </div>
 
             {/* Avatar 4 */}
-            <div className="absolute top-[44%] left-[62%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-4.webp" alt="Customer Review" className="w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute bottom-full right-0 mb-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+            <div className="absolute top-[40%] left-[62%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-4.webp" alt="Customer Review" className="w-14 h-14 xl:w-16 xl:h-16 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full right-0 mb-1.5 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
                 <div className="flex items-center gap-1 mb-1">
                   <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
                   <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">Verified Buyer</span>
@@ -192,9 +157,9 @@ export function HappyCustomers() {
             </div>
 
             {/* Avatar 5 */}
-            <div className="absolute bottom-4 left-[8%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-5.webp" alt="Customer Review" className="w-14 h-14 xl:w-15 xl:h-15 rounded-full object-cover shadow-sm border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute bottom-full left-0 mb-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+            <div className="absolute bottom-1 left-[8%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-5.webp" alt="Customer Review" className="w-13 h-13 xl:w-14 xl:h-14 rounded-full object-cover shadow-sm border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full left-0 mb-1.5 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
                 <div className="flex items-center gap-1 mb-1">
                   <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
                   <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
@@ -204,9 +169,9 @@ export function HappyCustomers() {
             </div>
 
             {/* Avatar 6 */}
-            <div className="absolute bottom-2 left-[54%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-6.webp" alt="Customer Review" className="w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute bottom-full right-0 mb-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+            <div className="absolute bottom-0 left-[54%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-6.webp" alt="Customer Review" className="w-14 h-14 xl:w-16 xl:h-16 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full right-0 mb-1.5 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
                 <div className="flex items-center gap-1 mb-1">
                   <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
                   <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">Verified Buyer</span>
@@ -220,11 +185,11 @@ export function HappyCustomers() {
           <div className="relative z-20 flex flex-col items-center">
             
             {/* Pulsing Backlight Ring */}
-            <div className="absolute inset-0 rounded-[2.2rem] bg-gradient-to-tr from-rose-400/20 via-emerald-300/15 to-sky-300/20 pointer-events-none transform-gpu" />
+            <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-tr from-rose-400/20 via-emerald-300/15 to-sky-300/20 pointer-events-none transform-gpu" />
 
             <div className="relative p-1 group transition-transform duration-200 hover:scale-[1.02] transform-gpu">
               {/* Main Happy Customer Video (Landscape Autoplay loop) */}
-              <div className="relative overflow-hidden rounded-[2rem] shadow-2xl border-4 border-white/95 group-hover:border-rose-300 transition-colors bg-black/5 aspect-video w-[300px] sm:w-[400px] md:w-[460px] lg:w-[490px] xl:w-[540px] max-w-[88vw]">
+              <div className="relative overflow-hidden rounded-[1.75rem] shadow-2xl border-4 border-white/95 group-hover:border-rose-300 transition-colors bg-black/5 aspect-video w-[280px] sm:w-[360px] md:w-[400px] lg:w-[440px] xl:w-[470px] max-w-[88vw]">
                 {/* Skeleton loader while video buffers */}
                 {!videoLoaded && (
                   <div className="absolute inset-0 z-10 bg-gradient-to-r from-rose-50 via-white to-rose-50 animate-shimmer" />
@@ -249,9 +214,9 @@ export function HappyCustomers() {
           {/* RIGHT CLUSTER: Floating Avatars with Hindi Testimonial Tooltips */}
           <div className="hidden lg:block absolute right-0 inset-y-0 w-[28%] xl:w-[32%] z-10">
             {/* Avatar 7 */}
-            <div className="absolute top-2 right-[55%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-7.webp" alt="Customer Review" className="w-14 h-14 xl:w-16 xl:h-16 rounded-full object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute top-full left-0 mt-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+            <div className="absolute top-0 right-[55%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-7.webp" alt="Customer Review" className="w-13 h-13 xl:w-15 xl:h-15 rounded-full object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute top-full left-0 mt-1.5 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
                 <div className="flex items-center gap-1 mb-1">
                   <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
                   <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
@@ -261,9 +226,9 @@ export function HappyCustomers() {
             </div>
 
             {/* Avatar 8 */}
-            <div className="absolute top-4 right-[10%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-8.webp" alt="Customer Review" className="w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute top-full right-0 mt-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+            <div className="absolute top-1 right-[10%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-8.webp" alt="Customer Review" className="w-14 h-14 xl:w-16 xl:h-16 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute top-full right-0 mt-1.5 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
                 <div className="flex items-center gap-1 mb-1">
                   <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
                   <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">Verified Buyer</span>
@@ -273,9 +238,9 @@ export function HappyCustomers() {
             </div>
 
             {/* Avatar 9 */}
-            <div className="absolute top-[42%] right-[6%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-9.webp" alt="Customer Review" className="w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute bottom-full right-0 mb-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+            <div className="absolute top-[38%] right-[6%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-9.webp" alt="Customer Review" className="w-14 h-14 xl:w-16 xl:h-16 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full right-0 mb-1.5 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
                 <div className="flex items-center gap-1 mb-1">
                   <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
                   <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
@@ -285,9 +250,9 @@ export function HappyCustomers() {
             </div>
 
             {/* Avatar 10 */}
-            <div className="absolute top-[44%] right-[62%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-10.webp" alt="Customer Review" className="w-14 h-14 xl:w-16 xl:h-16 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute bottom-full left-0 mb-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+            <div className="absolute top-[40%] right-[62%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-10.webp" alt="Customer Review" className="w-13 h-13 xl:w-15 xl:h-15 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full left-0 mb-1.5 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
                 <div className="flex items-center gap-1 mb-1">
                   <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
                   <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
@@ -297,9 +262,9 @@ export function HappyCustomers() {
             </div>
 
             {/* Avatar 11 */}
-            <div className="absolute bottom-2 right-[54%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-11.webp" alt="Customer Review" className="w-14 h-14 xl:w-16 xl:h-16 rounded-full object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute bottom-full left-0 mb-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+            <div className="absolute bottom-0 right-[54%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-11.webp" alt="Customer Review" className="w-13 h-13 xl:w-15 xl:h-15 rounded-full object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full left-0 mb-1.5 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
                 <div className="flex items-center gap-1 mb-1">
                   <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
                   <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">Verified Buyer</span>
@@ -309,9 +274,9 @@ export function HappyCustomers() {
             </div>
 
             {/* Avatar 12 */}
-            <div className="absolute bottom-4 right-[8%] group pointer-events-auto">
-              <img loading="lazy" src="/avatar-indian-12.webp" alt="Customer Review" className="w-14 h-14 xl:w-15 xl:h-15 rounded-full object-cover shadow-sm border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
-              <div className="absolute bottom-full right-0 mb-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
+            <div className="absolute bottom-1 right-[8%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-12.webp" alt="Customer Review" className="w-13 h-13 xl:w-14 xl:h-14 rounded-full object-cover shadow-sm border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full right-0 mb-1.5 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
                 <div className="flex items-center gap-1 mb-1">
                   <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
                   <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
@@ -321,33 +286,6 @@ export function HappyCustomers() {
             </div>
           </div>
         </div>
-
-        {/* BOTTOM TESTIMONIAL QUOTE GLASS CARD */}
-        <motion.div
-          className="mt-1 sm:mt-2 z-20 w-full max-w-md sm:max-w-xl"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={active.id}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.3 }}
-              className="bg-white/85 backdrop-blur-xl border border-rose-100 rounded-2xl px-5 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.04)] text-center space-y-1"
-            >
-              <blockquote className="text-zinc-800 font-medium text-xs sm:text-sm leading-snug font-[family-name:var(--font-jakarta)]">
-                &ldquo;{active.quote}&rdquo;
-              </blockquote>
-              <p className="text-[11px] text-zinc-500 font-semibold">
-                {active.name}, <span className="text-zinc-400 font-normal">{active.role}</span>
-              </p>
-            </motion.div>
-          </AnimatePresence>
-        </motion.div>
 
       </div>
     </section>
