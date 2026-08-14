@@ -66,7 +66,7 @@ export function HappyCustomers() {
   return (
     <section  
       id="happy-customers"
-      className="relative w-full bg-gradient-to-br from-[#EDF9F3] via-[#FFF3F5] to-[#EBF5FC] border-b border-rose-100/60 px-4 sm:px-6 lg:px-8 py-16 sm:py-24 lg:py-28 overflow-hidden font-[family-name:var(--font-jakarta)]"
+      className="relative w-full bg-gradient-to-br from-[#EDF9F3] via-[#FFF3F5] to-[#EBF5FC] border-b border-rose-100/60 px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-12 overflow-hidden font-[family-name:var(--font-jakarta)]"
     >
       {/* LUXURY TOP ANIMATED WAVY HEADER SVG */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-none z-0 pointer-events-none select-none">
@@ -74,7 +74,7 @@ export function HappyCustomers() {
           viewBox="0 0 1440 120"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-16 sm:h-24 fill-white/80 backdrop-blur-md"
+          className="w-full h-12 sm:h-16 fill-white/80 backdrop-blur-md"
           animate={{ x: [-10, 10, -10] }}
           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
         >
@@ -88,7 +88,7 @@ export function HappyCustomers() {
           viewBox="0 0 1440 120"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-16 sm:h-24 fill-rose-100/60"
+          className="w-full h-12 sm:h-16 fill-rose-100/60"
           animate={{ x: [10, -10, 10] }}
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         >
@@ -100,32 +100,32 @@ export function HappyCustomers() {
       <div className="absolute top-10 left-[-5%] w-[450px] h-[450px] bg-emerald-200/35 rounded-full blur-3xl pointer-events-none -z-10" />
       <div className="absolute bottom-10 right-[-5%] w-[500px] h-[500px] bg-sky-200/35 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto flex flex-col items-center text-center relative z-10 space-y-12">
+      <div className="max-w-7xl mx-auto flex flex-col items-center text-center relative z-10 space-y-3 sm:space-y-4">
         
         {/* Sub-section Header */}
         <motion.div
-          className="space-y-3 max-w-xl mx-auto"
+          className="space-y-2.5 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/80 border border-rose-200 text-xs font-bold text-rose-700 shadow-2xs">
+          <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-white/90 border border-rose-300 text-xs sm:text-sm font-bold text-rose-700 shadow-sm">
             <Sparkles className="w-4 h-4 text-rose-500" />
             <span>REAL HAPPY WOMEN REVIEWS</span>
           </div>
 
-          <h3 className="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-900 font-[family-name:var(--font-playfair)]">
+          <h3 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-zinc-900 font-[family-name:var(--font-playfair)]">
             Trusted By Thousands
           </h3>
 
-          <p className="text-zinc-600 text-xs sm:text-sm leading-relaxed font-medium">
+          <p className="text-zinc-600 text-sm sm:text-base leading-relaxed font-medium max-w-lg mx-auto">
             Read authentic stories from verified happy customers who switched to Femmeflo XL for 100% rash-free comfort.
           </p>
         </motion.div>
 
         {/* MAIN STAGE: Center Interactive Circle + Left/Right Floating Avatars */}
-        <div className="relative w-full flex items-center justify-center min-h-[380px] sm:min-h-[460px] my-4">
+        <div className="relative w-full flex items-center justify-center min-h-[310px] sm:min-h-[350px] my-0">
           
           {/* Background Animated Curved Ribbon Paths (Behind Center Circle) */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40 select-none">
@@ -321,11 +321,11 @@ export function HappyCustomers() {
 
         {/* BOTTOM TESTIMONIAL QUOTE GLASS CARD */}
         <motion.div
-          className="mt-6 z-20 w-full max-w-lg"
+          className="mt-1 sm:mt-2 z-20 w-full max-w-md sm:max-w-xl"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
         >
           <AnimatePresence mode="wait">
             <motion.div
@@ -334,12 +334,12 @@ export function HappyCustomers() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
-              className="bg-white/80 backdrop-blur-xl border border-blue-100/90 rounded-2xl p-5 sm:p-6 shadow-[0_15px_40px_rgba(0,0,0,0.04)] text-center space-y-2"
+              className="bg-white/85 backdrop-blur-xl border border-rose-100 rounded-2xl px-5 py-3 shadow-[0_10px_30px_rgba(0,0,0,0.04)] text-center space-y-1"
             >
-              <blockquote className="text-zinc-800 font-medium text-base sm:text-lg leading-snug font-[family-name:var(--font-jakarta)]">
+              <blockquote className="text-zinc-800 font-medium text-xs sm:text-sm leading-snug font-[family-name:var(--font-jakarta)]">
                 &ldquo;{active.quote}&rdquo;
               </blockquote>
-              <p className="text-xs text-zinc-500 font-semibold">
+              <p className="text-[11px] text-zinc-500 font-semibold">
                 {active.name}, <span className="text-zinc-400 font-normal">{active.role}</span>
               </p>
             </motion.div>
