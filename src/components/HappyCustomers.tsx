@@ -141,75 +141,77 @@ export function HappyCustomers() {
             </svg>
           </div>
 
-          {/* LEFT CLUSTER: Floating Avatars & Heart Badges (GPU Accelerated) */}
-          <div className="hidden lg:block absolute left-0 inset-y-0 w-[28%] xl:w-[32%] pointer-events-none select-none z-10">
-            {/* Avatar 1 (Indian College Student in Yellow Kurti) */}
-            <img
-              loading="lazy"
-              src="/avatar-indian-1.webp"
-              alt="Happy Customer"
-              className="absolute top-4 left-[10%] w-14 h-14 xl:w-16 xl:h-16 rounded-full object-cover shadow-md border-2 border-white animate-float-slow transform-gpu"
-            />
-
-            {/* Avatar 2 (Indian Woman in Red Saree) */}
-            <img
-              loading="lazy"
-              src="/avatar-indian-2.webp"
-              alt="Happy Customer"
-              className="absolute top-2 left-[55%] w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-alt transform-gpu"
-            />
-
-            {/* Avatar 3 (Indian Woman with Glasses in Green Top) */}
-            <img
-              loading="lazy"
-              src="/avatar-indian-3.webp"
-              alt="Happy Customer"
-              className="absolute top-[42%] left-[6%] w-14 h-14 xl:w-16 xl:h-16 rounded-2xl object-cover shadow-md border-2 border-white animate-float-slow transform-gpu"
-            />
-
-            {/* FLOATING BADGE 1: Happy Customer (Top Left) */}
-            <div
-              className="absolute top-[24%] left-[20%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20 animate-float-alt transform-gpu"
-            >
-              <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 shrink-0" />
-              <div className="flex flex-col text-left leading-tight">
-                <span className="text-[10px] font-bold text-rose-600">Happy</span>
-                <span className="text-[10px] font-bold text-rose-600">Customer</span>
+          {/* LEFT CLUSTER: Floating Avatars with Hindi Testimonial Tooltips */}
+          <div className="hidden lg:block absolute left-0 inset-y-0 w-[28%] xl:w-[32%] z-10">
+            {/* Avatar 1 */}
+            <div className="absolute top-4 left-[10%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-1.webp" alt="Happy Customer" className="w-14 h-14 xl:w-16 xl:h-16 rounded-full object-cover shadow-md border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
+                <p className="text-xs font-bold text-rose-600">प्रिया शर्मा</p>
+                <p className="text-[11px] text-zinc-600 leading-relaxed">क्वालिटी बहुत अच्छी है, 5 स्टार! ⭐</p>
               </div>
             </div>
 
-            {/* Avatar 4 (Indian Woman in Blue Kurta) */}
-            <img
-              loading="lazy"
-              src="/avatar-indian-4.webp"
-              alt="Happy Customer"
-              className="absolute top-[44%] left-[62%] w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu"
-            />
+            {/* Avatar 2 */}
+            <div className="absolute top-2 left-[55%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-2.webp" alt="Happy Customer" className="w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
+                <p className="text-xs font-bold text-rose-600">अनन्या पटेल</p>
+                <p className="text-[11px] text-zinc-600 leading-relaxed">12 घंटे तक लीकेज-फ्री प्रोटेक्शन! ✅</p>
+              </div>
+            </div>
 
-            {/* Avatar 5 (Indian Woman in Yellow Dupatta & Bindi) */}
-            <img
-              loading="lazy"
-              src="/avatar-indian-5.webp"
-              alt="Happy Customer"
-              className="absolute bottom-4 left-[8%] w-14 h-14 xl:w-15 xl:h-15 rounded-full object-cover shadow-sm border-2 border-white animate-float-slow transform-gpu"
-            />
+            {/* Avatar 3 */}
+            <div className="absolute top-[42%] left-[6%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-3.webp" alt="Happy Customer" className="w-14 h-14 xl:w-16 xl:h-16 rounded-2xl object-cover shadow-md border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
+                <p className="text-xs font-bold text-rose-600">मीरा जोशी</p>
+                <p className="text-[11px] text-zinc-600 leading-relaxed">100% रैश-फ्री, बेस्ट क्वालिटी! 💯</p>
+              </div>
+            </div>
 
-            {/* Avatar 6 (Indian Student in White Kurta & Purple Scarf) */}
-            <img
-              loading="lazy"
-              src="/avatar-indian-6.webp"
-              alt="Happy Customer"
-              className="absolute bottom-2 left-[54%] w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu"
-            />
-
-            {/* FLOATING BADGE 2: Happy Customer (Bottom Left) */}
-            <div
-              className="absolute bottom-[22%] left-[16%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20 animate-float-slow transform-gpu"
-            >
+            {/* FLOATING BADGE 1 */}
+            <div className="absolute top-[24%] left-[20%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20 animate-float-alt transform-gpu">
               <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 shrink-0" />
               <div className="flex flex-col text-left leading-tight">
-                <span className="text-[10px] font-bold text-rose-600">Happy</span>
-                <span className="text-[10px] font-bold text-rose-600">Customer</span>
+                <span className="text-xs font-bold text-rose-600">Happy</span>
+                <span className="text-xs font-bold text-rose-600">Customer</span>
+              </div>
+            </div>
+
+            {/* Avatar 4 */}
+            <div className="absolute top-[44%] left-[62%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-4.webp" alt="Happy Customer" className="w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
+                <p className="text-xs font-bold text-rose-600">रिया गुप्ता</p>
+                <p className="text-[11px] text-zinc-600 leading-relaxed">डबल विंग से पूरी सुरक्षा मिलती है! 🛡️</p>
+              </div>
+            </div>
+
+            {/* Avatar 5 */}
+            <div className="absolute bottom-4 left-[8%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-5.webp" alt="Happy Customer" className="w-14 h-14 xl:w-15 xl:h-15 rounded-full object-cover shadow-sm border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
+                <p className="text-xs font-bold text-rose-600">काव्या सिंह</p>
+                <p className="text-[11px] text-zinc-600 leading-relaxed">सॉफ्ट कॉटन फील, स्किन-फ्रेंडली! 🌿</p>
+              </div>
+            </div>
+
+            {/* Avatar 6 */}
+            <div className="absolute bottom-2 left-[54%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-6.webp" alt="Happy Customer" className="w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
+                <p className="text-xs font-bold text-rose-600">नेहा वर्मा</p>
+                <p className="text-[11px] text-zinc-600 leading-relaxed">280mm XL साइज़, परफेक्ट कवरेज! 📏</p>
+              </div>
+            </div>
+
+            {/* FLOATING BADGE 2 */}
+            <div className="absolute bottom-[22%] left-[16%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20 animate-float-slow transform-gpu">
+              <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 shrink-0" />
+              <div className="flex flex-col text-left leading-tight">
+                <span className="text-xs font-bold text-rose-600">Happy</span>
+                <span className="text-xs font-bold text-rose-600">Customer</span>
               </div>
             </div>
           </div>
@@ -241,77 +243,79 @@ export function HappyCustomers() {
             </div>
           </div>
 
-          {/* RIGHT CLUSTER: Floating Avatars & Heart Badges (GPU Accelerated) */}
-          <div className="hidden lg:block absolute right-0 inset-y-0 w-[28%] xl:w-[32%] pointer-events-none select-none z-10">
-            {/* Avatar 7 (Indian Woman in Teal Shirt) */}
-            <img
-              loading="lazy"
-              src="/avatar-indian-7.webp"
-              alt="Happy Customer"
-              className="absolute top-2 right-[55%] w-14 h-14 xl:w-16 xl:h-16 rounded-full object-cover shadow-md border-2 border-white animate-float-alt transform-gpu"
-            />
-
-            {/* Avatar 8 (Indian Woman in Green Saree) */}
-            <img
-              loading="lazy"
-              src="/avatar-indian-8.webp"
-              alt="Happy Customer"
-              className="absolute top-4 right-[10%] w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-slow transform-gpu"
-            />
-
-            {/* FLOATING BADGE 3: Happy Customer (Top Right) */}
-            <div
-              className="absolute top-[24%] right-[20%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20 animate-float-alt transform-gpu"
-            >
-              <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 shrink-0" />
-              <div className="flex flex-col text-left leading-tight">
-                <span className="text-[10px] font-bold text-rose-600">Happy</span>
-                <span className="text-[10px] font-bold text-rose-600">Customer</span>
+          {/* RIGHT CLUSTER: Floating Avatars with Hindi Testimonial Tooltips */}
+          <div className="hidden lg:block absolute right-0 inset-y-0 w-[28%] xl:w-[32%] z-10">
+            {/* Avatar 7 */}
+            <div className="absolute top-2 right-[55%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-7.webp" alt="Happy Customer" className="w-14 h-14 xl:w-16 xl:h-16 rounded-full object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
+                <p className="text-xs font-bold text-rose-600">सोनम राठौर</p>
+                <p className="text-[11px] text-zinc-600 leading-relaxed">नाइट यूज़ में भी लीक नहीं होता! 🌙</p>
               </div>
             </div>
 
-            {/* Avatar 9 (Indian Woman in Red & Gold Saree) */}
-            <img
-              loading="lazy"
-              src="/avatar-indian-9.webp"
-              alt="Happy Customer"
-              className="absolute top-[42%] right-[6%] w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-slow transform-gpu"
-            />
-
-            {/* Avatar 10 (Indian Student in Pink Kurti) */}
-            <img
-              loading="lazy"
-              src="/avatar-indian-10.webp"
-              alt="Happy Customer"
-              className="absolute top-[44%] right-[62%] w-14 h-14 xl:w-16 xl:h-16 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu"
-            />
-
-            {/* FLOATING BADGE 4: Happy Customer (Bottom Right) */}
-            <div
-              className="absolute bottom-[22%] right-[16%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20 animate-float-slow transform-gpu"
-            >
-              <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 shrink-0" />
-              <div className="flex flex-col text-left leading-tight">
-                <span className="text-[10px] font-bold text-rose-600">Happy</span>
-                <span className="text-[10px] font-bold text-rose-600">Customer</span>
+            {/* Avatar 8 */}
+            <div className="absolute top-4 right-[10%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-8.webp" alt="Happy Customer" className="w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
+                <p className="text-xs font-bold text-rose-600">दिव्या मिश्रा</p>
+                <p className="text-[11px] text-zinc-600 leading-relaxed">हाइपोएलर्जेनिक, जलन-मुक्त! ✨</p>
               </div>
             </div>
 
-            {/* Avatar 11 (Indian Professional Woman in White Shirt) */}
-            <img
-              loading="lazy"
-              src="/avatar-indian-11.webp"
-              alt="Happy Customer"
-              className="absolute bottom-2 right-[54%] w-14 h-14 xl:w-16 xl:h-16 rounded-full object-cover shadow-md border-2 border-white animate-float-alt transform-gpu"
-            />
+            {/* FLOATING BADGE 3 */}
+            <div className="absolute top-[24%] right-[20%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20 animate-float-alt transform-gpu">
+              <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 shrink-0" />
+              <div className="flex flex-col text-left leading-tight">
+                <span className="text-xs font-bold text-rose-600">Happy</span>
+                <span className="text-xs font-bold text-rose-600">Customer</span>
+              </div>
+            </div>
 
-            {/* Avatar 12 (Indian Woman in Maroon Ethnic Top) */}
-            <img
-              loading="lazy"
-              src="/avatar-indian-12.webp"
-              alt="Happy Customer"
-              className="absolute bottom-4 right-[8%] w-14 h-14 xl:w-15 xl:h-15 rounded-full object-cover shadow-sm border-2 border-white animate-float-slow transform-gpu"
-            />
+            {/* Avatar 9 */}
+            <div className="absolute top-[42%] right-[6%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-9.webp" alt="Happy Customer" className="w-15 h-15 xl:w-17 xl:h-17 rounded-2xl object-cover shadow-lg border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
+                <p className="text-xs font-bold text-rose-600">पूजा यादव</p>
+                <p className="text-[11px] text-zinc-600 leading-relaxed">एंटी-स्टेन टेक्नोलॉजी काम करती है! 👍</p>
+              </div>
+            </div>
+
+            {/* Avatar 10 */}
+            <div className="absolute top-[44%] right-[62%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-10.webp" alt="Happy Customer" className="w-14 h-14 xl:w-16 xl:h-16 rounded-2xl object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
+                <p className="text-xs font-bold text-rose-600">श्रुति तिवारी</p>
+                <p className="text-[11px] text-zinc-600 leading-relaxed">प्रीमियम क्वालिटी, वैल्यू फॉर मनी! 💎</p>
+              </div>
+            </div>
+
+            {/* FLOATING BADGE 4 */}
+            <div className="absolute bottom-[22%] right-[16%] bg-white/95 backdrop-blur-md border border-rose-200/90 px-3 py-1.5 rounded-2xl shadow-md flex items-center gap-1.5 pointer-events-none select-none z-20 animate-float-slow transform-gpu">
+              <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500 shrink-0" />
+              <div className="flex flex-col text-left leading-tight">
+                <span className="text-xs font-bold text-rose-600">Happy</span>
+                <span className="text-xs font-bold text-rose-600">Customer</span>
+              </div>
+            </div>
+
+            {/* Avatar 11 */}
+            <div className="absolute bottom-2 right-[54%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-11.webp" alt="Happy Customer" className="w-14 h-14 xl:w-16 xl:h-16 rounded-full object-cover shadow-md border-2 border-white animate-float-alt transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
+                <p className="text-xs font-bold text-rose-600">आरती चौहान</p>
+                <p className="text-[11px] text-zinc-600 leading-relaxed">वेरीफाइड खरीदार, हर बार यही! 🔁</p>
+              </div>
+            </div>
+
+            {/* Avatar 12 */}
+            <div className="absolute bottom-4 right-[8%] group pointer-events-auto">
+              <img loading="lazy" src="/avatar-indian-12.webp" alt="Happy Customer" className="w-14 h-14 xl:w-15 xl:h-15 rounded-full object-cover shadow-sm border-2 border-white animate-float-slow transform-gpu cursor-pointer transition-transform duration-200 group-hover:scale-110" />
+              <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-4 py-3 rounded-xl bg-white/95 backdrop-blur-md border border-rose-200 shadow-lg opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-30 min-w-[220px] max-w-[280px]">
+                <p className="text-xs font-bold text-rose-600">स्वाति राजपूत</p>
+                <p className="text-[11px] text-zinc-600 leading-relaxed">फैमिली पैक में और भी सस्ता! 🎁</p>
+              </div>
+            </div>
           </div>
         </div>
 
