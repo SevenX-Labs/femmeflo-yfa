@@ -185,9 +185,9 @@ export function HappyCustomers() {
               <div className="absolute bottom-full right-0 mb-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
                 <div className="flex items-center gap-1 mb-1">
                   <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
-                  <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
+                  <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">Verified Buyer</span>
                 </div>
-                <p className="text-xs text-zinc-800 font-medium leading-snug">पहले हैवी फ्लो में डर रहता था, Femmeflo XL ने वो लीकेज की चिंता ही खत्म कर दी! 📏</p>
+                <p className="text-xs text-zinc-800 font-medium leading-snug">Heavy flow days used to be stressful. Femmeflo XL gives me 100% leak-proof confidence! 📏</p>
               </div>
             </div>
 
@@ -209,9 +209,9 @@ export function HappyCustomers() {
               <div className="absolute bottom-full right-0 mb-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
                 <div className="flex items-center gap-1 mb-1">
                   <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
-                  <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
+                  <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">Verified Buyer</span>
                 </div>
-                <p className="text-xs text-zinc-800 font-medium leading-snug">पहले प्लास्टिक लेयर से जलन होती थी, Femmeflo का नेचुरल कॉटन सबसे सेफ लगा! 🌿</p>
+                <p className="text-xs text-zinc-800 font-medium leading-snug">Switched from synthetic brands to Femmeflo. Pure organic cotton softness & zero rash! 🌿</p>
               </div>
             </div>
           </div>
@@ -266,9 +266,9 @@ export function HappyCustomers() {
               <div className="absolute top-full right-0 mt-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
                 <div className="flex items-center gap-1 mb-1">
                   <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
-                  <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
+                  <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">Verified Buyer</span>
                 </div>
-                <p className="text-xs text-zinc-800 font-medium leading-snug">मैंने अपनी बहनों को भी Femmeflo पर स्विच कराया, ऐसा कम्फर्ट कहीं और नहीं मिला! ✨</p>
+                <p className="text-xs text-zinc-800 font-medium leading-snug">I recommended Femmeflo to all my sisters and friends. The comfort and absorption are unmatched! ✨</p>
               </div>
             </div>
 
@@ -302,9 +302,9 @@ export function HappyCustomers() {
               <div className="absolute bottom-full left-0 mb-2 px-3.5 py-2 rounded-xl bg-white/98 backdrop-blur-md border border-rose-200/90 shadow-xl opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-100 transition-all duration-200 pointer-events-none z-50 w-[210px] sm:w-[230px] text-left">
                 <div className="flex items-center gap-1 mb-1">
                   <span className="text-[11px] text-amber-500 font-bold">★★★★★</span>
-                  <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">वेरीफाइड बायर</span>
+                  <span className="text-[9px] text-rose-600 font-semibold bg-rose-50 px-1.5 py-0.5 rounded-full">Verified Buyer</span>
                 </div>
-                <p className="text-xs text-zinc-800 font-medium leading-snug">ऑफिस और ट्रैवल में Femmeflo ही मेरा भरोसा है, कम्फर्ट का कोई मुकाबला नहीं! 💎</p>
+                <p className="text-xs text-zinc-800 font-medium leading-snug">Zero shifting during long work commutes. Pure cotton comfort that keeps me completely worry-free! 💎</p>
               </div>
             </div>
 
